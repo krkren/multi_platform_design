@@ -6,49 +6,49 @@
 </head>
 <body>
 <h1><a name="top" id="top">RegExp</a></h1>
-<div class="para"><p>RegExp クラスは正規表現パターンを扱うクラスです。<br />
-正規表現パターンには perl 互換のパターンを指定することができます。<br />
-JavaScript の RegExp クラスににていますが、互換性は低いです。</p>
+<div class="para"><p>The RegExp class is a class that handles regular expression patterns.<br />
+You can specify a perl compatible pattern for the regular expression pattern.<br />
+It is similar to JavaScript's RegExp class, but has low compatibility.</p>
 
 <h1>Copyright notice</h1>
 
-<p>正規表現機能の実装には K.Kosako 氏の鬼車を用いています。<br />
-有用なライブラリを公開なさっている氏に感謝します。</p>
+<p>K.Kosako's Oniguruma is used for the implementation of the regular expression function.<br />
+I thank him for publishing a useful library.</p>
 
-<h1>正規表現パターン</h1>
+<h1>Regular Expression Pattern</h1>
 
-<p>/ と / で囲まれた部分に正規表現パターンを指定することができます。<br />
-トークン を参照してください。</p>
+<p>You can specify a regular expression pattern in the part surrounded by / and /.<br />
+See Token.</p>
 </div>
-<h1>メンバ</h1><div class="para">
+<h1>Members</h1><div class="para">
 <dl>
-<dt>コンストラクタ</dt>
+<dt>Constructor</dt>
 <dd>
-<a class="jump" href="func_RegExp_RegExp.html">RegExp</a> (コンストラクタ )<br />
+<a class="jump" href="func_RegExp_RegExp.html">RegExp</a> (Constructor)<br />
 </dd>
-<dt>メソッド</dt>
+<dt>Methods</dt>
 <dd>
-<a class="jump" href="func_RegExp_compile.html">compile</a> (正規表現オブジェクトに新しい正規表現パターンを設定します )<br />
-<a class="jump" href="func_RegExp_exec.html">exec</a> (引数に指定した文字列に正規表現パターンマッチングを行い、マッチした結果を含む配列を返します )<br />
-<a class="jump" href="func_RegExp_match.html">match</a> (引数に指定した文字列に正規表現パターンマッチングを行い、マッチした結果を含む配列を返します )<br />
-<a class="jump" href="func_RegExp_replace.html">replace</a> (文字列の置き換えを行い、置き換えが行われた後の文字列を返します )<br />
-<a class="jump" href="func_RegExp_split.html">split</a> (文字列を分割します )<br />
-<a class="jump" href="func_RegExp_test.html">test</a> (引数に指定した文字列がパターンにマッチするかどうかを返します )<br />
+<a class="jump" href="func_RegExp_compile.html">compile</a> (Sets a new regular expression pattern to the regular expression object)<br />
+<a class="jump" href="func_RegExp_exec.html">exec</a> (Performs regular expression pattern matching on the string specified in the argument and returns an array containing the matched results)<br />
+<a class="jump" href="func_RegExp_match.html">match</a> (Performs regular expression pattern matching on the string specified in the argument and returns an array containing the matched results)<br />
+<a class="jump" href="func_RegExp_replace.html">replace</a> (Replaces a string and returns the string after the replacement)<br />
+<a class="jump" href="func_RegExp_split.html">split</a> (Splits a string)<br />
+<a class="jump" href="func_RegExp_test.html">test</a> (Returns whether the string specified in the argument matches the pattern)<br />
 </dd>
-<dt>プロパティ</dt>
+<dt>Properties</dt>
 <dd>
-<a class="jump" href="prop_RegExp_index.html">index</a> (マッチした部分の先頭文字の位置を表す、読み出し専用のプロパティです )<br />
-<a class="jump" href="prop_RegExp_input.html">input</a> (マッチング対象の文字列をあらわす、読み出し専用のプロパティです )<br />
-<a class="jump" href="prop_RegExp_last.html">last</a> (最後に test あるいは exec メソッドが実行された RegExp クラスのインスタンスです )<br />
-<a class="jump" href="prop_RegExp_lastIndex.html">lastIndex</a> (マッチした部分の最終文字の次の文字の位置を表す、読み出し専用のプロパティです )<br />
-<a class="jump" href="prop_RegExp_lastMatch.html">lastMatch</a> (マッチング対象文字列を表します )<br />
-<a class="jump" href="prop_RegExp_lastParen.html">lastParen</a> (マッチした各部分のうち、最後の部分を返します )<br />
-<a class="jump" href="prop_RegExp_leftContext.html">leftContext</a> (マッチング対象文字列のうち、マッチした部分よりも左側の文字列をあらわす、読み出し専用のプロパティです )<br />
-<a class="jump" href="prop_RegExp_matches.html">matches</a> (マッチした各部分を含む配列を表す読み出し専用のプロパティです )<br />
-<a class="jump" href="prop_RegExp_rightContext.html">rightContext</a> (マッチング対象文字列のうち、マッチした部分よりも右側の文字列をあらわす、読み出し専用のプロパティです )<br />
-<a class="jump" href="prop_RegExp_start.html">start</a> (文字列の検索開始位置を表すプロパティです )<br />
+<a class="jump" href="prop_RegExp_index.html">index</a> (A read-only property that represents the position of the first character of the matched part)<br />
+<a class="jump" href="prop_RegExp_input.html">input</a> (A read-only property that represents the string to be matched)<br />
+<a class="jump" href="prop_RegExp_last.html">last</a> (The instance of the RegExp class that was last executed by the test or exec method)<br />
+<a class="jump" href="prop_RegExp_lastIndex.html">lastIndex</a> (A read-only property that represents the position of the character after the last character of the matched part)<br />
+<a class="jump" href="prop_RegExp_lastMatch.html">lastMatch</a> (Represents the matching target string)<br />
+<a class="jump" href="prop_RegExp_lastParen.html">lastParen</a> (Returns the last part of each matched part)<br />
+<a class="jump" href="prop_RegExp_leftContext.html">leftContext</a> (A read-only property that represents the string on the left side of the matched part of the matching target string)<br />
+<a class="jump" href="prop_RegExp_matches.html">matches</a> (A read-only property that represents an array containing each matched part)<br />
+<a class="jump" href="prop_RegExp_rightContext.html">rightContext</a> (A read-only property that represents the string on the right side of the matched part of the matching target string)<br />
+<a class="jump" href="prop_RegExp_start.html">start</a> (A property that represents the search start position of a string)<br />
 </dd>
-<dt>イベント</dt>
+<dt>Events</dt>
 <dd>
 </dd>
 </dl>

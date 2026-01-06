@@ -1,29 +1,29 @@
-# 吉里吉里Zマルチプラットフォーム版 API リファレンス
-吉里吉里Zマルチプラットフォーム版 API リファレンスです。
+# KirikiriZ Multiplatform Edition API Reference
+This is the KirikiriZ Multiplatform Edition API Reference.
 
-# マルチプラットフォーム版 について
-Windowsに加えてAndroidでも動作するようにしたバージョンです。  
-非力な環境でも描画速度が出るようにGPU描画がメインとなっています。  
-現在のところ旧バージョンとは互換性が一部ありません。
+# About the Multiplatform Edition
+This version is designed to run on Android in addition to Windows.
+GPU rendering is the main focus to achieve drawing speed even in less powerful environments.
+Currently, it is partially incompatible with older versions.
 
-# 環境依存機能
-マルチプラットフォーム版は全環境で全てのメソッドやプロパティが使えるわけではありません。  
-一部機能については環境固有となります。  
-環境固有のメソッド等については、説明概要に[Windows]や[Android]と文頭に書かれています。  
-そのように書かれているメソッド等はその環境でのみ使用できます。  
-呼び出しても何も起こらないもの、例外が出るものなどあります。  
-詳細については、以下のように末尾記号で判別してください。  
+# Environment-Dependent Features
+Not all methods and properties in the multiplatform edition can be used in all environments.
+Some features are environment-specific.
+Environment-specific methods, etc., are marked with [Windows] or [Android] at the beginning of the description summary.
+Methods, etc., marked in this way can only be used in that environment.
+Some may do nothing when called, while others may throw exceptions.
+For details, please refer to the following end symbols:
 
-* [Windows+] Windowsでのみ使用可能、その他環境では例外や動作不定などがあるので使用禁止。
-* [Windows*] Windowsで使用可能、その他環境では何も起こらない。
-* [Windows] Windowsで使用可能、その他環境では動作不定。
-* [Android+] Androidで使用可能、その他環境では例外や動作不定などがあるので使用禁止。
-* [Android*] Androidで使用可能、その他環境では何も起こらない。
-* [Android] Androidで使用可能、その他環境では動作不定。
+* [Windows+] Usable only in Windows; prohibited in other environments due to exceptions or undefined behavior.
+* [Windows*] Usable in Windows; does nothing in other environments.
+* [Windows] Usable in Windows; behavior undefined in other environments.
+* [Android+] Usable only in Android; prohibited in other environments due to exceptions or undefined behavior.
+* [Android*] Usable in Android; does nothing in other environments.
+* [Android] Usable in Android; behavior undefined in other environments.
 
-System.isWindowsやSystem.isAndroidプロパティを用いることで動的にどちらの環境か判定することができます。
-静的に判定する場合は、プリプロセッサを用います。
-Windowsでは"windows"が1に、Androidでは"android"が1に設定されています。  
-静的に判定する場合、バイトコードの出力結果が環境に依存することに注意してください。  
-コンパイルした環境用のバイトコードが出力されます。  
-これを回避するためにはコンパイル関数呼び出しの前にプリプロセッサの値を事前に変更し、各環境に合ったものにしてバイトコード化する必要があります。
+You can dynamically determine which environment you are in by using the System.isWindows and System.isAndroid properties.
+To determine statically, use the preprocessor.
+"windows" is set to 1 on Windows, and "android" is set to 1 on Android.
+When determining statically, be aware that the bytecode output depends on the environment.
+Bytecode for the compiled environment is output.
+To avoid this, change the value of the preprocessor in advance before calling the compile function to make it suitable for each environment before converting it to bytecode.

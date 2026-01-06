@@ -1,46 +1,46 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>onTouchUp - 画面から指が離された</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>onTouchUp - Finger lifted from screen</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.onTouchUp</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>画面から指が離された</p>
+<dt>Function/Meaning</dt>
+<dd><p>Finger lifted from screen</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のイベント</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Event of the <a class="jump" href="class_Layer.html">Layer class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">onTouchUp(<span class="arg">x</span>, <span class="arg">y</span>, <span class="arg">cx</span>, <span class="arg">cy</span>, <span class="arg">id</span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="onTouchUpの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="onTouchUp arguments">
 <tr><td valign="top"><span class="argname">x</span></td>
-<td><p>離された位置の x 座標 ( クライアント座標での ) の値です。</p>
+<td><p>The x-coordinate (in client coordinates) of the position where the finger was lifted.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">y</span></td>
-<td><p>離された位置の y 座標 ( クライアント座標での ) の値です。</p>
+<td><p>The y-coordinate (in client coordinates) of the position where the finger was lifted.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">cx</span></td>
-<td><p>指が接触している横方向ピクセル数です。<br />
-デバイスが対応していない場合は常に1です。</p>
+<td><p>The horizontal number of pixels the finger is in contact with.<br />
+Always 1 if the device does not support this.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">cy</span></td>
-<td><p>指が接触している縦方向ピクセル数です。<br />
-デバイスが対応していない場合は常に1です。</p>
+<td><p>The vertical number of pixels the finger is in contact with.<br />
+Always 1 if the device does not support this.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">id</span></td>
-<td><p>タッチIDです。<br />
-マルチタッチ時、各位置ごとに固有の値が設定され、このIDによって位置を識別できます。</p>
+<td><p>Touch ID.<br />
+During multi-touch, a unique value is assigned to each position, allowing identification of the position by this ID.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>タッチパネルから指が離された時に発生します。<br />
-このイベントが発生するのはX,Y座標がこのレイヤ内にある場合です。<br />
-ただし、マウスとは異なり、現在の座標で判定されるのでonTouchDownが発生したレイヤと同一ではない可能性があります。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Occurs when a finger is lifted from the touch panel.<br />
+This event occurs when the X and Y coordinates are within this layer.<br />
+However, unlike a mouse, it is determined by the current coordinates, so it may not be the same layer where onTouchDown occurred.</p>
 </dd>
 </dl>
 </div>

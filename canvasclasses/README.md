@@ -1,83 +1,91 @@
 # ハードウェア描画用のクラス関係
 
-* 3D機能対応用.tjs  
-要望されたもの。実装上等の問題などでクラス設計は少し変更されている。  
-texture id などで指定されているものは、クラス化して実行時エラー検出可能にするなど。
-* Canvas.tjs  
-要望ではWindowクラスに直接描画メソッド追加であったが、肥大化等の問題があるため分離。
-* Matrix44.tjs  
-受け渡しなど容易に行えるようにクラス化した。
-* Mesh2D.tjs  
-Meshクラスではもし3D対応した時に名前が被りそうなので、名前に2Dを付与。  
-効率化のためのクラスと言うことなので、このクラスが持つ詳細な情報は実装しつつ検討を進める。
-* Offscreen.tjs  
-要望ではscreen idとなっていたが、Screenクラスだとやや紛らわしく名前も被りそうなので、Offscreenと言う名前へ。
-* Texture.tjs  
-テクスチャをクラス化。直接読み込むかBitmapクラスから読み込むか。
-* Window.tjs  
-メソッド等が大きく削られ、一部追加されたWindowクラス。
+// Class relationships for hardware drawing
+
+* 3D機能対応用.tjs
+// For 3D functionality support.
+// The class design has been slightly modified due to implementation issues, etc., as requested.
+// For things specified by texture id, etc., they are class-ified to enable runtime error detection, etc.
+* Canvas.tjs
+// In the request, drawing methods were to be added directly to the Window class, but this has been separated due to problems such as increased size.
+* Matrix44.tjs
+// Class-ified to make passing easier.
+* Mesh2D.tjs
+// The name Mesh class might conflict when supporting 3D, so 2D is added to the name.
+// Since this class is for efficiency, we will proceed with considering the detailed information this class holds while implementing it.
+* Offscreen.tjs
+// In the request, it was screen id, but Screen class is a bit confusing and the name might conflict, so the name is Offscreen.
+* Texture.tjs
+// Class-ify the texture. Load directly or load from Bitmap class.
+* Window.tjs
+// Window class with methods greatly reduced and some added.
 
 ## Layerを描画する方法
-BitmapLayerTreeOwnerクラスにclearDirtyRectメソッド、dirtyRect/isUpdatedプロパティを追加した。  
-BitmapLayerTreeOwnerクラスをオーナーとしてLayerクラスを生成。  
-描画タイミングでBitmapLayerTreeOwner.isUpdatedがtrueなら以前から画像が更新されているので、テクスチャに画像を転送する。  
-更新された領域はdirtyRectで取得。  
-テクスチャサイズはプライマリーレイヤサイズ(BitmapLayerTreeOwner.bitmap)と合わせておく。  
-仮想コードで書くと以下のように記述することで更新矩形をテクスチャに転送できる。  
+// How to draw a Layer
+// Added clearDirtyRect method, dirtyRect/isUpdated properties to BitmapLayerTreeOwner class.
+// Generate Layer class with BitmapLayerTreeOwner class as owner.
+// If BitmapLayerTreeOwner.isUpdated is true at drawing time, the image has been updated from before, so transfer the image to the texture.
+// The updated area is obtained with dirtyRect.
+// The texture size should match the primary layer size (BitmapLayerTreeOwner.bitmap).
+// When written in virtual code, the update rectangle can be transferred to the texture by writing as follows.
 ```javascript
 BitmapLayerTreeOwner lto;
 Texture texture = new Texture( width, height );
 texture.copyRect( lto.dirtyRect.left, lto.dirtyRect.top, lto.bitmap, lto.dirtyRect );
 lto.clearDirtyRect();
 ```
-Offscreenクラスにも同様のコピーメソッドがあるので、同じように出来るが、レンダーターゲットとして設定できるようFBOなど含むためメモリ的にオーバーヘッドがある。  
-レンダーターゲットとして使わないのであれば、Textureクラスを使う方が良い。  
-Layerで描画するという用途的に、Offscreenクラスを使う必要はないと思われる。
+// The Offscreen class also has a similar copy method, so it can be done in the same way, but it includes FBO etc. so that it can be set as a render target, so there is memory overhead.
+// If you are not using it as a render target, it is better to use the Texture class.
+// It seems that there is no need to use the Offscreen class for the purpose of drawing with Layer.
 
 
 ## 互換性に関して
-OffscreenにLayer Treeを描画する機能の要望があり、更新領域のみコピー可能ということで、OffscreenクラスはLayer Tree Ownerインターフェイスを持つ実装した方が良い。   
-OffscreenにLTOインターフェイスを持たせれば、従来とほぼ互換動作を実現できる。  
-現在のWindowクラスのLTOインターフェイスは、ほぼDrawDeviceが提供しているが、DrawDeviceではなく新設されたハードウェア描画が使われる場合に、Windowを指定してLayerが生成された時、Offscreenクラスを内部で生成しCanvasにデフォルトOffscreenとして登録、Layer更新時の通知からOnDrawイベントを生成して、Canvasでの描画開始前にデフォルトOffscreenを描画、もしくはOnDraw呼出し後に描画することで、従来と同じようにLayerが使用可能となるように実装できると考えられる。  
-ただし、DrawDeviceに関してはなくなるので、DrawDevice依存している部分や独自DrawDeviceを使用している場合、その部分の互換性は失われる。
+// Regarding compatibility
+// There is a request for a function to draw Layer Tree on Offscreen, and it is possible to copy only the updated area, so the Offscreen class should implement the Layer Tree Owner interface.
+// If the Offscreen has the LTO interface, almost compatible operation can be realized with the conventional one.
+// The current LTO interface of the Window class is almost provided by DrawDevice, but when the newly established hardware drawing is used instead of DrawDevice, when a Layer is generated specifying Window, the Offscreen class is generated internally and registered as the default Offscreen in Canvas, and from the notification of Layer update, an OnDraw event is generated, and the default Offscreen is drawn before starting drawing in Canvas, or it is drawn after calling OnDraw, so that Layer can be used in the same way as before.
+// However, since DrawDevice will be gone, compatibility will be lost for parts that depend on DrawDevice or use a unique DrawDevice.
 
 ## TextureLayerTreeOwner
-今回はTextureLayerTreeOwnerを作らなくても、上述のBitmapLayerTreeOwnerのメンバ追加によって部分的な更新は対応できるため、作らない。  
-互換性向上のためにはTextureLayerTreeOwnerは必要であるので、PBOを使った非同期更新の効率の良い実装で将来作りたい。  
-その場合、OpenGL ES3.0 以降専用となるが、それほど大きな問題ではないだろう。  
+// This time, it is not necessary to create TextureLayerTreeOwner because partial updates can be handled by adding members to the BitmapLayerTreeOwner described above.
+// TextureLayerTreeOwner is necessary to improve compatibility, so I want to create it in the future with an efficient implementation of asynchronous updates using PBO.
+// In that case, it will be dedicated to OpenGL ES3.0 or later, but that is not a big problem.
 
-OpenGL ES3.0 以降であればPBOが使え、PBOからTextureへの転送はDMA処理されるため、CPU負荷が軽い。  
-Layer更新時に自動的にPBOコピーからTextureへ転送する。  
-それに合わせてOnDrawイベント呼び出しを行い、画面へ描画を反映させると従来と同じような動作となる。  
-毎フレーム更新するような場合は、PBO/Textureを2つ作りダブルバッファリングすることで、転送待ちをなくせる。  
+// If it is OpenGL ES3.0 or later, PBO can be used, and the transfer from PBO to Texture is DMA processed, so the CPU load is light.
+// Automatically transfer from PBO copy to Texture when Layer is updated.
+// Call the OnDraw event accordingly to reflect the drawing on the screen, resulting in the same operation as before.
+// If you update every frame, you can eliminate transfer waiting by creating two PBO/Textures and double buffering.
 
 ## 間接的に実現できる機能
+// Functions that can be realized indirectly
 ### クロスフェード
+// Cross fade
 ```javascript
 var crossfadeShader = new ShaderProgram( default.vert, crossfade.frag );
 crossfadeShader.s_opacity = 0.0;
 Canvas.drawTexture( prevTexture, nextTexture, crossfadeShader );
 ```
-のようなスクリプトで実現可能。  
-シェーダーのopcityを変化させることで徐々にフェードを進める。  
-crossfadeShaderなどのシェーダーは1個だけ作り、保持し続けるのが効率的。
+// Can be realized with a script like.
+// Gradually fade by changing the opacity of the shader.
+// It is efficient to create only one shader such as crossfadeShader and keep holding it.
 
 ### ユニバーサルトランジション
+// Universal transition
 ```javascript
 var universalShader = new ShaderProgram( default.vert, universal.frag );
 universalShader.s_vague = 64.0/255.0;
 universalShader.s_phase = 0.0;
 Canvas.drawTexture( prevTexture, nextTexture, ruleTexture, crossfadeShader );
 ```
-のようなスクリプトで実現可能。  
-シェーダーのphaseを変化させることで徐々にフェードを進める。  
-universalShaderなどのシェーダーは1個だけ作り、保持し続けるのが効率的。
+// Can be realized with a script like.
+// Gradually fade by changing the phase of the shader.
+// It is efficient to create only one shader such as universalShader and keep holding it.
 
 ### アルファクリッピング
+// Alpha clipping
 ```javascript
 var alphaclipShader = new ShaderProgram( default.vert, alphaclip.frag );
 Canvas.drawTexture( texture, clipAlpha, alphaclipShader );
 ```
-のようなスクリプトで実現可能。  
-alphaclipShaderなどのシェーダーは1個だけ作り、保持し続けるのが効率的。
-
+// Can be realized with a script like.
+// It is efficient to create only one shader such as alphaclipShader and keep holding it.

@@ -6,34 +6,39 @@
 </head>
 <body>
 <h1><a name="top" id="top">Offscreen</a></h1>
-<div class="para"><p>オフスクリーン。<br />
-いわゆるレンダーターゲット。テクスチャとしても利用可能です。<br />
-内部的に FBO, Renderbuffer, Texture が生成されます。<br />
-レンダーターゲットとして設定しないのであれば、わざわざこのクラスを使用する必要性はありません。<br />
-Textureクラスを使用した方がメモリ効率が良いです。</p>
+<div class="para"><p>Offscreen.<br />
+So-called render target. It can also be used as a texture.<br />
+FBO, Renderbuffer, and Texture are generated internally.<br />
+If you do not set it as a render target, there is no need to use this class.<br />
+Using the Texture class is more memory efficient.</p>
 </div>
 <h1>メンバ</h1><div class="para">
+<h1>Members</h1><div class="para">
 <dl>
 <dt>コンストラクタ</dt>
+<dt>Constructor</dt>
 <dd>
-<a class="jump" href="func_Offscreen_Offscreen.html">Offscreen</a> (オフスクリーンを生成。 )<br />
+<a class="jump" href="func_Offscreen_Offscreen.html">Offscreen</a> (Create offscreen. )<br />
 </dd>
 <dt>メソッド</dt>
+<dt>Methods</dt>
 <dd>
-<a class="jump" href="func_Offscreen_copyRect.html">copyRect</a> (矩形コピー )<br />
-<a class="jump" href="func_Offscreen_copyRect_1.html">copyRect</a> (矩形コピー )<br />
-<a class="jump" href="func_Offscreen_copyTo.html">copyTo</a> (Bitmapにコピー )<br />
-<a class="jump" href="func_Offscreen_copyTo_1.html">copyTo</a> (Bitmapにコピー )<br />
-<a class="jump" href="func_Offscreen_copyTo_2.html">copyTo</a> (Bitmapにコピー )<br />
-<a class="jump" href="func_Offscreen_exchangeTexture.html">exchangeTexture</a> (フレームバッファに設定されているテクスチャとTextureクラスが指すテクスチャを入れ替える。 )<br />
+<a class="jump" href="func_Offscreen_copyRect.html">copyRect</a> (Rectangle copy )<br />
+<a class="jump" href="func_Offscreen_copyRect_1.html">copyRect</a> (Rectangle copy )<br />
+<a class="jump" href="func_Offscreen_copyTo.html">copyTo</a> (Copy to Bitmap )<br />
+<a class="jump" href="func_Offscreen_copyTo_1.html">copyTo</a> (Copy to Bitmap )<br />
+<a class="jump" href="func_Offscreen_copyTo_2.html">copyTo</a> (Copy to Bitmap )<br />
+<a class="jump" href="func_Offscreen_exchangeTexture.html">exchangeTexture</a> (Exchange the texture set in the frame buffer with the texture pointed to by the Texture class. )<br />
 </dd>
 <dt>プロパティ</dt>
+<dt>Properties</dt>
 <dd>
-<a class="jump" href="prop_Offscreen_height.html">height</a> (高さ、生成時に指定されたもの[r] )<br />
-<a class="jump" href="prop_Offscreen_nativeHandle.html">nativeHandle</a> (環境依存のハンドル[r] )<br />
-<a class="jump" href="prop_Offscreen_width.html">width</a> (幅、生成時に指定されたもの[r] )<br />
+<a class="jump" href="prop_Offscreen_height.html">height</a> (Height, specified at the time of generation [r] )<br />
+<a class="jump" href="prop_Offscreen_nativeHandle.html">nativeHandle</a> (Environment-dependent handle [r] )<br />
+<a class="jump" href="prop_Offscreen_width.html">width</a> (Width, specified at the time of generation [r] )<br />
 </dd>
 <dt>イベント</dt>
+<dt>Events</dt>
 <dd>
 </dd>
 </dl>

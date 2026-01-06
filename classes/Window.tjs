@@ -1,326 +1,326 @@
 /**
- * @description Window クラスは、ウィンドウを管理するためのクラスです。
- * ウインドウのサイズ制御はWindowsでのみ可能です。
- * Androidでは画面サイズに依存します。
- * Offscreenクラスをレンダリングしたいサイズで生成し、そこに通常の描画を行います。
- * ウインドウ(画面)サイズに応じた拡大等はスクリプトで制御します。
- * UIや文字などを等倍で綺麗に表示することもスクリプトで可能となります。
+ * @description Window class is a class for managing windows.
+ * Window size control is only possible on Windows.
+ * On Android, it depends on the screen size.
+ * Generate an Offscreen class with the size you want to render, and draw normally there.
+ * Scaling etc. according to the window (screen) size is controlled by script.
+ * It is also possible to display UI, characters, etc. at the same size and cleanly using a script.
  *
- * AndroidがサポートしていないイベントはAndroidでは発生しません。
+ * Events that Android does not support will not occur on Android.
  */
 class Window {
 	/**
-	 * Window オブジェクトの構築
+	 * Window object construction
 	 *
-	 * @param parent 親ウィンドウを指定します。
-	 * 親ウィンドウを指定すると、その子ウィンドウとして生成されます。
-	 * 指定しない場合は省略します。
-	 * Android では一つのWindowのみ生成可能なので、このパラメータは使えません。
-	 * @description Window クラスのオブジェクトを構築します。
-	 * ウィンドウは非表示の状態で作成され、位置やサイズは未定義 ( どこかにの位置に適当なサイズ ) です。
-	 * Androidでは1つのみ生成可能で、フルスクリーン動作となり、位置やサイズは設定しても無視されます。
+	 * @param parent Specifies the parent window.
+	 * If a parent window is specified, it will be generated as a child window of that window.
+	 * If not specified, it is omitted.
+	 * Only one Window can be generated on Android, so this parameter cannot be used.
+	 * @description Constructs a Window class object.
+	 * The window is created in a hidden state, and the position and size are undefined (somewhere in a suitable size).
+	 * Only one can be generated on Android, it will be full screen operation, and the position and size will be ignored even if set.
 	 */
 	function Window( parent);
 
 	/**
-	 * [Windows*]マウスが入ってきた
+	 * [Windows*] Mouse entered
 	 *
-	 * @description マウスがウィンドウのクライアント領域内に入ってきたときに発生します。
+	 * @description Occurs when the mouse enters the client area of the window.
 	 * @see Window.onMouseLeave
 	 */
 	event onMouseEnter();
 
 	/**
-	 * [Windows*]マウスが出ていった
+	 * [Windows*] Mouse exited
 	 *
-	 * @description マウスがウィンドウのクライアント領域内から出ていったときに発生します。
+	 * @description Occurs when the mouse exits the client area of the window.
 	 * @see Window.onMouseEnter
 	 */
 	event onMouseLeave();
 
 	/**
-	 * [Windows*]ウィンドウがクリックされた
+	 * [Windows*] Window was clicked
 	 *
-	 * @param x ウィンドウがクリックされた位置の x 座標 ( クライアント座標での ) の値です。
-	 * @param y ウィンドウがクリックされた位置の y 座標 ( クライアント座標での ) の値です。
-	 * @description ウィンドウがクリックされた時に発生します。
+	 * @param x The x-coordinate (in client coordinates) of the position where the window was clicked.
+	 * @param y The y-coordinate (in client coordinates) of the position where the window was clicked.
+	 * @description Occurs when the window is clicked.
 	 * @see Window.onMouseDown
 	 * @see Window.onDoubleClick
 	 */
 	event onClick( x, y );
 
 	/**
-	 * [Windows*]ウィンドウがダブルクリックされた
+	 * [Windows*] Window was double-clicked
 	 *
-	 * @param x ウィンドウがダブルクリックされた位置の x 座標 ( クライアント座標での ) の値です。
-	 * @param y ウィンドウがダブルクリックされた位置の y 座標 ( クライアント座標での ) の値です。
-	 * @description ウィンドウがダブルクリックされた時に発生します。
+	 * @param x The x-coordinate (in client coordinates) of the position where the window was double-clicked.
+	 * @param y The y-coordinate (in client coordinates) of the position where the window was double-clicked.
+	 * @description Occurs when the window is double-clicked.
 	 * @see Window.onClick
 	 */
 	event onDoubleClick( x, y );
 
 	/**
-	 * [Windows*]マウスのボタンが押された
+	 * [Windows*] Mouse button was pressed
 	 *
-	 * @param x マウスのボタンが押された位置の x 座標 ( クライアント座標での ) の値です。
-	 * @param y マウスのボタンが押された位置の y 座標 ( クライアント座標での ) の値です。
-	 * @param button 押されたマウスボタンです。
-	 * 以下のいずれかの値になります。
+	 * @param x The x-coordinate (in client coordinates) of the position where the mouse button was pressed.
+	 * @param y The y-coordinate (in client coordinates) of the position where the mouse button was pressed.
+	 * @param button The mouse button that was pressed.
+	 * It will be one of the following values.
 	 *
-	 * + mbLeft    : マウスの左ボタンが押された
-	 * + mbMiddle  : マウスの中ボタンが押された
-	 * + mbRight   : マウスの右ボタンが押された
-	 * + mbX1      : マウスのサイドキー第1ボタンが押された
-	 * + mbX2      : マウスのサイドキー第2ボタンが押された
+	 * + mbLeft    : The left mouse button was pressed
+	 * + mbMiddle  : The middle mouse button was pressed
+	 * + mbRight   : The right mouse button was pressed
+	 * + mbX1      : The first side key of the mouse was pressed
+	 * + mbX2      : The second side key of the mouse was pressed
 	 *
-	 * @param shift マウスボタンが押されたときに同時に押されていたシフト系のキーの状態です。
-	 * 以下の値のビット OR による組み合わせになります。
+	 * @param shift The state of the shift keys that were pressed at the same time when the mouse button was pressed.
+	 * It is a combination of the following values by bit OR.
 	 *
-	 * + ssAlt     : ALT キーが押されていた
-	 * + ssShift   : SHIFT キーが押されていた
-	 * + ssCtrl    : CTRL キーが押されていた
+	 * + ssAlt     : ALT key was pressed
+	 * + ssShift   : SHIFT key was pressed
+	 * + ssCtrl    : CTRL key was pressed
 	 *
-	 * @description マウスボタンが押された時に発生します。
+	 * @description Occurs when a mouse button is pressed.
 	 * @see Window.onClick
 	 */
 	event onMouseDown( x, y, button, shift );
 
 	/**
-	 * [Windows*]マウスのボタンが離された
+	 * [Windows*] Mouse button was released
 	 *
-	 * @param x マウスのボタンが離された位置の x 座標 ( クライアント座標での ) の値です。
-	 * @param y マウスのボタンが離された位置の y 座標 ( クライアント座標での ) の値です。
-	 * @param button 離されたマウスボタンです。
-	 * 以下のいずれかの値になります。
+	 * @param x The x-coordinate (in client coordinates) of the position where the mouse button was released.
+	 * @param y The y-coordinate (in client coordinates) of the position where the mouse button was released.
+	 * @param button The mouse button that was released.
+	 * It will be one of the following values.
 	 *
-	 * + mbLeft    : マウスの左ボタンが離された
-	 * + mbMiddle  : マウスの中ボタンが離された
-	 * + mbRight   : マウスの右ボタンが離された
-	 * + mbX1      : マウスのサイドキー第1ボタンが離された
-	 * + mbX2      : マウスのサイドキー第2ボタンが離された
+	 * + mbLeft    : The left mouse button was released
+	 * + mbMiddle  : The middle mouse button was released
+	 * + mbRight   : The right mouse button was released
+	 * + mbX1      : The first side key of the mouse was released
+	 * + mbX2      : The second side key of the mouse was released
 	 *
-	 * @param shift マウスボタンが離された時に同時に押されていたシフト系のキーの状態です。
-	 * 以下の値のビット OR による組み合わせになります。
+	 * @param shift The state of the shift keys that were pressed at the same time when the mouse button was released.
+	 * It is a combination of the following values by bit OR.
 	 *
-	 * + ssAlt     : ALT キーが押されていた
-	 * + ssShift   : SHIFT キーが押されていた
-	 * + ssCtrl    : CTRL キーが押されていた
+	 * + ssAlt     : ALT key was pressed
+	 * + ssShift   : SHIFT key was pressed
+	 * + ssCtrl    : CTRL key was pressed
 	 *
-	 * @description マウスボタンが離された時に発生します。
+	 * @description Occurs when a mouse button is released.
 	 */
 	event onMouseUp( x, y, button, shift );
 
 	/**
-	 * [Windows*]マウスが移動した
+	 * [Windows*] Mouse moved
 	 *
-	 * @param x マウスが移動した位置の x 座標 ( クライアント座標での ) の値です。
-	 * @param y マウスが移動した位置の y 座標 ( クライアント座標での ) の値です。
-	 * @param shift マウスが移動していた時に同時に押されていたシフト系のキーやマウスのボタンの状態です。
-	 * 以下の値のビット OR による組み合わせになります。
+	 * @param x The x-coordinate (in client coordinates) of the position where the mouse moved.
+	 * @param y The y-coordinate (in client coordinates) of the position where the mouse moved.
+	 * @param shift The state of the shift keys and mouse buttons that were pressed at the same time when the mouse was moved.
+	 * It is a combination of the following values by bit OR.
 	 *
-	 * + ssAlt     : ALT キーが押されていた
-	 * + ssShift   : SHIFT キーが押されていた
-	 * + ssCtrl    : CTRL キーが押されていた
-	 * + ssLeft    : マウスの左ボタンが押されていた
-	 * + ssMiddle  : マウスの中ボタンが押されていた
-	 * + ssRight   : マウスの右ボタンが押されていた
+	 * + ssAlt     : ALT key was pressed
+	 * + ssShift   : SHIFT key was pressed
+	 * + ssCtrl    : CTRL key was pressed
+	 * + ssLeft    : The left mouse button was pressed
+	 * + ssMiddle  : The middle mouse button was pressed
+	 * + ssRight   : The right mouse button was pressed
 	 *
-	 * @description マウスが移動した時に発生します。
+	 * @description Occurs when the mouse moves.
 	 */
 	event onMouseMove( x, y, shift);
 
 	/**
-	 * [Windows*]マウスホイールが回転した
+	 * [Windows*] Mouse wheel was rotated
 	 *
-	 * @param shift マウスが移動していた時に同時に押されていたシフト系のキーやマウスのボタンの状態です。
-	 * 以下の値のビット OR による組み合わせになります。
+	 * @param shift The state of the shift keys and mouse buttons that were pressed at the same time when the mouse was moved.
+	 * It is a combination of the following values by bit OR.
 	 *
-	 * + ssAlt     : ALT キーが押されていた
-	 * + ssShift   : SHIFT キーが押されていた
-	 * + ssCtrl    : CTRL キーが押されていた
-	 * + ssLeft    : マウスの左ボタンが押されていた
-	 * + ssMiddle  : マウスの中ボタンが押されていた
-	 * + ssRight   : マウスの右ボタンが押されていた
+	 * + ssAlt     : ALT key was pressed
+	 * + ssShift   : SHIFT key was pressed
+	 * + ssCtrl    : CTRL key was pressed
+	 * + ssLeft    : The left mouse button was pressed
+	 * + ssMiddle  : The middle mouse button was pressed
+	 * + ssRight   : The right mouse button was pressed
 	 *
-	 * @param delta ホイールの回転角です。
-	 * 上方向(ユーザの反対側の方向)に回された場合は正、下方向(ユーザ側の方向)に回された場合は負の値になります。
-	 * 通常、最小量は 120 となります。
-	 * @param x ホイールが回転した位置の x 座標 ( クライアント座標での ) の値です。
-	 * @param y ホイールが回転した位置の y 座標 ( クライアント座標での ) の値です。
-	 * @description マウスホイールが回転した時に発生します。
+	 * @param delta The rotation angle of the wheel.
+	 * Positive if rotated upward (away from the user), negative if rotated downward (toward the user).
+	 * Usually, the minimum amount is 120.
+	 * @param x The x-coordinate (in client coordinates) of the position where the wheel was rotated.
+	 * @param y The y-coordinate (in client coordinates) of the position where the wheel was rotated.
+	 * @description Occurs when the mouse wheel is rotated.
 	 */
 	event onMouseWheel( shift, delta, x, y);
 
 	/**
-	 * 画面がタッチされた
+	 * Screen was touched
 	 *
-	 * @param x タッチされた位置の x 座標 ( クライアント座標での ) の値です。
-	 * @param y タッチされた位置の y 座標 ( クライアント座標での ) の値です。
-	 * @param cx 指が接触している横方向ピクセル数です。
-	 * デバイスが対応していない場合は常に1です。
-	 * @param cy 指が接触している縦方向ピクセル数です。
-	 * デバイスが対応していない場合は常に1です。
-	 * @param id タッチIDです。
-	 * マルチタッチ時、各位置ごとに固有の値が設定され、このIDによって位置を識別できます。
-	 * @description タッチパネルにタッチされた時に発生します。
+	 * @param x The x-coordinate (in client coordinates) of the touched position.
+	 * @param y The y-coordinate (in client coordinates) of the touched position.
+	 * @param cx The number of horizontal pixels the finger is touching.
+	 * Always 1 if the device does not support it.
+	 * @param cy The number of vertical pixels the finger is touching.
+	 * Always 1 if the device does not support it.
+	 * @param id Touch ID.
+	 * During multi-touch, a unique value is set for each position, and the position can be identified by this ID.
+	 * @description Occurs when the touch panel is touched.
 	 */
 	event onTouchDown( x, y, cx, cy, id);
 
 	/**
-	 * 画面から指が離された
+	 * Finger was released from the screen
 	 *
-	 * @param x 離された位置の x 座標 ( クライアント座標での ) の値です。
-	 * @param y 離された位置の y 座標 ( クライアント座標での ) の値です。
-	 * @param cx 指が接触している横方向ピクセル数です。
-	 * デバイスが対応していない場合は常に1です。
-	 * @param cy 指が接触している縦方向ピクセル数です。
-	 * デバイスが対応していない場合は常に1です。
-	 * @param id タッチIDです。
-	 * マルチタッチ時、各位置ごとに固有の値が設定され、このIDによって位置を識別できます。
-	 * @description タッチパネルから指が離された時に発生します。
+	 * @param x The x-coordinate (in client coordinates) of the released position.
+	 * @param y The y-coordinate (in client coordinates) of the released position.
+	 * @param cx The number of horizontal pixels the finger is touching.
+	 * Always 1 if the device does not support it.
+	 * @param cy The number of vertical pixels the finger is touching.
+	 * Always 1 if the device does not support it.
+	 * @param id Touch ID.
+	 * During multi-touch, a unique value is set for each position, and the position can be identified by this ID.
+	 * @description Occurs when a finger is released from the touch panel.
 	 */
 	event onTouchUp( x, y, cx, cy, id);
 
 	/**
-	 * 指が移動した
+	 * Finger moved
 	 *
-	 * @param x タッチ位置の x 座標 ( クライアント座標での ) の値です。
-	 * @param y タッチ位置の y 座標 ( クライアント座標での ) の値です。
-	 * @param cx 指が接触している横方向ピクセル数です。
-	 * デバイスが対応していない場合は常に1です。
-	 * @param cy 指が接触している縦方向ピクセル数です。
-	 * デバイスが対応していない場合は常に1です。
-	 * @param id タッチIDです。
-	 * マルチタッチ時、各位置ごとに固有の値が設定され、このIDによって位置を識別できます。
-	 * @description タッチパネル上で触れている指が移動した時に発生します。
+	 * @param x The x-coordinate (in client coordinates) of the touch position.
+	 * @param y The y-coordinate (in client coordinates) of the touch position.
+	 * @param cx The number of horizontal pixels the finger is touching.
+	 * Always 1 if the device does not support it.
+	 * @param cy The number of vertical pixels the finger is touching.
+	 * Always 1 if the device does not support it.
+	 * @param id Touch ID.
+	 * During multi-touch, a unique value is set for each position, and the position can be identified by this ID.
+	 * @description Occurs when a touching finger moves on the touch panel.
 	 */
 	event onTouchMove( x, y, cx, cy, id);
 
 	/**
-	 * 拡大操作した
+	 * Zoomed
 	 *
-	 * @param startdistance マルチタッチが開始された時のピクセル距離です。
-	 * @param currentdistance イベント発生時のタッチのピクセル距離です。
-	 * @param cx 中心位置の x 座標 ( クライアント座標での ) の値です。
-	 * @param cy 中心位置の y 座標 ( クライアント座標での ) の値です。
-	 * @param flag マルチタッチ状態フラグです。
-	 * 0x01     : マルチタッチが開始された最初のイベントに設定されています。
-	 * @description タッチパネル上でマルチタッチによって拡大操作した時に発生します。
+	 * @param startdistance The pixel distance when multi-touch started.
+	 * @param currentdistance The pixel distance of the touch when the event occurred.
+	 * @param cx The x-coordinate (in client coordinates) of the center position.
+	 * @param cy The y-coordinate (in client coordinates) of the center position.
+	 * @param flag Multi-touch state flag.
+	 * 0x01     : Set for the first event when multi-touch starts.
+	 * @description Occurs when zooming on the touch panel by multi-touch.
 	 */
 	event onTouchScaling( startdistance, currentdistance, cx, cy, flag);
 
 	/**
-	 * 回転操作した
+	 * Rotated
 	 *
-	 * @param startangle マルチタッチが開始された時のラジアン角度です。
-	 * @param currentangle イベント発生時のタッチのラジアン角度です。
-	 * @param distance イベント発生時のタッチのピクセル距離です。
-	 * @param cx 中心位置の x 座標 ( クライアント座標での ) の値です。
-	 * @param cy 中心位置の y 座標 ( クライアント座標での ) の値です。
-	 * @param flag マルチタッチ状態フラグです。
-	 * 0x01     : マルチタッチが開始された最初のイベントに設定されています。
-	 * @description タッチパネル上でマルチタッチによって回転操作した時に発生します。
+	 * @param startangle The radian angle when multi-touch started.
+	 * @param currentangle The radian angle of the touch when the event occurred.
+	 * @param distance The pixel distance of the touch when the event occurred.
+	 * @param cx The x-coordinate (in client coordinates) of the center position.
+	 * @param cy The y-coordinate (in client coordinates) of the center position.
+	 * @param flag Multi-touch state flag.
+	 * 0x01     : Set for the first event when multi-touch starts.
+	 * @description Occurs when rotating on the touch panel by multi-touch.
 	 */
 	event onTouchRotate( startangle, currentangle, distance, cx, cy, flag);
 
 	/**
-	 * マルチタッチ状態が変化した
+	 * Multi-touch state changed
 	 *
-	 * @description マルチタッチ状態が開始されたり、移動したり、離れた時に発生します。
-	 * 座標情報は Window.touchPointCount プロパティと Window.getTouchPoint メソッドで取得できます。
+	 * @description Occurs when the multi-touch state starts, moves, or releases.
+	 * Coordinate information can be obtained with the Window.touchPointCount property and the Window.getTouchPoint method.
 	 * @see Window.getTouchPoint
 	 * @see Window.touchPointCount
 	 */
 	event onMultiTouch();
 
 	/**
-	 * 何らかのポインティングデバイスで押下された
+	 * Pressed with some pointing device
 	 *
-	 * @param type タッチもしくはマウスボタンの種類
-	 * @param x X位置
-	 * @param y Y位置
-	 * @param cx 接触幅(ピクセル数)、マウスの時は1
-	 * @param cy 接触高さ(ピクセル数)、マウスの時は1
-	 * @param shift 修飾キー状態、タッチの時は0
-	 * @param id タッチID、マウスの時は常に0
+	 * @param type Type of touch or mouse button
+	 * @param x X position
+	 * @param y Y position
+	 * @param cx Contact width (number of pixels), 1 for mouse
+	 * @param cy Contact height (number of pixels), 1 for mouse
+	 * @param shift Modifier key state, 0 for touch
+	 * @param id Touch ID, always 0 for mouse
 	 */
 	event onPointerDown( type, x, y, cx, cy, shift, id );
 
 	/**
-	 * 何らかのポインティングデバイスが移動された
+	 * Some pointing device was moved
 	 *
-	 * @param type タッチもしくはマウス。マウスボタンの種類ではなく、マウスとして通知。
-	 * @param x X位置
-	 * @param y Y位置
-	 * @param cx 接触幅(ピクセル数)、マウスの時は1
-	 * @param cy 接触高さ(ピクセル数)、マウスの時は1
-	 * @param shift 修飾キー状態(マウス押下状態を含む)、タッチの時は0
-	 * @param id タッチID、マウスの時は常に0
+	 * @param type Touch or mouse. Not the type of mouse button, but notified as a mouse.
+	 * @param x X position
+	 * @param y Y position
+	 * @param cx Contact width (number of pixels), 1 for mouse
+	 * @param cy Contact height (number of pixels), 1 for mouse
+	 * @param shift Modifier key state (including mouse pressed state), 0 for touch
+	 * @param id Touch ID, always 0 for mouse
 	 */
 	event onPointerMove( type, x, y, cx, cy, shift, id );
 
 	/**
-	 * 何らかのポインティングデバイスが離された
+	 * Some pointing device was released
 	 *
-	 * @param type タッチもしくはマウスボタンの種類
-	 * @param x X位置
-	 * @param y Y位置
-	 * @param cx 接触幅(ピクセル数)、マウスの時は1
-	 * @param cy 接触高さ(ピクセル数)、マウスの時は1
-	 * @param shift 修飾キー状態、タッチの時は0
-	 * @param id タッチID、マウスの時は常に0
+	 * @param type Type of touch or mouse button
+	 * @param x X position
+	 * @param y Y position
+	 * @param cx Contact width (number of pixels), 1 for mouse
+	 * @param cy Contact height (number of pixels), 1 for mouse
+	 * @param shift Modifier key state, 0 for touch
+	 * @param id Touch ID, always 0 for mouse
 	 */
 	event onPointerUp( type, x, y, cx, cy, shift, id );
 
 
 	/**
-	 * キーが押された
+	 * Key was pressed
 	 *
-	 * @param key 押されたキーの仮想キーコードの値です。
-	 * @param shift キーが押された時に同時に押されていたシフト系のキーやマウスのボタンの状態です。
-	 * 以下の値のビット OR による組み合わせになります。
+	 * @param key The value of the virtual key code of the pressed key.
+	 * @param shift The state of the shift keys and mouse buttons that were pressed at the same time when the key was pressed.
+	 * It is a combination of the following values by bit OR.
 	 *
-	 * + ssAlt     : ALT キーが押されていた
-	 * + ssShift   : SHIFT キーが押されていた
-	 * + ssCtrl    : CTRL キーが押されていた
-	 * + ssLeft    : マウスの左ボタンが押されていた
-	 * + ssMiddle  : マウスの中ボタンが押されていた
-	 * + ssRight   : マウスの右ボタンが押されていた
+	 * + ssAlt     : ALT key was pressed
+	 * + ssShift   : SHIFT key was pressed
+	 * + ssCtrl    : CTRL key was pressed
+	 * + ssLeft    : The left mouse button was pressed
+	 * + ssMiddle  : The middle mouse button was pressed
+	 * + ssRight   : The right mouse button was pressed
 	 *
-	 * また、キーボードが長時間押され、キーリピートが発生している場合は以下の値も組み合わされます。
+	 * In addition, if the keyboard is pressed for a long time and key repeat occurs, the following value is also combined.
 	 *
-	 * + ssRepeat  : キーリピートが発生した
+	 * + ssRepeat  : Key repeat occurred
 	 *
-	 * @description キーが押された時に発生します。
+	 * @description Occurs when a key is pressed.
 	 */
 	event onKeyDown( key, shift);
 
 	/**
-	 * キーが離された
+	 * Key was released
 	 *
-	 * @param key 離されたキーの仮想キーコードの値です。
-	 * @param shift キーが離された時に同時に押されていたシフト系のキーやマウスのボタンの状態です。
-	 * 以下の値のビット OR による組み合わせになります。
+	 * @param key The value of the virtual key code of the released key.
+	 * @param shift The state of the shift keys and mouse buttons that were pressed at the same time when the key was released.
+	 * It is a combination of the following values by bit OR.
 	 *
-	 * + ssAlt     : ALT キーが押されていた
-	 * + ssShift   : SHIFT キーが押されていた
-	 * + ssCtrl    : CTRL キーが押されていた
-	 * + ssLeft    : マウスの左ボタンが押されていた
-	 * + ssMiddle  : マウスの中ボタンが押されていた
-	 * + ssRight   : マウスの右ボタンが押されていた
+	 * + ssAlt     : ALT key was pressed
+	 * + ssShift   : SHIFT key was pressed
+	 * + ssCtrl    : CTRL key was pressed
+	 * + ssLeft    : The left mouse button was pressed
+	 * + ssMiddle  : The middle mouse button was pressed
+	 * + ssRight   : The right mouse button was pressed
 	 *
-	 * @description キーが離された時に発生します。
+	 * @description Occurs when a key is released.
 	 */
 	event onKeyUp( key, shift);
 
 	/**
-	 * [Windows*]文字が入力された
+	 * [Windows*] Character was entered
 	 *
-	 * @param key 入力された文字です。
-	 * @description 文字が入力されたときに発生します。
-	 * Window.onKeyDown と異なるのは、onKeyDown が仮想キーコードを扱うのに対し、このイベントは文字そのものを扱います。
-	 * 押されたキーが文字とは関係のないキー (ファンクションキーなど) の場合はこのイベントは発生しません。
-	 * Ctrlキーと同時に押された場合は、以下に示すようなコントロールコードが送られてきます。
+	 * @param key The character that was entered.
+	 * @description Occurs when a character is entered.
+	 * The difference from Window.onKeyDown is that onKeyDown handles virtual key codes, while this event handles the character itself.
+	 * This event does not occur if the pressed key is not related to a character (such as a function key).
+	 * If pressed at the same time as the Ctrl key, the following control codes will be sent.
 	 *
 	 * + 0x00 : Ctrl+@
 	 * + 0x01 : Ctrl+A
@@ -358,52 +358,52 @@ class Window {
 	event onKeyPress( key );
 
 	/**
-	 * [Windows*]ウィンドウのサイズが変化した
+	 * [Windows*] Window size changed
 	 *
-	 * @description ウィンドウのサイズが変化した時に発生します。
-	 * 実際のサイズは Window.width プロパティや Window.height プロパティなどで取得してください。
+	 * @description Occurs when the window size changes.
+	 * Get the actual size with the Window.width property, Window.height property, etc.
 	 */
 	event onResize( );
 
 	/**
-	 * [Windows*]ファイルがドロップされた
+	 * [Windows*] File was dropped
 	 *
-	 * @param files ドロップされたファイル名が格納された配列(Array)オブジェクトです。
-	 * @description ファイルがエクスプローラなどからウィンドウにドロップされたときに発生します。
-	 * 単一のファイルがドロップされた場合でも引数には配列オブジェクトが渡されます (最初の要素がそのファイルになります )。
+	 * @param files An array object containing the dropped file names.
+	 * @description Occurs when a file is dropped from Explorer etc. into the window.
+	 * Even if a single file is dropped, an array object is passed as an argument (the first element is that file).
 	 */
 	event onFileDrop( files);
 
 	/**
-	 * [Windows*]ウィンドウを閉じる確認
+	 * [Windows*] Confirm window close
 	 *
-	 * @param canclose ウィンドウを閉じることができるかどうかが渡されます。
-	 * 下位クラスから上位クラスのイベントハンドラが呼ばれる課程で、下位クラスが決定した「ウィンドウを閉じることができるか」が渡されます。
-	 * @description ウィンドウを閉じることができるかどうかを確認するためのイベントです。
-	 * ウィンドウを閉じることができない場合、上位クラスの同メソッドに引数として false を渡してください。
-	 * Androidの場合、タイトル画面での戻るキーで自分で終了する(onKeyXXXを自分でハンドリング)必要があります。
-	 * システムに停止させられる時は、止めようがなく、いきなり終了させられることもあります。
-	 * タスクリストから終了させられるときも問答無用です。
-	 * AndroidではonDeactivateが来た時にオートセーブするしか突然終了に対する対策がありません。
+	 * @param canclose Whether the window can be closed is passed.
+	 * In the process of calling the event handler of the upper class from the lower class, "whether the window can be closed" determined by the lower class is passed.
+	 * @description This is an event to confirm whether the window can be closed.
+	 * If the window cannot be closed, pass false as an argument to the same method in the upper class.
+	 * In the case of Android, you need to exit yourself with the back key on the title screen (handle onKeyXXX yourself).
+	 * When the system stops it, there is no way to stop it, and it may be terminated suddenly.
+	 * It is also unquestioning when terminated from the task list.
+	 * On Android, the only countermeasure against sudden termination is to auto-save when onDeactivate comes.
 	 */
 	event onCloseQuery( canclose);
 
 	/**
-	 * [Windows*]ポップアップウィンドウを閉じる
+	 * [Windows*] Close popup window
 	 *
-	 * @description ポップアップウィンドウが閉じるべき時に発生するイベントです。
-	 * このイベントは、Window.stayOnTop プロパティが真で、かつ、Window.focusable プロパティが偽の場合、「他のウィンドウがクリックされた」あるいは「他のアプリケーションがアクティブになった」時に発生します。
-	 * 通常は、ここでウィンドウを閉じたり、非表示にする処理を行ってください。
+	 * @description This event occurs when the popup window should be closed.
+	 * This event occurs when the Window.stayOnTop property is true and the Window.focusable property is false, when "another window is clicked" or "another application becomes active".
+	 * Normally, you should close or hide the window here.
 	 * @see Window.focusable
 	 * @see Window.stayOnTop
 	 */
 	event onPopupHide( );
 
 	/**
-	 * ウィンドウがアクティブになったとき
+	 * When the window becomes active
 	 *
-	 * @description ウィンドウがアクティブになったときに呼び出されるイベント関数を表します。
-	 * このイベントは、ウィンドウが既にアクティブの場合にも発生する可能性があるので注意してください (完全に onActivate → onDeactivate → onActivate → …… の順に発生する保証がない )。
+	 * @description Represents the event function that is called when the window becomes active.
+	 * Note that this event may occur even if the window is already active (there is no guarantee that it will occur in the order onActivate -> onDeactivate -> onActivate -> ...).
 	 * @see Window.onDeactivate
 	 * @see System.onActivate
 	 * @see System.onDeactivate
@@ -411,11 +411,11 @@ class Window {
 	event onActivate( );
 
 	/**
-	 * ウィンドウが非アクティブになったとき
+	 * When the window becomes inactive
 	 *
-	 * @description ウィンドウが非アクティブになったときに呼び出されるイベント関数を表します。
-	 * このイベントは、ウィンドウが既に非アクティブの場合にも発生する可能性があるので注意してください (完全に onActivate → onDeactivate → onActivate → …… の順に発生する保証がない )。
-	 * Androidでは、非アクティブになった後、復帰せずプロセスが終了させられる場合もあるので注意してください。
+	 * @description Represents the event function that is called when the window becomes inactive.
+	 * Note that this event may occur even if the window is already inactive (there is no guarantee that it will occur in the order onActivate -> onDeactivate -> onActivate -> ...).
+	 * Note that on Android, the process may be terminated without returning after becoming inactive.
 	 * @see Window.onActivate
 	 * @see System.onActivate
 	 * @see System.onDeactivate
@@ -423,16 +423,16 @@ class Window {
 	event onDeactivate( );
 
 	/**
-	 * [Windows*]ヒントの状態が変化したとき
+	 * [Windows*] When the hint state changes
 	 *
-	 * @param text ヒントに表示する文字列が渡されます。
-	 * @param x ヒント表示X軸座標値が渡されます。
-	 * @param y ヒント表示Y軸座標値が渡されます。
-	 * @param isshow ヒントを表示するか、非表示にするかが渡されます。
-	 * @description ヒントの状態が変化したときに呼び出されるイベント関数を表します。
-	 * 表示/非表示に従いヒントの表示を行います。
-	 * ヒントをレイヤで表示する場合は、そのレイヤのマウスメッセージが無視されるように Layer.hitThreshold を256に設定します。
-	 * また、Layer.ignoreHintSensing もtrueを指定します。
+	 * @param text The string to display in the hint is passed.
+	 * @param x The X-axis coordinate value for hint display is passed.
+	 * @param y The Y-axis coordinate value for hint display is passed.
+	 * @param isshow Whether to display or hide the hint is passed.
+	 * @description Represents the event function that is called when the hint state changes.
+	 * Displays the hint according to display/hide.
+	 * If you want to display the hint in a layer, set Layer.hitThreshold to 256 so that the mouse message of that layer is ignored.
+	 * Also, specify Layer.ignoreHintSensing as true.
 	 * @see Window.hintDelay
 	 * @see Layer.ignoreHintSensing
 	 * @see Layer.hitThreshold
@@ -440,128 +440,128 @@ class Window {
 	event onHintChanged( text, x, y, isshow);
 
 	/**
-	 * 画面が回転されたとき
+	 * When the screen is rotated
 	 *
-	 * @param orientation 画面の向き( orientation ) です。以下のいずれかの値になります。oriUnknown (取得失敗/不明), oriPortrait(縦向き), oriLandscape(横向き)
-	 * @param angle 角度です。角度 ( angle ) は、0、90、180、270、-1 のいずれかで、取得できなかった時は-1となります。
-	 * 角度は、そのデバイスデフォルトからの回転角なので、縦向きのデバイスでは縦向きで0となります。
-	 * 通常のデバイスだと、横向きで0が多ようです。
-	 * 縦向きが0になるのは最近の8インチタブレットなどで、縦向きが標準の向きとなっているものです。
-	 * Androidでは常に-1が返ります。
-	 * 必要であれば別途Windows.displayRotateで取得します。
-	 * @param bpp  bits per pixel です。Androidではdpi値が返ります。
-	 * @param width 画面の幅です。
-	 * Androidでは常に0が返ります。
-	 * 必要であれば別途取得します。
-	 * @param height 画面の高さです。
-	 * Androidでは常に0が返ります。
-	 * 必要であれば別途取得します。
-	 * @description 画面が回転されたときに呼び出されるイベント関数を表します。
+	 * @param orientation The screen orientation. It will be one of the following values: oriUnknown (acquisition failure/unknown), oriPortrait (portrait), oriLandscape (landscape)
+	 * @param angle The angle. The angle is one of 0, 90, 180, 270, -1, and -1 when it could not be acquired.
+	 * The angle is the rotation angle from the device default, so it is 0 in portrait orientation on a portrait device.
+	 * On normal devices, 0 is common in landscape orientation.
+	 * 0 for portrait orientation is for recent 8-inch tablets, etc., where portrait orientation is the standard orientation.
+	 * Always -1 is returned on Android.
+	 * If necessary, get it separately with Windows.displayRotate.
+	 * @param bpp  bits per pixel. The dpi value is returned on Android.
+	 * @param width The width of the screen.
+	 * Always 0 is returned on Android.
+	 * Get it separately if necessary.
+	 * @param height The height of the screen.
+	 * Always 0 is returned on Android.
+	 * Get it separately if necessary.
+	 * @description Represents the event function that is called when the screen is rotated.
 	 * @see Window.displayOrientation
 	 * @see Window.displayRotate
 	 */
 	event onDisplayRotate( orientation, angle, bpp, width, height);
 
 	/**
-	 * 画面更新コールバックイベント
+	 * Screen update callback event
 	 *
-	 * @description 画面更新処理時に呼び出される
-	 * この呼び出しの間に独自の描画処理を行う
-	 * このメソッドを直接呼び出さないこと。
+	 * @description Called during screen update processing
+	 * Perform your own drawing processing during this call
+	 * Do not call this method directly.
 	 */
 	event onDraw();
 
 	/**
-	 * ウィンドウを閉じる
+	 * Close the window
 	 *
-	 * @description Window.showModal メソッドで表示されたウィンドウを閉じます。
-	 * ウィンドウを閉じる前に Window.onCloseQuery イベントが発生し、ウィンドウを閉じることができるかどうかを確認することができます。
-	 * Androidでは Window.onCloseQuery イベントは発生せず、Activity.finish() がコールされて終了します。
+	 * @description Closes the window displayed with the Window.showModal method.
+	 * Before closing the window, the Window.onCloseQuery event occurs, and you can check whether the window can be closed.
+	 * On Android, the Window.onCloseQuery event does not occur, and Activity.finish() is called to exit.
 	 * @see Window.showModal
 	 * @see Window.onCloseQuery
 	 */
 	function close();
 
 	/**
-	 * [Windows*]ウィンドウを最前面に移動
+	 * [Windows*] Move the window to the front
 	 *
-	 * @description ウィンドウを最前面に移動します。
-	 * アプリケーションが非アクティブの場合はアプリケーション自体もアクティブにします。
+	 * @description Moves the window to the front.
+	 * If the application is inactive, the application itself is also activated.
 	 */
 	function bringToFront( );
 
 	/**
-	 * [Windows*]ウィンドウ内容の強制的な描画
+	 * [Windows*] Force drawing of window contents
 	 *
-	 * @param type ウィンドウ描画のタイプを指定します。
+	 * @param type Specifies the type of window drawing.
 	 *
-	 * + tutNormal を指定すると通常の描画 ( 差分描画 )、
-	 * + tutEntire を指定するとウィンドウ内容全体を描画します。
+	 * + tutNormal specifies normal drawing (differential drawing),
+	 * + tutEntire specifies drawing the entire window contents.
 	 *
-	 * @description 引数は現バージョンでは無視されます。
-	 * tutNormal や tutEntire は実装されていません。
+	 * @description The argument is ignored in the current version.
+	 * tutNormal and tutEntire are not implemented.
 	 */
 	function update( type=tutNormal);
 
 	/**
-	 * [Windows+]モーダルでウィンドウを表示
+	 * [Windows+] Show window modally
 	 *
-	 * @description ウィンドウをモーダル ( モード付き ) で表示します。
-	 * このメソッドはウィンドウを表示状態にし、かつ、他のウィンドウを一時的に無効にします。
-	 * そのためユーザはこのウィンドウのみにアクセスできる状態になります ( これをモード付きの状態と呼びます )。
-	 * ウィンドウが閉じられるとモード付きの状態は解除されます。
-	 * このメソッドを呼び出す時点ではウィンドウは非表示でなくてはなりません。
+	 * @description Displays the window modally.
+	 * This method puts the window in a display state and temporarily disables other windows.
+	 * Therefore, the user can only access this window (this is called a modal state).
+	 * The modal state is released when the window is closed.
+	 * The window must be hidden when calling this method.
 	 */
 	function showModal( );
 
 	/**
-	 * [Windows+]ウィンドウリージョンをマスクに従って設定
+	 * [Windows+] Set window region according to mask
 	 *
-	 * @param threshold マスクのスレッショルド ( 敷居値 ) を指定します。
-	 * プライマリレイヤのマスク ( レイヤの不透明度の情報 ) のうち、この値よりも大きい部分の形にウィンドウが切り取られて表示されます。
-	 * @description ウィンドウリージョンをプライマリレイヤのマスク ( レイヤの不透明度の情報 ) に従って設定します。
-	 * ウィンドウを不定形にする事ができます。
-	 * 表示されるプライマリレイヤと、ウィンドウの大きさ、位置がずれないようにするには以下のことを行う必要があります。
-	 * Window.borderStyle は bsNone に設定します。
-	 * Layer.imageLeft および Layer.imageTop は 0 に設定します。
+	 * @param threshold Specifies the threshold of the mask.
+	 * The window is cut out and displayed in the shape of the part of the mask of the primary layer (opacity information of the layer) that is larger than this value.
+	 * @description Sets the window region according to the mask of the primary layer (opacity information of the layer).
+	 * You can make the window irregular.
+	 * To prevent the displayed primary layer from shifting from the size and position of the window, you need to do the following.
+	 * Set Window.borderStyle to bsNone.
+	 * Set Layer.imageLeft and Layer.imageTop to 0.
 	 * @see Window.removeMaskRegion
 	 */
 	function setMaskRegion( threshold=1);
 
 	/**
-	 * [Windows+]ウィンドウリージョンの解除
+	 * [Windows+] Release window region
 	 *
-	 * @description Window.setMaskRegionで設定したウィンドウリージョンを解除し、ウィンドウを矩形に戻します。
+	 * @description Releases the window region set with Window.setMaskRegion and returns the window to a rectangle.
 	 * @see Window.setMaskRegion
 	 */
 	function removeMaskRegion( );
 
 	/**
-	 * 管理オブジェクトの追加
+	 * Add management object
 	 *
-	 * @param object 管理されるオブジェクトを指定します。
-	 * @description 管理オブジェクトを追加します。
-	 * ここで指定されたオブジェクトは、ウィンドウが無効化されるときに自動的に無効化されるようになります。
+	 * @param object Specifies the object to be managed.
+	 * @description Adds a management object.
+	 * The object specified here will be automatically invalidated when the window is invalidated.
 	 * @see Window.remove
 	 */
 	function add( object);
 
 	/**
-	 * 管理オブジェクトの削除
+	 * Delete management object
 	 *
-	 * @param object 管理オブジェクトのリストから削除するオブジェクトを指定します。
-	 * @description 管理オブジェクトのリストから指定されたオブジェクトを削除します。
+	 * @param object Specifies the object to be deleted from the list of management objects.
+	 * @description Deletes the specified object from the list of management objects.
 	 * @see Window.add
 	 */
 	function remove( object);
 
 	/**
-	 * [Windows*]ウィンドウサイズの設定
+	 * [Windows*] Set window size
 	 *
-	 * @param width ウィンドウの横幅を指定します。
-	 * @param height ウィンドウの縦幅を指定します。
-	 * @description ウィンドウのサイズを指定します。
-	 * ウィンドウのサイズを指定するときには、Window.width や Window.height プロパティを個々に設定するよりもこのメソッドで一気に指定した方が効率的です。
+	 * @param width Specifies the width of the window.
+	 * @param height Specifies the height of the window.
+	 * @description Specifies the size of the window.
+	 * When specifying the size of the window, it is more efficient to specify it all at once with this method than to set the Window.width and Window.height properties individually.
 	 * @see Window.width
 	 * @see Window.height
 	 * @see Window.setPos
@@ -572,15 +572,15 @@ class Window {
 	function setSize( width, height);
 
 	/**
-	 * [Windows*]ウィンドウの最小サイズの設定
+	 * [Windows*] Set the minimum size of the window
 	 *
-	 * @param width ウィンドウの最小の横幅を指定します。
-	 * 0を指定すると制限は無くなります。
-	 * @param height ウィンドウの最小の縦幅を指定します。
-	 * 0を指定すると制限は無くなります。
-	 * @description ウィンドウの最小サイズを指定します。
-	 * ウィンドウはこのメソッドで指定したサイズより小さくなることはできません。
-	 * 	
+	 * @param width Specifies the minimum width of the window.
+	 * If you specify 0, there will be no limit.
+	 * @param height Specifies the minimum height of the window.
+	 * If you specify 0, there will be no limit.
+	 * @description Specifies the minimum size of the window.
+	 * The window cannot be smaller than the size specified by this method.
+	 *
 	 * @see Window.setMaxSize
 	 * @see Window.setSize
 	 * @see Window.minWidth
@@ -589,15 +589,15 @@ class Window {
 	function setMinSize( width, height);
 
 	/**
-	 * [Windows*]ウィンドウの最大サイズの設定
+	 * [Windows*] Set the maximum size of the window
 	 *
-	 * @param width ウィンドウの最大の横幅を指定します。
-	 * 0を指定すると制限は無くなります。
-	 * @param height ウィンドウの最大の縦幅を指定します。
-	 * 0を指定すると制限は無くなります。
-	 * @description ウィンドウの最大サイズを指定します。
-	 * ウィンドウはこのメソッドで指定したサイズより大きくなることはできません。
-	 * 	
+	 * @param width Specifies the maximum width of the window.
+	 * If you specify 0, there will be no limit.
+	 * @param height Specifies the maximum height of the window.
+	 * If you specify 0, there will be no limit.
+	 * @description Specifies the maximum size of the window.
+	 * The window cannot be larger than the size specified by this method.
+	 *
 	 * @see Window.setMixSize
 	 * @see Window.setSize
 	 * @see Window.maxWidth
@@ -606,12 +606,12 @@ class Window {
 	function setMaxSize( width, height);
 
 	/**
-	 * [Windows*]ウィンドウ位置の設定
+	 * [Windows*] Set window position
 	 *
-	 * @param left ウィンドウの左端位置を指定します。
-	 * @param top ウィンドウの上端位置を指定します。
-	 * @description ウィンドウの位置を指定します。
-	 * ウィンドウの位置を指定するときには、Window.left や Window.top プロパティを個々に設定するよりも このメソッドで一気に指定した方が効率的です。
+	 * @param left Specifies the left end position of the window.
+	 * @param top Specifies the top end position of the window.
+	 * @description Specifies the position of the window.
+	 * When specifying the position of the window, it is more efficient to specify it all at once with this method than to set the Window.left and Window.top properties individually.
 	 * @see Window.left
 	 * @see Window.top
 	 * @see Window.setSize
@@ -619,664 +619,109 @@ class Window {
 	function setPos( left, top);
 
 	/**
-	 * [Windows*]クライアントサイズの設定
+	 * [Windows*] Set client size
 	 *
-	 * @param width クライアントの横幅を指定します。
-	 * @param height クライアントの縦幅を指定します。
-	 * @description ウィンドウのクライアントサイズを指定します。
-	 * クライアントは、レイヤを表示可能なウィンドウ内の領域です。
-	 * このサイズを設定するとウィンドウのサイズもそれに応じて変化します。
-	 * クライアントのサイズを指定するときには、Window.innerWidth や Window.innerHeight プロパティを個々に設定するよりも このメソッドで一気に指定した方が効率的です。
+	 * @param width Specifies the width of the client.
+	 * @param height Specifies the height of the client.
+	 * @description Specifies the client size of the window.
+	 * The client is the area in the window where layers can be displayed.
+	 * Setting this size will change the size of the window accordingly.
+	 * When specifying the size of the client, it is more efficient to specify it all at once with this method than to set the Window.innerWidth and Window.innerHeight properties individually.
 	 * @see Window.innerWidth
 	 * @see Window.innerHeight
 	 */
 	function setInnerSize( width, height);
 
 	/**
-	 * [Windows*]レイヤ拡大倍率の設定
+	 * [Windows*] Set layer zoom ratio
 	 *
-	 * @param numer 倍率の分子を整数で指定します。
-	 * @param denom 倍率の分母を整数で指定します。
-	 * @description レイヤの拡大倍率を指定します。
-	 * 分子/分母で指定したサイズで画像が拡大、あるいは縮小されて表示されます。
-	 * 分子・分母が公約数を持つ場合は自動的に約分されるため、Window.zoomNumer プロパティや Window.zoomDenom プロパティで読み出される値は、このメソッドで指定した値とは異なる場合があります。
-	 * 現バージョンの吉里吉里では、拡大・縮小時に補間がかかるかどうかはグラフィックカードのハードウェアやドライバに影響されます。
-	 * 補間がかからないハードウェアやドライバの場合は、画質が荒くなります。
-	 * オプションによっては、吉里吉里は拡大・縮小に使用可能なハードウェアを、倍率が変更されるたびに調査するため、このメソッドは拡大率を連続的に変化させて演出を行うような用途には適していません。
-	 * Canvas 描画時には意味を持ちません
+	 * @param numer Specifies the numerator of the zoom ratio as an integer.
+	 * @param denom Specifies the denominator of the zoom ratio as an integer.
+	 * @description Specifies the zoom ratio of the layer.
+	 * The image is enlarged or reduced and displayed at the size specified by numerator/denominator.
+	 * If the numerator and denominator have a common divisor, they will be automatically reduced, so the values read by the Window.zoomNumer property and the Window.zoomDenom property may differ from the values specified by this method.
+	 * In the current version of KiriKiri, whether or not interpolation is applied during enlargement/reduction depends on the hardware and driver of the graphics card.
+	 * The image quality will be rough for hardware and drivers that do not apply interpolation.
+	 * Depending on the options, KiriKiri investigates the hardware that can be used for enlargement/reduction each time the zoom ratio is changed, so this method is not suitable for applications that continuously change the zoom ratio to create effects.
+	 * Does not have meaning when drawing on Canvas
 	 * @see Window.zoomNumer
 	 * @see Window.zoomDenom
 	 */
 	function setZoom( numer, denom);
 
 	/**
-	 * 入力イベントの生成
+	 * Generate input event
 	 *
-	 * @param eventname イベント名称を指定します。
-	 * 以下の文字列で指定します。
+	 * @param eventname Specifies the event name.
+	 * Specify with the following strings.
 	 * 
-	 * + "onKeyDown" は Window.onKeyDown イベントを生成します。
-	 * + "onKeyPress" は Window.onKeyPress イベントを生成します。
-	 * + "onKeyUp" は Window.onKeyUp イベントを生成します。
+	 * + "onKeyDown" generates a Window.onKeyDown event.
+	 * + "onKeyPress" generates a Window.onKeyPress event.
+	 * + "onKeyUp" generates a Window.onKeyUp event.
 	 *
-	 * onKeyDownとonKeyUpは対になるので、onKeyDownを生成したら対応するonKeyUpも生成することを推奨します。
-	 * @param params イベントのパラメータが格納された辞書配列を指定します。
-	 * "onKeyDown" イベントや "onKeyUp" イベントでは、"key" に仮想キーコード、"shift" にシフト状態を格納します。
-	 * "shift" を省略すると 0 であると見なされます。
-	 * "onKeyPress" イベントでは "key" に文字を指定します。
-	 * @description 入力イベントを生成します。
-	 * 現バージョンではキー入力に関する３つのイベントを生成できます。
-	 * このメソッドは、イベントを非同期イベントとして生成します。
-	 * つまり、このメソッドは、対応するイベントハンドラの終了を待たずに帰ります。
-	 * 実際にイベントハンドラが呼ばれて処理が行われるのは、いったん吉里吉里に制御が戻った後となります。
-	 * 入力イベントは、Windowクラスのほか、通常の入力イベントと同じく、Layerクラスの該当するイベントとしても発生します。
-	 * 例:
+	 * Since onKeyDown and onKeyUp are paired, it is recommended to generate the corresponding onKeyUp when generating onKeyDown.
+	 * @param params Specifies a dictionary array containing the event parameters.
+	 * For "onKeyDown" and "onKeyUp" events, store the virtual key code in "key" and the shift state in "shift".
+	 * If "shift" is omitted, it is assumed to be 0.
+	 * For the "onKeyPress" event, specify the character in "key".
+	 * @description Generates an input event.
+	 * In the current version, you can generate three events related to key input.
+	 * This method generates an event as an asynchronous event.
+	 * That is, this method returns without waiting for the end of the corresponding event handler.
+	 * The event handler is actually called and processed after control is returned to KiriKiri.
+	 * Input events occur not only in the Window class, but also as corresponding events in the Layer class, just like normal input events.
+	 * Example:
 	 *
 	 * ```
 	 * postInputEvent('onKeyDown', %[key: VK_UP, shift: ssShift]);
 	 * postInputEvent('onKeyUp',   %[key: VK_UP, shift: ssShift]);
-	 * // 左カーソルキーを押す
+	 * // Press the left cursor key
 	 * ```
 	 *
 	 */
 	function postInputEvent( eventname, params=null);
 
 	/**
-	 * [Windows*]マウスカーソルを一時的に隠す
+	 * [Windows*] Temporarily hide the mouse cursor
 	 *
-	 * @description マウスカーソルを一時的に隠します。
-	 * マウスを少しでも動かすとマウスカーソルは再び表示されるようになります。
-	 * このメソッドは、Window.mouseCursorStateをmcsTempHiddenに設定するのと同じ効果を持ちます。
+	 * @description Temporarily hides the mouse cursor.
+	 * The mouse cursor will reappear if you move the mouse even a little.
+	 * This method has the same effect as setting Window.mouseCursorState to mcsTempHidden.
 	 */
 	function hideMouseCursor( );
 
 	/**
-	 * [Windows+]メッセージ受信関数の登録/登録削除
+	 * [Windows+] Register/unregister message receiving function
 	 *
-	 * @param mode 登録するか、登録削除するかどうかを指定します。
-	 * wrmRegister を指定すると登録になります。
-	 * wrmUnregister を指定すると登録削除になります。
-	 * wrm で始まる定数は tp_stub.h に定義されています。
-	 * @param func メッセージ受信関数を指定します。
-	 * メッセージ受信関数は bool __stdcall func(void *userdata, tTVPWindowMessage *Message) の形式である必要があり、このメソッドに渡す際にその関数ポインタを整数型にキャストして渡す必要があります。
-	 * 構造体 tTVPWindowMessage は tp_stub.h に定義されています。
-	 * この関数が true を返すと吉里吉里本体側はそのウィンドウメッセージに関知しなくなります。
-	 * @param userdata func 引数で指定された受信関数の userdata 引数に渡すためのデータポインタを指定します。
-	 * このメソッドに渡す際にはそのポインタを整数型にキャストして渡す必要があります。
-	 * この引数は mode 引数が wrmRegister でないときは無視されます。
-	 * @description このメソッドは C++ 等で記述されたプラグインから利用されることを想定しているメソッドです。
-	 * TJS2からは正常に利用できません。
-	 * このメソッドでは、このウィンドウを通過するメッセージをトラップするためのメッセージ受信関数を登録することができます。
-	 * メッセージ受信関数では通常のウィンドウメッセージの他、TVP_WM_DETACH と TVP_WM_ATTACH という２つの重要なメッセージもトラップすることができ、ウィンドウが再構築や破棄されるタイミングにおいて、子ウィンドウを取り外すというような用途に使用できます。
-	 * 吉里吉里ソース配布パッケージ中の src/plugins/win32/wmrdump に簡単な使用法の説明があります。
+	 * @param mode Specifies whether to register or unregister.
+	 * Specifying wrmRegister will register.
+	 * Specifying wrmUnregister will unregister.
+	 * Constants starting with wrm are defined in tp_stub.h.
+	 * @param func Specifies the message receiving function.
+	 * The message receiving function must be in the form bool __stdcall func(void *userdata, tTVPWindowMessage *Message), and when passing it to this method, you must cast the function pointer to an integer type and pass it.
+	 * The structure tTVPWindowMessage is defined in tp_stub.h.
+	 * If this function returns true, the KiriKiri body will no longer be aware of that window message.
+	 * @param userdata Specifies the data pointer to pass to the userdata argument of the receiving function specified by the func argument.
+	 * When passing it to this method, you must cast the pointer to an integer type and pass it.
+	 * This argument is ignored when the mode argument is not wrmRegister.
+	 * @description This method is intended to be used from plugins written in C++, etc.
+	 * It cannot be used normally from TJS2.
+	 * With this method, you can register a message receiving function to trap messages passing through this window.
+	 * In addition to normal window messages, the message receiving function can also trap two important messages, TVP_WM_DETACH and TVP_WM_ATTACH, and can be used for purposes such as detaching child windows when the window is reconstructed or destroyed.
+	 * There is a simple explanation of how to use it in src/plugins/win32/wmrdump in the KiriKiri source distribution package.
 	 * @see Window.HWND
 	 */
 	function registerMessageReceiver( mode, func, userdata);
 
 	/**
-	 * タッチ座標の取得
+	 * Get touch coordinates
 	 *
-	 * @param index タッチ座標配列のインデックスを指定します。
-	 * @description 現在のタッチ座標配列から指定インデックスの座標情報を取得します。
-	 * 座標数は Window.touchPointCount プロパティで取得できます。
-	 * 座標情報は以下の要素を含む辞書で返されます。
+	 * @param index Specifies the index of the touch coordinate array.
+	 * @description Gets the coordinate information of the specified index from the current touch coordinate array.
+	 * The number of coordinates can be obtained with the Window.touchPointCount property.
+	 * The coordinate information is returned as a dictionary containing the following elements.
 	 *
-	 * + startX     : このタッチの開始座標の x 座標値 ( クライアント座標系 ) です
-	 * + startY   : このタッチの開始座標の y 座標値 ( クライアント座標系 ) です
-	 * + x    : このタッチの現在座標の x 座標値 ( クライアント座標系 ) です
-	 * + y    : このタッチの現在座標の y 座標値 ( クライアント座標系 ) です
-	 * + ID    : このタッチの識別用 IDです
-	 *
-	 * @see Window.touchPointCount
-	 */
-	function getTouchPoint( index);
-
-	/**
-	 * [Windows*]マウス座標移動速度の取得
-	 *
-	 * @param x X軸方向のマウス座標移動速度が返ります。
-	 * @param y Y軸方向のマウス座標移動速度が返ります。
-	 * @param speed マウス座標移動速度が返ります。
-	 * @return 取得が成功したか失敗したかが返ります
-	 * @description 現在のマウス移動速度を pixel / sec で取得します。
-	 * ウィンドウ内に入った瞬間から計測開始されています。
-	 * Window.resetMouseVelocity を使用して計測をリセットし、任意のタイミングか計測得できるように出来ます。
-	 * @see Window.getTouchVelocity
-	 * @see Window.resetMouseVelocity
-	 */
-	function getMouseVelocity( x, y, speed);
-
-	/**
-	 * タッチ座標移動速度の取得
-	 *
-	 * @param id タッチIDを指定します。
-	 * @param x X軸方向のマウス座標移動速度が返ります。
-	 * @param y Y軸方向のマウス座標移動速度が返ります。
-	 * @param speed マウス座標移動速度が返ります。
-	 * @return 取得が成功したか失敗したかが返ります
-	 * @description 現在のタッチ移動速度を pixel / sec で取得します。
-	 * 押下されてから離されるまでの間計測されています。
-	 * マルチタッチ対応のため ID ごとに速度計測されています。
-	 * Window.onTouchUp イベントのメソッド呼び出しが終了すると計測している速度情報は消えてしまうので注意が必要です。
-	 * @see Window.getMouseVelocity
-	 */
-	function getTouchVelocity( id, x, y, speed);
-
-	/**
-	 * [Windows*]マウス座標移動速度計測のリセット
-	 *
-	 * @description マウスの座標移動速度計測をリセットします。
-	 * リセットすることで任意のタイミングから速度計測を開始することが出来ます。
-	 * @see Window.getMouseVelocity
-	 */
-	function resetMouseVelocity( );
-
-	/**
-	 * 明示的に描画を呼び出す。
-	 *
-	 * @description このメソッドはonDrawを間接的に呼び出しますす。
-	 * 自分で描画したい場合は、このメソッドを呼び出し、onDraw内で描画します。
-	 * Window.drawCycle を指定して定期的に描画するようにし、このメソッドで明示的に描画することは出来るだけ避けてください。
-	 * 将来的に他のプラットフォームでサポートできない可能性があります。
-	 */
-	function startDrawing();
-
-	/**
-	 * [Windows*]ウィンドウが表示されているかどうか
-	 *
-	 * @description ウィンドウが表示されているかどうかを表します。
-	 * 値を設定することもできます。
-	 * 真ならばウィンドウが表示されていて、偽ならばウィンドウは非表示の状態です。
-	 */
-	 property visible {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * ウィンドウのキャプション
-	 *
-	 * @description ウィンドウのキャプション ( タイトルバーのタイトル ) を表します。
-	 * 値を設定することもできます。
-	 * Androidではアクティビティのタイトルとなりますが、フルスクリーンでは表示されないので設定にあまり意味はありません。
-	 */
-	 property caption {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * ウィンドウの横幅
-	 *
-	 * @description ウィンドウの横幅を表します。
-	 * 値を設定することもできます。
-	 * AndroidではActivityの幅で読み込みのみ可能です。
-	 * @see Window.height
-	 * @see Window.setSize
-	 */
-	 property width {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * ウィンドウの縦幅
-	 *
-	 * @description ウィンドウの縦幅を表します。
-	 * 値を設定することもできます。
-	 * AndroidではActivityの高さで読み込みのみ可能です。
-	 * @see Window.width
-	 * @see Window.setSize
-	 */
-	 property height {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * [Windows*]ウィンドウの最小の横幅
-	 *
-	 * @description ウィンドウの最小の横幅を表します。
-	 * 値を設定することもできます。
-	 * 0を指定すると制限は無くなります。
-	 * @see Window.width
-	 * @see Window.minHeight
-	 * @see Window.maxWidth
-	 * @see Window.maxHeight
-	 * @see Window.setMinSize
-	 * @see Window.setMaxSize
-	 * @see Window.setSize
-	 */
-	 property minWidth {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * [Windows*]ウィンドウの最小の縦幅
-	 *
-	 * @description ウィンドウの最小の縦幅を表します。
-	 * 値を設定することもできます。
-	 * 0を指定すると制限は無くなります。
-	 * @see Window.height
-	 * @see Window.minWidth
-	 * @see Window.maxWidth
-	 * @see Window.maxHeight
-	 * @see Window.setMinSize
-	 * @see Window.setMaxSize
-	 * @see Window.setSize
-	 */
-	 property minHeight {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * [Windows*]ウィンドウの最大の横幅
-	 *
-	 * @description ウィンドウの最大の横幅を表します。
-	 * 値を設定することもできます。
-	 * 0を指定すると制限は無くなります。
-	 * @see Window.width
-	 * @see Window.maxHeight
-	 * @see Window.minWidth
-	 * @see Window.minHeight
-	 * @see Window.setMinSize
-	 * @see Window.setMaxSize
-	 * @see Window.setSize
-	 */
-	 property maxWidth {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * [Windows*]ウィンドウの最大の縦幅
-	 *
-	 * @description ウィンドウの最大の縦幅を表します。
-	 * 値を設定することもできます。
-	 * 0を指定すると制限は無くなります。
-	 * @see Window.height
-	 * @see Window.maxWidth
-	 * @see Window.minWidth
-	 * @see Window.minHeight
-	 * @see Window.setMinSize
-	 * @see Window.setMaxSize
-	 * @see Window.setSize
-	 */
-	 property maxHeight {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * [Windows*]ウィンドウの左端位置
-	 *
-	 * @description ウィンドウの左端位置を表します。
-	 * 値を設定することもできます。
-	 * 左端位置はスクリーンの原点 ( 左上隅 ) からの x 座標です。
-	 * @see Window.top
-	 * @see Window.setPos
-	 */
-	 property left {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * [Windows*]ウィンドウの上端位置
-	 *
-	 * @description ウィンドウの上端位置を表します。
-	 * 値を設定することもできます。
-	 * 上端位置はスクリーンの原点 ( 左上隅 ) からの y 座標です。
-	 * @see Window.left
-	 * @see Window.setPos
-	 */
-	 property top {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * [Windows*]フォーカスを取得可能か
-	 *
-	 * @description フォーカスを取得可能かどうかを表します。
-	 * 値を設定することもできます。
-	 * 偽に設定すると、フォーカスを取得できなくなる、つまり、ウィンドウがアクティブにならなくなります。
-	 * 副作用として、タイトルバーをつかんでのウィンドウの移動やウィンドウのリサイズ、「×」ボタンを押してウィンドウを閉じる操作もできなくなります。
-	 * キーボード入力を得たいときは Window.trapKey プロパティを使用することができます。
-	 * 通常、これは、ポップアップメニューのように、もっとも手前に表示されるが、それ自身はフォーカスを得ないウィンドウの実装に用います。
-	 * 現バージョンでは、ウィンドウがフルスクリーン化するとき、あるいはフルスクリーンから復帰するときに、このプロパティの設定内容が失われる可能性があります。
-	 * Androidでは常にtrueです。
-	 * @see Window.trapKey
-	 * @see Window.onPopupHide
-	 */
-	 property focusable {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * [Windows*]キー入力をトラップするか
-	 *
-	 * @description キー入力をトラップするかどうかを表します。
-	 * 値を設定することもできます。
-	 * 真に設定すると、他のウィンドウで発生したキー入力イベントを横取りし、このウィンドウ上で発生させることができます。
-	 * 複数のウィンドウのこのプロパティが真に設定されている場合は、もっとも最後に作成したウィンドウに対してキー入力イベントが発生します。
-	 * Androidでは常にfalseです。
-	 * @see Window.focusable
-	 */
-	 property trapKey {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * クライアント領域の横幅
-	 *
-	 * @description クライアント領域の横幅を表します。
-	 * 値を設定することもできます。
-	 * AndroidではMainViewの幅で読み込みのみできます。
-	 * @see Window.innerHeight
-	 * @see Window.setInnerSize
-	 */
-	 property innerWidth {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * クライアント領域の縦幅
-	 *
-	 * @description クライアント領域の縦幅を表します。
-	 * 値を設定することもできます。
-	 * AndroidではMainViewの高さで読み込みのみできます。
-	 * @see Window.innerWidth
-	 * @see Window.setInnerSize
-	 */
-	 property innerHeight {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * [Windows*]レイヤ拡大倍率(分子)
-	 *
-	 * @description レイヤの拡大倍率の分子を表します。
-	 * 一応、値を設定することもできますが、値を設定する場合は Window.setZoom メソッドを使用してください。
-	 * 分母は Window.zoomDenom プロパティが表します。
-	 * 詳しくは Window.setZoom メソッドを参照してください。
-	 * @see Window.setZoom
-	 * @see Window.zoomDenom
-	 */
-	 property zoomNumer {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * [Windows*]レイヤ拡大倍率(分母)
-	 *
-	 * @description レイヤの拡大倍率の分母を表します。
-	 * 一応、値を設定することもできますが、値を設定する場合は Window.setZoom メソッドを使用してください。
-	 * 分子は Window.zoomNumer プロパティが表します。
-	 * 詳しくは Window.setZoom メソッドを参照してください。
-	 * @see Window.setZoom
-	 * @see Window.zoomNumer
-	 */
-	 property zoomDenom {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * [Windows+]描画デバイス
-	 *
-	 * @description 描画デバイスオブジェクトを表します。
-	 * 描画デバイスは非推奨になりました。
-	 * Canvas を使用した描画を推奨します。
-	 * 値を設定することもできます。
-	 * 値を設定すると、以前このウィンドウに指定されていた描画デバイスは自動的に無効になります (invalidateされます)。
-	 * デフォルトでは、Window.BasicDrawDevice というクラスのインスタンスが指定されています。
-	 * Window.BasicDrawDevice の詳細については、吉里吉里ソースの core/visual/win32/BasicDrawDevice.cpp 内の説明も参照してください。
-	 * 独自の描画デバイス (プラグインで提供される物) を指定する場合は、そのプラグインのドキュメントに従ってください。
-	 */
-	 property drawDevice {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * [Windows*]ウィンドウ外見
-	 *
-	 * @description ウィンドウの外見を表します。値を設定することもできます。
-	 * Androidでは常にbsNoneです。
-	 * 以下の値を設定することができます。
-	 *
-	 * + bsDialog      : サイズ変更不可の、ダイアログボックスと同様の外見を持ちます。
-	 * + bsSingle      : サイズ変更不可のウィンドウです。
-	 * + bsNone        : ボーダーのないウィンドウです。
-	 * + bsSizeable    : サイズ変更可の一般的なウィンドウです。デフォルトです。
-	 * + bsToolWindow  : サイズ変更不可のツールウィンドウ(キャプションの小さいウィンドウ) です。
-	 * + bsSizeToolWin : bsToolWindow と似ていますが、サイズ変更が可能です。
-	 *
-	 */
-	 property borderStyle {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * [Windows*]常に最上位に表示するかどうか
-	 *
-	 * @description ウィンドウを常に最上位 ( 一番手前 ) に表示するかどうかを表します。
-	 * 値を設定することもできます。
-	 * 真ならばウィンドウは常に最上位に表示されます。
-	 * 現バージョンでは、ウィンドウがフルスクリーン化するとき、あるいはフルスクリーンから復帰するときに、このプロパティの設定内容が失われる可能性があります。
-	 * Androidでは常にtrueです。
-	 */
-	 property stayOnTop {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * [Windows*]デフォルトのIMEモード
-	 *
-	 * @description デフォルトのIMEモードを表します。
-	 * ここで指定したモードは、どのレイヤにもフォーカスが無い状態に設定されるモードです。
-	 * 未指定の場合は imDisableで、これはどのレイヤにもフォーカスが無い状態では IME は無効状態であるということになります。
-	 * 指定可能な値については Layer.imeMode を参照してください。
-	 */
-	 property imeMode {
-		 getter() { return value; }
-	}
-	/**
-	 * [Windows*]マウスカーソル表示状態
-	 *
-	 * @description マウスカーソルの表示状態を表します。
-	 * 値を設定することもできます。
-	 * mcsVisibleを指定すると、マウスカーソルは表示状態になります。
-	 * これはデフォルトの状態です。
-	 * mcsTempHiddenを指定すると、マウスカーソルは非表示状態になりますが、少しでもマウスを動かすとmcsVisibleに変わり、表示状態になります。
-	 * Window.hideMouseCursorメソッドを呼び出すとこの状態になります。
-	 * mcsHiddenを指定すると、マウスカーソルは非表示状態になります。
-	 * マウスを動かしても表示状態にはなりません。
-	 * Androidでは常にmcsHiddenです。
-	 */
-	 property mouseCursorState {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * [Windows*]マウスキーを使用するかどうか
-	 *
-	 * @description マウスキーを使用するかどうかを表します。
-	 * 値を設定することもできます。
-	 * 真ならばマウスキーを使用することができます。
-	 * マウスキーが有効になると、カーソルキーを使ってマウスカーソルを移動させることができますが、キー入力系のイベントはいっさい発生しなくなります。
-	 * Androidでは常にfalseです。
-	 */
-	 property useMouseKey {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * [Windows*]フルスクリーンかどうか
-	 *
-	 * @description フルスクリーンかどうかを表します。値を設定することもできます。
-	 * 真を指定すると現在のウィンドウのクライアント領域がフルスクリーンになります。
-	 * フルスクリーン時の画面解像度はクライアント領域のサイズになります。
-	 * 偽を指定するとウィンドウ表示になります。
-	 * Androidでは常にフルスクリーン固定です。
-	 */
-	 property fullScreen {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * メインウィンドウ
-	 *
-	 * @description メインウィンドウ ( 最初に作成されたウィンドウ ) を表します。
-	 */
-	 property mainWindow {
-		 getter() { return value; }
-	}
-	/**
-	 * [Windows+]フォーカスを持っているレイヤオブジェクト
-	 *
-	 * @description 現在 フォーカス を持っているレイヤオブジェクトを表します。
-	 * 値を設定することもできます。
-	 * null の場合はどのレイヤもフォーカスを持っていません。
-	 * レイヤオブジェクトを設定するとそのレイヤにフォーカスが移ります。
-	 * 非推奨になりました。
-	 * Canvas 描画時には使用できません。
-	 */
-	 property focusedLayer {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * [Windows+]プライマリレイヤオブジェクト
-	 *
-	 * @description プライマリレイヤオブジェクトを表します。
-	 * 非推奨になりました。
-	 * Canvas 描画時には使用できません。
-	 */
-	 property primaryLayer {
-		 getter() { return value; }
-	}
-	/**
-	 * [Windows+]ウィンドウハンドル
-	 *
-	 * @description ウィンドウハンドルを表します。
-	 * ここで得られるのは整数ですが、プラグインなどでこの数値を使う場合は HWND 型にキャストして使ってください。
-	 * @see Window.registerMessageReceiver
-	 */
-	 property HWND {
-		 getter() { return value; }
-	}
-	/**
-	 * マルチタッチ拡大閾値
-	 *
-	 * @description マルチタッチで拡大を開始する閾値です。2つのタッチ位置の距離がこの値以上変化した時に拡大イベントが発生します。
-	 * 一度閾値を超えるといったん指が離されるまで拡大イベントは有効になります。
-	 * @see Window.onTouchScaling
-	 */
-	 property touchScaleThreshold {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * マルチタッチ回転閾値
-	 *
-	 * @description マルチタッチで回転を開始する閾値です。各タッチ位置の移動距離がこの値以上変化した時に回転イベントが発生します。
-	 * 一度閾値を超えるといったん指が離されるまで回転イベントは有効になります。
-	 * @see Window.onTouchRotate
-	 */
-	 property touchRotateThreshold {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * タッチ数
-	 *
-	 * @description タッチパネルにタッチされている数です。
-	 * @see Window.getTouchPoint
-	 */
-	 property touchPointCount {
-		 getter() { return value; }
-	}
-	/**
-	 * タッチイベント有効/無効
-	 *
-	 * @description タッチイベントが有効かどうかを表します。
-	 * 値を設定することもできます。
-	 * 真を指定するとWindow.onTouchDown等のイベントが有効になり、タッチ操作ではWindow.onMouseDownなどが発生しなくなります。
-	 * タッチデバイスがありマルチタッチが有効な環境では、デフォルトが true になります。
-	 * Androidでは常にタッチ有効です。
-	 */
-	 property enableTouch {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * 垂直同期待ち
-	 *
-	 * @description トランジション(画面切り替え)などでディスプレイの垂直同期を待ってから描画するかどうかの設定です。
-	 * 設定を変えると、画面のちらつきを抑えられる場合がありますが、描画のパフォーマンスが低下する場合もあります。
-	 * Canvas描画の場合指定できない環境では、設定しても無意味(常時vsync待ち)です。
-	 */
-	 property waitVSync {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * [Windows*]ヒント表示待ち時間
-	 *
-	 * @description ヒントの表示待ち時間をミリ秒単位で表します。
-	 * 値を設定することもできます。
-	 * デフォルトは500ミリ秒です。
-	 * 0を設定すると即座に Window.onHintChanged が呼び出されます(常時表示状態)。
-	 * -1を設定するとヒントが表示されることはありません。
-	 * @see Window.onHintChanged
-	 */
-	 property hintDelay {
-		 getter() { return value; }
-		 setter( value ) {}
-	}
-	/**
-	 * ディスプレイの向き
-	 *
-	 * @description ディスプレイの向きを表します。
-	 *
-	 * + oriUnknown (取得失敗/不明)
-	 * + oriPortrait(縦向き)
-	 * + oriLandscape(横向き)のいずれかの値です。
-	 *
-	 * @see Window.onDisplayRotate
-	 * @see Window.displayRotate
-	 */
-	 property displayOrientation {
-		 getter() { return value; }
-	}
-	/**
-	 * ディスプレイの回転角度
-	 *
-	 * @description ディスプレイの回転角度を表します。
-	 * 0、90、180、270、-1 のいずれかで、取得できなかった時は-1です。
-	 * @see Window.onDisplayRotate
-	 * @see Window.displayOrientation
-	 */
-	 property displayRotate {
-		 getter() { return value; }
-	}
-
-	/**
-	 * 指定サイクルで描画を行う
-	 *
-	 * @description 60や30などを指定します。
-	 * 0を指定するとonDrawは呼び出されません。
-	 * Canvas 描画時に有効です。
-	 */
-	property drawCycle;
-
-	/**
-	 * 描画用の Canvas クラスのインスタンスを得る
-	 * @description onDraw 内で使用します。
-	 */
-	property canvas;
-
-	/**
-	 * 画面密度(dpi)
-	 * @description dpi値を返します。
-	 * 読み取りのみ可能です。
-	 * Windowsの場合はGetDeviceCapsで得られる値です。
-	 * Androidはコンフィグの値で、画面サイズから何種類かの値が返されます。
-	 * 画面横からのスワイプインなどでの入力を除外する際、Androidでは(int)(20 * displayDensity + 0.5)を画面隅の範囲として認識しているため、同じようにtouchDownがこの範囲にある時はスワイプインとみなす必要があります。
-	 * Androidではフルスクリーン時右から以外のスワイプインは機能が割り当てられているため、スワイプインと判定された時は無視することを推奨します。
-	 * メニューを表示したい時は、右からのスワイプインをメニュー表示とするのがAndroidでは一般的です。
-	 */
-	property displayDensity;
-};
+	 * + startX     : The x-coordinate value (client coordinate system) of the start coordinate of this touch
+	 * + startY   : The y-coordinate value (client coordinate system) of the start coordinate of this touch
+	 * + x    : The x-coordinate value (client coordinate system) of the current coordinate of this touch
+	 * + y    : The y-coordinate value (client coordinate system) of the current coordinate

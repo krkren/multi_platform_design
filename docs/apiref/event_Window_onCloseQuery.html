@@ -1,35 +1,35 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>onCloseQuery - [Windows*]ウィンドウを閉じる確認</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>onCloseQuery - [Windows*] Confirmation for closing the window</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Window.onCloseQuery</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>[Windows*]ウィンドウを閉じる確認</p>
+<dt>Function/Meaning</dt>
+<dd><p>[Windows*] Confirmation for closing the window</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Window.html">Windowクラス</a>のイベント</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd><a class="jump" href="class_Window.html">Window class</a> event</dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">onCloseQuery(<span class="arg">canclose</span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="onCloseQueryの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="onCloseQuery arguments">
 <tr><td valign="top"><span class="argname">canclose</span></td>
-<td><p>ウィンドウを閉じることができるかどうかが渡されます。<br />
-下位クラスから上位クラスのイベントハンドラが呼ばれる課程で、下位クラスが決定した「ウィンドウを閉じることができるか」が渡されます。</p>
+<td><p>Passes whether the window can be closed.<br />
+In the process of calling event handlers from a subclass to a superclass, the decision made by the subclass regarding "whether the window can be closed" is passed.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>ウィンドウを閉じることができるかどうかを確認するためのイベントです。<br />
-ウィンドウを閉じることができない場合、上位クラスの同メソッドに引数として false を渡してください。<br />
-Androidの場合、タイトル画面での戻るキーで自分で終了する(onKeyXXXを自分でハンドリング)必要があります。<br />
-システムに停止させられる時は、止めようがなく、いきなり終了させられることもあります。<br />
-タスクリストから終了させられるときも問答無用です。<br />
-AndroidではonDeactivateが来た時にオートセーブするしか突然終了に対する対策がありません。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>This event is for confirming whether the window can be closed.<br />
+If the window cannot be closed, pass false as an argument to the same method of the superclass.<br />
+On Android, you must handle termination yourself (by handling onKeyXXX) when the back key is pressed on the title screen.<br />
+When the system forces a stop, it cannot be prevented and the application may be terminated abruptly.<br />
+Termination from the task list is also immediate and cannot be stopped.<br />
+On Android, the only countermeasure against sudden termination is to perform an auto-save when onDeactivate is received.</p>
 </dd>
 </dl>
 </div>

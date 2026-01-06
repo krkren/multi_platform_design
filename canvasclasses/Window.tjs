@@ -1,145 +1,145 @@
 /**
- * @description ウインドウのサイズ制御はWindowsでのみ可能。Androidでは画面サイズに依存する。
- * Offscreenクラスをレンダリングしたいサイズで生成し、そこに通常の描画を行う。
- * ウインドウ(画面)サイズに応じた拡大等はスクリプトで制御する。
- * UIや文字などを等倍で綺麗に表示することもスクリプトで可能となる。
+ * @description Window size control is only possible on Windows. On Android, it depends on the screen size.
+ * Generate an Offscreen class with the size you want to render, and draw normally on it.
+ * Scaling according to the window (screen) size can be controlled by script.
+ * It is also possible to display UI, text, etc. in equal size and cleanly with a script.
  */
 class Window {
 
 	/**
-	 * コンストラクタ
+	 * Constructor
 	 */
 	function Window();
 
 	/**
-	 * クライアントサイズの設定[Windowsのみ]
+	 * Setting the client size [Windows only]
 	 *
-	 * @description Androidでは画面サイズ = クライアントサイズとなる。
-	 * Androidでこのメソッドを呼んでも何も起こらない。
-	 * @param width  描画領域の横幅
-	 * @param height 描画領域の縦幅
+	 * @description On Android, screen size = client size.
+	 * Nothing happens even if you call this method on Android.
+	 * @param width  Width of the drawing area
+	 * @param height Height of the drawing area
 	 */
 	function setInnerSize(width, height)
 
 	/**
-	 * フルスクリーン指定
-	 * Androidではフルスクリーン固定
+	 * Full screen specification
+	 * Full screen fixed on Android
 	 */
 	property fullScreen;
 
 	// ---------------------------------------------------------------
-	// イベント処理
+	// Event processing
 	// ---------------------------------------------------------------
 
 	/**
-	 * 画面更新コールバックイベント
+	 * Screen update callback event
 	 *
-	 * @description 画面更新処理時に呼び出される
-	 * この呼び出しの間に独自の描画処理を行う
-	 * このメソッドを直接呼び出さないこと。
+	 * @description Called when screen update processing occurs
+	 * Perform your own drawing processing during this call
+	 * Do not call this method directly.
 	 */
 	event onDraw();
 
 	/**
-	 * 明示的に描画を呼び出す。
+	 * Explicitly call drawing.
 	 *
-	 * @description このメソッドはonDrawを間接的に呼び出す。
-	 * 自分で描画したい場合は、このメソッドを呼び出し、onDraw内で描画する。
+	 * @description This method indirectly calls onDraw.
+	 * If you want to draw yourself, call this method and draw in onDraw.
 	 */
 	function startDrawing();
 
 	/**
-	 * 指定サイクルで描画を行う。
+	 * Draws at the specified cycle.
 	 *
-	 * @description 60や30などを指定する。
-	 * 0を指定するとonDrawは呼び出されない。
+	 * @description Specify 60 or 30, etc.
+	 * If 0 is specified, onDraw is not called.
 	 */
 	property drawCycle;
 
 	/**
-	 * 垂直同期を描画時に待つ。
+	 * Wait for vertical sync when drawing.
 	 *
-	 * @description ティアリング等発生する場合に設定する。
-	 * 指定できない環境では、設定しても無意味(常時vsync待ちがある)。
+	 * @description Set this when tearing occurs.
+	 * Even if set in an environment where it cannot be specified, it is meaningless (always waiting for vsync).
 	 */
 	property waitVSync;
 
 	/**
-	 * 何らかのポインティングデバイスで押下された
+	 * Pressed with some pointing device
 	 *
-	 * @param type タッチもしくはマウスボタンの種類
-	 * @param x X位置
-	 * @param y Y位置
-	 * @param cx 接触幅(ピクセル数)、マウスの時は1
-	 * @param cy 接触高さ(ピクセル数)、マウスの時は1
-	 * @param shift 修飾キー状態、タッチの時は0
-	 * @param id タッチID、マウスの時は常に0
+	 * @param type Type of touch or mouse button
+	 * @param x X position
+	 * @param y Y position
+	 * @param cx Contact width (number of pixels), 1 for mouse
+	 * @param cy Contact height (number of pixels), 1 for mouse
+	 * @param shift Modifier key state, 0 for touch
+	 * @param id Touch ID, always 0 for mouse
 	 */
 	event onPointerDown( type, x, y, cx, cy, shift, id );
 
 	/**
-	 * 何らかのポインティングデバイスが移動された
+	 * Some pointing device has been moved
 	 *
-	 * @param type タッチもしくはマウス。マウスボタンの種類ではなく、マウスとして通知。
-	 * @param x X位置
-	 * @param y Y位置
-	 * @param cx 接触幅(ピクセル数)、マウスの時は1
-	 * @param cy 接触高さ(ピクセル数)、マウスの時は1
-	 * @param shift 修飾キー状態(マウス押下状態を含む)、タッチの時は0
-	 * @param id タッチID、マウスの時は常に0
+	 * @param type Touch or mouse. Not the type of mouse button, but notified as a mouse.
+	 * @param x X position
+	 * @param y Y position
+	 * @param cx Contact width (number of pixels), 1 for mouse
+	 * @param cy Contact height (number of pixels), 1 for mouse
+	 * @param shift Modifier key state (including mouse pressed state), 0 for touch
+	 * @param id Touch ID, always 0 for mouse
 	 */
 	event onPointerMove( type, x, y, cx, cy, shift, id );
 
 	/**
-	 * 何らかのポインティングデバイスが離された
+	 * Some pointing device has been released
 	 *
-	 * @param type タッチもしくはマウスボタンの種類
-	 * @param x X位置
-	 * @param y Y位置
-	 * @param cx 接触幅(ピクセル数)、マウスの時は1
-	 * @param cy 接触高さ(ピクセル数)、マウスの時は1
-	 * @param shift 修飾キー状態、タッチの時は0
-	 * @param id タッチID、マウスの時は常に0
+	 * @param type Type of touch or mouse button
+	 * @param x X position
+	 * @param y Y position
+	 * @param cx Contact width (number of pixels), 1 for mouse
+	 * @param cy Contact height (number of pixels), 1 for mouse
+	 * @param shift Modifier key state, 0 for touch
+	 * @param id Touch ID, always 0 for mouse
 	 */
 	event onPointerUp( type, x, y, cx, cy, shift, id );
 
 	/**
-	 * キー操作系要検討
+	 * Key operation system under consideration
 	 */
 	fueventnction onKeyXXX();
 
 	/**
-	 * ウインドウがアクティブになった
+	 * The window has become active
 	 */
 	event onActivate();
 
 	/**
-	 * ウインドウが非アクティブになった
+	 * The window has become inactive
 	 */
 	event onDeactivate();
 
 	/**
-	 * 終了確認用、従来と同じ[Windowsのみ]
+	 * For termination confirmation, same as before [Windows only]
 	 *
-	 * @description Androidの場合、タイトル画面での戻るキーで自分で終了する(onKeyXXXを自分でハンドリング)必要がある。
-	 * システムに停止させられる時は、止めようがなく、いきなり終了させられることもある。
-	 * タスクリストから終了させられるときも問答無用である。
-	 * AndroidではonDeactivateが来た時にオートセーブするしか突然終了に対する対策がない。
+	 * @description In the case of Android, you need to terminate yourself with the back key on the title screen (handle onKeyXXX yourself).
+	 * When the system stops it, there is no way to stop it, and it may be terminated suddenly.
+	 * It is also unconditional when terminated from the task list.
+	 * On Android, the only countermeasure against sudden termination is to auto-save when onDeactivate comes.
 	 */
 	event onCloseQuery(canclose);
 
 	/**
-	 * 描画用のCanvasクラスのインスタンスを得る
-	 * onDraw 内で
+	 * Get the instance of the Canvas class for drawing
+	 * In onDraw
 	 */
 	property canvas;
 
 	/**
-	 * 周囲の辺からタッチされた時、その入力を無視するかどうか、Androidではデフォルトtrue。(未実装)
+	 * Whether to ignore the input when touched from the surrounding edges, default true on Android. (Not implemented)
 	 *
-	 * @description Androidで左からの場合、VK_MENU の KeyDown/Upが飛ぶので、それを契機にメニューを出す? じわじわ出したい？
-	 * onPointerDownのshiftにMenuDraggingとか追加して、それで判定して、左からメニュー出す？
-	 * Android では以下のように画面解像度(密度)に合わせたサイズで定義されている
+	 * @description In the case of Android, if it is from the left, KeyDown/Up of VK_MENU will fly, so use that as an opportunity to display the menu? Do you want to display it gradually?
+	 * Add MenuDragging to shift of onPointerDown, judge with that, and display the menu from the left?
+	 * On Android, it is defined with a size that matches the screen resolution (density) as follows
 	 * int EDGE_SIZE = 20;
 	 * mEdgeSize = (int) (EDGE_SIZE * density + 0.5f);
 	 * https://android.googlesource.com/platform/frameworks/support/+/407e01608ccafe5dc24f82608583f71c34312f9c/v4/java/android/support/v4/widget/DrawerLayout.java
@@ -147,4 +147,3 @@ class Window {
 	 */
 	property ignoreEdgeDrag;
 }
-

@@ -15,6 +15,12 @@
 非力な環境でも描画速度が出るようにGPU描画がメインとなっています。  <br />
 現在のところ旧バージョンとは互換性が一部ありません。</p>
 
+<h1>About the Multi-Platform Version</h1>
+
+<p>This is a version that runs on Android in addition to Windows.  <br />
+GPU rendering is the main focus to achieve drawing speed even in weak environments.  <br />
+Currently, there is some incompatibility with the old version.</p>
+
 <h1>環境依存機能</h1>
 
 <p>マルチプラットフォーム版は全環境で全てのメソッドやプロパティが使えるわけではありません。  <br />
@@ -23,6 +29,15 @@
 そのように書かれているメソッド等はその環境でのみ使用できます。  <br />
 呼び出しても何も起こらないもの、例外が出るものなどあります。  <br />
 詳細については、以下のように末尾記号で判別してください。  </p>
+
+<h1>Environment-Dependent Functions</h1>
+
+<p>Not all methods and properties can be used in all environments in the multi-platform version.  <br />
+Some functions are environment-specific.  <br />
+For environment-specific methods, etc., [Windows] or [Android] is written at the beginning of the description outline.  <br />
+Methods etc. written in that way can only be used in that environment.  <br />
+Some do nothing when called, and some throw exceptions.  <br />
+For details, please use the following suffix symbols to determine.  </p>
 
 <ul>
 <li>[Windows+] Windowsでのみ使用可能、その他環境では例外や動作不定などがあるので使用禁止。</li>
@@ -33,12 +48,28 @@
 <li>[Android] Androidで使用可能、その他環境では動作不定。</li>
 </ul>
 
+<ul>
+<li>[Windows+] Usable only on Windows, prohibited in other environments because exceptions or undefined behavior may occur.</li>
+<li>[Windows*] Usable on Windows, does nothing in other environments.</li>
+<li>[Windows] Usable on Windows, behavior is undefined in other environments.</li>
+<li>[Android+] Usable only on Android, prohibited in other environments because exceptions or undefined behavior may occur.</li>
+<li>[Android*] Usable on Android, does nothing in other environments.</li>
+<li>[Android] Usable on Android, behavior is undefined in other environments.</li>
+</ul>
+
 <p>System.isWindowsやSystem.isAndroidプロパティを用いることで動的にどちらの環境か判定することができます。<br />
 静的に判定する場合は、プリプロセッサを用います。<br />
 Windowsでは"windows"が1に、Androidでは"android"が1に設定されています。  <br />
 静的に判定する場合、バイトコードの出力結果が環境に依存することに注意してください。  <br />
 コンパイルした環境用のバイトコードが出力されます。  <br />
 これを回避するためにはコンパイル関数呼び出しの前にプリプロセッサの値を事前に変更し、各環境に合ったものにしてバイトコード化する必要があります。</p>
+
+<p>You can dynamically determine which environment you are in by using the System.isWindows and System.isAndroid properties.<br />
+To determine statically, use the preprocessor.<br />
+In Windows, "windows" is set to 1, and in Android, "android" is set to 1.  <br />
+When determining statically, note that the output result of the bytecode depends on the environment.  <br />
+Bytecode for the compiled environment will be output.  <br />
+To avoid this, it is necessary to change the value of the preprocessor in advance before calling the compile function, make it suitable for each environment, and convert it into bytecode.</p>
 
 </body>
 </html>

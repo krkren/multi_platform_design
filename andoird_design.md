@@ -1,136 +1,136 @@
-# Android作業項目や制限等
-## NEON対応
-グラフィック関係のSSE2部分をNEON化する。  
-ソフトウェア描画が必須ではないので後での対応で問題なし。  
-[libsimdpp](https://github.com/p12tic/libsimdpp) などを利用して抽象化し、CPU依存を減らす方法も検討。  
-使用可能命令などの理解がないと速度があまり出ないかもしれないが、PCで開発してそのまま持って行けるメリットはある。  
-ある程度速くなれば良いと言うことであれば、実用的かもしれない。  
-   
-自動ベクトル化が意外と強力で、適用される場合は自前で書いた場合に近い速度が出る。  
-自動ベクトル化されやすい書き方にすることで、汎用的に高速化されるので、そちらを目指す方が良いかもしれない。
+# Android tasks and restrictions, etc.
+## NEON support
+Convert the SSE2 part of the graphics-related code to NEON.
+Software rendering is not essential, so it's okay to address this later.
+Consider using [libsimdpp](https://github.com/p12tic/libsimdpp) or similar to abstract and reduce CPU dependency.
+If you don't understand the available instructions, you may not get much speed, but there is the advantage of being able to develop on a PC and bring it over as is.
+If it's okay to be reasonably fast, it might be practical.
 
-## サウンド対応 OpenSL
-吉里吉里と同程度の機能を有するのならOpenSLでの実装が必要になる。
+Automatic vectorization is surprisingly powerful, and when applied, it produces speeds close to those of hand-written code.
+It may be better to aim for a generally faster approach by writing code that is easily automatically vectorized.
 
-## 動画対応
-Javaを使ってOpenGLのテクスチャに描く。H.264ならこの方法。  
-C++ならOpenMAXになるがMPEG2になる模様。  
-独自エンジンとするとTheora。
+## Sound support OpenSL
+If you want to have the same level of functionality as KiriKiri, you will need to implement it with OpenSL.
+
+## Video support
+Use Java to draw to an OpenGL texture. This is the method for H.264.
+If you use C++, it will be OpenMAX, but it seems to be MPEG2.
+If you have your own engine, use Theora.
 
 ## Window (Activity)
-複数ウィンドウは対応できないので、単一ウィンドウで仮想的なWindowクラスを作る。
+Since multiple windows are not supported, create a virtual Window class in a single window.
 
-## 起動優先順位
-startup.tjsをどこから読むか。  
-assets内に入れたconfig.cf (以前はexe名+cfであったが、名前を変える必要はないので固定化) で指定。  
-指定がない場合、assets内のdata.xp3から読み込む。  
-Intentによって指定された場合は、そのディレクトリを優先的に読むが、リリースバージョンではIntent指定できないようにする。
+## Startup priority
+Where to read startup.tjs from.
+Specify in config.cf (formerly exe name + cf, but no need to change the name, so fixed) in assets.
+If not specified, read from data.xp3 in assets.
+If specified by Intent, that directory is read with priority, but Intent specification should not be possible in the release version.
 
-## assets 内サブディレクトリ禁止
-NDK からは assets 内は直下のファイルしか読めない。  
-Java からだとサブディレクトリにもアクセスできるが、Java 経由で読むのはオーバーヘッドが懸念されるため行わない。  
-assets 内が圧縮される問題は独自リリーサーで回避する。  
-それでも読み込みが遅い場合は、SDやキャッシュにコピーしてから読み込むなどの検討が必要。  
-apk にすべて入れるのではなく、分割ダウンロードするのならダウンロード機能の追加が必要。  
-Google Play 配信を考慮するなら拡張ファイル対応が必要。
+## Prohibit subdirectories in assets
+NDK can only read files directly under assets.
+Java can access subdirectories, but reading via Java is not done because of concerns about overhead.
+The problem of compressing assets is avoided with a custom releaser.
+If reading is still slow, it may be necessary to consider copying to SD or cache before reading.
+If you want to split the download instead of putting everything in the apk, you need to add a download function.
+If you are considering Google Play distribution, you need to support expansion files.
 
-## リソース読み込み
-Android アプリの各種リソースは Java で読むことを想定されている。  
-アイコンと文字列、ライセンス情報辺りはリソースに入れるのが良い。  
-文字列などは、Java からリフレクションを利用してアクセスするか、起動時に Java で C 側へすべて登録してしまう必要がある。  
-アイコンは C 側からは触らないだろうから、何も対応しない。
+## Resource loading
+Various resources of Android apps are supposed to be read by Java.
+It is better to put icons, strings, and license information in resources.
+For strings, you need to access them from Java using reflection, or register them all to the C side with Java at startup.
+Since the icon will probably not be touched from the C side, no action is taken.
 
-## データ保存場所
-ファイル類は Activity::getFilesDir() に保存する。  
-一時データは Activity::getCacheDir() に保存する。  
-外部ストレージのアプリデータフォルダは Environment::getExternalFilesDir() で取得した場所。  
-Environment::getExternalStorageDirectory() ではルートが取れる。  
-もしくは、getprop "EXTERNAL_STORAGE_MOUNT" でSDがマウントされた場所を取得する。
-キーと値のペアであれば、　SharedPreference で保存るのが望ましい。オプション設定はここか？  
-レコード状のデータの場合は、ContentResolver を使い SQLite に保存するのが望ましい、またアプリ間共有も可能。  
-ユーザーオプションは SharedPreference へ、セーブデータは外部ストレージがデフォルトを予定。
+## Data storage location
+Files are stored in Activity::getFilesDir().
+Temporary data is stored in Activity::getCacheDir().
+The app data folder on external storage is the location obtained by Environment::getExternalFilesDir().
+Environment::getExternalStorageDirectory() can get the root.
+Alternatively, getprop "EXTERNAL_STORAGE_MOUNT" to get the location where the SD is mounted.
+If you have key-value pairs, it is desirable to save them with SharedPreference. Is this where the option settings are?
+For record-like data, it is desirable to save it in SQLite using ContentResolver, and it can also be shared between apps.
+User options will be in SharedPreference, and save data will be in external storage by default.
 
-## プラグイン
-V2Link、V2Unlink のみをサポート(関数やクラスの追加等)。  
-サウンドのデコーダー等特殊なインターフェイスを介してやり取りするものは未サポート。  
-Windows版でリソースにしている設定データなどはどうするか検討必要。  
-IStream は Windows 固有のものであるが、ないと困るのでインターフェイスを定義して使用可能にする。
+## Plugins
+Only V2Link and V2Unlink are supported (adding functions and classes, etc.).
+Things that interact through special interfaces such as sound decoders are not supported.
+It is necessary to consider what to do with the setting data that is in the resources in the Windows version.
+IStream is specific to Windows, but it is necessary to define an interface and make it usable because it is needed.
 
-# 要求
-* パーミッション確認ダイアログ(6.0以降からJavaで実装)  
-以前はインストール時にパーミッション確認があったが、6.0以降からアプリが任意タイミングで出来るようになった。そのため自前で確認要求する必要がある。  
-ゲームだと、ストレージ、ネットワーク、バイブレーション辺りか。
-* onPause でのセーブ  
-非アクティブ化時に onPause が来るが、その後バックグラウンドに回った後に何の通知もなく殺されるケースがあるので、非アクティブ化時の onPause でオートセーブがあったほうがよい。
-非アクティブ化は、電話がかかってきた時など注意したら防げるものでもない。
-* ファイル名大文字小文字の扱い  
-Androidのファイルシステムはケースセンシティブなのでどうするか検討。開発時のみだと思うので、見付からない場合毎回検索してもいいかも。
-ケースインセンティブを予定。  
-大文字小文字違いで見付からない場合は、上位パスからその都度検索する(つまりすべて小文字にしておくと検索が速い)。  
-ただし、xp3にしたら関係ないのでそれほど問題ではない。
-* グローバル変数のクリア問題  
-Androidでアプリ再起動された時グローバル変数がクリアされない(再利用される)問題がある。NativeActivityを使う場合はsoを分離して、起動時に本体を毎回読み込むことで毎回クリアを確実にする。普通のActivity使うならJavaから毎回soを読み込むので気にすることは少ない。
-* プッシュ通知(必要なら)  
-プッシュ通知は別途サーバーを準備する必要がある。配信には必ずしも必要ではないが、通知先のIDを登録するサーバーが必要。通知先IDはメールアドレスのようなもの。  
-Googleのプッシュ通知がアダルトOKかは不明。Amazonのサービス等必要かも。
-* DRM  
-DRMはストアごとに異なるので、それぞれ準備する必要がある。Javaで実装する。  
-Amazonに登録する場合は不要でストアが勝手にやってくれる。
-* 文字入力  
-ソフトウェアキーボードな上に直接入力は難しいのでダイアログでの入力になる
-* RSS等による更新取得  
-プッシュ通知が出来ない場合は、何らかのタイミングで定期的にRSSなどを読んで更新情報取得する。1日1回ロック解除時か、タイマーか。タイマーよりも何らかのイベントをトリガーとした方が確実。
-* タッチ、回転操作  
-Windows版もZから実装済みなので、同等のものをAndroidでも実装する。
+# Requirements
+* Permission confirmation dialog (implemented in Java from 6.0 onwards)
+Previously, there was permission confirmation at the time of installation, but from 6.0 onwards, apps can do it at any time. Therefore, it is necessary to request confirmation yourself.
+For games, it's probably storage, network, and vibration.
+* Save on onPause
+onPause comes when deactivated, but since there are cases where it is killed without any notification after going to the background, it is better to have autosave on onPause when deactivated.
+Deactivation is not something that can be prevented by being careful, such as when a phone call comes in.
+* Handling of file name case
+The Android file system is case-sensitive, so consider what to do. I think it's only during development, so you can search every time if you can't find it.
+Case-insensitive is planned.
+If you can't find it due to case differences, search from the upper path each time (that is, searching is faster if everything is in lowercase).
+However, it doesn't matter much if it's xp3.
+* Global variable clearing problem
+There is a problem that global variables are not cleared (reused) when the app is restarted on Android. When using NativeActivity, separate the so and load the main body every time at startup to ensure clearing every time. If you use a normal Activity, you don't have to worry about it because you load the so every time from Java.
+* Push notifications (if necessary)
+Push notifications require a separate server to be prepared. It is not always necessary for distribution, but a server is needed to register the notification destination ID. The notification destination ID is like an email address.
+It is unclear whether Google's push notifications are OK for adult content. Amazon's services may be necessary.
+* DRM
+DRM is different for each store, so you need to prepare each one. Implemented in Java.
+If you register with Amazon, it is not necessary and the store will do it automatically.
+* Character input
+Since it is a software keyboard and direct input is difficult, input will be in a dialog.
+* Update acquisition by RSS, etc.
+If push notifications are not possible, periodically read RSS etc. at some timing to get update information. Once a day when unlocking, or a timer? It is more reliable to trigger some event than a timer.
+* Touch, rotation operation
+Since the Windows version has already been implemented from Z, implement the same thing on Android.
 
-# 実装しない、検討を要するもの
-* マウス入力、ゲームパッド入力  
-あった方がいいが、スマフォ・タブレット主体ならなくてもいい。将来実装項目。
-* 動画は機能制限  
-セグメントループやピリオドなど困難な可能性あり
-* Shift-JIS 廃止、UTF-8 に一本化  
-吉里吉里3から持ってきたSJISToUnicodeStringなどの変換関数を内部に持っているので、そちらに一本化すればShift-JIS対応は可能。  
-どうしても必要と言うことでなければ、UTF-8 に一本化する方が後々楽になる。  
-* wchar\_tのバイトサイズ問題  
-Linux系ではwchar\_tは4バイトとなるので、2バイト前提となっている箇所では問題が発生しうる。  
-文字列処理系の関数を自前で持ち、2バイト固定で処理すると安心ではあるが、少し手間がある。  
-いくつかの関数は自前実装となっている。  
-文字列処理系もSIMD化による恩恵があるので、その高速化も見越して自前化していくのもあり。  
-Androidの標準ライブラリとしてBionic libcがBSDライセンスで公開されているので、そちらに手を加えてwchar\_tをtjs_char 2バイトとして書き換え使用する手もある。
-char16_t を内部文字コードとして使用し、各種文字列処理メソッドはBionic libcから持ってくることを予定。
-* pathデリミタ  
-Windowsでは\\だが、Linux系は/となるので、その差を吸収するようにうまく作るようにする。  
-/を基本として、\\は内部以外では使わないのが望ましい。
-* bitmapの上限反転を正順化  
-Androidで使われるbitmapは正順。  
-OpenGL/DirectXでは描画時に反転など楽にできるのでどちらでも影響は少ない。  
-変更しても基本的には問題ないはずだが、組み込みDrawDeviceでは問題が出たため、プラグイン等でも影響あると思われる。
-* Intent に読み込み
-起動時や起動中に他アプリからIntentによって各種データの受け渡しをされることを考慮した機能。  
-Windows 版ではクリップボードなどで受け渡しだが、Android だと Intent。  
-初期は起動フォルダ指定のみ対応でもいいが、将来的にはあったほうが良い。
-* コマンドライン引数は読み込まない
-* -printdatapathは無効、ContentResolverやIntentで取得できるようにするのが望ましい。
-* -aboutでのライセンス情報表示など無効、ゲーム中から呼び出して表示する方法が必須。
+# Things not implemented or requiring consideration
+* Mouse input, gamepad input
+It would be better to have it, but it's okay if you don't have it if you mainly use smartphones and tablets. Future implementation item.
+* Video has function restrictions
+Segment loops and periods may be difficult.
+* Abolish Shift-JIS, unify to UTF-8
+Since we have conversion functions such as SJISToUnicodeString brought from KiriKiri 3 internally, Shift-JIS support is possible if we unify to that.
+If it is not absolutely necessary, it will be easier to unify to UTF-8 later.
+* wchar_t byte size problem
+In Linux systems, wchar_t is 4 bytes, so problems may occur in places where 2 bytes are assumed.
+It is safe to have your own string processing functions and process them with a fixed 2 bytes, but it takes a little effort.
+Some functions are implemented by ourselves.
+String processing also has the benefit of SIMD, so it may be a good idea to make it yourself with a view to speeding it up.
+Since Bionic libc is published as a BSD license as a standard Android library, you can add it and rewrite wchar_t as tjs_char 2 bytes.
+char16_t is planned to be used as the internal character code, and various string processing methods will be brought from Bionic libc.
+* path delimiter
+Windows uses \, but Linux systems use /, so make it so that the difference is absorbed well.
+It is desirable to use / as the basis and not use \ except internally.
+* Normalize the upper limit inversion of bitmap to forward order
+Bitmaps used in Android are in forward order.
+OpenGL/DirectX can easily invert during drawing, so it doesn't matter much either way.
+There should be no problem in changing it, but there was a problem with the built-in DrawDevice, so it seems that plugins etc. will also be affected.
+* Read into Intent
+A function that considers the transfer of various data from other apps by Intent at startup or during startup.
+In the Windows version, it is transferred via the clipboard, etc., but in Android it is Intent.
+It's okay to only support startup folder specification at the beginning, but it would be better to have it in the future.
+* Command line arguments are not read
+* -printdatapath is invalid, it is desirable to be able to get it with ContentResolver or Intent.
+* -about license information display etc. is invalid, a method to call and display it from the game is essential.
 
-# 機種依存問題等
-[GLSL機種依存問題](http://dench.flatlib.jp/opengl/glsl)
+# Device-dependent problems, etc.
+[GLSL device-dependent problems](http://dench.flatlib.jp/opengl/glsl)
 
-# ツールなど
-* Android用リリーサー  
-アイコン、タイトル、パッケージ名、アーカイブ、署名のみを差し替えるツール。  
-毎回ビルドせずにリリース可能にする。  
-通常のビルドツールではassets内はすべて圧縮されてしまう(apkファイルはzipファイル)が、data.xp3などを置いたとき圧縮率、無圧縮など指定したいことを考えてリリーサーは必要。  
-署名・パッケージ化ツールは以前C#で作ったものがあるので、それに手を加えればそんなに工数はかからない。
+# Tools etc.
+* Android releaser
+A tool that replaces only the icon, title, package name, archive, and signature.
+Make it possible to release without building every time.
+With normal build tools, everything in assets is compressed (apk file is a zip file), but the releaser is necessary considering that you want to specify the compression rate, no compression, etc. when placing data.xp3 etc.
+I have a signature/packaging tool that I made in C# before, so it won't take much man-hours if I add to it.
 
-# 開発環境
-Javaでの開発も必要なためJava開発が行いやすいAndroid Studioが使いやすいが、C++に関してはまだまともに使えない。  
-C++はVisual Studio(+nVIDIA AndroidWorks)が使えるといい。  
-機能のON/OFFをデバッグオプション化して、コマンドラインでビルド出来ると効率的。  
-モバイル環境では不要な機能をOFFにしてバイナリサイズを抑えたいなどの要望もありうる。  
-プラグインも本体に組み込んでしまった方が取り回しやすい。  
+# Development environment
+Android Studio, which makes it easy to develop in Java, is easy to use because Java development is also necessary, but C++ is still not usable properly.
+It would be nice if Visual Studio (+nVIDIA AndroidWorks) could be used for C++.
+It is efficient to debug options to turn ON/OFF functions and build from the command line.
+There may be requests to suppress the binary size by turning OFF unnecessary functions in the mobile environment.
+It is easier to handle if the plugin is also built into the main body.
 
-# メモ
-広告・インターステンシャルで任意タイミングで挟めると同人向けにはいいかも。  
-バナー広告だと画面狭くなるし下だと邪魔だしタップされなさそう。  
-インターステンシャルで挟めるとシーンの切り替わり時に挟むことで効果的に広告収入ありそう？
+# Memo
+It might be good for doujin circles to be able to insert ads and interstitials at any timing.
+Banner ads narrow the screen and seem to be in the way at the bottom and are unlikely to be tapped.
+If you can insert interstitials, it seems that you can effectively earn advertising revenue by inserting them at scene transitions?

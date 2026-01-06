@@ -1,34 +1,34 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>onKeyPress - 文字が入力された</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>onKeyPress - Character input</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.onKeyPress</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>文字が入力された</p>
+<dt>Function/Meaning</dt>
+<dd><p>Character input</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のイベント</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Event of the <a class="jump" href="class_Layer.html">Layer class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">onKeyPress(<span class="arg">key</span>, <span class="arg">process</span><span class="defarg">=<span class="defargval">true</span></span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="onKeyPressの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="onKeyPress arguments">
 <tr><td valign="top"><span class="argname">key</span></td>
-<td><p>入力された文字です。</p>
+<td><p>The character that was input.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">process</span></td>
-<td><p>親クラスのonKeyPressを呼ぶ際、この引数に偽を渡すと、親クラスではそのキーに対するデフォルトの処理(フォーカスの移動など)を行わなくなります。</p>
+<td><p>When calling the parent class's onKeyPress, if you pass false for this argument, the parent class will not perform default processing (such as moving focus) for that key.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>文字が入力されたときに発生します。<br />
-Layer.onKeyDown と異なるのは、onKeyDown が仮想キーコードを扱うのに対し、このイベントは文字そのものを扱います。<br />
-押されたキーが文字とは関係のないキー (ファンクションキーなど) の場合はこのイベントは発生しません。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Occurs when a character is input.<br />
+Unlike Layer.onKeyDown, which handles virtual key codes, this event handles the character itself.<br />
+This event does not occur if the pressed key is not related to a character (such as function keys).</p>
 </dd>
 </dl>
 </div>

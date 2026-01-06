@@ -1,41 +1,41 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>save - 配列をファイルに書き出します。</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>save - Saves the array to a file.</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Array.save</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>配列をファイルに書き出します。</p>
+<dt>Function/Meaning</dt>
+<dd><p>Saves the array to a file.</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Array.html">Arrayクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Method of the <a class="jump" href="class_Array.html">Array class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">save(<span class="arg">storage</span>:string, <span class="arg">mode</span>:string<span class="defarg">=<span class="defargval">null</span></span>) :Array</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="saveの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="Arguments for save">
 <tr><td valign="top"><span class="argname">storage</span></td>
-<td><p>書き出すファイル名</p>
+<td><p>The name of the file to save to.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">mode</span></td>
-<td><p>ファイルを書き込む際のモード文字列を指定します。</p>
+<td><p>Specifies the mode string for writing the file.</p>
 
 <ul>
-<li>"c" を指定するとファイルに簡単な暗号化がかかります ( そのまま load メソッドで読み込むことができます ) 。</li>
-<li>"z" を指定するとファイルを圧縮して保存できます ("c" と併用は出来ません; これもそのまま load メソッドで読み込むことができます)。</li>
-<li>"o" に続いてオフセットを10進で指定するとファイルのそのバイト位置からの書き込みになります。</li>
-<li>"b"を指定するとバイナリ形式で保存されます(他のモード指定と併用は出来ません; これもそのまま load メソッドで読み込むことができます)。</li>
+<li>If "c" is specified, simple encryption is applied to the file (it can still be read directly with the load method).</li>
+<li>If "z" is specified, the file is compressed and saved (cannot be used with "c"; it can still be read directly with the load method).</li>
+<li>If "o" is followed by a decimal offset, writing starts from that byte position in the file.</li>
+<li>If "b" is specified, it is saved in binary format (cannot be used with other mode specifications; it can still be read directly with the load method).</li>
 </ul>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd><p>この Array クラスのオブジェクト自身を返します。</p>
+<dt>Return Value</dt>
+<dd><p>Returns the Array class object itself.</p>
 </dd>
-<dt>説明</dt>
-<dd><p>配列をファイルに書き出します。<br />
-一行ずつ、各メンバが出力されますが、オブジェクトやクラス、関数などへの参照は空行となります。</p>
+<dt>Description</dt>
+<dd><p>Saves the array to a file.<br />
+Each member is output line by line, but references to objects, classes, functions, etc., will result in empty lines.</p>
 </dd>
 </dl>
 </div>

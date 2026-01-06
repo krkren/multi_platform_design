@@ -1,64 +1,64 @@
 /**
- * @description AsyncTrigger クラスは、いったん吉里吉里に制御が戻った直後のイベント配信のタイミングにイベントを発生させるためのクラスです。
- * この機能を非同期トリガ ( asynchronous trigger ) と呼びます。
- * 吉里吉里のようにイベント駆動型のプログラミングモデルをとるスクリプトにおいて、イベントハンドラ内では実行できないような処理 ( たとえばイベントの発生元のオブジェクトをそのイベントハンドラ内で無効化しようとするなど ) を、そのイベントハンドラ外で行いたい時に便利です。
+ * @description The AsyncTrigger class is a class for firing events at the timing of event delivery immediately after control is returned to KiriKiri.
+ * This function is called an asynchronous trigger.
+ * In scripts that take an event-driven programming model like KiriKiri, it is useful when you want to perform processing that cannot be executed within an event handler (for example, trying to disable the object that generated the event within that event handler) outside of that event handler.
  */
 class AsyncTrigger {
 	/**
-	 * AsyncTriger オブジェクトの構築
+	 * Construct an AsyncTriger object
 	 *
-	 * @param owner イベントの発生先を指定します。
-	 * @param actionname owner で指定したイベントの発生先オブジェクトで、イベントを受け取るメソッド名を指定します。
-	 * 空文字列を指定すると owner はメソッドとみなされ、イベントの発生ごとに owner が直接呼ばれます。
-	 * @description AsyncTrigger クラスのオブジェクトを構築します。
+	 * @param owner Specifies the event destination.
+	 * @param actionname Specifies the name of the method that receives the event in the event destination object specified by owner.
+	 * If an empty string is specified, owner is treated as a method, and owner is called directly each time the event occurs.
+	 * @description Constructs an AsyncTrigger class object.
 	 */
 	function AsyncTrigger( owner, actionname="action");
 
 	/**
-	 * 発砲するとき
+	 * When firing
 	 *
-	 * @description AsyncTrigger.trigger メソッドでトリガを引いた後に発生します。
+	 * @description Occurs after the trigger is pulled with the AsyncTrigger.trigger method.
 	 */
 	event onFire( );
 
 	/**
-	 * トリガを引く
+	 * Pull the trigger
 	 *
-	 * @description イベントを発生させます。
-	 * このメソッドを呼んだ後、吉里吉里本体に制御が戻り、吉里吉里本体がたまった非同期イベントを配信する段階になると AsyncTrigger.onFire イベントが発生します。
+	 * @description Fires an event.
+	 * After calling this method, control returns to the KiriKiri main body, and when the KiriKiri main body reaches the stage of delivering accumulated asynchronous events, the AsyncTrigger.onFire event occurs.
 	 */
 	function trigger( );
 
 	/**
-	 * トリガのキャンセル
+	 * Cancel the trigger
 	 *
-	 * @description AsyncTrigger.trigger メソッドで引いたトリガをキャンセルします。発砲前であればいつでもキャンセルできます。
+	 * @description Cancels the trigger pulled with the AsyncTrigger.trigger method. You can cancel it at any time before firing.
 	 */
 	function cancel( );
 
 	/**
-	 * イベントをキャッシュするかどうか
+	 * Whether to cache the event
 	 *
-	 * @description イベントをキャッシュするかどうかを表します。
-	 * 値を設定することもできます。
-	 * 真を指定すると、発砲までに何度 AsyncTrigger.trigger メソッドを呼んでも発砲は１回だけとなります。
-	 * 偽を指定すると、発砲までに呼んだ回数分、発砲されます。
+	 * @description Indicates whether to cache the event.
+	 * You can also set the value.
+	 * If true is specified, firing will only occur once no matter how many times the AsyncTrigger.trigger method is called before firing.
+	 * If false is specified, it will fire as many times as it was called before firing.
 	 */
 	 property cached {
 		 getter() { return value; }
 		 setter( value ) {}
 	}
 	/**
-	 * モード
+	 * Mode
 	 *
-	 * @description 動作のモードを表します。
-	 * 値を設定することもできます。
-	 * 以下の値のいずれかを指定します。
-	 * atmNormal    :  通常のイベント配信の段階で発砲されます。
-	 * atmExclusive :  他の非同期イベントよりも優先されて発砲されます
-	 * atmAtIdle    :  アイドル状態 ( 他に配信するイベントが無くなったとき ) に発砲されます。
-	 * 同時にトリガを引いたときに発砲される順序は atmExclusive, atmNormal, atmIdle の順になります。
-	 * 同じモードのトリガが複数引かれている場合は、トリガが引かれた順に発砲します。
+	 * @description Represents the mode of operation.
+	 * You can also set the value.
+	 * Specify one of the following values.
+	 * atmNormal    :  Fired at the normal event delivery stage.
+	 * atmExclusive :  Fired with higher priority than other asynchronous events.
+	 * atmAtIdle    :  Fired in an idle state (when there are no other events to deliver).
+	 * The order in which triggers are fired when triggered simultaneously is atmExclusive, atmNormal, atmIdle.
+	 * If multiple triggers of the same mode are pulled, they will fire in the order in which they were pulled.
 	 * @see Timer.mode
 	 */
 	 property mode {

@@ -6,59 +6,59 @@
 </head>
 <body>
 <h1><a name="top" id="top">VertexBuffer</a></h1>
-<div class="para"><p>VertexBufferは頂点情報を保持するクラスです。</p>
+<div class="para"><p>VertexBuffer is a class that holds vertex information.</p>
 
-<p>位置の指定やUV座標、頂点カラーなどを細かく設定したい場合に使用します。<br />
-単純な矩形ではなくメッシュ変形などを行いたい場合やポイントスプライトを使用したい場合などにも使用します。</p>
+<p>It is used when you want to set the position, UV coordinates, vertex color, etc. in detail.<br />
+It is also used when you want to perform mesh deformation instead of a simple rectangle, or when you want to use point sprites.</p>
 
-<p>プラグインで頂点の配列を直接変更できるようにポインタアクセスも可能です(ただしOpenGLES3.0以降)。<br />
-シェーダー+TJS2スクリプト+プラグインでの頂点操作で従来のようなLayer拡張性を確保できます。<br />
-従来のプラグイン内でほぼ完結していたものに比べるとやや複雑にはなります。</p>
+<p>Pointer access is also possible so that the vertex array can be directly changed by the plugin (however, OpenGLES3.0 or later).<br />
+Traditional Layer extensibility can be ensured by vertex manipulation using shader + TJS2 script + plugin.<br />
+It is a little more complicated than what was almost completed in the conventional plugin.</p>
 </div>
 <h1>メンバ</h1><div class="para">
 <dl>
-<dt>コンストラクタ</dt>
+<dt>Constructor</dt>
 <dd>
-<a class="jump" href="func_VertexBuffer_VertexBuffer.html">VertexBuffer</a> (頂点配列を指定して頂点バッファを作ります )<br />
-<a class="jump" href="func_VertexBuffer_VertexBuffer_1.html">VertexBuffer</a> (未初期化の頂点バッファを作ります )<br />
+<a class="jump" href="func_VertexBuffer_VertexBuffer.html">VertexBuffer</a> (Creates a vertex buffer by specifying a vertex array)<br />
+<a class="jump" href="func_VertexBuffer_VertexBuffer_1.html">VertexBuffer</a> (Creates an uninitialized vertex buffer)<br />
 </dd>
-<dt>メソッド</dt>
+<dt>Methods</dt>
 <dd>
-<a class="jump" href="func_VertexBuffer_lock.html">lock</a> (頂点データをロックし、データへのポインタ(read/write指定)を返します )<br />
-<a class="jump" href="func_VertexBuffer_setVertex.html">setVertex</a> (頂点データを設定/更新 )<br />
-<a class="jump" href="func_VertexBuffer_unlock.html">unlock</a> (頂点データのロックを解除します )<br />
+<a class="jump" href="func_VertexBuffer_lock.html">lock</a> (Locks vertex data and returns a pointer to the data (read/write specified))<br />
+<a class="jump" href="func_VertexBuffer_setVertex.html">setVertex</a> (Set/update vertex data)<br />
+<a class="jump" href="func_VertexBuffer_unlock.html">unlock</a> (Releases the vertex data lock)<br />
 </dd>
-<dt>プロパティ</dt>
+<dt>Properties</dt>
 <dd>
-<a class="jump" href="prop_VertexBuffer_dataType.html">dataType</a> (頂点データの型(readonly) )<br />
-<a class="jump" href="prop_VertexBuffer_isIndex.html">isIndex</a> (インデックスバッファかどうか(readonly) )<br />
-<a class="jump" href="prop_VertexBuffer_nativeHandle.html">nativeHandle</a> (ネイティブハンドル )<br />
-<a class="jump" href="prop_VertexBuffer_size.html">size</a> (バッファサイズ(readonly) )<br />
-<a class="jump" href="prop_VertexBuffer_updateType.html">updateType</a> (データ更新頻度(readonly) )<br />
+<a class="jump" href="prop_VertexBuffer_dataType.html">dataType</a> (Vertex data type (readonly))<br />
+<a class="jump" href="prop_VertexBuffer_isIndex.html">isIndex</a> (Whether it is an index buffer (readonly))<br />
+<a class="jump" href="prop_VertexBuffer_nativeHandle.html">nativeHandle</a> (Native handle)<br />
+<a class="jump" href="prop_VertexBuffer_size.html">size</a> (Buffer size (readonly))<br />
+<a class="jump" href="prop_VertexBuffer_updateType.html">updateType</a> (Data update frequency (readonly))<br />
 </dd>
-<dt>イベント</dt>
+<dt>Events</dt>
 <dd>
 </dd>
-<dt>定数</dt>
+<dt>Constants</dt>
 <dd>
-dtByte (データ型定数(byte) )<br />
-dtFixed (データ型定数(fixed:固定少数点) )<br />
-dtFloat (データ型定数(float) )<br />
-dtInt (データ型定数(int) ES3.0以降必要 )<br />
-dtShort (データ型定数(short) )<br />
-dtUByte (データ型定数(unsigned byte) )<br />
-dtUInt (データ型定数(unsinged int) ES3.0以降必要 )<br />
-dtUShort (データ型定数(unsigned short) )<br />
-ptLineLoop (プリミティブ型定数(ラインループ) )<br />
-ptLines (プリミティブ型定数(ラインリスト) )<br />
-ptLineStrip (プリミティブ型定数(ラインストリップ) )<br />
-ptPoints (プリミティブ型定数(ポイントリスト) )<br />
-ptTriangleFan (プリミティブ型定数(トライアングルファン) )<br />
-ptTriangles (プリミティブ型定数(トライアングルリスト) )<br />
-ptTriangleStrip (プリミティブ型定数(トライアングルストラップ) )<br />
-utDynamic (更新頻度定数:頻繁に更新される )<br />
-utStatic (更新頻度定数:変更なし )<br />
-utStream (更新頻度定数:毎フレーム更新 )<br />
+dtByte (Data type constant (byte))<br />
+dtFixed (Data type constant (fixed: fixed point))<br />
+dtFloat (Data type constant (float))<br />
+dtInt (Data type constant (int) Required for ES3.0 and later)<br />
+dtShort (Data type constant (short))<br />
+dtUByte (Data type constant (unsigned byte))<br />
+dtUInt (Data type constant (unsinged int) Required for ES3.0 and later)<br />
+dtUShort (Data type constant (unsigned short))<br />
+ptLineLoop (Primitive type constant (line loop))<br />
+ptLines (Primitive type constant (line list))<br />
+ptLineStrip (Primitive type constant (line strip))<br />
+ptPoints (Primitive type constant (point list))<br />
+ptTriangleFan (Primitive type constant (triangle fan))<br />
+ptTriangles (Primitive type constant (triangle list))<br />
+ptTriangleStrip (Primitive type constant (triangle strip))<br />
+utDynamic (Update frequency constant: frequently updated)<br />
+utStatic (Update frequency constant: no change)<br />
+utStream (Update frequency constant: updated every frame)<br />
 </dd>
 </dl>
 </div>

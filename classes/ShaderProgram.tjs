@@ -1,56 +1,56 @@
 /**
- * @description Vertex/Fragmentシェーダーをコンパイル/リンクしたものを格納するクラスです。
- * コンストラクタでコンパイル/リンクは実行され、エラーがあると例外が出るのでログを見て修正する。
- * シェーダーの入力に使われるパラメータは、メンバに追加されるので、メンバ経由で値の設定が可能です。
- * シェーダーからの変数名取得は、リフレクションを使用し取得しています。
- * Textureなどの指定は決められた予約語としてあらかじめ定めておき、その名前で作ります。
- * 頂点情報となる Attribute 属性値はメンバ経由の設定は drawMesh で VertexBuffer/VertexBindre を使用した場合のみ可能です。
-  * ShaderProgram に元々あるメンバ関数やプロパティは必然的にシェーダー内で入力変数名としては使えません(そのため現状は最小限のメンバしか追加していない)。
+ * @description This class stores compiled/linked vertex/fragment shaders.
+ * Compilation/linking is performed in the constructor, and if there are errors, an exception is thrown, so check the logs and fix them.
+ * Parameters used for shader input are added as members, so values can be set via the members.
+ * Variable names from the shader are obtained using reflection.
+ * Specifications such as textures are determined in advance as reserved words, and created with that name.
+ * Attribute values that are vertex information can only be set via members when using VertexBuffer/VertexBindre in drawMesh.
+ * Member functions and properties originally in ShaderProgram cannot be used as input variable names in the shader (therefore, currently only a minimal number of members are added).
  *
- * シェーダー内で定義された入力名として追加されたプロパティに値を設定しておくと、描画時にその値が設定されます。
- * 追加されたプロパティは値の設定のみ可能で、取得は出来ません。
- * 値は保持され続けるので、同じシェーダーを使う場合、描画前に指定したい値に変更しておく必要があります。
- * プロパティの型は、シェーダースクリプトから取得されます。
- * vec4などはArrayクラスにreal型の配列として受け渡します。
+ * If you set values for properties added as input names defined in the shader, those values will be set at the time of drawing.
+ * The added properties can only be set, not retrieved.
+ * The values are retained, so if you use the same shader, you need to change the values to the desired values before drawing.
+ * The type of the property is obtained from the shader script.
+ * vec4 etc. are passed to the Array class as an array of real type.
  *
- * 予約語は、描画実行時に内部的に自動的に設定されるので、明示的に値を設定する必要はありません(drawMesh除く)。
- * ex. s_tex0 には、1個目の texture id が渡されます。
- * 自動的に設定される値は描画命令に依存します。
+ * Reserved words are automatically set internally at the time of drawing execution, so there is no need to explicitly set values (except for drawMesh).
+ * ex. The first texture id is passed to s_tex0.
+ * The values that are automatically set depend on the drawing command.
  *
- * シェーダーがスクリプトから指定出来て、自由に入れ替えられるのなら、従来のようにLayerに機能拡張するためにプラグインを書かなくても、TJS2 スクリプトのみで、従来の CPU 処理するよりも高速に演出の追加が可能になると予測できます。
- * Layer 相当の機能は現状ないが、Layer/Sprite などを TJS2 スクリプトで実現するために必要な周辺機能を充実させれば、その辺りスクリプトで書けて、従来よりネイティブ(C++)プラグインの出番を少なくできます。
- * 複数 CPU に向けてバイナリを準備する必要のある Android ではスクリプトで機能拡張できるのは、apk サイズ縮小にも役立ちます。
- * また、マルチプラットフォームでも有利です。
- * シェーダー + それを扱う Sprite 等を実現する TJS2 スクリプトをセットで配布すれば、それで演出強化できます。
+ * If shaders can be specified from a script and freely replaced, it is predicted that it will be possible to add effects faster than conventional CPU processing with only TJS2 scripts, without writing a plugin to extend the functionality to the Layer as before.
+ * Although there is currently no Layer equivalent function, if the surrounding functions necessary to realize Layer/Sprite etc. with TJS2 scripts are enhanced, it can be written in script, and the number of native (C++) plugins can be reduced compared to before.
+ * In Android, where binaries need to be prepared for multiple CPUs, being able to extend functionality with scripts also helps reduce the apk size.
+ * It is also advantageous on multi-platforms.
+ * If you distribute a set of shaders + TJS2 scripts that realize Sprite etc. that handle them, you can enhance the presentation with that.
  *
- * シェーダースクリプトをファイル入力する場合は、UTF-8で記述してください。
+ * When inputting shader scripts from a file, please write in UTF-8.
  *
  *
- * シェーダー内で使用できない(内部定義されている)変数名
+ * Variable names that cannot be used in shaders (internally defined)
  *
  * + ShaderProgram
  * + finalize
  *
- * 自動的に設定される値の名称
+ * Names of automatically set values
  *
- * + テクスチャ : s_tex0, s_tex1, s_tex2, s_tex3...
- * + 頂点座標 : a_pos(vec2)
- * + テクスチャ座標 : a_texCoord(vec2)
- * + 行列 : a_modelMat4(mat4)
+ * + Texture : s_tex0, s_tex1, s_tex2, s_tex3...
+ * + Vertex coordinates : a_pos(vec2)
+ * + Texture coordinates : a_texCoord(vec2)
+ * + Matrix : a_modelMat4(mat4)
  *
  *
- * GLSLの構造体と配列には初期段階では未対応です。
+ * GLSL structures and arrays are not supported in the initial stage.
  */
 class ShaderProgram {
 
 	/**
-	 * コンストラクタ
-	 * @param vertex パーティンクシェーダーを指定します。
-	 * fileがtrueの時はファイル名、falseの時は直接文字列を指定します。
-	 * @param fragment フラグメントシェーダーを指定します。
-	 * fileがtrueの時はファイル名、falseの時は直接文字列を指定します。
-	 * @param vsfile vertexで指定された文字列がファイルか直接スクリプト指定かを選択します。
-	 * @param fsfile fragmentで指定された文字列がファイルか直接スクリプト指定かを選択します。
+	 * Constructor
+	 * @param vertex Specifies the vertex shader.
+	 * If file is true, specify the file name, if false, specify the string directly.
+	 * @param fragment Specifies the fragment shader.
+	 * If file is true, specify the file name, if false, specify the string directly.
+	 * @param vsfile Select whether the string specified in vertex is a file or a direct script specification.
+	 * @param fsfile Select whether the string specified in fragment is a file or a direct script specification.
 	 */
 	function ShaderProgram( vertex:string, fragment:string, vsfile:boolean=true, fsfile:boolean=true );
 

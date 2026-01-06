@@ -1,31 +1,31 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>onSearchPrevFocusable - フォーカス可能なレイヤの前方検索</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>onSearchPrevFocusable - Search backward for focusable layer</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.onSearchPrevFocusable</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>フォーカス可能なレイヤの前方検索</p>
+<dt>Function/Meaning</dt>
+<dd><p>Search backward for focusable layer</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のイベント</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd><a class="jump" href="class_Layer.html">Layer class</a> event</dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">onSearchPrevFocusable(<span class="arg">layer</span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="onSearchPrevFocusableの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="onSearchPrevFocusable arguments">
 <tr><td valign="top"><span class="argname">layer</span></td>
-<td><p>フォーカスを受け取るレイヤオブジェクトです。親クラスの同名のメソッドを呼ぶときに引数として指定します。<br />
-null を渡すと、フォーカス可能なレイヤは無いとして処理されます。</p>
+<td><p>The layer object to receive focus. Specify this as an argument when calling the parent class's method of the same name.<br />
+If null is passed, it is processed as if there are no focusable layers.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>フォーカス可能なレイヤの前方検索を行うときに発生するイベントです。<br />
-フォーカスを受け取るレイヤを指定するときは、スーパークラスの同名のイベントの引数にそのレイヤを指定してください。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>This event occurs when searching backward for focusable layers.<br />
+To specify the layer that receives focus, pass that layer as an argument to the superclass event of the same name.</p>
 </dd>
 </dl>
 </div>

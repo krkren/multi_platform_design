@@ -1,91 +1,91 @@
 class WaveSoundBuffer
 /**
- * @description WaveSoundBuffer.PhaseVocoder クラスは、このインスタンスを WaveSoundBuffer.filters に登録して使用するためのフィルタで、Phase Vocoder (位相ボコーダ) の機能を提供します。
- * Phase Vocoder では、再生速度を保ったままでの音程の変更 (ピッチ・シフタ) や、音程を保ったままでの再生速度の変更 (タイム・シフタ) を行うことができます。
+ * @description The WaveSoundBuffer.PhaseVocoder class is a filter for registering and using this instance in WaveSoundBuffer.filters, and provides the functionality of Phase Vocoder.
+ * With Phase Vocoder, it is possible to change the pitch while maintaining the playback speed (pitch shifter), or change the playback speed while maintaining the pitch (time shifter).
  */
 	class PhaseVocoder {
 	/**
-	 * PhaseVocoder オブジェクトの構築
+	 * PhaseVocoder object construction
 	 *
-	 * @description WaveSoundBuffer.PhaseVocoder クラスのオブジェクトを構築します。
-	 * 作成したインスタンスは WaveSoundBuffer.filters で WaveSoundBuffer のインスタンスに登録してください。
+	 * @description Constructs an object of the WaveSoundBuffer.PhaseVocoder class.
+	 * Please register the created instance with the WaveSoundBuffer instance in WaveSoundBuffer.filters.
 	 */
 	function PhaseVocoder( );
 
 	/**
-	 * インターフェースオブジェクトを取得
+	 * Get interface object
 	 *
-	 * @description 内部的に使用されます。スクリプトからは使用しないでください。
+	 * @description Used internally. Do not use from script.
 	 */
 	 property interface {
 		 getter() { return value; }
 		 setter( value ) {}
 	}
 	/**
-	 * 時間軸方向のスケール
+	 * Time axis scale
 	 *
-	 * @description 時間軸方向のスケールを表します。値を設定することもできます。
-	 * 指定可能な数値は 0 を超える実数です。
-	 * ただし、あまりに小さい数値はCPU負荷が高くなり、最悪の場合は再生ができない場合があります。
-	 * また、1.95を超えたあたりから音質が悪くなり、overlapを大きくしても音質を改善できない場合があります(内部アルゴリズムの特性に起因しています)。
-	 * 1.0 を指定すると 時間軸方向のスケールは変わりません(再生速度は変わりません)。
-	 * たとえば 1.5 を指定すると、時間軸方向のスケールが1.5倍になり、遅く再生されます (再生に1.5倍の時間がかかるようになります)。
-	 * たとえば 0.5 を指定すると、時間軸方向のスケールが0.5倍になり、速く再生されます (倍速で再生されます)。
-	 * time プロパティも pitch プロパティも 1 の場合でも Phase Vocoder フィルタは動作し、音質は多少劣化し、CPU 時間も使用します。
-	 * 両方とも 1 のまま使うのであれば、フィルタ配列からこのフィルタをはずしておいたほうがよいでしょう。
-	 * このプロパティへの変更はリアルタイムに反映されますが、バッファリングの関係で、実際にそれが再生されるまでに2秒程度の時間がかかります。
-	 * また、切り替わり時にノイズが乗る事があります。
+	 * @description Represents the scale in the time axis direction. You can also set a value.
+	 * The specified value must be a real number greater than 0.
+	 * However, if the value is too small, the CPU load will increase, and in the worst case, playback may not be possible.
+	 * Also, the sound quality deteriorates from around 1.95, and the sound quality may not be improved even if the overlap is increased (due to the characteristics of the internal algorithm).
+	 * If you specify 1.0, the scale in the time axis direction will not change (the playback speed will not change).
+	 * For example, if you specify 1.5, the scale in the time axis direction will be 1.5 times, and it will be played slowly (it will take 1.5 times longer to play).
+	 * For example, if you specify 0.5, the scale in the time axis direction will be 0.5 times, and it will be played faster (it will be played at double speed).
+	 * Even if both the time property and the pitch property are 1, the Phase Vocoder filter operates, the sound quality deteriorates somewhat, and CPU time is used.
+	 * If you want to use both as 1, you should remove this filter from the filter array.
+	 * Changes to this property are reflected in real time, but due to buffering, it takes about 2 seconds for it to actually be played.
+	 * Also, noise may occur when switching.
 	 */
 	 property time {
 		 getter() { return value; }
 		 setter( value ) {}
 	}
 	/**
-	 * 周波数軸方向のスケール
+	 * Frequency axis scale
 	 *
-	 * @description 周波数軸方向のスケールを表します。
-	 * 値を設定することもできます。
-	 * 指定可能な数値は 0.0 を超える数値です。
-	 * 1.0 を指定すると 周波数軸方向のスケールは変わりません(音程は変わりません)。
-	 * たとえば 1.0594630943593 を指定すると、半音分、音程があがります。
-	 * たとえば 0.9438743126817 を指定すると、半音分、音程が下がります。
-	 * time プロパティも pitch プロパティも 1 の場合でも Phase Vocoder フィルタは動作し、音質は多少劣化し、CPU 時間も使用します。
-	 * 両方とも 1 のまま使うのであれば、フィルタ配列からこのフィルタをはずしておいたほうがよいでしょう。
-	 * このプロパティへの変更はリアルタイムに反映されますが、バッファリングの関係で、実際にそれが再生されるまでに2秒程度の時間がかかります。
+	 * @description Represents the scale in the frequency axis direction.
+	 * You can also set a value.
+	 * The specified value must be a number greater than 0.0.
+	 * If you specify 1.0, the scale in the frequency axis direction will not change (the pitch will not change).
+	 * For example, if you specify 1.0594630943593, the pitch will increase by a semitone.
+	 * For example, if you specify 0.9438743126817, the pitch will decrease by a semitone.
+	 * Even if both the time property and the pitch property are 1, the Phase Vocoder filter operates, the sound quality deteriorates somewhat, and CPU time is used.
+	 * If you want to use both as 1, you should remove this filter from the filter array.
+	 * Changes to this property are reflected in real time, but due to buffering, it takes about 2 seconds for it to actually be played.
 	 */
 	 property pitch {
 		 getter() { return value; }
 		 setter( value ) {}
 	}
 	/**
-	 * ウィンドウサイズ
+	 * Window size
 	 *
-	 * @description PhaseVocoder内部で使用している FFT (高速フーリエ変換) のウィンドウサイズ(フレームサイズ)を表します。
-	 * 64～32768の間の2の累乗の数値を指定してください。
-	 * デフォルトは4096です。
-	 * この数値を大きくすると、周波数軸方向の分解能は高くなります(音程が狂いにくくなります)が、時間軸方向の分解能が低くなります(音のアタックがにぶくなります)。
-	 * 値を大きくするとCPUをより使用するようになります。
-	 * 音質を落とさずにすむ、最低の値を探してください。
-	 * 44.1KHzの音声ではウィンドウサイズ=256ぐらいがよいでしょう。
-	 * 楽曲ではウィンドウサイズ=4096ぐらいが良いでしょう。
-	 * このプロパティへの変更は、WaveSoundBuffer.openメソッドが実行されたときに反映されます。
+	 * @description Represents the window size (frame size) of the FFT (Fast Fourier Transform) used internally by PhaseVocoder.
+	 * Specify a power of 2 number between 64 and 32768.
+	 * The default is 4096.
+	 * Increasing this value increases the resolution in the frequency axis direction (the pitch is less likely to be incorrect), but decreases the resolution in the time axis direction (the attack of the sound becomes dull).
+	 * Increasing the value will use more CPU.
+	 * Find the lowest value that does not degrade the sound quality.
+	 * For 44.1KHz audio, a window size of around 256 is good.
+	 * For music, a window size of around 4096 is good.
+	 * Changes to this property are reflected when the WaveSoundBuffer.open method is executed.
 	 */
 	 property window {
 		 getter() { return value; }
 		 setter( value ) {}
 	}
 	/**
-	 * オーバーラップカウント
+	 * Overlap count
 	 *
-	 * @description オーバーラップカウント (オーバーサンプリング係数) を表します。
-	 * 0か2～32の間の2の累乗の数値を指定してください。
-	 * デフォルトは0です。
-	 * 0を指定すると、現在のtimeプロパティの値に従って、適切な値が設定されます。
-	 * この数値を大きくすると、時間軸方向の分解能が高くなります。
-	 * とくに再生速度を遅くする場合は多めの数値をしていすると良いでしょう。
-	 * 値を大きくするとCPUをより使用するようになります。
-	 * このプロパティへの変更はリアルタイムに反映されますが、バッファリングの関係で、実際にそれが再生されるまでに2秒程度の時間がかかります。
-	 * また、切り替わり時にノイズが乗る事があります。
+	 * @description Represents the overlap count (oversampling factor).
+	 * Specify 0 or a power of 2 number between 2 and 32.
+	 * The default is 0.
+	 * If you specify 0, an appropriate value will be set according to the current value of the time property.
+	 * Increasing this value increases the resolution in the time axis direction.
+	 * In particular, it is better to specify a larger value when slowing down the playback speed.
+	 * Increasing the value will use more CPU.
+	 * Changes to this property are reflected in real time, but due to buffering, it takes about 2 seconds for it to actually be played.
+	 * Also, noise may occur when switching.
 	 */
 	 property overlap {
 		 getter() { return value; }

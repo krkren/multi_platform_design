@@ -1,12 +1,12 @@
-# 開発の進め方
+# How to proceed with development
 
-## リポジトリ
-互換性を維持しないとしても完全分岐すると保守的しづらくなる。
+## Repository
+Even if compatibility is not maintained, a complete branch will make maintenance difficult.
 
-* レポジトリでは全部入りで管理
-* 仕様的に大きい差異がでてしまう部分は「クラス単位」で分ける  
-現行の Window クラス(+drawDevice) の構造のままだと Android とのすりあわせがとりにくいと思うので、新規に XXWindow(仮称) クラス＋(Surfaceなんたらクラス群) を準備して3D系機能はそちらに実装
-* ビルド時にどのクラスを含めるかを指定することで組み替えを可能にする  
-従来版 Window クラス系搭載  
-Android互換機能追加版  XXWindow クラス系を追加  
-Android互換機能限定版  XXWindow クラス系のみで Window クラスはカット  
+*   Manage everything in the repository
+*   Divide parts that have large specification differences by "class"
+    Since it seems difficult to coordinate with Android with the current Window class (+drawDevice) structure, prepare a new XXWindow (provisional name) class + (Surface something class group) and implement 3D related functions there.
+*   Make it possible to rearrange by specifying which classes to include at build time
+    Conventional Window class system installed
+    Android compatible function added version XXWindow class system added
+    Android compatible function limited version XXWindow class system only, Window class is cut

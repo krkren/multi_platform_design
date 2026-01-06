@@ -6,51 +6,51 @@
 </head>
 <body>
 <h1><a name="top" id="top">Texture</a></h1>
-<div class="para"><p>テクスチャクラス。<br />
-ハードウェア上のテクスチャとほぼ対応しています。</p>
+<div class="para"><p>Texture class.<br />
+It almost corresponds to the texture on the hardware.</p>
 
-<p>invalidateすることでテクスチャは無効化されるため、必要なくなったら明示的にinvalidate呼び出すことを推奨します。</p>
+<p>Since the texture is invalidated by invalidate, it is recommended to explicitly call invalidate when it is no longer needed.</p>
 </div>
-<h1>メンバ</h1><div class="para">
+<h1>Members</h1><div class="para">
 <dl>
-<dt>コンストラクタ</dt>
+<dt>Constructor</dt>
 <dd>
-<a class="jump" href="func_Texture_Texture.html">Texture</a> (ファイル読み込み版コンストラクタ )<br />
-<a class="jump" href="func_Texture_Texture_1.html">Texture</a> (ミップマップ生成版コンストラクタ )<br />
-<a class="jump" href="func_Texture_Texture_2.html">Texture</a> (サイズ指定版コンストラクタ )<br />
-<a class="jump" href="func_Texture_Texture_3.html">Texture</a> (Bitmapコピー版コンストラクタ )<br />
+<a class="jump" href="func_Texture_Texture.html">Texture</a> (File loading version constructor)<br />
+<a class="jump" href="func_Texture_Texture_1.html">Texture</a> (Mipmap generation version constructor)<br />
+<a class="jump" href="func_Texture_Texture_2.html">Texture</a> (Size specified version constructor)<br />
+<a class="jump" href="func_Texture_Texture_3.html">Texture</a> (Bitmap copy version constructor)<br />
 </dd>
-<dt>メソッド</dt>
+<dt>Methods</dt>
 <dd>
-<a class="jump" href="func_Texture_copyRect.html">copyRect</a> (矩形コピー(位置指定Rect版) )<br />
-<a class="jump" href="func_Texture_copyRect_1.html">copyRect</a> (矩形コピー(位置指定) )<br />
-<a class="jump" href="func_Texture_copyRect_2.html">copyRect</a> (矩形コピー(全コピー) )<br />
-<a class="jump" href="func_Texture_setDrawSize.html">setDrawSize</a> (描画基準サイズの設定 )<br />
+<a class="jump" href="func_Texture_copyRect.html">copyRect</a> (Rectangle copy (position specified Rect version))<br />
+<a class="jump" href="func_Texture_copyRect_1.html">copyRect</a> (Rectangle copy (position specified))<br />
+<a class="jump" href="func_Texture_copyRect_2.html">copyRect</a> (Rectangle copy (full copy))<br />
+<a class="jump" href="func_Texture_setDrawSize.html">setDrawSize</a> (Setting the drawing reference size)<br />
 </dd>
-<dt>プロパティ</dt>
+<dt>Properties</dt>
 <dd>
-<a class="jump" href="prop_Texture_height.html">height</a> (高さ(有効範囲) )<br />
-<a class="jump" href="prop_Texture_isGray.html">isGray</a> (8bitカラーかどうか(内部ではアルファテクスチャ) )<br />
-<a class="jump" href="prop_Texture_isPowerOfTwo.html">isPowerOfTwo</a> (テクスチャサイズが2の累乗値かどうか )<br />
-<a class="jump" href="prop_Texture_margin9Patch.html">margin9Patch</a> (9patchマージン )<br />
-<a class="jump" href="prop_Texture_memoryHeight.html">memoryHeight</a> (実際(ハードウェア上)の高さ )<br />
-<a class="jump" href="prop_Texture_memoryWidth.html">memoryWidth</a> (実際(ハードウェア上)の幅 )<br />
-<a class="jump" href="prop_Texture_nativeHandle.html">nativeHandle</a> (ネイティブハンドル(環境依存) )<br />
-<a class="jump" href="prop_Texture_stretchType.html">stretchType</a> (拡大縮小時の補間方法 )<br />
-<a class="jump" href="prop_Texture_width.html">width</a> (幅(有効範囲) )<br />
-<a class="jump" href="prop_Texture_wrapModeHorizontal.html">wrapModeHorizontal</a> (水平方向ラップモード )<br />
-<a class="jump" href="prop_Texture_wrapModeVertical.html">wrapModeVertical</a> (垂直方向ラップモード )<br />
+<a class="jump" href="prop_Texture_height.html">height</a> (Height (valid range))<br />
+<a class="jump" href="prop_Texture_isGray.html">isGray</a> (Whether it is 8bit color (alpha texture internally))<br />
+<a class="jump" href="prop_Texture_isPowerOfTwo.html">isPowerOfTwo</a> (Whether the texture size is a power of 2)<br />
+<a class="jump" href="prop_Texture_margin9Patch.html">margin9Patch</a> (9patch margin)<br />
+<a class="jump" href="prop_Texture_memoryHeight.html">memoryHeight</a> (Actual (hardware) height)<br />
+<a class="jump" href="prop_Texture_memoryWidth.html">memoryWidth</a> (Actual (hardware) width)<br />
+<a class="jump" href="prop_Texture_nativeHandle.html">nativeHandle</a> (Native handle (environment dependent))<br />
+<a class="jump" href="prop_Texture_stretchType.html">stretchType</a> (Interpolation method for scaling)<br />
+<a class="jump" href="prop_Texture_width.html">width</a> (Width (valid range))<br />
+<a class="jump" href="prop_Texture_wrapModeHorizontal.html">wrapModeHorizontal</a> (Horizontal wrap mode)<br />
+<a class="jump" href="prop_Texture_wrapModeVertical.html">wrapModeVertical</a> (Vertical wrap mode)<br />
 </dd>
-<dt>イベント</dt>
+<dt>Events</dt>
 <dd>
 </dd>
-<dt>定数</dt>
+<dt>Constants</dt>
 <dd>
-stLinear (線形補間。stretchTypeプロパティに設定します。 )<br />
-stNearest (最近傍点法。stretchTypeプロパティに設定します。 )<br />
-wmClampToEdge (端色引き延ばし。wrapModeHorizontal/wrapModeVerticalプロパティに設定します。2の累乗サイズでない場合はこの定数でなければなりません(default)。 )<br />
-wmMirror (ミラー繰り返し。wrapModeHorizontal/wrapModeVerticalプロパティに設定します。 )<br />
-wmRepeat (繰り返し。wrapModeHorizontal/wrapModeVerticalプロパティに設定します。 )<br />
+stLinear (Linear interpolation. Set to the stretchType property.)<br />
+stNearest (Nearest neighbor method. Set to the stretchType property.)<br />
+wmClampToEdge (Edge color stretching. Set to the wrapModeHorizontal/wrapModeVertical property. Must be this constant if the size is not a power of 2 (default).)<br />
+wmMirror (Mirror repeat. Set to the wrapModeHorizontal/wrapModeVertical property.)<br />
+wmRepeat (Repeat. Set to the wrapModeHorizontal/wrapModeVertical property.)<br />
 </dd>
 </dl>
 </div>

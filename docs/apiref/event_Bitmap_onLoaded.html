@@ -2,43 +2,43 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>onLoaded - 非同期読込みが完了した</title>
+<title>onLoaded - Asynchronous loading completed</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Bitmap.onLoaded</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>非同期読込みが完了した</p>
+<dt>Function/Meaning</dt>
+<dd><p>Asynchronous loading completed</p>
 </dd>
-<dt>タイプ</dt>
+<dt>Type</dt>
 <dd><a class="jump" href="class_Bitmap.html">Bitmapクラス</a>のイベント</dd>
-<dt>構文</dt>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">onLoaded(<span class="arg">meta</span>, <span class="arg">async</span>, <span class="arg">error</span>, <span class="arg">message</span>)</span></dd>
-<dt>引数</dt>
+<dt>Arguments</dt>
 <dd><table rules="all" frame="box" cellpadding="3" summary="onLoadedの引数">
 <tr><td valign="top"><span class="argname">meta</span></td>
-<td><p>読み込んだ画像のタグ情報です。</p>
+<td><p>This is the tag information of the loaded image.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">async</span></td>
-<td><p>非同期で読み込まれたかどうかです。画像データがキャッシュ内にある場合、 Bitmap.loadAsync 実行中に本イベントが発生します。</p>
+<td><p>Whether it was loaded asynchronously. If the image data is in the cache, this event will occur during Bitmap.loadAsync execution.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">error</span></td>
-<td><p>画像読込みでエラーが発生したかどうかです。</p>
+<td><p>Whether an error occurred during image loading.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">message</span></td>
-<td><p>エラーメッセージです。エラーが発生した場合、エラーメッセージが渡されます。</p>
+<td><p>Error message. If an error occurs, the error message is passed.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>非同期読込みが完了した時に発生します。<br />
-読み込んだ画像は Layer.copyFromBitmapToMainImage で Layer にコピーできます。<br />
-読込み処理は非同期であるため、読込みが完了した時に、その画像を渡す Layer が既に無効化されている可能性があります。<br />
-本イベントで他のオブジェクトへアクセスする場合は、無効化されていないか確認して下さい。<br />
-もしくは、本イベントが完了するまで対象オブジェクトが無効化されないようにしてください。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Occurs when asynchronous loading is complete.<br />
+The loaded image can be copied to the Layer with Layer.copyFromBitmapToMainImage.<br />
+Since the loading process is asynchronous, the Layer that passes the image may already be invalidated when loading is complete.<br />
+When accessing other objects in this event, please check if they have not been invalidated.<br />
+Alternatively, prevent the target object from being invalidated until this event is complete.</p>
 </dd>
-<dt>参照</dt>
+<dt>Reference</dt>
 <dd>
 <a class="jump" href="func_Bitmap_loadAsync.html">Bitmap.loadAsync</a><br />
 <a class="jump" href="func_Layer_copyFromBitmapToMainImage.html">Layer.copyFromBitmapToMainImage</a><br />

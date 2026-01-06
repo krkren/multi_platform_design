@@ -1,141 +1,141 @@
 /**
- * @description RegExp クラスは正規表現パターンを扱うクラスです。
- * 正規表現パターンには perl 互換のパターンを指定することができます。
- * JavaScript の RegExp クラスににていますが、互換性は低いです。
+ * @description RegExp class is a class that handles regular expression patterns.
+ * You can specify a perl compatible pattern for the regular expression pattern.
+ * It is similar to JavaScript's RegExp class, but has low compatibility.
  *
  * # Copyright notice
- * 正規表現機能の実装には K.Kosako 氏の鬼車を用いています。
- * 有用なライブラリを公開なさっている氏に感謝します。
+ * K.Kosako's Oniguruma is used to implement the regular expression function.
+ * I am grateful to him for publishing a useful library.
  *
- * # 正規表現パターン
- * / と / で囲まれた部分に正規表現パターンを指定することができます。
- * トークン を参照してください。
+ * # Regular expression pattern
+ * You can specify a regular expression pattern in the part surrounded by / and /.
+ * See Token.
  */
 class RegExp {
 	/**
-	 * コンストラクタ
-	 * @param pattern パターン文字列
-	 * @param flag フラグ文字列
-	 * @descriptionパターン文字列は正規表現パターンです。
-	 * パターン中に指定する \ は、文字列即値中で書くときは \\ と書くことに注意してください。
-	 * フラグ文字列は g i の文字の組み合わせです。
-	 * g はグローバルサーチフラグです。
-	 * このフラグをつけると、match、exec、replace の各メソッドで、パターンにマッチした文字列の部分すべてに対して処理が行われます。
-	 * i フラグは英字の大文字/小文字の区別を行いません。
+	 * Constructor
+	 * @param pattern Pattern string
+	 * @param flag Flag string
+	 * @description The pattern string is a regular expression pattern.
+	 * Note that \ specified in the pattern should be written as \\ when writing in a string literal.
+	 * The flag string is a combination of the characters g and i.
+	 * g is a global search flag.
+	 * If you add this flag, the match, exec, and replace methods will process all parts of the string that match the pattern.
+	 * The i flag does not distinguish between uppercase and lowercase letters.
 	 */
 	function RegExp( pattern:string, flag:string=null );
 
 	/**
-	 * 正規表現オブジェクトに新しい正規表現パターンを設定します
-	 * @param pattern パターン文字列
-	 * @param flag フラグ文字列
+	 * Sets a new regular expression pattern to the regular expression object
+	 * @param pattern Pattern string
+	 * @param flag Flag string
 	 */
 	function compile( pattern:string, flag:string=null );
 
 	/**
-	 * 引数に指定した文字列がパターンにマッチするかどうかを返します
-	 * @param text 判定文字列
-	 * @return パターンにマッチすれば真、マッチしなければ偽が返ります。
-	 * @description このメソッドはこのオブジェクトの各プロパティの値を更新します。
+	 * Returns whether the string specified in the argument matches the pattern
+	 * @param text Judgment string
+	 * @return Returns true if it matches the pattern, false if it does not match.
+	 * @description This method updates the values ​​of each property of this object.
 	 */
 	function test( text:string ):bool;
 
 	/**
-	 * 引数に指定した文字列に正規表現パターンマッチングを行い、マッチした結果を含む配列を返します
-	 * @param text 文字列
-	 * @return パターンにマッチしない場合、配列の要素数は 0 になります。
-	 * マッチした場合、要素 0 (最初の要素) はマッチした部分全体、それ以降の要素は各マッチ部分 ( 正規表現パターン中の ( ) で指定した部分 ) が入っています。
-	 * @description このメソッドはこのオブジェクトの各プロパティの値を更新します。
+	 * Performs regular expression pattern matching on the string specified in the argument and returns an array containing the matching results.
+	 * @param text String
+	 * @return If the pattern does not match, the number of elements in the array will be 0.
+	 * If it matches, element 0 (the first element) contains the entire matched part, and subsequent elements contain each matched part (the part specified by ( ) in the regular expression pattern).
+	 * @description This method updates the values ​​of each property of this object.
 	 */
 	function exec( text:string ):Array;
 
 	/**
-	 * 引数に指定した文字列に正規表現パターンマッチングを行い、マッチした結果を含む配列を返します
-	 * @description このオブジェクトのプロパティの値を更新しない以外は、exec メソッドと同一です。
-	 * @param text 文字列
-	 * @return パターンにマッチしない場合、配列の要素数は 0 になります。
-	 * マッチした場合、要素 0 (最初の要素) はマッチした部分全体、それ以降の要素は各マッチ部分 ( 正規表現パターン中の ( ) で指定した部分 ) が入っています。
+	 * Performs regular expression pattern matching on the string specified in the argument and returns an array containing the matching results.
+	 * @description This is the same as the exec method, except that it does not update the value of this object's property.
+	 * @param text String
+	 * @return If the pattern does not match, the number of elements in the array will be 0.
+	 * If it matches, element 0 (the first element) contains the entire matched part, and subsequent elements contain each matched part (the part specified by ( ) in the regular expression pattern).
 	 * @see RegExt.exec
 	 */
 	function match( text:string ):Array;
 
 	/**
-	 * 文字列の置き換えを行い、置き換えが行われた後の文字列を返します
-	 * @param text 	対象文字列
-	 * @param replace 置き換え文字列
-	 * @return  対象文字列に対してマッチングを行い、マッチした部分を置き換え文字列で置き換え、置き換えが行われた後の文字列を返します。
-	 * @description 置き換え文字列として、文字列ではなく関数を渡すと、置き換え動作のためにその関数が呼ばれるようになります。
-	 * 関数は引数をひとつとり、対象文字列の中のマッチした部分をあらわす配列オブジェクトが渡されます ( この配列については exec メソッドを参照してください )。
-	 * 対象文字列中のマッチした部分は、関数の戻した文字列に置き換わります。
-	 * このメソッドは start プロパティを無視します。
+	 * Replaces a string and returns the string after the replacement
+	 * @param text 	Target string
+	 * @param replace Replacement string
+	 * @return  Matches the target string, replaces the matched part with the replacement string, and returns the string after the replacement.
+	 * @description If you pass a function instead of a string as the replacement string, that function will be called for the replacement operation.
+	 * The function takes one argument, which is passed an array object representing the matched part in the target string (see the exec method for this array).
+	 * The matched part in the target string is replaced with the string returned by the function.
+	 * This method ignores the start property.
 	 */
 	function replace( text:string, replace:string ):string;
 
 	/**
-	 * 文字列を分割します
-	 * @param text 対象文字列
-	 * @param reserved 予約
-	 * @param ignore 空の要素を無視するか
-	 * @rturn 文字列を分割した結果が格納された配列オブジェクトを返します。
+	 * Splits a string
+	 * @param text Target string
+	 * @param reserved Reserved
+	 * @param ignore Whether to ignore empty elements
+	 * @rturn Returns an array object containing the result of splitting the string.
 	 * @see Array.split
 	 */
 	function split( text:string, reserved, igonre:bool=false ):Array;
 
 	/**
- 	 * マッチした各部分を含む配列を表す読み出し専用のプロパティです
- 	 * @description パターンにマッチしない場合、配列の要素数は 0 になります。
- 	 * マッチした場合、要素 0 (最初の要素) はマッチした部分全体、それ以降の要素は各マッチ部分 ( 正規表現パターン中の ( ) で指定した部分 ) が入っています。
+ 	 * A read-only property that represents an array containing each matched part
+ 	 * @description If the pattern does not match, the number of elements in the array will be 0.
+ 	 * If it matches, element 0 (the first element) contains the entire matched part, and subsequent elements contain each matched part (the part specified by ( ) in the regular expression pattern).
  	 */
 	property matches;
 
 	/**
-	 * 文字列の検索開始位置を表すプロパティです
-	 * @description 値を設定することもできます。
+	 * A property that represents the search start position of a string
+	 * @description You can also set the value.
 	 */
 	property start;
 
 	/**
-	 * マッチした部分の先頭文字の位置を表す、読み出し専用のプロパティです
-	 * @description 0 が先頭を表すので、それがマッチング対象文字列の先頭の文字ならば 0 になります。
+	 * A read-only property that represents the position of the first character of the matched part
+	 * @description Since 0 represents the beginning, it will be 0 if it is the first character of the matching target string.
 	 */
 	property index;
 
 	/**
-	 * マッチした部分の最終文字の次の文字の位置を表す、読み出し専用のプロパティです
-	 * @description 0 が先頭を表します
+	 * A read-only property that represents the position of the character after the last character of the matched part
+	 * @description 0 represents the beginning
 	 */
 	property lastIndex;
 
 	/**
-	 * マッチング対象の文字列をあらわす、読み出し専用のプロパティです
+	 * A read-only property that represents the string to be matched
 	 */
 	property input;
 
 	/**
-	 * マッチング対象文字列のうち、マッチした部分よりも左側の文字列をあらわす、読み出し専用のプロパティです
+	 * A read-only property that represents the string to the left of the matched part of the string to be matched
 	 */
 	property leftContext;
 
 	/**
-	 * マッチング対象文字列のうち、マッチした部分よりも右側の文字列をあらわす、読み出し専用のプロパティです
+	 * A read-only property that represents the string to the right of the matched part of the string to be matched
 	 */
 	property rightContext;
 
 	/**
-	 * マッチング対象文字列を表します
-	 * @description matches[0] と同じです。
+	 * Represents the string to be matched
+	 * @description Same as matches[0].
 	 */
 	property lastMatch;
 
 	/**
-	 * マッチした各部分のうち、最後の部分を返します
-	 * @description matches[matches.count-1] と同じです。
+	 * Returns the last part of each matched part
+	 * @description Same as matches[matches.count-1].
 	 */
 	property lastParen;
 
 	/**
-	 * 最後に test あるいは exec メソッドが実行された RegExp クラスのインスタンスです
-	 * @description 例 : 
+	 * The instance of the RegExp class on which the test or exec method was last executed
+	 * @description Example:
 	 * ```
 	 * if(/pat(\d+)/.test(target)) { return RegExp.last.matches[1]; }
 	 * ```
@@ -143,4 +143,3 @@ class RegExp {
 	 */
 	property last;
 };
-

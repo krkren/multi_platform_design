@@ -1,126 +1,126 @@
 /**
- * @description JavaScript の Math とほぼ互換です。
- * 数学関数を提供します。
+ * @description Almost compatible with JavaScript's Math.
+ * Provides mathematical functions.
  */
 class Math {
 	/**
-	 * 絶対値の取得
-	 * @param val 実数
-	 * @return 絶対値
+	 * Get absolute value
+	 * @param val Real number
+	 * @return Absolute value
 	 */
 	function abs( val:real ):real;
 	/**
-	 * アーク コサイン
-	 * @param val 実数
-	 * @return アーク コサイン
+	 * Arc cosine
+	 * @param val Real number
+	 * @return Arc cosine
 	 */
 	function acos( val:real ):real;
 	/**
-	 * アーク サイン
-	 * @param val 実数
-	 * @return アーク サイン
+	 * Arc sine
+	 * @param val Real number
+	 * @return Arc sine
 	 */
 	function asin( val:real ):real;
 	/**
-	 * アーク タンジェント
-	 * @param val 実数
-	 * @return アーク タンジェント
+	 * Arc tangent
+	 * @param val Real number
+	 * @return Arc tangent
 	 */
 	function atan( val:real ):real;
 	/**
-	 * 2変数のアーク タンジェント
-	 * @description y / x の逆正接を [-π, π] の範囲で返す。
-	 * @param y 辺y
-	 * @param x 辺x
-	 * @return アーク タンジェント
+	 * Arc tangent of two variables
+	 * @description Returns the arctangent of y / x in the range [-π, π].
+	 * @param y Side y
+	 * @param x Side x
+	 * @return Arc tangent
 	 */
 	function atan2( y:real, x:real ):real; ()
 	/**
-	 * 切り上げ
-	 * @param val 実数
-	 * @return 切り上げ
+	 * Round up
+	 * @param val Real number
+	 * @return Round up
 	 */
 	function ceil( val:real ):real;
 	/**
-	 * 切り捨て
-	 * @param val 実数
-	 * @return 切り捨て
+	 * Round down
+	 * @param val Real number
+	 * @return Round down
 	 */
 	function floor( val:real ):real;
 	/**
-	 * eのn乗
-	 * @param val 実数
-	 * @return eのn乗
+	 * e to the power of n
+	 * @param val Real number
+	 * @return e to the power of n
 	 */
 	function exp( val:real ):real;
 	/**
-	 * 自然対数
-	 * @param val 実数
-	 * @return 自然対数
+	 * Natural logarithm
+	 * @param val Real number
+	 * @return Natural logarithm
 	 */
 	function log( val:real ):real;
 	/**
-	 * 二つ以上の値の大きい方
-	 * @param a 実数
-	 * @param b 実数
-	 * @return 一番大きい値
+	 * The larger of two or more values
+	 * @param a Real number
+	 * @param b Real number
+	 * @return The largest value
 	 */
 	function max( a:real, b:real, ... ):real;
 	/**
-	 * 二つ以上の値の小さい方
-	 * @param a 実数
-	 * @param b 実数
-	 * @return 一番小さい値
+	 * The smaller of two or more values
+	 * @param a Real number
+	 * @param b Real number
+	 * @return The smallest value
 	 */
 	function min( a:real, b:real, ... ):real;
 	/**
-	 * 0以上1未満の乱数
-	 * @description xorshiftによる実装
-	 * @return 0以上1未満の乱数
+	 * Random number between 0 and 1
+	 * @description Implementation by xorshift
+	 * @return Random number between 0 and 1
 	 */
 	function random():real;
 	/**
-	 * 乗数
-	 * @description aのb乗を返す。
-	 * @param a 実数
-	 * @param b 実数
-	 * @return aのb乗
+	 * Multiplier
+	 * @description Returns a to the power of b.
+	 * @param a Real number
+	 * @param b Real number
+	 * @return a to the power of b
 	 */
 	function pow( a:real, a:real ):real; ()
 	/**
-	 * 整数へのまるめ
-	 * @param val 実数
-	 * @return 丸められた値
+	 * Rounding to an integer
+	 * @param val Real number
+	 * @return Rounded value
 	 */
 	function round( val:real ):real;
 	/**
-	 * サイン
-	 * @param val 実数
-	 * @return サイン
+	 * Sine
+	 * @param val Real number
+	 * @return Sine
 	 */
 	function sin( val:real ):real;
 	/**
-	 * コサイン
-	 * @param val 実数
-	 * @return コサイン
+	 * Cosine
+	 * @param val Real number
+	 * @return Cosine
 	 */
 	function cos( val:real ):real;
 	/**
-	 * タンジェント
-	 * @param val 実数
-	 * @return タンジェント
+	 * Tangent
+	 * @param val Real number
+	 * @return Tangent
 	 */
 	function tan( val:real ):real;
 	/**
-	 * 平方根
-	 * @param val 実数
-	 * @return 平方根
+	 * Square root
+	 * @param val Real number
+	 * @return Square root
 	 */
 	function sqrt( val:real ):real;
 
 
 	/**
-	 * e 自然対数の底(ネイピア数)
+	 * e Base of natural logarithm (Napier's number)
 	 */
 	const E;
 	/**
@@ -132,11 +132,11 @@ class Math {
 	 */
 	const LN2;
 	/**
-	 * 10を底としたeの対数
+	 * Logarithm of e to base 10
 	 */
 	const LOG10E;
 	/**
-	 * 2を底としたeの対数
+	 * Logarithm of e to base 2
 	 */
 	const LOG2E;
 	/**
@@ -152,4 +152,3 @@ class Math {
 	 */
 	const SQRT2;
 };
-

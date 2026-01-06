@@ -1,41 +1,41 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>onHitTest - 当たり判定</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>onHitTest - Hit Test</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.onHitTest</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>当たり判定</p>
+<dt>Function/Meaning</dt>
+<dd><p>Hit test</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のイベント</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd><a class="jump" href="class_Layer.html">Layer class</a> event</dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">onHitTest(<span class="arg">x</span>, <span class="arg">y</span>, <span class="arg">hit</span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="onHitTestの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="onHitTest arguments">
 <tr><td valign="top"><span class="argname">x</span></td>
-<td><p>当たり判定を行う位置の ( レイヤの表示座標内での )  x 座標です。</p>
+<td><p>The x-coordinate of the position to perform the hit test (within the layer's display coordinates).</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">y</span></td>
-<td><p>当たり判定を行う位置の ( レイヤの表示座標内での )  y 座標です。</p>
+<td><p>The y-coordinate of the position to perform the hit test (within the layer's display coordinates).</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">hit</span></td>
-<td><p>当たり判定の結果、当たっている場合は真, はずれている場合は偽になります。<br />
-当たり判定の結果は、同名のスーパークラスのイベントのこの引数に渡してください。</p>
+<td><p>The result of the hit test; true if hit, false if not.<br />
+Pass the result of the hit test to this argument of the superclass event of the same name.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>レイヤ内のある点に対して、当たり判定 ( ヒットテスト ) が行われる場合に呼び出されます。<br />
-当たり判定の結果は、スーパークラスのこのイベントの第３引数に当たり判定の結果を渡してください ( 第１引数と２引数はそのまま渡してください )。<br />
-当たり判定の結果、当たっていればマウスメッセージは不透過になり、そのレイヤで処理されます。<br />
-当たっていなければ透過となり、マウスメッセージはより奥にあるレイヤで処理されます。<br />
-このイベントは、Layer.hitThreshold や Layer.hitType で行われる当たり判定で「当たっている」という判定がされた後に呼び出されます。<br />
-したがってLayer.hitThreshold や Layer.hitType で「当たってない」と判定されている場合はこのイベントは呼び出されません。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Called when a hit test is performed on a point within the layer.<br />
+Pass the result of the hit test to the third argument of this event in the superclass (pass the first and second arguments as they are).<br />
+If the hit test result is a hit, mouse messages become opaque and are processed by that layer.<br />
+If it is not a hit, it becomes transparent, and mouse messages are processed by layers further back.<br />
+This event is called after a "hit" determination is made by the hit test performed via Layer.hitThreshold or Layer.hitType.<br />
+Therefore, if Layer.hitThreshold or Layer.hitType determines it is "not a hit", this event will not be called.</p>
 </dd>
 </dl>
 </div>

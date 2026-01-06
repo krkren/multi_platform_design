@@ -1,153 +1,153 @@
 /**
- * @description VertexBufferは頂点情報を保持するクラスです。
+ * @description VertexBuffer is a class that holds vertex information.
  *
- * 位置の指定やUV座標、頂点カラーなどを細かく設定したい場合に使用します。
- * 単純な矩形ではなくメッシュ変形などを行いたい場合やポイントスプライトを使用したい場合などにも使用します。
+ * Use this when you want to set position, UV coordinates, vertex colors, etc. in detail.
+ * It is also used when you want to perform mesh transformations instead of simple rectangles, or when you want to use point sprites.
  *
- * プラグインで頂点の配列を直接変更できるようにポインタアクセスも可能です(ただしOpenGLES3.0以降)。
- * シェーダー+TJS2スクリプト+プラグインでの頂点操作で従来のようなLayer拡張性を確保できます。
- * 従来のプラグイン内でほぼ完結していたものに比べるとやや複雑にはなります。
+ * Pointer access is also possible so that the vertex array can be directly modified by a plugin (however, only with OpenGLES 3.0 and later).
+ * Traditional Layer extensibility can be ensured by vertex manipulation with shader + TJS2 script + plugin.
+ * It is slightly more complicated than the conventional method, which was almost completely self-contained within the plugin.
  */
 class VertexBuffer {
 
 	/**
-	 * 未初期化の頂点バッファを作ります
-	 * @param size バッファのバイト数
-	 * @param dataType データの型。dtByte/dtUByte/dtShort/dtUShort/dtInt/dtFloat
-	 * @param updateType データ更新頻度。utStream/utStatic/utDynamic 
-	 * @param isIndex インデックスバッファかどうか。頂点バッファならfalse
+	 * Creates an uninitialized vertex buffer
+	 * @param size Buffer size in bytes
+	 * @param dataType Data type. dtByte/dtUByte/dtShort/dtUShort/dtInt/dtFloat
+	 * @param updateType Data update frequency. utStream/utStatic/utDynamic
+	 * @param isIndex Whether it is an index buffer. false if it is a vertex buffer
 	 */
 	function VertexBuffer( size:int, dataType:int, updateType:int, isIndex:bool = false );
 
 	/**
-	 * 頂点配列を指定して頂点バッファを作ります
-	 * @param data 頂点配列。バッファサイズはこの配列の要素数×データ型サイズ。
-	 * @param dataType データの型。dtByte/dtUByte/dtShort/dtUShort/dtInt/dtFloat 
-	 * @param updateType データ更新頻度。utStream/utStatic/utDynamic
-	 * @param isIndex インデックスバッファかどうか。頂点バッファならfalse
+	 * Creates a vertex buffer by specifying a vertex array
+	 * @param data Vertex array. The buffer size is the number of elements in this array multiplied by the data type size.
+	 * @param dataType Data type. dtByte/dtUByte/dtShort/dtUShort/dtInt/dtFloat
+	 * @param updateType Data update frequency. utStream/utStatic/utDynamic
+	 * @param isIndex Whether it is an index buffer. false if it is a vertex buffer
 	 */
 	function VertexBuffer( data:Array, dataType:int, updateType:int, isIndex:bool = false );
 
 	/**
-	 * 頂点データを設定/更新
-	 * @description Staticの時は失敗します(例外)。
-	 * @param array 頂点配列
-	 * @param offset 変更を開始する配列オフセットインデックス(非バイトサイズ)
+	 * Set/update vertex data
+	 * @description Fails when Static (exception).
+	 * @param array Vertex array
+	 * @param offset Array offset index to start changing (non-byte size)
 	 */
 	function setVertex( array:Array, offset:int = 0 );
 
 	/**
-	 * 頂点データをロックし、データへのポインタ(read/write指定)を返します
-	 * @description プラグイン用( OpenGL ES 3.0以降でないと使えません )
-	 * @return 頂点データへのポインタ、ロックに失敗した時はnull
+	 * Locks vertex data and returns a pointer to the data (read/write specified)
+	 * @description For plugins (cannot be used unless OpenGL ES 3.0 or later)
+	 * @return Pointer to vertex data, null if locking fails
 	 */
 	function lock();
 
 	/**
-	 * 頂点データのロックを解除します
-	 * @description プラグイン用( OpenGL ES 3.0以降でないと使えません )。
-	 * データの受け渡しが終わったら、バッファが使用される前に呼び出します。
-	 * lockを維持せず、更新したら即座にunlockするのが好ましいです。
+	 * Unlocks vertex data
+	 * @description For plugins (cannot be used unless OpenGL ES 3.0 or later).
+	 * Call this before the buffer is used after data transfer is complete.
+	 * It is preferable to unlock immediately after updating without maintaining the lock.
 	 */
 	function unlock();
 
 	/**
-	 * バッファサイズ(readonly)
+	 * Buffer size (readonly)
 	 */
 	property size;
 
 	/**
-	 * 頂点データの型(readonly)
+	 * Vertex data type (readonly)
 	 */
 	property dataType;
 
 	/**
-	 * データ更新頻度(readonly)
+	 * Data update frequency (readonly)
 	 */
 	property updateType;
 
 	/**
-	 * インデックスバッファかどうか(readonly)
+	 * Whether it is an index buffer (readonly)
 	 */
 	property isIndex;
 
 	/**
-	 * ネイティブハンドル
+	 * Native handle
 	 */
 	property nativeHandle;
 
 	/**
-	 * データ型定数(byte)
+	 * Data type constant (byte)
 	 */
 	const dtByte;
 	/**
-	 * データ型定数(unsigned byte)
+	 * Data type constant (unsigned byte)
 	 */
 	const dtUByte;
 	/**
-	 * データ型定数(short)
+	 * Data type constant (short)
 	 */
 	const dtShort;
 	/**
-	 * データ型定数(unsigned short)
+	 * Data type constant (unsigned short)
 	 */
 	const dtUShort;
 	/**
-	 * データ型定数(int) ES3.0以降必要
+	 * Data type constant (int) Required for ES3.0 and later
 	 */
 	const dtInt;
 	/**
-	 * データ型定数(unsinged int) ES3.0以降必要
+	 * Data type constant (unsinged int) Required for ES3.0 and later
 	 */
 	const dtUInt;
 	/**
-	 * データ型定数(fixed:固定少数点)
+	 * Data type constant (fixed: fixed point)
 	 */
 	const dtFixed;
 	/**
-	 * データ型定数(float)
+	 * Data type constant (float)
 	 */
 	const dtFloat;
 
 	/**
-	 * 更新頻度定数:毎フレーム更新
+	 * Update frequency constant: Update every frame
 	 */
 	const utStream;
 	/**
-	 * 更新頻度定数:変更なし
+	 * Update frequency constant: No change
 	 */
 	const utStatic;
 	/**
-	 * 更新頻度定数:頻繁に更新される
+	 * Update frequency constant: Frequently updated
 	 */
 	const utDynamic;
 
 	/**
-	 * プリミティブ型定数(ポイントリスト)
+	 * Primitive type constant (point list)
 	 */
 	const ptPoints;
 	/**
-	 * プリミティブ型定数(ラインストリップ)
+	 * Primitive type constant (line strip)
 	 */
 	const ptLineStrip;
 	/**
-	 * プリミティブ型定数(ラインループ)
+	 * Primitive type constant (line loop)
 	 */
 	const ptLineLoop;
 	/**
-	 * プリミティブ型定数(ラインリスト)
+	 * Primitive type constant (line list)
 	 */
 	const ptLines;
 	/**
-	 * プリミティブ型定数(トライアングルストラップ)
+	 * Primitive type constant (triangle strip)
 	 */
 	const ptTriangleStrip;
 	/**
-	 * プリミティブ型定数(トライアングルファン)
+	 * Primitive type constant (triangle fan)
 	 */
 	const ptTriangleFan;
 	/**
-	 * プリミティブ型定数(トライアングルリスト)
+	 * Primitive type constant (triangle list)
 	 */
 	const ptTriangles;
 };

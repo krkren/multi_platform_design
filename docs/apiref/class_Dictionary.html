@@ -6,59 +6,59 @@
 </head>
 <body>
 <h1><a name="top" id="top">Dictionary</a></h1>
-<div class="para"><p>Dictionary クラスは辞書配列を扱うクラスです。</p>
+<div class="para"><p>The Dictionary class is a class that handles dictionary arrays.</p>
 
-<p>辞書配列は連想配列とも呼ばれ、名前と、それに結びつけられた値を一つのペアとして、それを複数保持するオブジェクトです。<br />
-配列と同じように [ ] (間接参照) 演算子でアクセスしますが、添え字の代わりに文字列を使い、それが名前となります。<br />
-名前が識別子として有効なものであれば、 . (直接参照) 演算子も使うことができます。<br />
-また、存在しない名前を参照すると void になります。<br />
-要素を削除するには delete 演算子を使います。</p>
+<p>Dictionary arrays, also known as associative arrays, are objects that hold multiple pairs of names and their associated values.<br />
+Like arrays, they are accessed using the [ ] (indirect reference) operator, but instead of an index, a string is used as the name.<br />
+If the name is valid as an identifier, the . (direct reference) operator can also be used.<br />
+Also, referencing a non-existent name will result in void.<br />
+To delete an element, use the delete operator.</p>
 
-<h1>式中辞書配列</h1>
+<h1>Dictionary Array in Expression</h1>
 
-<p>%[ ] を使って、式中に Dictionary クラスのオブジェクトをその場で記述することができます。<br />
-要素名 => 要素の値、をカンマで区切り、初期要素となる式を列挙します。たとえば、</p>
+<p>Using %[ ], you can describe a Dictionary class object in an expression on the spot.<br />
+List the expressions that will be the initial elements, separated by commas, in the form element name => element value. For example,</p>
 
 <p><code><br />
 var dic = %["a" =&gt; 1, "b" =&gt; 2, "c" =&gt; 3];<br />
 </code></p>
 
-<p>と記述すれば、dic に、要素名と要素の組がそれぞれ "a":1、 "b":2、 "c":3 となる Dictionary クラスのオブジェクトへの参照が代入されます。<br />
-内部的には、=> はカンマと全く同じものですが、読みやすさを考え、=> を使用できるようになっています ( perl と同じです )。</p>
+<p>If you write as above, dic will be assigned a reference to a Dictionary class object where the element name and element pairs are "a":1, "b":2, and "c":3 respectively.<br />
+Internally, => is exactly the same as a comma, but for readability, => can be used (same as perl).</p>
 
-<h1>Dictionary クラスのメソッドへのアクセス</h1>
+<h1>Accessing Dictionary Class Methods</h1>
 
-<p>Dictionary クラスのオブジェクトは、作成された状態ではメンバを何一つ持っていません。<br />
-たとえば、assign メソッドを使おうと思って、Dictionary クラスのオブジェクト dict に対してdict.assign(src) のように記述しても、dict が assign というメソッドを持っていないためにエラーになります。<br />
-したがって、incontextof 演算子を使って、Dictionary クラスに直接属しているメソッドを、対象となる Dictionary クラスのオブジェクトをコンテキストとして実行させます。</p>
+<p>Dictionary class objects do not have any members when they are created.<br />
+For example, if you try to use the assign method and write dict.assign(src) for a Dictionary class object dict, it will result in an error because dict does not have a method called assign.<br />
+Therefore, use the incontextof operator to execute methods that belong directly to the Dictionary class with the target Dictionary class object as the context.</p>
 
-<p>例:<br />
+<p>Example:<br />
 <code><br />
 var a = %[];<br />
 var b = %[];<br />
-(Dictionary.assign incontextof a)(b); // b を a にコピー<br />
-(Dictionary.clear incontextof b)(); // b の内容をクリア<br />
+(Dictionary.assign incontextof a)(b); // Copy b to a<br />
+(Dictionary.clear incontextof b)(); // Clear the contents of b<br />
 </code></p>
 </div>
-<h1>メンバ</h1><div class="para">
+<h1>Members</h1><div class="para">
 <dl>
-<dt>メソッド</dt>
+<dt>Methods</dt>
 <dd>
-<a class="jump" href="func_Dictionary_assign.html">assign</a> (辞書配列をコピーします )<br />
-<a class="jump" href="func_Dictionary_assignStruct.html">assignStruct</a> (辞書配列をコピーします )<br />
-<a class="jump" href="func_Dictionary_clear.html">clear</a> (辞書配列の内容をすべて消去します )<br />
-<a class="jump" href="func_Dictionary_contains.html">contains</a> (辞書配列に指定された key が存在するか判定します。 )<br />
-<a class="jump" href="func_Dictionary_forEach.html">forEach</a> (引数の関数を、引数の辞書配列の各要素に対して実行します。 )<br />
-<a class="jump" href="func_Dictionary_getCount.html">getCount</a> (オブジェクトのメンバの数を返します。 )<br />
-<a class="jump" href="func_Dictionary_keys.html">keys</a> (オブジェクトのキーの配列を返します。 )<br />
-<a class="jump" href="func_Dictionary_loadStruct.html">loadStruct</a> (ファイルから構造化されたデータの入力を行います )<br />
-<a class="jump" href="func_Dictionary_saveStruct.html">saveStruct</a> (ファイルへ構造化されたデータの出力を行います )<br />
-<a class="jump" href="func_Dictionary_values.html">values</a> (オブジェクトの値の配列を返します。 )<br />
+<a class="jump" href="func_Dictionary_assign.html">assign</a> (Copy dictionary array)<br />
+<a class="jump" href="func_Dictionary_assignStruct.html">assignStruct</a> (Copy dictionary array)<br />
+<a class="jump" href="func_Dictionary_clear.html">clear</a> (Clear all contents of the dictionary array)<br />
+<a class="jump" href="func_Dictionary_contains.html">contains</a> (Determine if the specified key exists in the dictionary array.)<br />
+<a class="jump" href="func_Dictionary_forEach.html">forEach</a> (Executes the argument function for each element of the argument dictionary array.)<br />
+<a class="jump" href="func_Dictionary_getCount.html">getCount</a> (Returns the number of members in the object.)<br />
+<a class="jump" href="func_Dictionary_keys.html">keys</a> (Returns an array of keys for the object.)<br />
+<a class="jump" href="func_Dictionary_loadStruct.html">loadStruct</a> (Imports structured data from a file)<br />
+<a class="jump" href="func_Dictionary_saveStruct.html">saveStruct</a> (Outputs structured data to a file)<br />
+<a class="jump" href="func_Dictionary_values.html">values</a> (Returns an array of values for the object.)<br />
 </dd>
-<dt>プロパティ</dt>
+<dt>Properties</dt>
 <dd>
 </dd>
-<dt>イベント</dt>
+<dt>Events</dt>
 <dd>
 </dd>
 </dl>

@@ -1,32 +1,32 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>onKeyPress - [Windows*]文字が入力された</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>onKeyPress - [Windows*] Character input occurred</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Window.onKeyPress</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>[Windows*]文字が入力された</p>
+<dt>Function/Meaning</dt>
+<dd><p>[Windows*] Character input occurred</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Window.html">Windowクラス</a>のイベント</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Event of the <a class="jump" href="class_Window.html">Window class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">onKeyPress(<span class="arg">key</span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="onKeyPressの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="Arguments for onKeyPress">
 <tr><td valign="top"><span class="argname">key</span></td>
-<td><p>入力された文字です。</p>
+<td><p>The character that was input.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>文字が入力されたときに発生します。<br />
-Window.onKeyDown と異なるのは、onKeyDown が仮想キーコードを扱うのに対し、このイベントは文字そのものを扱います。<br />
-押されたキーが文字とは関係のないキー (ファンクションキーなど) の場合はこのイベントは発生しません。<br />
-Ctrlキーと同時に押された場合は、以下に示すようなコントロールコードが送られてきます。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Occurs when a character is input.<br />
+Unlike Window.onKeyDown, which handles virtual key codes, this event handles the character itself.<br />
+This event does not occur if the pressed key is not related to a character (such as function keys).<br />
+If pressed simultaneously with the Ctrl key, control codes such as those shown below are sent.</p>
 
 <ul>
 <li>0x00 : Ctrl+@</li>

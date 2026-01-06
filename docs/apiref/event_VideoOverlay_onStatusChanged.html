@@ -1,42 +1,42 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>onStatusChanged - ステータスが変更された</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>onStatusChanged - Status changed</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">VideoOverlay.onStatusChanged</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>ステータスが変更された</p>
+<dt>Function/Meaning</dt>
+<dd><p>Status changed</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_VideoOverlay.html">VideoOverlayクラス</a>のイベント</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Event of the <a class="jump" href="class_VideoOverlay.html">VideoOverlay class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">onStatusChanged(<span class="arg">status</span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="onStatusChangedの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="onStatusChanged arguments">
 <tr><td valign="top"><span class="argname">status</span></td>
-<td><p>ステータス文字列を表します。以下のいずれかです。</p>
+<td><p>Represents the status string. It is one of the following:</p>
 
 <ul>
-<li>"unload"   :  メディアが開かれてない</li>
-<li>"ready"    :  メディアの準備が完了している</li>
-<li>"play"     :  メディアは再生中である</li>
-<li>"stop"     :  メディアは停止中である</li>
-<li>"pause"    :  メディアは一時停止中である</li>
-<li>"idle"     :  [Android+]メディアはアイドル中。</li>
-<li>"buffering" :  [Android+]メディアはバッファリング中。</li>
-<li>"load error" :  [Android+]メディアの読み込みエラー。</li>
-<li>"player error" :  [Android+]メディアプレイヤーエラー。</li>
+<li>"unload"   :  Media is not open</li>
+<li>"ready"    :  Media preparation is complete</li>
+<li>"play"     :  Media is playing</li>
+<li>"stop"     :  Media is stopped</li>
+<li>"pause"    :  Media is paused</li>
+<li>"idle"     :  [Android+] Media is idle.</li>
+<li>"buffering" :  [Android+] Media is buffering.</li>
+<li>"load error" :  [Android+] Media loading error.</li>
+<li>"player error" :  [Android+] Media player error.</li>
 </ul>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>このオブジェクトのステータスが変更されたときに発生します。<br />
-ready は、vomMFEVR モード/Androidの時のみ発生します。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Occurs when the status of this object changes.<br />
+"ready" only occurs in vomMFEVR mode or on Android.</p>
 </dd>
 </dl>
 </div>

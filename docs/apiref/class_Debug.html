@@ -6,34 +6,34 @@
 </head>
 <body>
 <h1><a name="top" id="top">Debug</a></h1>
-<div class="para"><p>Debug クラスは 吉里吉里のデバッグに関する機能を提供するクラスです。<br />
-このクラスからオブジェクトを作成することはできません。<br />
-吉里吉里のコンソールのログの名前は krkr.console.log になります。<br />
-また、ハードウェア例外が発生したときに作成されるファイルは hwexcept.log となります。<br />
-これらのログファイルは、デフォルトではプロジェクトディレクトリになります。<br />
-ただし、プロジェクトディレクトリがアーカイブなど、書き込みができないディレクトリの場合は出力されません。<br />
-ログファイルの出力先は logLocation プロパティで変更することができます (KAGの場合は栞データの保存先に設定されます)。<br />
-Windowsではコンソールはコマンドプロンプト、AndroidではlogCatへの出力となります。</p>
+<div class="para"><p>The Debug class provides functions related to debugging in KiriKiri.<br />
+You cannot create objects from this class.<br />
+The name of the KiriKiri console log is krkr.console.log.<br />
+Also, the file created when a hardware exception occurs is hwexcept.log.<br />
+These log files are in the project directory by default.<br />
+However, if the project directory is an archive or a directory that cannot be written to, it will not be output.<br />
+The output destination of the log file can be changed with the logLocation property (in the case of KAG, it is set to the save destination of the bookmark data).<br />
+On Windows, the console is the command prompt, and on Android, it is output to logCat.</p>
 </div>
-<h1>メンバ</h1><div class="para">
+<h1>Members</h1><div class="para">
 <dl>
-<dt>メソッド</dt>
+<dt>Methods</dt>
 <dd>
-<a class="jump" href="func_Debug_addLoggingHandler.html">addLoggingHandler</a> (ログハンドラを追加します )<br />
-<a class="jump" href="func_Debug_getLastLog.html">getLastLog</a> (未出力のログを取得します )<br />
-<a class="jump" href="func_Debug_logAsError.html">logAsError</a> (エラー時と同じようにログをファイルに出力開始する )<br />
-<a class="jump" href="func_Debug_message.html">message</a> (コンソールへメッセージを出力 )<br />
-<a class="jump" href="func_Debug_notice.html">notice</a> (コンソールへ重要なメッセージを出力 )<br />
-<a class="jump" href="func_Debug_removeLoggingHandler.html">removeLoggingHandler</a> (ログハンドラを削除します )<br />
-<a class="jump" href="func_Debug_startLogToFile.html">startLogToFile</a> (コンソールのログの出力開始 )<br />
+<a class="jump" href="func_Debug_addLoggingHandler.html">addLoggingHandler</a> (Adds a logging handler)<br />
+<a class="jump" href="func_Debug_getLastLog.html">getLastLog</a> (Gets the unoutput log)<br />
+<a class="jump" href="func_Debug_logAsError.html">logAsError</a> (Starts outputting the log to a file as if it were an error)<br />
+<a class="jump" href="func_Debug_message.html">message</a> (Outputs a message to the console)<br />
+<a class="jump" href="func_Debug_notice.html">notice</a> (Outputs an important message to the console)<br />
+<a class="jump" href="func_Debug_removeLoggingHandler.html">removeLoggingHandler</a> (Removes a logging handler)<br />
+<a class="jump" href="func_Debug_startLogToFile.html">startLogToFile</a> (Starts outputting the console log)<br />
 </dd>
-<dt>プロパティ</dt>
+<dt>Properties</dt>
 <dd>
-<a class="jump" href="prop_Debug_clearLogFileOnError.html">clearLogFileOnError</a> (エラー発生時にコンソールのログファイルをクリアするかどうか )<br />
-<a class="jump" href="prop_Debug_logLocation.html">logLocation</a> (ログファイルの出力先 )<br />
-<a class="jump" href="prop_Debug_logToFileOnError.html">logToFileOnError</a> (エラー発生時にコンソールのログをファイルに出力するか )<br />
+<a class="jump" href="prop_Debug_clearLogFileOnError.html">clearLogFileOnError</a> (Whether to clear the console log file when an error occurs)<br />
+<a class="jump" href="prop_Debug_logLocation.html">logLocation</a> (Log file output destination)<br />
+<a class="jump" href="prop_Debug_logToFileOnError.html">logToFileOnError</a> (Whether to output the console log to a file when an error occurs)<br />
 </dd>
-<dt>イベント</dt>
+<dt>Events</dt>
 <dd>
 </dd>
 </dl>

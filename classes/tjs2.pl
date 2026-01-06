@@ -9,7 +9,7 @@ while( glob("*.tjs") ) {
 }
 
 print "apijsontohtml *.json\n";
-system( "apijsontohtml *.json 吉里吉里Zマルチプラットフォーム版APIリファレンス" );
+system( "apijsontohtml *.json KirikiriZ Multi-Platform Edition API Reference" );
 
 while( glob("*.html") ) {
 	my $inname = $_;
