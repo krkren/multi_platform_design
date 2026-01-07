@@ -34,7 +34,7 @@ While it is not yet possible to migrate conventional scripts as they are, we rec
 ## Repository
 
 * [Main body is in the dev_multi_platform branch](https://github.com/krkrz/krkrz/tree/dev_multi_platform)
-* [KAG Sigma (Sample implementation of new drawing API)](https://github.com/krkrz/KAGSigma)
+* [KAG Sigma (Sample implementation of new drawing API)](https://github.com/krkren/KAGSigma)
 
 ## Various Explanations Regarding the Multi-platform Version
 
