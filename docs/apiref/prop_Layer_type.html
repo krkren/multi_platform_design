@@ -1,36 +1,36 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>type - レイヤ表示タイプ</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>type - Layer display type</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.type</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>レイヤ表示タイプ</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>レイヤの表示タイプを表します。<br />
-値を設定することもできます。</p>
+<dt>Function/Meaning</dt>
+<dd>Layer display type</dd>
+<dt>Type</dt>
+<dd>Property of <a class="jump" href="class_Layer.html">Layer class</a></dd>
+<dt>Description</dt>
+<dd><p>Represents the display type of the layer.<br />
+You can also set the value.</p>
 
 <ul>
-<li>ltOpaque または ltCoverRect を指定すると、ピクセルごとのアルファブレンドが無効になります。ltCoverRectもltOpaqueも同じ意味です。Layer.opacity プロパティが 255 の場合は、完全に不透明の矩形として表示される事になります。マスク画像は無視されます。このタイプに適した描画方式(Layer.faceで指定)はdfOpaqueです。</li>
-<li>ltAlpha または ltTransparent を指定すると、ピクセルごとのアルファブレンドが有効になります。ltTransparentもltAlphaも同じ意味です。マスク画像が透過に用いられます。このタイプに適した描画方式はdfAlphaです。</li>
-<li>ltAddAlpha を指定すると、ピクセルごとの加算アルファブレンドが有効になります。このタイプに適した描画方式は dfAddAlpha です。</li>
-<li>ltAdditive を指定すると、加算合成が行われます。マスク画像は無視されます。このタイプに適した描画方式は dfOpaque です。</li>
-<li>ltSubtractive を指定すると、減算合成が行われます。マスク画像は無視されます。このタイプに適した描画方式は dfOpaque です。</li>
-<li>ltMultiplicative を指定すると、乗算合成が行われます。マスク画像は無視されます。このタイプに適した描画方式は dfOpaque です。</li>
-<li>ltDodge を指定すると、覆い焼き合成が行われます。マスク画像は無視されます。このタイプに適した描画方式は dfOpaque です。</li>
-<li>ltDarken を指定すると、比較(暗)合成が行われます。マスク画像は無視されます。このタイプに適した描画方式は dfOpaque です。</li>
-<li>ltLighten を指定すると、比較(明)合成が行われます。マスク画像は無視されます。このタイプに適した描画方式は dfOpaque です。</li>
-<li>ltScreen を指定すると、スクリーン乗算合成が行われます。マスク画像は無視されます。このタイプに適した描画方式は dfOpaque です。</li>
+<li>Specifying ltOpaque or ltCoverRect disables per-pixel alpha blending. ltCoverRect and ltOpaque have the same meaning. If the Layer.opacity property is 255, it will be displayed as a completely opaque rectangle. The mask image is ignored. The drawing method (specified by Layer.face) suitable for this type is dfOpaque.</li>
+<li>Specifying ltAlpha or ltTransparent enables per-pixel alpha blending. ltTransparent and ltAlpha have the same meaning. The mask image is used for transparency. The drawing method suitable for this type is dfAlpha.</li>
+<li>Specifying ltAddAlpha enables per-pixel additive alpha blending. The drawing method suitable for this type is dfAddAlpha.</li>
+<li>Specifying ltAdditive performs additive blending. The mask image is ignored. The drawing method suitable for this type is dfOpaque.</li>
+<li>Specifying ltSubtractive performs subtractive blending. The mask image is ignored. The drawing method suitable for this type is dfOpaque.</li>
+<li>Specifying ltMultiplicative performs multiplicative blending. The mask image is ignored. The drawing method suitable for this type is dfOpaque.</li>
+<li>Specifying ltDodge performs dodge blending. The mask image is ignored. The drawing method suitable for this type is dfOpaque.</li>
+<li>Specifying ltDarken performs darken (minimum) blending. The mask image is ignored. The drawing method suitable for this type is dfOpaque.</li>
+<li>Specifying ltLighten performs lighten (maximum) blending. The mask image is ignored. The drawing method suitable for this type is dfOpaque.</li>
+<li>Specifying ltScreen performs screen blending. The mask image is ignored. The drawing method suitable for this type is dfOpaque.</li>
 </ul>
 
-<p>この他のレイヤ表示タイプについてはグラフィックシステムを参照してください。</p>
+<p>Please refer to the Graphic System for other layer display types.</p>
 </dd>
-<dt>参照</dt>
+<dt>Reference</dt>
 <dd>
 <a class="jump" href="prop_Layer_face.html">Layer.face</a><br />
 </dd>

@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>［］ - '数値' プロパティ</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>[] - 'numeric' property</title>
 </head>
 <body>
-<h1><span class="fheader"><a name="top" id="top">Octet.［］</a></span></h1><div class="para">
+<h1><span class="fheader"><a name="top" id="top">Octet.[]</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>'数値' プロパティ</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Octet.html">Octetクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>数値をプロパティとして間接指定すると、その位置にあるオクテットにアクセスできます。<br />
-結果はオクテットの数値で表されます。<br />
-たとえば、oct がオクテット列を表す式だとすると、oct[0] は先頭のオクテットの値を表す数値になります。<br />
-数値がオクテット列よりも長い位置や、負の場合は例外が発生します。</p>
+<dt>Function/Meaning</dt>
+<dd>'numeric' property</dd>
+<dt>Type</dt>
+<dd>Property of the <a class="jump" href="class_Octet.html">Octet class</a></dd>
+<dt>Description</dt>
+<dd><p>By specifying a number as a property, you can access the octet at that position.<br />
+The result is represented as the numeric value of the octet.<br />
+For example, if 'oct' is an expression representing an octet sequence, oct[0] is the numeric value of the first octet.<br />
+An exception occurs if the index is negative or exceeds the length of the octet sequence.</p>
 
-<p>代入式を生成することはできません。</p>
+<p>Assignment is not supported.</p>
 </dd>
 </dl>
 </div>

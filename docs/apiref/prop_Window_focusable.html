@@ -1,27 +1,27 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>focusable - [Windows*]フォーカスを取得可能か</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>focusable - [Windows*] Whether focus can be obtained</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Window.focusable</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>[Windows*]フォーカスを取得可能か</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Window.html">Windowクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>フォーカスを取得可能かどうかを表します。<br />
-値を設定することもできます。<br />
-偽に設定すると、フォーカスを取得できなくなる、つまり、ウィンドウがアクティブにならなくなります。<br />
-副作用として、タイトルバーをつかんでのウィンドウの移動やウィンドウのリサイズ、「×」ボタンを押してウィンドウを閉じる操作もできなくなります。<br />
-キーボード入力を得たいときは Window.trapKey プロパティを使用することができます。<br />
-通常、これは、ポップアップメニューのように、もっとも手前に表示されるが、それ自身はフォーカスを得ないウィンドウの実装に用います。<br />
-現バージョンでは、ウィンドウがフルスクリーン化するとき、あるいはフルスクリーンから復帰するときに、このプロパティの設定内容が失われる可能性があります。<br />
-Androidでは常にtrueです。</p>
+<dt>Function/Meaning</dt>
+<dd>[Windows*] Whether focus can be obtained</dd>
+<dt>Type</dt>
+<dd>Property of the <a class="jump" href="class_Window.html">Window class</a></dd>
+<dt>Description</dt>
+<dd><p>Represents whether focus can be obtained.<br />
+The value can also be set.<br />
+If set to false, focus cannot be obtained; in other words, the window will not become active.<br />
+As a side effect, operations such as moving the window by grabbing the title bar, resizing the window, or closing the window by pressing the "X" button will also be disabled.<br />
+If you want to receive keyboard input, you can use the Window.trapKey property.<br />
+Normally, this is used for implementing windows like popup menus that are displayed in the foreground but do not gain focus themselves.<br />
+In the current version, the settings of this property may be lost when the window enters or exits full-screen mode.<br />
+On Android, this is always true.</p>
 </dd>
-<dt>参照</dt>
+<dt>Reference</dt>
 <dd>
 <a class="jump" href="prop_Window_trapKey.html">Window.trapKey</a><br />
 <a class="jump" href="event_Window_onPopupHide.html">Window.onPopupHide</a><br />

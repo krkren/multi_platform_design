@@ -1,34 +1,34 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>loadHeader - 画像情報の読み込み(1.3.0以降)</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>loadHeader - Loading image information (1.3.0 or later)</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Bitmap.loadHeader</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>画像情報の読み込み(1.3.0以降)</p>
+<dt>Function/Meaning</dt>
+<dd><p>Loading image information (1.3.0 or later)</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Bitmap.html">Bitmapクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Method of <a class="jump" href="class_Bitmap.html">Bitmap class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">loadHeader(<span class="arg">image</span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="loadHeaderの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="Arguments for loadHeader">
 <tr><td valign="top"><span class="argname">image</span></td>
-<td><p>読み込む画像ストレージを指定します。<br />
-ここで指定するファイル名は拡張子を含んだものになることに注意してください。<br />
-拡張子がないとファイルが見つからずエラーとなります。</p>
+<td><p>Specifies the image storage to load.<br />
+Note that the filename specified here must include the extension.<br />
+If there is no extension, the file will not be found and an error will occur.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd><p>情報の辞書配列</p>
+<dt>Return Value</dt>
+<dd><p>Dictionary array of information</p>
 </dd>
-<dt>説明</dt>
-<dd><p>画像情報のみを読み込みます。<br />
-画像の読み込みは行われないため、情報のみを得たい時は高速に読み込めます。<br />
-返される辞書のwidth, heightは必須で、その他の情報は画像形式に依存します。</p>
+<dt>Description</dt>
+<dd><p>Loads only the image information.<br />
+Since the image data itself is not loaded, it is fast when you only want to obtain information.<br />
+The width and height in the returned dictionary are mandatory; other information depends on the image format.</p>
 </dd>
 </dl>
 </div>

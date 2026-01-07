@@ -1,25 +1,25 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>interval - イベントの発生周期</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>interval - Event occurrence interval</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Timer.interval</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>イベントの発生周期</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Timer.html">Timerクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>イベントの発生周期を表します。<br />
-値を設定することもできます。<br />
-単位は ms ( ミリ秒 ) で、指定された時間ごとにイベントが発生します。<br />
-実数で発生周期を指定することもできます。<br />
-現バージョンでは、1/65536ミリ秒精度で指定することができます (小数点以下の数値は、この精度に丸められます)。<br />
-1/65536ミリ秒程度の精度があると言っても、実際にこの精度でイベントハンドラが呼び出される保証はありません。<br />
-実際には、イベントが呼び出されるタイミングには3～10ms程度のぶれがあります。<br />
-しかし、平均的・長期的にはこのプロパティで指定した周期でイベントが発生するように自動的に調整が行われます。</p>
+<dt>Function/Meaning</dt>
+<dd>Event occurrence interval</dd>
+<dt>Type</dt>
+<dd>Property of the <a class="jump" href="class_Timer.html">Timer class</a></dd>
+<dt>Description</dt>
+<dd><p>Represents the event occurrence interval.<br />
+The value can also be set.<br />
+The unit is ms (milliseconds), and events occur at the specified time intervals.<br />
+The interval can also be specified as a real number.<br />
+In the current version, it can be specified with a precision of 1/65536 milliseconds (decimal values are rounded to this precision).<br />
+Even with a precision of approximately 1/65536 milliseconds, there is no guarantee that the event handler will actually be called with this level of accuracy.<br />
+In reality, there is a jitter of about 3-10ms in the timing of event calls.<br />
+However, on average and over the long term, automatic adjustments are made so that events occur at the interval specified by this property.</p>
 </dd>
 </dl>
 </div>

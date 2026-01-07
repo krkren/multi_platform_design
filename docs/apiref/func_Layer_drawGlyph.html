@@ -1,69 +1,69 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>drawGlyph - 文字描画</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>drawGlyph - Character Drawing</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.drawGlyph</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>文字描画</p>
+<dt>Function/Meaning</dt>
+<dd><p>Character Drawing</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd><a class="jump" href="class_Layer.html">Layer class</a> method</dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">drawGlyph(<span class="arg">x</span>, <span class="arg">y</span>, <span class="arg">glyph</span>, <span class="arg">color</span>, <span class="arg">opa</span><span class="defarg">=<span class="defargval">255</span></span>, <span class="arg">aa</span><span class="defarg">=<span class="defargval">true</span></span>, <span class="arg">shadowlevel</span><span class="defarg">=<span class="defargval">0</span></span>, <span class="arg">shadowcolor</span><span class="defarg">=<span class="defargval">0</span></span>, <span class="arg">shadowwidth</span><span class="defarg">=<span class="defargval">0</span></span>, <span class="arg">shadowofsx</span><span class="defarg">=<span class="defargval">0</span></span>, <span class="arg">shadowofsy</span><span class="defarg">=<span class="defargval">0</span></span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="drawGlyphの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="drawGlyph arguments">
 <tr><td valign="top"><span class="argname">x</span></td>
-<td><p>文字描画を開始する原点の ( 画像位置における ) x 座標をピクセル単位で指定します。</p>
+<td><p>Specifies the x-coordinate (in image position) of the origin where character drawing starts, in pixels.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">y</span></td>
-<td><p>文字描画を開始する原点の ( 画像位置における ) y 座標をピクセル単位で指定します。</p>
+<td><p>Specifies the y-coordinate (in image position) of the origin where character drawing starts, in pixels.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">glyph</span></td>
-<td><p>描画するグリフを指定します。</p>
+<td><p>Specifies the glyph to be drawn.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">color</span></td>
-<td><p>描画する文字の色を 0xRRGGBB 形式で指定します。</p>
+<td><p>Specifies the color of the character to be drawn in 0xRRGGBB format.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">opa</span></td>
-<td><p>描画する文字の不透明度 ( -255 ～ 0 ～ 255 ) を指定します。<br />
-負の数の指定は face が dfAlpha の場合のみに有効で、この場合は文字の形に不透明度が取り除かれる事になります ( 値が小さいほど効果が大きくなります )。</p>
+<td><p>Specifies the opacity of the character to be drawn (-255 to 0 to 255).<br />
+Specifying a negative number is only valid when face is dfAlpha; in this case, opacity will be removed in the shape of the character (the smaller the value, the greater the effect).</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">aa</span></td>
-<td><p>アンチエイリアスを行うかどうかを指定します。<br />
-真を指定するとアンチエイリアスが行われます。<br />
-偽を指定すると行われません。</p>
+<td><p>Specifies whether to perform anti-aliasing.<br />
+If true is specified, anti-aliasing is performed.<br />
+If false is specified, it is not performed.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">shadowlevel</span></td>
-<td><p>影の不透明度を指定します。<br />
-shadowwidth 引数の値によって適切な値は変動します。<br />
-0 を指定すると影は描画されません。</p>
+<td><p>Specifies the opacity of the shadow.<br />
+The appropriate value varies depending on the shadowwidth argument.<br />
+If 0 is specified, no shadow is drawn.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">shadowcolor</span></td>
-<td><p>影の色を 0xRRGGBB 形式で指定します。</p>
+<td><p>Specifies the color of the shadow in 0xRRGGBB format.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">shadowwidth</span></td>
-<td><p>影の幅 ( ぼけ ) を指定します。<br />
-0 がもっともシャープ ( ぼけない ) で、値を大きくすると影をぼかすことができます。</p>
+<td><p>Specifies the width (blur) of the shadow.<br />
+0 is the sharpest (no blur), and larger values blur the shadow.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">shadowofsx</span></td>
-<td><p>影の位置の x 座標の値をピクセル単位で指定します。<br />
-0 を指定すると影は真下に描画されます。</p>
+<td><p>Specifies the x-coordinate of the shadow position in pixels.<br />
+If 0 is specified, the shadow is drawn directly underneath.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">shadowofsy</span></td>
-<td><p>影の位置の y 座標の値をピクセル単位で指定します<br />
-0 を指定すると影は真下に描画されます。</p>
+<td><p>Specifies the y-coordinate of the shadow position in pixels.<br />
+If 0 is specified, the shadow is drawn directly underneath.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>レイヤ にグリフを描画します。<br />
-グリフは、glyph : Array[9] = [ width, height, originx, originy, incx, incy, inc, bitmap(Octet), colors ] の様な形式の配列を指定します。<br />
-グリフの colors が省略された場合は、256階調であると判断されます。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Draws a glyph on the layer.<br />
+For the glyph, specify an array in a format like glyph : Array[9] = [ width, height, originx, originy, incx, incy, inc, bitmap(Octet), colors ].<br />
+If the glyph's colors is omitted, it is assumed to be 256 levels.</p>
 </dd>
 </dl>
 </div>

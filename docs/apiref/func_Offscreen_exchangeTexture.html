@@ -1,32 +1,32 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>exchangeTexture - フレームバッファに設定されているテクスチャとTextureクラスが指すテクスチャを入れ替える。</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>exchangeTexture - Swaps the texture set in the framebuffer with the texture pointed to by the Texture class.</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Offscreen.exchangeTexture</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>フレームバッファに設定されているテクスチャとTextureクラスが指すテクスチャを入れ替える。</p>
+<dt>Function/Meaning</dt>
+<dd><p>Swaps the texture set in the framebuffer with the texture pointed to by the Texture class.</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Offscreen.html">Offscreenクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd><a class="jump" href="class_Offscreen.html">Offscreen class</a> method</dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">exchangeTexture(<span class="arg">texture</span>:Texture)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="exchangeTextureの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="Arguments for exchangeTexture">
 <tr><td valign="top"><span class="argname">texture</span></td>
-<td><p>交換するTextureクラスのインスタンス。</p>
+<td><p>The instance of the Texture class to exchange.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>交換するテクスチャのサイズは合わせておかないと例外となる。<br />
-カラーフォーマットもRGBAとする必要がある。<br />
-レンダリング途中での入れ替えも行わない方がいいかもしれない(要確認)。<br />
-クロスフェードなどで両方に描画する必要がない場合、以前の画像をTextureとして取り出し、新しいTextureに差し替えることでオーバーヘッドを減らせる。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>An exception will occur if the sizes of the textures to be exchanged do not match.<br />
+The color format must also be RGBA.<br />
+It might be better not to perform the exchange during rendering (needs verification).<br />
+If there is no need to draw to both during a crossfade or similar, overhead can be reduced by extracting the previous image as a Texture and replacing it with a new Texture.</p>
 </dd>
 </dl>
 </div>

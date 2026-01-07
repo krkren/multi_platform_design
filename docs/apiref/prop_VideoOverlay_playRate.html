@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>playRate - [Windows*]再生速度</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>playRate - [Windows*] Playback rate</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">VideoOverlay.playRate</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>[Windows*]再生速度</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_VideoOverlay.html">VideoOverlayクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>メディアの再生速度を設定します。<br />
-1.0 を指定すると通常の再生速度、0.5 では半分の再生速度、2では2倍の再生速度となります。<br />
-設定可能値はDirectShowのフィルタによって決まります。<br />
-参考 : 音声付のMPEGファイルの場合、0.0より大きい値から2.0までの値が設定可能です。<br />
-音声なしのMPEGファイルの場合、0.0より大きい値からdoubleの範囲内(たぶん)で設定可能ですが、実際の再生速度は処理速度によって上限が決まります。<br />
-Androidでは常に0を返します。設定しても何も起こりません。</p>
+<dt>Function/Meaning</dt>
+<dd>[Windows*] Playback rate</dd>
+<dt>Type</dt>
+<dd>Property of the <a class="jump" href="class_VideoOverlay.html">VideoOverlay class</a></dd>
+<dt>Description</dt>
+<dd><p>Sets the playback rate of the media.<br />
+Specifying 1.0 results in normal playback speed, 0.5 results in half speed, and 2 results in double speed.<br />
+The range of possible values depends on the DirectShow filter.<br />
+Reference: For MPEG files with audio, values from greater than 0.0 up to 2.0 can be set.<br />
+For MPEG files without audio, values from greater than 0.0 up to the range of a double (probably) can be set, but the actual playback speed is limited by processing power.<br />
+On Android, this always returns 0. Setting it does nothing.</p>
 </dd>
 </dl>
 </div>

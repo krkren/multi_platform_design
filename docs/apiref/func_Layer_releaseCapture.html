@@ -1,30 +1,30 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>releaseCapture - マウスイベントキャプチャの解除</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>releaseCapture - Release mouse event capture</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.releaseCapture</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>マウスイベントキャプチャの解除</p>
+<dt>Function/Meaning</dt>
+<dd><p>Release mouse event capture</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd><a class="jump" href="class_Layer.html">Layer class</a> method</dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">releaseCapture()</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="releaseCaptureの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="Arguments for releaseCapture">
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>マウスイベントキャプチャを解除します。<br />
-マウスイベントキャプチャとは、最初にマウスボタンを押下した位置にあったレイヤのみに、マウスボタンを放すまでずっとマウスイベントが占有的に送られる機能です。<br />
-このメソッドは、この機能を解除し、通常のマウスイベントの処理状態に戻します。<br />
-このメソッドを実行すると、同じウィンドウに属しているレイヤのマウスキャプチャは、たとえメソッドを実行するレイヤとキャプチャの対象となっているレイヤが異なっていても解除されます。<br />
-このメソッドはキャプチャ状態でない場合は何もしません。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Releases the mouse event capture.<br />
+Mouse event capture is a feature where mouse events are sent exclusively to the layer where the mouse button was first pressed until the button is released.<br />
+This method releases this feature and returns to the normal mouse event processing state.<br />
+When this method is executed, the mouse capture for layers belonging to the same window is released, even if the layer executing the method is different from the layer being captured.<br />
+This method does nothing if not in a captured state.</p>
 </dd>
 </dl>
 </div>

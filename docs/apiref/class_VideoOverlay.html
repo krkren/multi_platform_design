@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>VideoOverlay - </title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard API Reference Style" />
+<title>VideoOverlay</title>
 </head>
 <body>
 <h1><a name="top" id="top">VideoOverlay</a></h1>
-<div class="para"><p>The VideoOverlay class is a class that creates a display area for displaying MPEG I, WMV, H.264, theora, etc.<br />
-It can also be displayed on the Kirikiri layer.<br />
-krdstheora.dll is required to play theora.<br />
-Except for playback on the layer, in overlay playback, the display area of the VideoOverlay class is displayed in front of all layers and cannot be transparent.<br />
-Playback on the layer tends to put a higher load on the processor than playback on the overlay.<br />
-In Android, it is limited to a mode equivalent to an overlay that is always displayed on the front.<br />
-Also, the playable format depends on the model.<br />
-Many terminals seem to be able to play H.246.<br />
+<div class="para"><p>The VideoOverlay class creates a display area for playing MPEG-1, WMV, H.264, Theora, etc.<br />
+It can also be displayed on a KiriKiri layer.<br />
+krdstheora.dll is required to play Theora.<br />
+Except for layer playback, in overlay mode, the VideoOverlay display area is shown in front of all layers and cannot be transparent.<br />
+Layer playback typically puts a higher load on the processor than overlay playback.<br />
+On Android, it is limited to a mode equivalent to an overlay that is always displayed in the foreground.<br />
+Also, the playable formats depend on the device model.<br />
+Many devices seem to be able to play H.264.<br />
 On Android, video files are stored in assets.</p>
 </div>
 <h1>Members</h1><div class="para">

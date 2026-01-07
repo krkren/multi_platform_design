@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>hasImage - レイヤが画像を持っているかどうか</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>hasImage - Whether the layer has an image</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.hasImage</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>レイヤが画像を持っているかどうか</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>レイヤが画像を持っているかどうかを表します。<br />
-値を設定することもできます。<br />
-真を指定するとレイヤは画像を持ちます。<br />
-これがデフォルトです。<br />
-偽を指定するとレイヤの画像は開放され、レイヤは画像を持たなくなります。<br />
-Layer.typeプロパティを設定するとhasImageは真にリセットされます。<br />
-レイヤが画像を持たない場合、Layer.typeがltOpaqueならばレイヤは全面Layer.neutralColorで塗りつぶされているとして表示されます。<br />
-それ以外のタイプの場合は完全に透明として扱われます。<br />
-このプロパティが偽のレイヤはLayer.hitTypeがhtMaskの場合は全面が不透明度0 (完全に透明)であると見なされます。<br />
-また、描画やフォントを操作することはできません。<br />
-このプロパティが偽のレイヤは、通常、複数の子レイヤをまとめ、自分自身は透明なだけのレイヤとして使います。</p>
+<dt>Function/Meaning</dt>
+<dd>Whether the layer has an image</dd>
+<dt>Type</dt>
+<dd>Property of the <a class="jump" href="class_Layer.html">Layer class</a></dd>
+<dt>Description</dt>
+<dd><p>Indicates whether the layer has an image.<br />
+This value can also be set.<br />
+If set to true, the layer will have an image.<br />
+This is the default.<br />
+If set to false, the layer's image is released and the layer will no longer have an image.<br />
+Setting the Layer.type property resets hasImage to true.<br />
+If the layer does not have an image and Layer.type is ltOpaque, the layer is displayed as being completely filled with Layer.neutralColor.<br />
+For other types, it is treated as completely transparent.<br />
+If this property is false and Layer.hitType is htMask, the entire layer is considered to have an opacity of 0 (completely transparent).<br />
+Additionally, drawing and font operations cannot be performed.<br />
+Layers with this property set to false are typically used to group multiple child layers while remaining transparent themselves.</p>
 </dd>
 </dl>
 </div>

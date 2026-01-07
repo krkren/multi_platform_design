@@ -1,38 +1,38 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>setAttentionPos - 注視位置の指定</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>setAttentionPos - Specifying the attention position</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.setAttentionPos</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>注視位置の指定</p>
+<dt>Function/Meaning</dt>
+<dd><p>Specifying the attention position</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Method of <a class="jump" href="class_Layer.html">Layer class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">setAttentionPos(<span class="arg">left</span>, <span class="arg">top</span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="setAttentionPosの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="Arguments for setAttentionPos">
 <tr><td valign="top"><span class="argname">left</span></td>
-<td><p>注視する ( このレイヤの表示座標における ) x 座標値をピクセル単位で指定します。<br />
-この値は Layer.attentionLeft プロパティでも設定／取得する事ができます。</p>
+<td><p>Specifies the x-coordinate (in this layer's display coordinates) to focus on, in pixels.<br />
+This value can also be set or retrieved via the Layer.attentionLeft property.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">top</span></td>
-<td><p>注視する ( このレイヤの表示座標における ) x 座標値をピクセル単位で指定します。<br />
-この値は Layer.attentionTop プロパティでも設定／取得する事ができます。</p>
+<td><p>Specifies the y-coordinate (in this layer's display coordinates) to focus on, in pixels.<br />
+This value can also be set or retrieved via the Layer.attentionTop property.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>注視位置を指定します。<br />
-注視位置とは通常カレット ( キーボードからの文字入力位置を示すためにテキストエディタなどで点滅する棒 ) の位置に設定します。<br />
-IME の未確定文字はこの注視位置に表示されます。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Specifies the attention position.<br />
+The attention position is usually set to the position of the caret (the blinking bar in text editors, etc., that indicates the character input position from the keyboard).<br />
+IME composition strings (unconverted characters) are displayed at this attention position.</p>
 </dd>
-<dt>参照</dt>
+<dt>Reference</dt>
 <dd>
 <a class="jump" href="prop_Layer_useAttention.html">Layer.useAttention</a><br />
 </dd>

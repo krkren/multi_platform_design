@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>capacity - イベントの最大発生許容量</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>capacity - Maximum event capacity</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Timer.capacity</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>イベントの最大発生許容量</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Timer.html">Timerクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>どれだけのイベントを、一時期に発生させることができるかを指定します。<br />
-値を設定することもできます。<br />
-タイマの周期よりも長い処理が行われた時など、タイマイベントを処理しきれない場合があります。<br />
-このとき、タイマはイベントをイベントキューには溜めますが、そのイベントキューに溜めるイベントの数には上限があります。<br />
-このプロパティはその最大数を指定します。<br />
-イベントを処理する段階になった場合、吉里吉里はキューに溜まった数のイベントを一時期に処理しようとします。<br />
-1を指定すると、イベントキューには最大1個までしかイベントが溜まりません。<br />
-0 を指定するとイベントキューに溜まるイベントの数に制限はなくなりますが、あまりにイベントが溜まりすぎると、フリーズしたようになる可能性があるので注意してください。<br />
-デフォルトは 6 です。</p>
+<dt>Function/Meaning</dt>
+<dd>Maximum event capacity</dd>
+<dt>Type</dt>
+<dd><a class="jump" href="class_Timer.html">Timer class</a> property</dd>
+<dt>Description</dt>
+<dd><p>Specifies how many events can be generated at one time.<br />
+You can also set this value.<br />
+When processing takes longer than the timer interval, timer events may not be processed in time.<br />
+In such cases, the timer stores events in the event queue, but there is a limit to the number of events that can be stored.<br />
+This property specifies that maximum number.<br />
+When it is time to process events, Kirikiri will attempt to process all events stored in the queue at once.<br />
+If set to 1, the event queue will store at most one event.<br />
+If set to 0, there is no limit to the number of events in the queue, but be careful as the system may appear to freeze if too many events accumulate.<br />
+The default is 6.</p>
 </dd>
 </dl>
 </div>

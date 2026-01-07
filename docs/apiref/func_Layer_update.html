@@ -1,42 +1,42 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>update - 画像の更新</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>update - Update image</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.update</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>画像の更新</p>
+<dt>Function/Meaning</dt>
+<dd><p>Update image</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Method of <a class="jump" href="class_Layer.html">Layer class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">update(<span class="arg">left</span>, <span class="arg">top</span>, <span class="arg">width</span>, <span class="arg">height</span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="updateの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="Arguments for update">
 <tr><td valign="top"><span class="argname">left</span></td>
-<td><p>更新する矩形の左端位置を表示座標におけるピクセル単位で指定します。</p>
+<td><p>Specifies the left position of the rectangle to update, in pixels, using display coordinates.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">top</span></td>
-<td><p>更新する矩形の上端位置を表示座標におけるピクセル単位で指定します。</p>
+<td><p>Specifies the top position of the rectangle to update, in pixels, using display coordinates.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">width</span></td>
-<td><p>更新する矩形の横幅を表示座標におけるピクセル単位で指定します。</p>
+<td><p>Specifies the width of the rectangle to update, in pixels, using display coordinates.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">height</span></td>
-<td><p>更新する矩形の縦幅を表示座標におけるピクセル単位で指定します。</p>
+<td><p>Specifies the height of the rectangle to update, in pixels, using display coordinates.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>このメソッドはレイヤを強制的に画面に描画させます。<br />
-描画系のメソッドなどを実行すると自動的に画面更新が発生しますが、このメソッドで画面への描画を強制的に起こさせることができます。<br />
-引数をすべて省略するとレイヤ全体が再描画されます。<br />
-このメソッドは、Layer.callOnPaint プロパティを真に設定します。<br />
-実際に画面に描画されるまでは、何度このメソッドを実行しても画面描画が発生するのは１回のみです ( キャッシュされます )。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>This method forces the layer to be drawn to the screen.<br />
+While screen updates occur automatically when drawing methods are executed, this method can be used to force a screen redraw.<br />
+If all arguments are omitted, the entire layer will be redrawn.<br />
+This method sets the Layer.callOnPaint property to true.<br />
+Until the screen is actually drawn, screen drawing will only occur once regardless of how many times this method is called (it is cached).</p>
 </dd>
 </dl>
 </div>

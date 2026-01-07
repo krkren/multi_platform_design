@@ -1,31 +1,31 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>externalStorageState - [Android+]外部ストレージの状態[r]</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>externalStorageState - [Android+]External storage state[r]</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">System.externalStorageState</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>[Android+]外部ストレージの状態[r]</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_System.html">Systemクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>Environment.getExternalStorageState()で取得されるもの。<br />
-以下のいずれか</p>
+<dt>Function/Meaning</dt>
+<dd>[Android+]External storage state[r]</dd>
+<dt>Type</dt>
+<dd>Property of the <a class="jump" href="class_System.html">System class</a></dd>
+<dt>Description</dt>
+<dd><p>Value obtained via Environment.getExternalStorageState().<br />
+One of the following:</p>
 
 <ul>
-<li>"unknown" 不明な状態</li>
-<li>"removed" 取り外されている状態</li>
-<li>"unmounted" マウントされていない状態</li>
-<li>"checking" ディスクチェック中</li>
-<li>"nofs" 未フォーマットかサポートされていないファイルシステム</li>
-<li>"mounted" マウントされていて読み書き可能</li>
-<li>"mounted_ro" 読み取り専用でマウントされている</li>
-<li>"shared" マウントされていない、USBマスストレージなど</li>
-<li>"bad_removal" アンマウントされる前に取り外された</li>
-<li>"unmountable" マウントできない</li>
+<li>"unknown" Unknown state</li>
+<li>"removed" Removed state</li>
+<li>"unmounted" Unmounted state</li>
+<li>"checking" Checking disk</li>
+<li>"nofs" Unformatted or unsupported file system</li>
+<li>"mounted" Mounted and read/write accessible</li>
+<li>"mounted_ro" Mounted as read-only</li>
+<li>"shared" Not mounted, such as USB mass storage</li>
+<li>"bad_removal" Removed before being unmounted</li>
+<li>"unmountable" Cannot be mounted</li>
 </ul>
 </dd>
 </dl>

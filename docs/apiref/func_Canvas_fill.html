@@ -1,38 +1,38 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>fill - 色での塗りつぶし</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>fill - Fill with color</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Canvas.fill</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>色での塗りつぶし</p>
+<dt>Function/Meaning</dt>
+<dd><p>Fill with color</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Canvas.html">Canvasクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Method of <a class="jump" href="class_Canvas.html">Canvas class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">fill(<span class="arg">width</span>:int, <span class="arg">height</span>:int, <span class="arg">colors</span><span class="defarg">=<span class="defargval">-1</span></span>, <span class="arg">shader</span><span class="defarg">=<span class="defargval">null</span></span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="fillの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="Arguments for fill">
 <tr><td valign="top"><span class="argname">width</span></td>
-<td><p>塗りつぶし範囲幅</p>
+<td><p>Width of the fill area</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">height</span></td>
-<td><p>塗りつぶし範囲高さ</p>
+<td><p>Height of the fill area</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">colors</span></td>
-<td><p>4頂点の頂点カラーARGB。単独数値なら単色、配列なら4頂点個別指定</p>
+<td><p>Vertex colors (ARGB) for the 4 vertices. If a single numeric value, it is a solid color. If an array, 4 vertices are specified individually.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">shader</span></td>
-<td><p>塗りつぶしシェーダー。nullの時defaultFillShaderで塗りつぶされる</p>
+<td><p>Fill shader. When null, it is filled using defaultFillShader.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>XY座標はmatrixで指定する。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>XY coordinates are specified via the matrix.</p>
 </dd>
 </dl>
 </div>

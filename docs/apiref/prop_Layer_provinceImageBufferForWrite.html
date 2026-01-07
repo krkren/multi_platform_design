@@ -1,27 +1,27 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>provinceImageBufferForWrite - 領域画像バッファポインタ(書き込み用)</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>provinceImageBufferForWrite - Province image buffer pointer (for writing)</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.provinceImageBufferForWrite</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>領域画像バッファポインタ(書き込み用)</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>領域画像 ( 領域の情報を含む 8bpp のビットマップ ) の画像バッファ左上隅へのポインタを表します。<br />
-このプロパティは、プラグインなどのために画像バッファへの直接のアクセスの手段を提供するためにあります。<br />
-整数型で返されますが、プラグインなどでは適切な型 ( unsigned char * 等 ) にキャストして使ってください。<br />
-このプロパティで得られたポインタには Layer.provinceImageBuffer と異なり、値を書き込むことができます。<br />
-吉里吉里内部では全く同じ画像は複数のレイヤ間等で共有しますが、このプロパティを参照するとその共有状態を解除します。<br />
-レイヤに画像が割り当てられていない場合は自動的にこのプロパティを参照した時点で割り当てられ、全域が領域番号 0 で初期化されます。<br />
-画像のサイズは Layer.imageWidth と Layer.imageHeight プロパティが表しています。<br />
-ポインタの計算方法は Layer.provinceImageBufferPitch を参照してください。</p>
+<dt>Function/Meaning</dt>
+<dd>Province image buffer pointer (for writing)</dd>
+<dt>Type</dt>
+<dd><a class="jump" href="class_Layer.html">Layer class</a> property</dd>
+<dt>Description</dt>
+<dd><p>Represents a pointer to the upper-left corner of the province image buffer (an 8bpp bitmap containing province information).<br />
+This property exists to provide a means of direct access to the image buffer for plugins and other purposes.<br />
+It is returned as an integer type, but should be cast to an appropriate type (such as unsigned char *) in plugins.<br />
+Unlike Layer.provinceImageBuffer, values can be written to the pointer obtained through this property.<br />
+Internally, KiriKiri shares identical images between multiple layers, but accessing this property will break that sharing.<br />
+If no image is assigned to the layer, one will be automatically assigned when this property is accessed, and the entire area will be initialized with province number 0.<br />
+The size of the image is represented by the Layer.imageWidth and Layer.imageHeight properties.<br />
+Refer to Layer.provinceImageBufferPitch for the pointer calculation method.</p>
 </dd>
-<dt>参照</dt>
+<dt>Reference</dt>
 <dd>
 <a class="jump" href="prop_Layer_provinceImageBuffer.html">Layer.provinceImageBuffer</a><br />
 <a class="jump" href="prop_Layer_provinceImageBufferPitch.html">Layer.provinceImageBufferPitch</a><br />

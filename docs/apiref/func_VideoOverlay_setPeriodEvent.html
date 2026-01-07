@@ -1,33 +1,33 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>setPeriodEvent - [Windows*]指定フレームでのイベント発生の指定</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>setPeriodEvent - [Windows*] Specifies an event to occur at a specific frame</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">VideoOverlay.setPeriodEvent</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>[Windows*]指定フレームでのイベント発生の指定</p>
+<dt>Function/Meaning</dt>
+<dd><p>[Windows*] Specifies an event to occur at a specific frame</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_VideoOverlay.html">VideoOverlayクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd><a class="jump" href="class_VideoOverlay.html">VideoOverlay class</a> method</dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">setPeriodEvent(<span class="arg">eventFrame</span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="setPeriodEventの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="setPeriodEvent arguments">
 <tr><td valign="top"><span class="argname">eventFrame</span></td>
-<td><p>onPeriodイベントを発生させるフレームを指定します。</p>
+<td><p>Specifies the frame at which to trigger the onPeriod event.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>指定したフレームでonPeriodイベントを発生させます。<br />
-onPeriodイベントは、一度発生すると解除されます。<br />
-再び発生させたい場合は再度このメソッドで設定してください。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Triggers the onPeriod event at the specified frame.<br />
+The onPeriod event is cleared once it occurs.<br />
+If you want it to occur again, please set it again using this method.</p>
 </dd>
-<dt>参照</dt>
+<dt>Reference</dt>
 <dd>
 <a class="jump" href="func_VideoOverlay_cancelPeriodEvent.html">VideoOverlay.cancelPeriodEvent</a><br />
 <a class="jump" href="event_VideoOverlay_onPeriod.html">VideoOverlay.onPeriod</a><br />

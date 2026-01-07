@@ -1,39 +1,39 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>forEach - 引数の関数を、引数の辞書配列の各要素に対して実行します。</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>forEach - Executes the argument function for each element of the argument dictionary.</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Dictionary.forEach</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>引数の関数を、引数の辞書配列の各要素に対して実行します。</p>
+<dt>Function/Meaning</dt>
+<dd><p>Executes the argument function for each element of the argument dictionary.</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Dictionary.html">Dictionaryクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Method of the <a class="jump" href="class_Dictionary.html">Dictionary class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">forEach(<span class="arg">target</span>:Dictionary, <span class="arg">func</span>, <span class="arg">args</span>) :variant</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="forEachの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="forEach arguments">
 <tr><td valign="top"><span class="argname">target</span></td>
-<td><p>辞書配列</p>
+<td><p>Dictionary</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">func</span></td>
-<td><p>文字列の場合は配列要素のそのメソッドを、関数の場合は function( value, key, args* ) の形で呼び出されます。</p>
+<td><p>If a string is specified, the method with that name on the element is called. If a function is specified, it is called in the form function( value, key, args* ).</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">args</span></td>
-<td><p>呼び出す関数に渡す引数を任意の数指定します。なくても構いません。</p>
+<td><p>Specifies any number of arguments to pass to the function. Can be omitted.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd><p>呼び出した関数が返した値</p>
+<dt>Return Value</dt>
+<dd><p>The value returned by the called function</p>
 </dd>
-<dt>説明</dt>
-<dd><p>辞書配列の各要素に対して1回ずつ指定された関数を呼び出します。<br />
-無名関数などコンテキストが null の場合は辞書配列のコンテキストで呼び出されます。<br />
-関数が値を返すと処理が中断され、その値をこの関数の返り値にします。<br />
-関数を文字列で呼び出した時は値を返しても中断せず、全配列要素のメソッドが呼び出されます。</p>
+<dt>Description</dt>
+<dd><p>Calls the specified function once for each element of the dictionary.<br />
+If the context is null (such as with an anonymous function), it is called in the context of the dictionary.<br />
+If the function returns a value, processing is interrupted and that value becomes the return value of this function.<br />
+When a method is called by string, processing is not interrupted even if a value is returned, and the method is called for all elements.</p>
 </dd>
 </dl>
 </div>

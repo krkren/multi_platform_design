@@ -94,9 +94,9 @@ class System {
 	 * @return Returns the value of the registry if execution is successful, void if it fails.
 	 * @description Reads the Windows registry specified by key.
 	 * The registry key can start with the following root key names:
-	 * HKEY_CLASSES_ROOTHKEY_CURRENT_CONFIGHKEY_CURRENT_USERHKEY_LOCAL_MACHINEHKEY_USERSHKEY_PERFORMANCE_DATAHKEY_DYN_DATA
+	 * HKEY_CLASSES_ROOT, HKEY_CURRENT_CONFIG, HKEY_CURRENT_USER, HKEY_LOCAL_MACHINE, HKEY_USERS, HKEY_PERFORMANCE_DATA, HKEY_DYN_DATA
 	 * For example, you can specify the following string for key:
-	 * HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\hoeg\installdir
+	 * HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\hoge\installdir
 	 * You can only read numbers and single strings.
 	 * In the case of numbers, an integer type result is returned, and in the case of strings, a string type result is returned.
 	 */
@@ -169,7 +169,7 @@ class System {
 	 * @return Returns true if the ID exists and the message assignment is successful, false otherwise.
 	 * @description Changes the message assignment. You can change the messages built into KiriKiri to other messages with this method.
 	 * Normally, it is described in the message map file (see How to Start).
-	 * To get a list of configurable IDs and the messages currently assigned to them, execute "Creating a Message Map File" from .
+	 * To get a list of configurable IDs and the messages currently assigned to them, execute "Creating a Message Map File".
 	 */
 	function assignMessage( id, msg);
 
@@ -253,7 +253,7 @@ class System {
 	 *
 	 * @description You can get the version information string of the KiriKiri main body.
 	 * The version information string is in a longer format than System.versionString, and is as follows:
-	 * KiriKiri[きりきり] Z Execution Core/1.0.0.0 (Compiled on Dec 16 2013 23:15:27) TJS2/2.4.28 Copyright (C) 1997-2013 W.Dee and contributors All rights reserved.
+	 * KiriKiri Z Execution Core/1.0.0.0 (Compiled on Dec 16 2013 23:15:27) TJS2/2.4.28 Copyright (C) 1997-2013 W.Dee and contributors All rights reserved.
 	 */
 	 property versionInformation {
 		 getter() { return value; }
@@ -727,8 +727,9 @@ class System {
 	/**
 	 * [Android+] External storage status [r]
 	 * @description What is obtained by Environment.getExternalStorageState().
-	 * One of the following
+	 * One of the following:
 	 *
 	 * + "unknown" Unknown state
 	 * + "removed" Removed state
-	
+	 */
+}

@@ -1,19 +1,19 @@
 ---
 layout: default
-title: 動画機能
+title: Video Functions
 ---
 
-Android では現在のところ Windows 版に比べて動画関連機能は圧倒的に少ない。  
-まず、VideoOverlay オブジェクトは1つのみに制限され、常に最前面に表示される。  
-使用出来る動画フォーマットは[ExoPlayerページ](https://google.github.io/ExoPlayer/supported-formats.html)参照のこと。  
-端末やバージョン依存があるので、H.264辺りが安定と思われるが、ライセンスの問題があるので注意。  
-初期の吉里吉里2のような機能と思ってもらうと良い。
+On Android, video-related functions are currently significantly fewer compared to the Windows version.
+First, the VideoOverlay object is limited to only one and is always displayed in the foreground.
+For usable video formats, please refer to the [ExoPlayer page](https://google.github.io/ExoPlayer/supported-formats.html).
+Since it depends on the device and version, H.264 is likely to be stable, but please be aware of licensing issues.
+It is best to think of it as having functionality similar to early KiriKiri 2.
 
-エラー通知については、onStatusChanged にて、load errorかplayer errorとして通知される。
+Regarding error notifications, they are reported via onStatusChanged as either a load error or a player error.
 
-現在サポートされているメソッド等は以下の通り。
+The currently supported methods and other items are as follows.
 
-## メソッド
+## Methods
 * close
 * open
 * play
@@ -21,11 +21,10 @@ Android では現在のところ Windows 版に比べて動画関連機能は圧
 * pause
 * rewind
 
-## プロパティ
+## Properties
 * audioVolume
 * totalTime
 * position
 
-## イベント
+## Events
 * onStatusChanged( stop/ready/play )
-

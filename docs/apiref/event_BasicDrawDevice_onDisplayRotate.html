@@ -1,60 +1,32 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>onDisplayRotate - [Windows+] When the screen is rotated</title>
-</head>
-<body>
-<h1><span class="fheader"><a name="top" id="top">BasicDrawDevice.onDisplayRotate</a></span></h1><div class="para">
-<dl>
-<dt>Function/Meaning</dt>
-<dd><p>[Windows+] When the screen is rotated</p>
-</dd>
-<dt>Type</dt>
-<dd>Event of <a class="jump" href="class_BasicDrawDevice.html">BasicDrawDevice class</a></dd>
-<dt>Syntax</dt>
-<dd><span class="funcdecl">onDisplayRotate(<span class="arg">orientation</span>, <span class="arg">angle</span>, <span class="arg">bpp</span>, <span class="arg">width</span>, <span class="arg">height</span>)</span></dd>
-<dt>Arguments</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="onDisplayRotate arguments">
-<tr><td valign="top"><span class="argname">orientation</span></td>
-<td><p>The screen orientation.<br />
-It will be one of the following values.</p>
+﻿onDisplayRotate - [Windows+] When the screen is rotated
 
-<ul>
-<li>oriUnknown (Acquisition failed/Unknown)</li>
-<li>oriPortrait (Portrait)</li>
-<li>oriLandscape (Landscape)</li>
-</ul>
-</td></tr>
-<tr><td valign="top"><span class="argname">angle</span></td>
-<td><p>Angle.<br />
-The angle is one of 0, 90, 180, 270, -1, and -1 if it could not be acquired.<br />
-The angle is the rotation angle from the device default, so it is 0 in portrait orientation on portrait devices.<br />
-For normal devices, 0 is often landscape.<br />
-Portrait orientation is 0 on recent 8-inch tablets, etc., where portrait orientation is the standard orientation.</p>
-</td></tr>
-<tr><td valign="top"><span class="argname">bpp</span></td>
-<td><p>bits per pixel.</p>
-</td></tr>
-<tr><td valign="top"><span class="argname">width</span></td>
-<td><p>Screen width.</p>
-</td></tr>
-<tr><td valign="top"><span class="argname">height</span></td>
-<td><p>Screen height.</p>
-</td></tr>
-</table></dd>
-<dt>Return Value</dt>
-<dd>None (void)</dd>
-<dt>Description</dt>
-<dd><p>Represents the event function that is called when the screen is rotated.</p>
-</dd>
-<dt>Reference</dt>
-<dd>
-<a class="jump" href="event_Window_onDisplayRotate.html">Window.onDisplayRotate</a><br />
-<a class="jump" href="prop_Window_displayOrientation.html">Window.displayOrientation</a><br />
-<a class="jump" href="prop_Window_displayRotate.html">Window.displayRotate</a><br />
-</dd>
-</dl>
-</div>
-</body>
-</html>
+Event of BasicDrawDevice class
+
+Function/Meaning
+Represents the event function that is called when the screen is rotated.
+
+Type
+Event of BasicDrawDevice class
+
+Syntax
+onDisplayRotate(orientation, angle, bpp, width, height)
+
+Arguments
+orientation: Screen orientation
+    oriUnknown (Acquisition failed/Unknown)
+    oriPortrait (Portrait)
+    oriLandscape (Landscape)
+angle: Rotation angle
+    The angle is one of 0, 90, 180, 270, or -1. It is -1 if it could not be acquired.
+    The angle is the rotation angle from the device default, so it is 0 in portrait orientation on portrait-first devices.
+    For typical devices, 0 is often landscape.
+    On recent 8-inch tablets where portrait is the standard orientation, portrait will be 0.
+bpp: Bits per pixel.
+width: Screen width.
+height: Screen height.
+
+Return Value
+None
+
+Description
+Represents the event function that is called when the screen is rotated.

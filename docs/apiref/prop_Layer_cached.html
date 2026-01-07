@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>cached - キャッシュを行うか</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>cached - Whether to cache</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.cached</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>キャッシュを行うか</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>キャッシュを行うかどうかを表します。<br />
-値を設定することもできます。<br />
-キャッシュを行う設定の場合、自分自身と子レイヤをすべて重ね合わせた状態の画像をあらかじめ持っておくことになり、以後、自分や子レイヤに変更が加わらない限り、自分自身と子レイヤの重ね合わせに関する画像演算を行いません(変更があった場合は自動的にキャッシュを再構成します)。キャッシュを行わない設定の場合は、画面更新の際に毎回重ね合わせの演算が行われます。デフォルトではキャッシュは行いませんが、トランジション中は自動的にキャッシュが有効になります (ただしこのプロパティはトランジション中などで自動的に有効になるようなキャッシュの有無の状態までは表しません )。<br />
-あるレイヤの画像とその子レイヤの画像や状態に変化がないことが分かっていて、かつ画面が頻繁に書き換わるような場合では、そのレイヤではキャッシュを行った方が全体のパフォーマンスがあがります。</p>
+<dt>Function/Meaning</dt>
+<dd>Whether to cache</dd>
+<dt>Type</dt>
+<dd>Property of the <a class="jump" href="class_Layer.html">Layer class</a></dd>
+<dt>Description</dt>
+<dd><p>Indicates whether to perform caching.<br />
+This value can also be set.<br />
+When caching is enabled, a pre-rendered image of the layer and all its children composited together is maintained. As long as no changes are made to the layer or its children, image operations for compositing them will not be performed (the cache is automatically reconstructed if changes occur). When caching is disabled, compositing operations are performed every time the screen is updated. By default, caching is not performed, but it is automatically enabled during transitions (however, this property does not reflect the state of caching that is automatically enabled during transitions, etc.).<br />
+In cases where it is known that the images and states of a layer and its children will not change, but the screen is frequently redrawn, enabling caching for that layer will improve overall performance.</p>
 </dd>
 </dl>
 </div>

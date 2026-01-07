@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>mainImageBufferPitch - メイン画像バッファピッチ</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>mainImageBufferPitch - Main image buffer pitch</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.mainImageBufferPitch</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>メイン画像バッファピッチ</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>メイン画像 ( 色とマスク(不透明度)の情報を含む 32bpp のビットマップ ) の画像バッファのピッチ( 一つ下のスキャンラインまでのバイト数 ) を表します。<br />
-このプロパティは、プラグインなどのために画像バッファへの直接のアクセスの手段を提供するためにあります。<br />
-tjs<em>uint32 が 32bit の整数型、tjs</em>uint8 が 8bit (1byte) の整数型として、画像位置 (x, y) へのポインタは C 言語で書くと以下のように計算することができます。<br />
-( (tjs<em>uint32*)( (tjs</em>uint8<em>)mainImageBuffer + y</em>mainImageBufferPitch )) + x<br />
-このプロパティは、次のスキャンラインまでのピクセル数ではなく、バイト数を返すことに注意してください。<br />
-この数値は画像横幅ぴったりに必要なバイト数よりも若干大きい場合があります。<br />
-このプロパティは値が負になり得ますので注意してください。</p>
+<dt>Function/Meaning</dt>
+<dd>Main image buffer pitch</dd>
+<dt>Type</dt>
+<dd>Property of the <a class="jump" href="class_Layer.html">Layer class</a></dd>
+<dt>Description</dt>
+<dd><p>Represents the pitch (the number of bytes to the next scanline) of the main image buffer (a 32bpp bitmap containing color and mask (opacity) information).<br />
+This property exists to provide a means of direct access to the image buffer for plugins and similar purposes.<br />
+Assuming tjs<em>uint32</em> is a 32-bit integer type and tjs<em>uint8</em> is an 8-bit (1-byte) integer type, the pointer to the image position (x, y) can be calculated in C as follows:<br />
+( (tjs<em>uint32*</em>)( (tjs<em>uint8*</em>)mainImageBuffer + y*mainImageBufferPitch )) + x<br />
+Note that this property returns the number of bytes, not the number of pixels, to the next scanline.<br />
+This value may be slightly larger than the number of bytes strictly required for the image width.<br />
+Note that this property value can be negative.</p>
 </dd>
-<dt>参照</dt>
+<dt>Reference</dt>
 <dd>
 <a class="jump" href="prop_Layer_mainImageBuffer.html">Layer.mainImageBuffer</a><br />
 <a class="jump" href="prop_Layer_mainImageBufferForWrite.html">Layer.mainImageBufferForWrite</a><br />

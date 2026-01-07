@@ -1,33 +1,33 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>copyToBitmapFromMainImage - Bitmap への画像のコピー</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>copyToBitmapFromMainImage - Copying image to Bitmap</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.copyToBitmapFromMainImage</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>Bitmap への画像のコピー</p>
+<dt>Function/Meaning</dt>
+<dd><p>Copying image to Bitmap</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd><a class="jump" href="class_Layer.html">Layer class</a> method</dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">copyToBitmapFromMainImage(<span class="arg">dest</span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="copyToBitmapFromMainImageの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="Arguments for copyToBitmapFromMainImage">
 <tr><td valign="top"><span class="argname">dest</span></td>
-<td><p>コピー先の Bitmap オブジェクトを指定します。</p>
+<td><p>Specifies the destination Bitmap object.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>dest で指定した Bitmap オブジェクトへレイヤのメイン画像をコピーします。<br />
-画像サイズはコピー元のレイヤの画像サイズと同一になります。<br />
-コピーといっても、実際は「同じ画像を二つ以上のレイヤで共有している」という状態になるだけなのでこのメソッドはほとんど実行時間がかかりません。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Copies the layer's main image to the Bitmap object specified by dest.<br />
+The image size will be the same as the source layer's image size.<br />
+Although it is called a copy, it actually just results in a state where "the same image is shared by two or more objects," so this method takes almost no execution time.</p>
 </dd>
-<dt>参照</dt>
+<dt>Reference</dt>
 <dd>
 <a class="jump" href="func_Layer_copyFromBitmapToMainImage.html">Layer.copyFromBitmapToMainImage</a><br />
 </dd>

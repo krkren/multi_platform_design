@@ -1,32 +1,32 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>unlink - プラグインの切り離し</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>unlink - Unlinking plugins</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Plugins.unlink</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>プラグインの切り離し</p>
+<dt>Function/Meaning</dt>
+<dd><p>Unlinking a plugin</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Plugins.html">Pluginsクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Method of the <a class="jump" href="class_Plugins.html">Plugins class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">unlink(<span class="arg">name</span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="unlinkの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="Arguments for unlink">
 <tr><td valign="top"><span class="argname">name</span></td>
-<td><p>切り離すプラグインを指定します。</p>
+<td><p>Specifies the plugin to unlink.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd><p>切り離しに成功すれば真、失敗すれば偽</p>
+<dt>Return Value</dt>
+<dd><p>True if unlinking succeeded, false if it failed</p>
 </dd>
-<dt>説明</dt>
-<dd><p>指定されたプラグインを切り離します。<br />
-プラグインの中には、解放に応じない物もあります ( オブジェクトが使用中の時など )。<br />
-解放に応じず、失敗すれば偽が返ります。</p>
+<dt>Description</dt>
+<dd><p>Unlinks the specified plugin.<br />
+Some plugins may not respond to release requests (e.g., when objects are still in use).<br />
+If the plugin does not respond to the release and fails, false is returned.</p>
 </dd>
 </dl>
 </div>

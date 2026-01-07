@@ -1,34 +1,34 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>setMixingLayer - [Windows+]ミキシング対象レイヤの設定</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>setMixingLayer - [Windows+] Set mixing target layer</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">VideoOverlay.setMixingLayer</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>[Windows+]ミキシング対象レイヤの設定</p>
+<dt>Function/Meaning</dt>
+<dd><p>[Windows+] Set mixing target layer</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_VideoOverlay.html">VideoOverlayクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd><a class="jump" href="class_VideoOverlay.html">VideoOverlay class</a> method</dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">setMixingLayer(<span class="arg">layer</span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="setMixingLayerの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="setMixingLayer arguments">
 <tr><td valign="top"><span class="argname">layer</span></td>
-<td><p>レイヤー</p>
+<td><p>Layer</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>指定したレイヤーとビデオのミキシングを行います。<br />
-ミキシングはこのメソッドが呼び出された時のレイヤー画像と行われます。<br />
-レイヤー画像の更新を反映するには、再度このメソッドを呼び出す必要があります。<br />
-VideOverlay.OnFrameUpdate を使用して、レイヤー画像が更新されたことを調べてこのメソッドを呼び出すようにすれば、自動的に更新が反映されるようになります。<br />
-onFrameUpdateで毎フレームこのメソッドを呼び出した場合、かなり負荷がかかりますのでそれは避けた方が良いです。<br />
-ミキサーモードでのみ利用可能です。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Mixes the video with the specified layer.<br />
+Mixing is performed with the layer image as it exists at the moment this method is called.<br />
+To reflect updates to the layer image, you must call this method again.<br />
+By using VideoOverlay.onFrameUpdate to check if the layer image has been updated and then calling this method, updates can be reflected automatically.<br />
+Calling this method every frame in onFrameUpdate will result in a significant processing load, so it should be avoided.<br />
+Available only in mixer mode.</p>
 </dd>
 </dl>
 </div>

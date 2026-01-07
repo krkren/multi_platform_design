@@ -1,151 +1,146 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>operateAffine - アフィン変換演算合成</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>operateAffine - Affine transformation arithmetic composition</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.operateAffine</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>アフィン変換演算合成</p>
+<dt>Function/Meaning</dt>
+<dd><p>Affine transformation arithmetic composition</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd><a class="jump" href="class_Layer.html">Layer class</a> method</dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">operateAffine(<span class="arg">src</span>, <span class="arg">sleft</span>, <span class="arg">stop</span>, <span class="arg">swidth</span>, <span class="arg">sheight</span>, <span class="arg">affine</span>, <span class="arg">A</span>, <span class="arg">B</span>, <span class="arg">C</span>, <span class="arg">D</span>, <span class="arg">E</span>, <span class="arg">F</span>, <span class="arg">mode</span><span class="defarg">=<span class="defargval">omAuto</span></span>, <span class="arg">opa</span><span class="defarg">=<span class="defargval">255</span></span>, <span class="arg">type</span><span class="defarg">=<span class="defargval">stNearest</span></span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="operateAffineの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="operateAffine arguments">
 <tr><td valign="top"><span class="argname">src</span></td>
-<td><p>重ね合わせ元のレイヤオブジェクトを指定します。<br />
-Bitmap クラスのオブジェクトも指定可能です。</p>
+<td><p>Specifies the source layer object.<br />
+Bitmap class objects can also be specified.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">sleft</span></td>
-<td><p>重ね合わせる矩形の左端位置を ( 重ね合わせ元レイヤの画像位置における ) ピクセル単位で指定します。</p>
+<td><p>Specifies the left edge position of the rectangle to be overlaid in pixels (relative to the source layer's image position).</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">stop</span></td>
-<td><p>重ね合わせる矩形の上端位置を ( 重ね合わせ元レイヤの画像位置における ) ピクセル単位で指定します。</p>
+<td><p>Specifies the top edge position of the rectangle to be overlaid in pixels (relative to the source layer's image position).</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">swidth</span></td>
-<td><p>重ね合わせる矩形の横幅を ( 重ね合わせ元レイヤの画像位置における ) ピクセル単位で指定します。</p>
+<td><p>Specifies the width of the rectangle to be overlaid in pixels (relative to the source layer's image position).</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">sheight</span></td>
-<td><p>重ね合わせる矩形の縦幅を ( 重ね合わせ元レイヤの画像位置における ) ピクセル単位で指定します。</p>
+<td><p>Specifies the height of the rectangle to be overlaid in pixels (relative to the source layer's image position).</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">affine</span></td>
-<td><p>続く６つの引数 (A ～ F パラメータ)をどのように扱うかを指定します。<br />
-真を指定すると、６つのパラメータはそれぞれ以下のように解釈されます。</p>
+<td><p>Specifies how to handle the following six arguments (parameters A to F).<br />
+If true is specified, the six parameters are interpreted as follows:</p>
 
 <ul>
-<li>A   : 2Dアフィン変換行列の a</li>
-<li>B   : 2Dアフィン変換行列の b</li>
-<li>C   : 2Dアフィン変換行列の c</li>
-<li>D   : 2Dアフィン変換行列の d</li>
-<li>E   : 2Dアフィン変換行列の tx</li>
-<li>F   : 2Dアフィン変換行列の ty</li>
+<li>A   : a of the 2D affine transformation matrix</li>
+<li>B   : b of the 2D affine transformation matrix</li>
+<li>C   : c of the 2D affine transformation matrix</li>
+<li>D   : d of the 2D affine transformation matrix</li>
+<li>E   : tx of the 2D affine transformation matrix</li>
+<li>F   : ty of the 2D affine transformation matrix</li>
 </ul>
 
-<p>アフィン変換により、重ね合わせ元の画像位置 (x, y) ( ただし、重ね合わせ元矩形の左上隅を (0, 0) とする ) は以下の式により、重ね合わせ先の画像位置 (x', y')に変換されます。<br />
-x' =  a<em>x + c</em>y + tx<br />
-y' =  b<em>x + d</em>y + ty<br />
-偽を指定すると、６つのパラメータはそれぞれ以下のように解釈されます。</p>
+<p>By affine transformation, the source image position (x, y) (where the top-left corner of the source rectangle is (0, 0)) is converted to the destination image position (x', y') by the following formula:<br />
+x' =  a*x + c*y + tx<br />
+y' =  b*x + d*y + ty<br />
+If false is specified, the six parameters are interpreted as follows:</p>
 
 <ul>
-<li>A   : コピー元矩形の左上隅の点の、コピー先での画像位置における X 座標位置(x0)</li>
-<li>B   : コピー元矩形の左上隅の点の、コピー先での画像位置における Y 座標位置(y0)</li>
-<li>C   : コピー元矩形の右上隅の点の、コピー先での画像位置における X 座標位置(x1)</li>
-<li>D   : コピー元矩形の右上隅の点の、コピー先での画像位置における Y 座標位置(y1)</li>
-<li>E   : コピー元矩形の左下隅の点の、コピー先での画像位置における X 座標位置(x2)</li>
-<li>F   : コピー元矩形の左下隅の点の、コピー先での画像位置における Y 座標位置(y2)</li>
+<li>A   : X-coordinate position (x0) of the top-left corner of the source rectangle at the destination image position</li>
+<li>B   : Y-coordinate position (y0) of the top-left corner of the source rectangle at the destination image position</li>
+<li>C   : X-coordinate position (x1) of the top-right corner of the source rectangle at the destination image position</li>
+<li>D   : Y-coordinate position (y1) of the top-right corner of the source rectangle at the destination image position</li>
+<li>E   : X-coordinate position (x2) of the bottom-left corner of the source rectangle at the destination image position</li>
+<li>F   : Y-coordinate position (y2) of the bottom-left corner of the source rectangle at the destination image position</li>
 </ul>
 
-<p>偽を指定した場合、重ね合わせ元の右下隅に対応する、重ね合わせ先位置(x3, y3)は自動的に以下の式によって計算されます。<br />
+<p>If false is specified, the destination position (x3, y3) corresponding to the bottom-right corner of the source is automatically calculated by the following formula:<br />
 x3 = x1 - x0 + x2<br />
 y3 = y1 - y0 + y2</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">A</span></td>
-<td><p>Aパラメータです。<br />
-affine 引数によって解釈が変わります。</p>
+<td><p>Parameter A.<br />
+Interpretation changes depending on the affine argument.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">B</span></td>
-<td><p>Bパラメータです。<br />
-affine 引数によって解釈が変わります。</p>
+<td><p>Parameter B.<br />
+Interpretation changes depending on the affine argument.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">C</span></td>
-<td><p>Cパラメータです。<br />
-affine 引数によって解釈が変わります。</p>
+<td><p>Parameter C.<br />
+Interpretation changes depending on the affine argument.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">D</span></td>
-<td><p>Dパラメータです。<br />
-affine 引数によって解釈が変わります。</p>
+<td><p>Parameter D.<br />
+Interpretation changes depending on the affine argument.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">E</span></td>
-<td><p>Eパラメータです。<br />
-affine 引数によって解釈が変わります。</p>
+<td><p>Parameter E.<br />
+Interpretation changes depending on the affine argument.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">F</span></td>
-<td><p>Fパラメータです。<br />
-affine 引数によって解釈が変わります。</p>
+<td><p>Parameter F.<br />
+Interpretation changes depending on the affine argument.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">mode</span></td>
-<td><p>演算のモードを指定します。</p>
+<td><p>Specifies the arithmetic mode.</p>
 
 <ul>
-<li>omAuto が指定された場合は演算元レイヤのLayer.typeプロパティに従って演算の種類が自動的に決定されます。</li>
-<li>omPsNormal が指定された場合はPhotoshop互換のアルファ合成が行われます(現バージョンでは未実装です)。</li>
-<li>omPsAdditive が指定された場合はPhotoshop互換の覆い焼き(リニア)合成が行われます(現バージョンでは未実装です)。</li>
-<li>omPsSubtractive が指定された場合はPhotoshop互換の焼き込み(リニア)合成が行われます(現バージョンでは未実装です)。</li>
-<li>omPsMultiplicative が指定された場合はPhotoshop互換の乗算合成が行われます(現バージョンでは未実装です)。</li>
-<li>omPsScreen が指定された場合はPhotoshop互換のスクリーン合成が行われます(現バージョンでは未実装です)。</li>
-<li>omPsOverlay が指定された場合はPhotoshop互換のオーバーレイ合成が行われます(現バージョンでは未実装です)。</li>
-<li>omPsHardLight が指定された場合はPhotoshop互換のハードライト合成が行われます(現バージョンでは未実装です)。</li>
-<li>omPsSoftLight が指定された場合はPhotoshop互換のソフトライト合成が行われます(現バージョンでは未実装です)。</li>
-<li>omPsColorDodge が指定された場合はPhotoshop互換の覆い焼きカラー合成が行われます(現バージョンでは未実装です)。</li>
-<li>omPsColorDodge5 が指定された場合はPhotoshopのバージョン5.x 以下と互換の覆い焼きカラー合成が行われます(現バージョンでは未実装です)。</li>
-<li>omPsColorBurn が指定された場合はPhotoshop互換の焼き込みカラー合成が行われます(現バージョンでは未実装です)。</li>
-<li>omPsLighten が指定された場合はPhotoshop互換の比較(明)合成が行われます(現バージョンでは未実装です)。</li>
-<li>omPsDarken が指定された場合はPhotoshop互換の比較(暗)合成が行われます(現バージョンでは未実装です)。</li>
-<li>omPsDifference が指定された場合はPhotoshop互換の差の絶対値合成が行われます(現バージョンでは未実装です)。</li>
-<li>omPsDifference5 が指定された場合はPhotoshopのバージョン 5.x 以下と互換の差の絶対値合成が行われます(現バージョンでは未実装です)。</li>
-<li>omPsExclusion が指定された場合はPhotoshop互換の除外合成が行われます(現バージョンでは未実装です)。</li>
-<li>omAdditive が指定された場合は加算合成が行われます(現バージョンでは未実装です)。</li>
-<li>omSubtractive が指定された場合は減算合成が行われます(現バージョンでは未実装です)。</li>
-<li>omMultiplicative が指定された場合は乗算合成が行われます(現バージョンでは未実装です)。</li>
-<li>omDodge が指定された場合は覆い焼き合成が行われます(現バージョンでは未実装です)。</li>
-<li>omDarken が指定された場合は比較(暗)合成が行われます(現バージョンでは未実装です)。</li>
-<li>omLighten が指定された場合は比較(明)合成が行われます(現バージョンでは未実装です)。</li>
-<li>omScreen が指定された場合はスクリーン乗算合成が行われます(現バージョンでは未実装です)。</li>
-<li>omAlpha が指定された場合はアルファ合成が行われます。</li>
-<li>omAddAlpha が指定された場合は加算アルファ合成が行われます。この場合は、転送先の Layer.face プロパティが dfOpaque かつ Layer.holdAlpha プロパティが偽のとき、type 引数に stFastLinear を指定することにより線形補間が可能です。</li>
-<li>omOpaque が指定された場合は src のアルファ情報は無視され、src は常に完全不透明であると見なされます。この場合は、転送先の Layer.face プロパティが dfOpaque かつ Layer.holdAlpha プロパティが偽のとき、type 引数に stFastLinear を指定することにより線形補間が可能です。</li>
+<li>If omAuto is specified, the type of operation is automatically determined according to the Layer.type property of the source layer.</li>
+<li>If omPsNormal is specified, Photoshop-compatible alpha blending is performed (not implemented in the current version).</li>
+<li>If omPsAdditive is specified, Photoshop-compatible linear dodge blending is performed (not implemented in the current version).</li>
+<li>If omPsSubtractive is specified, Photoshop-compatible linear burn blending is performed (not implemented in the current version).</li>
+<li>If omPsMultiplicative is specified, Photoshop-compatible multiplicative blending is performed (not implemented in the current version).</li>
+<li>If omPsScreen is specified, Photoshop-compatible screen blending is performed (not implemented in the current version).</li>
+<li>If omPsOverlay is specified, Photoshop-compatible overlay blending is performed (not implemented in the current version).</li>
+<li>If omPsHardLight is specified, Photoshop-compatible hard light blending is performed (not implemented in the current version).</li>
+<li>If omPsSoftLight is specified, Photoshop-compatible soft light blending is performed (not implemented in the current version).</li>
+<li>If omPsColorDodge is specified, Photoshop-compatible color dodge blending is performed (not implemented in the current version).</li>
+<li>If omPsColorDodge5 is specified, color dodge blending compatible with Photoshop version 5.x or lower is performed (not implemented in the current version).</li>
+<li>If omPsColorBurn is specified, Photoshop-compatible color burn blending is performed (not implemented in the current version).</li>
+<li>If omPsLighten is specified, Photoshop-compatible lighten blending is performed (not implemented in the current version).</li>
+<li>If omPsDarken is specified, Photoshop-compatible darken blending is performed (not implemented in the current version).</li>
+<li>If omPsDifference is specified, Photoshop-compatible difference blending is performed (not implemented in the current version).</li>
+<li>If omPsDifference5 is specified, difference blending compatible with Photoshop version 5.x or lower is performed (not implemented in the current version).</li>
+<li>If omPsExclusion is specified, Photoshop-compatible exclusion blending is performed (not implemented in the current version).</li>
+<li>If omAdditive is specified, additive blending is performed (not implemented in the current version).</li>
+<li>If omSubtractive is specified, subtractive blending is performed (not implemented in the current version).</li>
+<li>If omMultiplicative is specified, multiplicative blending is performed (not implemented in the current version).</li>
+<li>If omDodge is specified, dodge blending is performed (not implemented in the current version).</li>
+<li>If omDarken is specified, darken blending is performed (not implemented in the current version).</li>
+<li>If omLighten is specified, lighten blending is performed (not implemented in the current version).</li>
+<li>If omScreen is specified, screen multiplicative blending is performed (not implemented in the current version).</li>
+<li>If omAlpha is specified, alpha blending is performed.</li>
+<li>If omAddAlpha is specified, additive alpha blending is performed. In this case, when the destination Layer.face property is dfOpaque and the Layer.holdAlpha property is false, linear interpolation is possible by specifying stFastLinear for the type argument.</li>
+<li>If omOpaque is specified, the alpha information of src is ignored, and src is always considered completely opaque. In this case, when the destination Layer.face property is dfOpaque and the Layer.holdAlpha property is false, linear interpolation is possible by specifying stFastLinear for the type argument.</li>
 </ul>
 </td></tr>
 <tr><td valign="top"><span class="argname">opa</span></td>
-<td><p>重ね合わせの不透明度 ( 0 ～ 255 ) を指定します。</p>
+<td><p>Specifies the opacity of the overlay (0 to 255).</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">type</span></td>
-<td><p>アフィン変換のタイプを指定します。</p>
+<td><p>Specifies the type of affine transformation.</p>
 
 <ul>
-<li>stNearest     : 最近傍点法が用いられます</li>
-<li>stFastLinear  : 低精度の線形補間が用いられます(一部実装)</li>
-<li>stLinear      : 線形補間が用いられます(未実装)</li>
-<li>stCubic       : ３次元補間が用いられます(未実装)</li>
+<li>stNearest     : Nearest neighbor method is used</li>
+<li>stFastLinear  : Low-precision linear interpolation is used (partially implemented)</li>
+<li>stLinear      : Linear interpolation is used (not implemented)</li>
+<li>stCubic       : Cubic interpolation is used (not implemented)</li>
 </ul>
 
-<p>速度は stNearest > stFastLinear > stLinear > stCubic の順に高速ですが、画質は速度が速ければ速いモードほど低画質になります。<br />
-stFastLinear や stLinear, stCubic に対しては、stRefNoClip をビット論理和で追加指定することができ、この場合は、コピーするビットマップの領域外を参照して色を合成することを許可します。<br />
-これを指定しない場合は、転送元ビットマップの周囲に余裕があったとしても、転送元ビットマップの範囲外を参照することはありません(範囲外の色はもっとも近い位置にある範囲内のピクセルの色と見なされます)。</p>
+<p>Speed is faster in the order of stNearest > stFastLinear > stLinear > stCubic, but the image quality is lower for faster modes.<br />
+stRefNoClip can be additionally specified using a bitwise OR; in this case, referencing outside the bitmap area to be copied for color blending is allowed.<br />
+If this is not specified, even if there is margin around the source bitmap, it will not reference outside the source bitmap range (colors outside the range are considered the color of the nearest pixel within the range).</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>指定された重ね合わせ元レイヤの矩形を、重ね合わせ先 ( メソッドを実行するレイヤ ) にアフィン変換を行いながら演算合成します。<br />
-アフィン変換については Layer.affineCopy も参照してください。<br />
-mode に omAuto を指定した場合は、演算元レイヤのLayer.typeプロパティに従って演算の種類が自動的に決定されます。</p>
-</dd>
-</dl>
-</div>
-</body>
-</html>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Performs arithmetic composition while applying an affine transformation to the specified source layer rectangle onto the destination (the layer executing the method).<br />
+See also Layer.affineCopy for information on affine transformations.<br />
+If omAuto is specified

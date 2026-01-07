@@ -1,31 +1,31 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>rasterizer - 文字列描画方式</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>rasterizer - String Rendering Method</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Font.rasterizer</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>文字列描画方式</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Font.html">Fontクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>文字列描画方式を表します。<br />
-値を設定することもできます。<br />
-値は以下のどちらかを指定します(Windows以外では常にFreeTypeです)。</p>
+<dt>Function/Meaning</dt>
+<dd>String rendering method</dd>
+<dt>Type</dt>
+<dd>Property of the <a class="jump" href="class_Font.html">Font class</a></dd>
+<dt>Description</dt>
+<dd><p>Represents the string rendering method.<br />
+You can also set the value.<br />
+Specify one of the following values (always FreeType on non-Windows platforms).</p>
 
 <ul>
-<li>frGDI       : GDI を使って文字を描画します(Windows版のみ)</li>
-<li>frFreeType  : FreeType を使って文字を描画します</li>
+<li>frGDI       : Renders characters using GDI (Windows version only)</li>
+<li>frFreeType  : Renders characters using FreeType</li>
 </ul>
 
-<p>FreeType を指定した場合、横書きにのみ対応しています。<br />
-その他は未対応です。<br />
-このプロパティはスタティックです。<br />
-Font.rasterizer を用いて値を設定してください。<br />
-マルチプラットフォーム版からデフォルトがFreeTypeになりました。</p>
+<p>When FreeType is specified, only horizontal writing is supported.<br />
+Other modes are not supported.<br />
+This property is static.<br />
+Please set the value using Font.rasterizer.<br />
+The default has been changed to FreeType since the multi-platform version.</p>
 </dd>
 </dl>
 </div>

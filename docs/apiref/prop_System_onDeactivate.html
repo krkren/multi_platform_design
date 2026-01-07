@@ -1,24 +1,24 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>onDeactivate - アプリケーションが非アクティブになったとき</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>onDeactivate - When the application becomes inactive</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">System.onDeactivate</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>アプリケーションが非アクティブになったとき</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_System.html">Systemクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>アプリケーションが非アクティブになったときに呼び出されるイベント関数を表します。<br />
-null を指定すると関数は呼び出されません。<br />
-通常のイベントハンドラと異なり、このイベントを受け取りたい場合は、呼び出したい関数をこのプロパティに設定してください。<br />
-Window.onDeactivate は、同じアプリケーション内のそれぞれのウィンドウが非アクティブになったときに発生しますが、このイベントは、メインウィンドウが非アクティブになった場合に発生します。<br />
-このイベントは、メインウィンドウが既に非アクティブの場合にも発生する可能性があるので注意してください (完全に onActivate → onDeactivate → onActivate → …… の順に発生する保証がない )。</p>
+<dt>Function/Meaning</dt>
+<dd>When the application becomes inactive</dd>
+<dt>Type</dt>
+<dd>Property of the <a class="jump" href="class_System.html">System class</a></dd>
+<dt>Description</dt>
+<dd><p>Represents an event function called when the application becomes inactive.<br />
+If null is specified, the function will not be called.<br />
+Unlike normal event handlers, if you want to receive this event, set the function you want to call to this property.<br />
+Window.onDeactivate occurs when each individual window within the same application becomes inactive, but this event occurs when the main window becomes inactive.<br />
+Note that this event may occur even if the main window is already inactive (there is no guarantee that events will occur strictly in the order of onActivate -> onDeactivate -> onActivate -> ...).</p>
 </dd>
-<dt>参照</dt>
+<dt>Reference</dt>
 <dd>
 <a class="jump" href="prop_System_onActivate.html">System.onActivate</a><br />
 <a class="jump" href="event_Window_onActivate.html">Window.onActivate</a><br />

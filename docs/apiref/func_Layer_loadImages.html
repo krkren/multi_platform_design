@@ -1,45 +1,45 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>loadImages - 画像の読み込み</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>loadImages - Loading images</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.loadImages</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>画像の読み込み</p>
+<dt>Function/Meaning</dt>
+<dd><p>Loading images</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd><a class="jump" href="class_Layer.html">Layer class</a> method</dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">loadImages(<span class="arg">image</span>, <span class="arg">colorkey</span><span class="defarg">=<span class="defargval">clNone</span></span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="loadImagesの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="Arguments for loadImages">
 <tr><td valign="top"><span class="argname">image</span></td>
-<td><p>読み込む画像ストレージを指定します。<br />
-ここで指定したストレージ名(拡張子を除く) に _m を付加した画像ストレージが存在すれば、マスク(不透明度)画像として読み込まれます。<br />
-ここで指定したストレージ名(拡張子を除く) に _p を付加した画像ストレージが存在すれば、領域画像として読み込まれます。</p>
+<td><p>Specifies the image storage to load.<br />
+If an image storage exists with the specified storage name (excluding extension) plus _m, it will be loaded as a mask (opacity) image.<br />
+If an image storage exists with the specified storage name (excluding extension) plus _p, it will be loaded as a province (region) image.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">colorkey</span></td>
-<td><p>読み込む画像のカラーキー ( 透明色 ) を指定します。<br />
-0xRRGGBB 形式で色を指定すると、その色をカラーキーとします。clPalIdx に 任意のパレットインデックスを加算した数値を指定すると、そのパレットインデックスが透明色になります ( 256 色以下の画像の場合 )。<br />
-clAdapt を指定すると、画像の一番上のラインにおいてもっとも多く使われている色が自動的に透明色になります。<br />
-clAlphaMat に 0xRRGGBB形式の色を表す数値を加算したものを指定すると、画像がその色の上にαブレンド(ltAlphaの方式)を用いて重ね合わせられます。<br />
-たとえば、(clAlphaMat + 0xffffff) を指定すると、読み込まれた画像が白い色の上に重ね合わせられます。<br />
-画像は全て不透明な画像となります( 画像は全て不透明となりますが、このモードではタグ情報はいっさい変更されないので注意してください )。</p>
+<td><p>Specifies the color key (transparent color) of the image to be loaded.<br />
+If a color is specified in 0xRRGGBB format, that color is used as the color key. If a value consisting of clPalIdx plus an arbitrary palette index is specified, that palette index becomes the transparent color (for images with 256 colors or less).<br />
+If clAdapt is specified, the most frequently used color in the top line of the image automatically becomes the transparent color.<br />
+If a value consisting of clAlphaMat plus a color in 0xRRGGBB format is specified, the image is overlaid on that color using alpha blending (ltAlpha method).<br />
+For example, if (clAlphaMat + 0xffffff) is specified, the loaded image will be overlaid on a white color.<br />
+All images will become opaque (note that while all images become opaque, tag information is not changed at all in this mode).</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd><p>タグ情報の辞書配列</p>
+<dt>Return Value</dt>
+<dd><p>Dictionary array of tag information</p>
 </dd>
-<dt>説明</dt>
-<dd><p>レイヤに画像を読み込みます。<br />
-このメソッドはレイヤの画像サイズは変更しますが、画像サイズがレイヤの表示サイズより小さかった場合を除いて、レイヤの表示サイズは変更しません。<br />
-戻り値としてタグ情報(その画像のレイヤタイプや表示位置など、画像そのものに対する情報)の辞書配列が返ります。<br />
-KAG の「タグ」の意味と混同しないように注意してください。<br />
-画像がタグ情報を持たない場合は null が返ります。現バージョンでは、タグ情報は PNG, TLG5/6 形式のみが持つことができます。<br />
-取得可能な情報については、画像フォーマットコンバータ を参照してください。</p>
+<dt>Description</dt>
+<dd><p>Loads an image into the layer.<br />
+This method changes the image size of the layer, but does not change the display size of the layer unless the image size is smaller than the layer's display size.<br />
+A dictionary array of tag information (information about the image itself, such as the image's layer type and display position) is returned as the return value.<br />
+Be careful not to confuse this with the meaning of "tags" in KAG.<br />
+If the image does not have tag information, null is returned. In the current version, only PNG and TLG5/6 formats can have tag information.<br />
+For information that can be obtained, please refer to the Image Format Converter.</p>
 </dd>
 </dl>
 </div>

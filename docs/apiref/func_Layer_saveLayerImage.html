@@ -1,48 +1,48 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>saveLayerImage - 画像の保存</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>saveLayerImage - Save Image</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.saveLayerImage</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>画像の保存</p>
+<dt>Function/Meaning</dt>
+<dd><p>Save image</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Method of <a class="jump" href="class_Layer.html">Layer class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">saveLayerImage(<span class="arg">name</span>, <span class="arg">type</span><span class="defarg">=<span class="defargval">bmp</span></span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="saveLayerImageの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="Arguments for saveLayerImage">
 <tr><td valign="top"><span class="argname">name</span></td>
-<td><p>保存するストレージ名を指定します。</p>
+<td><p>Specifies the storage name to save to.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">type</span></td>
-<td><p>保存する画像形式を文字列で指定します。<br />
-現バージョンでは以下の形式を指定可能です。</p>
+<td><p>Specifies the image format to save as a string.<br />
+The following formats can be specified in the current version.</p>
 
 <ul>
-<li>"bmp" または "bmp32" : 32bpp の BMP です。アルファチャンネル(マスク)も保存します。</li>
-<li>"bmp24" : 24bpp の BMP です。アルファチャンネル(マスク)は保存されません。</li>
-<li>"bmp8" : 8bpp の BMP です。アルファチャンネル(マスク)は保存されません。画像は252色の固定パレットによる4×4組織化ディザリングを用いて減色されます。</li>
-<li>"jpg" : JPEG です。アルファチャンネル(マスク)は保存されません。画像はクオリティー90%で保存されます。</li>
-<li>"jpg###" : JPEG です。アルファチャンネル(マスク)は保存されません。画像は###で指定されたクオリティーで保存されます。"jpg010" で 10%、"jpg100" で 100%、"jpg080" で 80%です。</li>
-<li>"png" : 32bpp の PNG です。アルファチャンネル(マスク)も保存します。</li>
-<li>"png24" : 24bpp の PNG です。アルファチャンネル(マスク)は保存されません。</li>
-<li>"tlg5" : 32bpp の TLG5 です。アルファチャンネル(マスク)も保存します。</li>
-<li>"tlg524" : 24bpp の TLG5 です。アルファチャンネル(マスク)は保存されません。</li>
-<li>"tlg6" : 32bpp の TLG6 です。アルファチャンネル(マスク)も保存します。</li>
-<li>"tlg624" : 24bpp の TLG6 です。アルファチャンネル(マスク)は保存されません。</li>
+<li>"bmp" or "bmp32" : 32bpp BMP. Also saves the alpha channel (mask).</li>
+<li>"bmp24" : 24bpp BMP. Alpha channel (mask) is not saved.</li>
+<li>"bmp8" : 8bpp BMP. Alpha channel (mask) is not saved. The image is reduced using 4x4 ordered dithering with a fixed 252-color palette.</li>
+<li>"jpg" : JPEG. Alpha channel (mask) is not saved. The image is saved with 90% quality.</li>
+<li>"jpg###" : JPEG. Alpha channel (mask) is not saved. The image is saved with the quality specified by ###. "jpg010" for 10%, "jpg100" for 100%, "jpg080" for 80%.</li>
+<li>"png" : 32bpp PNG. Also saves the alpha channel (mask).</li>
+<li>"png24" : 24bpp PNG. Alpha channel (mask) is not saved.</li>
+<li>"tlg5" : 32bpp TLG5. Also saves the alpha channel (mask).</li>
+<li>"tlg524" : 24bpp TLG5. Alpha channel (mask) is not saved.</li>
+<li>"tlg6" : 32bpp TLG6. Also saves the alpha channel (mask).</li>
+<li>"tlg624" : 24bpp TLG6. Alpha channel (mask) is not saved.</li>
 </ul>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>name で指定したストレージ (ファイル) に、type で指定した画像形式でファイルを保存します。<br />
-保存されるのはレイヤの画像で、領域画像は保存することはできません。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Saves the file to the storage (file) specified by name in the image format specified by type.<br />
+Only the layer image is saved; the region image cannot be saved.</p>
 </dd>
 </dl>
 </div>

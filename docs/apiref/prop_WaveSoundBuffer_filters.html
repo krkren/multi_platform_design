@@ -1,31 +1,31 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>filters - フィルタ配列</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>filters - Filter array</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">WaveSoundBuffer.filters</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>フィルタ配列</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_WaveSoundBuffer.html">WaveSoundBufferクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>インサーションフィルタオブジェクトを保持している配列(Arrayクラスのインスタンス)です。<br />
-この配列にフィルタオブジェクトを登録することにより、再生中にリアルタイムで音声に対して様々な効果をかけることができます。<br />
-フィルタ配列への変更が反映されるのは、WaveSoundBuffer.openメソッドが実行された時だけです。<br />
-それまでは、この配列への変更を行っても反映はされません。<br />
-例:<br />
+<dt>Function/Meaning</dt>
+<dd>Filter array</dd>
+<dt>Type</dt>
+<dd>Property of the <a class="jump" href="class_WaveSoundBuffer.html">WaveSoundBuffer class</a></dd>
+<dt>Description</dt>
+<dd><p>An array (instance of the Array class) that holds insertion filter objects.<br />
+By registering filter objects in this array, you can apply various effects to the audio in real-time during playback.<br />
+Changes to the filter array are only applied when the WaveSoundBuffer.open method is executed.<br />
+Until then, any changes made to this array will not take effect.<br />
+Example:<br />
 <code><br />
 var buf = new WaveSoundBuffer(window);<br />
-(略)<br />
+(omitted)<br />
 buf.filters.clear();<br />
-// フィルタ配列をクリア<br />
+// Clear the filter array<br />
 buf.filters.add(new WaveSoundBuffer.PhaseVocoder());<br />
-// PhaseVocoderフィルタを追加<br />
+// Add PhaseVocoder filter<br />
 buf.filters[0].time = 0.5;<br />
-// 倍速再生<br />
+// Double-speed playback<br />
 </code></p>
 </dd>
 </dl>

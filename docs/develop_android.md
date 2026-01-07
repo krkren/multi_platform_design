@@ -1,57 +1,57 @@
 ---
 layout: default
-title: 吉里吉里Z Android版のリリース
+title: Release of KiriKiriZ Android Version
 ---
 
-Android版は開発用とパッケージ化用で分離しています。  
-開発用はAndroid5.0以降用で、起動時にフォルダを選択してそこにあるstartup.tjsから起動できます。  
-それに対してパッケージ化用のものはAsset内のstartup.tjsかdata.xp3から起動します。  
-Asset以外にもGoogle Play の拡張ファイル(Expansion Files)や指定サーバのhttp経由でのデータ(xp3)ダウンロードによって起動可能です(予定)。  
-全てダウンロードするのではなく、フォントデータ等変更がほぼないデータ等をAssetに置きつつ、その他のデータはダウンロードするなどの対応も可能です(予定)。  
-開発用かパッケージ化用の切り替えはAndroid StudioのProduct Flavor機能によって行います。  
-開発用は公式からリリースされるもので問題ないですが、プラグインを足したものが必要な場合は自前でapk化します。 
-パッケージ化用はゲームをリリースする時に使用します。  
-開発用はdevelop、パッケージ化用はproductと言う名前になっています。
+The Android version is split into development and packaging versions.
+The development version is for Android 5.0 and later; it allows you to select a folder at startup and run the startup.tjs located there.
+In contrast, the packaging version runs from startup.tjs or data.xp3 within the Assets.
+Besides Assets, it can also be launched via Google Play Expansion Files or by downloading data (xp3) via HTTP from a specified server (planned).
+Instead of downloading everything, it is also possible to keep data that rarely changes, such as font data, in Assets while downloading other data (planned).
+Switching between development and packaging versions is done using the Product Flavor feature in Android Studio.
+The official release is fine for development, but if you need to add plugins, you must build the APK yourself.
+The packaging version is used when releasing the game.
+The development version is named "develop" and the packaging version is named "product".
 
-## アプリケーション(ゲーム)名の変更
-以下の2つのXMLファイルのapp_name要素を変更します。  
-既定ではGameName/ゲーム名と言うものが入っているので、そこをリリースするゲームの名前に変更します。  
-krkrz/android/app/src/product/res/values/strings.xml (英語)  
-krkrz/android/app/src/product/res/values-ja/strings.xml (日本語)
+## Changing the Application (Game) Name
+Change the app_name element in the following two XML files.
+By default, it contains "GameName", so change it to the name of the game you are releasing.
+krkrz/android/app/src/product/res/values/strings.xml (English)
+krkrz/android/app/src/product/res/values-ja/strings.xml (Japanese)
 
-## アイコンの変更
-krkrz/android/app/src/product/res/以下のmipmap-xxxディレクトリにic_launcher.pngと言う名前で置きます。  
-アイコンサイズはそれぞれ以下のサイズで置きます。
+## Changing the Icon
+Place a file named ic_launcher.png in the mipmap-xxx directories under krkrz/android/app/src/product/res/.
+Place the icons with the following sizes:
 * mipmap-mdpi : 48x48
 * mipmap-hdpi : 72x72
 * mipmap-xhdpi : 96x96
 * mipmap-xxhdpi : 144x144
 * mipmap-xxxhdpi : 192x192
 
-## バージョン番号
-人が読むバージョン名と自動処理されるバージョンコードの2つが必要です。  
-バージョンコードはリリースするごとに1ずつ加算し、Android端末が更新を検出し自動更新(もしくは更新通知)するために使われます。  
-最初は1にしてリリースします。  
-バージョン名はテキストです。  
-1.0.0等にしてリリースします。  
-どのように上げていくかは任意です。  
-バージョン名は versionName の項、バージョンコードは versionCode の項に該当します。  
-krkrz/android/app/build.gradle の android { productFlavors { product { versionCode/versionName } } } を更新します。  
-既定ではそれぞれ1と'1.0.0'になっています。  
-初回リリースはそのままでも問題ないです。
+## Version Number
+Two values are required: a human-readable version name and an automatically processed version code.
+The version code is incremented by 1 for each release and is used by Android devices to detect updates and perform automatic updates (or update notifications).
+Release with 1 initially.
+The version name is text.
+Release as 1.0.0, etc.
+How you increment it is optional.
+The version name corresponds to the versionName field, and the version code corresponds to the versionCode field.
+Update android { productFlavors { product { versionCode/versionName } } } in krkrz/android/app/build.gradle.
+By default, they are set to 1 and '1.0.0' respectively.
+It is fine to leave them as is for the initial release.
 
-## パッケージ名
-apk のパッケージ名で、Google Play 内で重複しないものをつける必要があります。  
-その他のストアでも同様です。  
-Java のパッケージ名のメイメイ規則に従い一般的にアプリ名+ドメイン名を.ごとに逆さにした形でつけます。  
-自分の持つドメイン名をつけることで重複を避けます。  
-krkrz/android/app/build.gradle の android { productFlavors { product { applicationId } } } を更新します。  
-既定では 'com.domain.productname' となっているので、ドメイン名 + アプリ名とします。
+## Package Name
+You must provide a package name for the APK that is unique within Google Play.
+The same applies to other stores.
+Following Java package naming conventions, it is generally formatted as the domain name reversed followed by the app name, separated by dots.
+Use a domain name you own to avoid duplicates.
+Update android { productFlavors { product { applicationId } } } in krkrz/android/app/build.gradle.
+By default, it is 'com.domain.productname', so change it to your domain name + app name.
 
-## data.xp3 の配置
-krkrz/android/app/src/product/assets フォルダ内に置きます。  
-ここに置くと apk にまとめられます。
+## Placement of data.xp3
+Place it in the krkrz/android/app/src/product/assets folder.
+Placing it here will include it in the APK.
 
-## プラグインの追加
-[Android版でのプラグインの利用](https://krkrz.github.io/android_plugins/)を参照してください。  
-xp3 ファイル内には置かず、apk 内に入るよう置き場所が決まっています。
+## Adding Plugins
+Refer to [Using Plugins in the Android Version](https://krkrz.github.io/android_plugins/).
+Do not place them inside the xp3 file; their location is fixed so they are included in the APK.

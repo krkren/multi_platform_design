@@ -1,39 +1,39 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>load - 画像の読み込み</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>load - Loading images</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Bitmap.load</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>画像の読み込み</p>
+<dt>Function/Meaning</dt>
+<dd><p>Loading an image</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Bitmap.html">Bitmapクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Method of the <a class="jump" href="class_Bitmap.html">Bitmap class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">load(<span class="arg">image</span>, <span class="arg">colorkey</span><span class="defarg">=<span class="defargval">clNone</span></span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="loadの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="Arguments for load">
 <tr><td valign="top"><span class="argname">image</span></td>
-<td><p>読み込む画像ストレージを指定します。</p>
+<td><p>Specifies the image storage to load.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">colorkey</span></td>
-<td><p>読み込む画像のカラーキー ( 透明色 ) を指定します。<br />
-0xRRGGBB 形式で色を指定すると、その色をカラーキーとします。<br />
-clPalIdx に 任意のパレットインデックスを加算した数値を指定すると、そのパレットインデックスが透明色になります ( 256 色以下の画像の場合 )。<br />
-clAdapt を指定すると、画像の一番上のラインにおいてもっとも多く使われている色が自動的に透明色になります。<br />
-clAlphaMat に 0xRRGGBB形式の色を表す数値を加算したものを指定すると、画像がその色の上にαブレンド(ltAlphaの方式)を用いて重ね合わせられます。<br />
-たとえば、(clAlphaMat + 0xffffff) を指定すると、読み込まれた画像が白い色の上に重ね合わせられます。<br />
-画像は全て不透明な画像となります( 画像は全て不透明となりますが、このモードではタグ情報はいっさい変更されないので注意してください )。</p>
+<td><p>Specifies the color key (transparent color) of the image to be loaded.<br />
+If a color is specified in 0xRRGGBB format, that color is used as the color key.<br />
+If a value consisting of clPalIdx plus an arbitrary palette index is specified, that palette index becomes the transparent color (for images with 256 colors or fewer).<br />
+If clAdapt is specified, the most frequently used color in the top line of the image automatically becomes the transparent color.<br />
+If a value consisting of clAlphaMat plus a color in 0xRRGGBB format is specified, the image is overlaid on that color using alpha blending (ltAlpha method).<br />
+For example, if (clAlphaMat + 0xffffff) is specified, the loaded image is overlaid on white.<br />
+The image will be entirely opaque (Note that while the image becomes opaque, tag information is not modified at all in this mode).</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd><p>タグ情報の辞書配列</p>
+<dt>Return Value</dt>
+<dd><p>Dictionary array of tag information</p>
 </dd>
-<dt>説明</dt>
-<dd><p>画像を読み込みます。戻り値としてタグ情報(その画像のレイヤタイプや表示位置など、画像そのものに対する情報)の辞書配列が返ります。画像がタグ情報を持たない場合は null が返ります。現バージョンでは、タグ情報は PNG, TLG5/6 形式のみが持つことができます。取得可能な情報については、画像フォーマットコンバータ を参照してください。</p>
+<dt>Description</dt>
+<dd><p>Loads an image. Returns a dictionary array of tag information (information about the image itself, such as layer type and display position). If the image has no tag information, null is returned. In the current version, only PNG and TLG5/6 formats can contain tag information. For information that can be retrieved, please refer to the Image Format Converter.</p>
 </dd>
 </dl>
 </div>

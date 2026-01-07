@@ -1,34 +1,34 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>getArgument - コマンドラインオプションの取得</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>getArgument - Get command line option</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">System.getArgument</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>コマンドラインオプションの取得</p>
+<dt>Function/Meaning</dt>
+<dd><p>Get command line option</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_System.html">Systemクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Method of the <a class="jump" href="class_System.html">System class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">getArgument(<span class="arg">name</span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="getArgumentの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="getArgument arguments">
 <tr><td valign="top"><span class="argname">name</span></td>
-<td><p>取得するコマンドラインオプション名を指定します。<br />
-最初に '-'( ハイフン ) をつけてください ( 例 : '-nosplash' )。</p>
+<td><p>Specifies the name of the command line option to retrieve.<br />
+Please prefix it with a '-' (hyphen) (e.g., '-nosplash').</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd><p>コマンドラインオプションが指定されていればその値、指定されていなければvoid が返ります。</p>
+<dt>Return Value</dt>
+<dd><p>Returns the value if the command line option is specified, otherwise returns void.</p>
 </dd>
-<dt>説明</dt>
-<dd><p>コマンドラインオプションは、-name=valueまたは-nameの形式で吉里吉里に渡されている必要があります。<br />
-前者の場合は値として value が返り、前者の場合は値として 'yes' が返ります。</p>
+<dt>Description</dt>
+<dd><p>Command line options must be passed to KiriKiri in the format -name=value or -name.<br />
+In the former case, 'value' is returned as the value, and in the latter case, 'yes' is returned as the value.</p>
 </dd>
-<dt>参照</dt>
+<dt>Reference</dt>
 <dd>
 <a class="jump" href="func_System_setArgument.html">System.setArgument</a><br />
 </dd>

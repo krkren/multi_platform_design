@@ -1,36 +1,36 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>shellExecute - [Windows*]ファイル/プログラムの実行</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>shellExecute - [Windows*] Execute file/program</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">System.shellExecute</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>[Windows*]ファイル/プログラムの実行</p>
+<dt>Function/Meaning</dt>
+<dd><p>[Windows*] Execute file/program</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_System.html">Systemクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd><a class="jump" href="class_System.html">System class</a> method</dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">shellExecute(<span class="arg">target</span>, <span class="arg">param</span><span class="defarg">=<span class="defargval"></span></span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="shellExecuteの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="Arguments for shellExecute">
 <tr><td valign="top"><span class="argname">target</span></td>
-<td><p>実行するファイルやソフトウェアを指定します。<br />
-ファイルを指定された場合は、それに関連づけられたプログラムが起動します。</p>
+<td><p>Specifies the file or software to execute.<br />
+If a file is specified, the program associated with it will be started.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">param</span></td>
-<td><p>実行するソフトウェアに渡すパラメータを指定します。<br />
-target 引数にファイルを指定した場合はこの引数を省略するか、あるいは空文字列を指定してください。</p>
+<td><p>Specifies the parameters to pass to the software being executed.<br />
+If a file is specified in the target argument, omit this argument or specify an empty string.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd><p>実行に成功すれば真、失敗すれば偽が返ります。</p>
+<dt>Return Value</dt>
+<dd><p>Returns true if execution is successful, false if it fails.</p>
 </dd>
-<dt>説明</dt>
-<dd><p>target で指定したファイルやソフトウェアを実行します。<br />
-Androidでは何も起こりません。</p>
+<dt>Description</dt>
+<dd><p>Executes the file or software specified by target.<br />
+Nothing happens on Android.</p>
 </dd>
 </dl>
 </div>

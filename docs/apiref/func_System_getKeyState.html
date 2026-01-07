@@ -1,31 +1,31 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>getKeyState - [Windows*]キー状態の取得</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>getKeyState - [Windows*] Get key state</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">System.getKeyState</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>[Windows*]キー状態の取得</p>
+<dt>Function/Meaning</dt>
+<dd><p>[Windows*] Get key state</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_System.html">Systemクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Method of the <a class="jump" href="class_System.html">System class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">getKeyState(<span class="arg">code</span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="getKeyStateの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="getKeyState arguments">
 <tr><td valign="top"><span class="argname">code</span></td>
-<td><p>状態を取得する仮想キーコード  を指定します。</p>
+<td><p>Specifies the virtual key code to get the state of.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd><p>キーが押されていれば真、押されていなければ偽になります。</p>
+<dt>Return Value</dt>
+<dd><p>Returns true if the key is pressed, false otherwise.</p>
 </dd>
-<dt>説明</dt>
-<dd><p>code で指定したキーコードに対応するキーが、このメソッドを呼んだ時点で押されているかどうかを取得します。<br />
-Android場合常にfalseが返ります。</p>
+<dt>Description</dt>
+<dd><p>Gets whether the key corresponding to the key code specified by code is pressed at the time this method is called.<br />
+On Android, this always returns false.</p>
 </dd>
 </dl>
 </div>

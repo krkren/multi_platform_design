@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>showParentHint - 親レイヤのヒントを引き継ぐか</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>showParentHint - Whether to inherit parent layer hints</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.showParentHint</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>親レイヤのヒントを引き継ぐか</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>親レイヤのヒントを引き継ぐかどうかを表します。<br />
-値を設定することもできます。<br />
-真の場合は、Layer.hint プロパティが空文字列の場合は、親レイヤをさかのぼり、ヒントが設定されているレイヤのヒントをそのまま引き継いで表示します。<br />
-Layer.hint プロパティが空文字列でなかった場合はそれを表示します。 <br />
-偽の場合は、Layer.hint プロパティが空文字列でなければそれを表示し、空文字列であればヒントは表示しません。</p>
+<dt>Function/Meaning</dt>
+<dd>Whether to inherit parent layer hints</dd>
+<dt>Type</dt>
+<dd>Property of the <a class="jump" href="class_Layer.html">Layer class</a></dd>
+<dt>Description</dt>
+<dd><p>Indicates whether to inherit the hint from the parent layer.<br />
+You can also set the value.<br />
+If true, and the Layer.hint property is an empty string, it searches up the parent layers and displays the hint from the first layer found that has a hint set.<br />
+If the Layer.hint property is not an empty string, it displays that hint.<br />
+If false, it displays the Layer.hint property if it is not an empty string, and displays no hint if it is an empty string.</p>
 </dd>
 </dl>
 </div>

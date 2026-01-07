@@ -1,55 +1,55 @@
-# ハードウェア描画設計
+# Hardware Drawing Design
 ## XXWindow
-* ベースになる画面を提供
-* 表画面/裏画面でのトランジション機能
-* タッチやマウス用のインターフェースは全面的にここで管理。  
-　　レイヤから先では、指定した座標にそのオブジェクトが存在するかどうか、が判定できるインターフェースがあれば良い（イベント伝播は不要）
-* 重なってる Surface 描画の任意の位置での画面キャプチャ
+* Provides the base screen
+* Transition functionality between front/back buffers
+* Touch and mouse interfaces are managed entirely here.
+  From the layer level onwards, it only needs an interface to determine if an object exists at specified coordinates (event propagation is not required).
+* Screen capture at any position of overlapping Surface rendering
 
 ## XXSurface
-### 3D系コンポーネントの基底クラス
-* トランジション用のプレーン指定(表/裏/両方)
-* 表示ON/OFF
-* オーダー指定
-* レンダーテクスチャ関係処理は入れるならここか？  
-キャプチャ/レンダー処理後の色加工/合成モード指定/不透明度指定
+### Base class for 3D components
+* Plane specification for transitions (Front/Back/Both)
+* Display ON/OFF
+* Order specification
+* Should render texture related processing go here?
+  Color processing after capture/render, blend mode specification, opacity specification
 
 ## XXMeth extends XXSurface
-3Dメッシュ描画を準備するならこの層で対応？
+If preparing 3D mesh rendering, handle it at this layer?
 
 ## XXNanoVGLayer extends XXSurface
-2Dレイヤと同格の描画用としてみるとここの層？
+If viewed as a rendering layer equivalent to a 2D layer, is it this layer?
 
 ## XXLayer extends XXSurface
-### 2D描画の基本処理を提供する機構
-* 描画クリッピング機能
-* 描画全体のアフィン変形処理 ← これがADV案件やUIの演出処理的には重要な要素となる
-* 配下の XXLayerObject が必要とするリソースを保持管理
+### Mechanism providing basic 2D rendering processing
+* Drawing clipping functionality
+* Affine transformation for the entire drawing - This is a crucial element for ADV projects and UI production effects.
+* Holds and manages resources required by child XXLayerObjects
 
 ## XXLayerObject
-### XXLayer 上に単純配置可能な2D系描画要素の基底クラス
-* XXLayer上での表示順と配置オフセット指定指定は共通的に指定可能に
-* 画像変形指定（拡縮回転）、合成モード、不透明度などの指定  
-※実際に対応するかどうかはオブジェクト次第  
-E-mote だと合成モードは描画のパーツごとに変化してる
+### Base class for 2D rendering elements that can be simply placed on XXLayer
+* Display order and placement offset on XXLayer can be specified commonly
+* Image transformation (scale/rotate), blend mode, opacity, etc.
+* Note: Whether these are actually supported depends on the object.
+  In E-mote, blend modes change for each drawing part.
 
 ## XXPicture extends XXLayerObject
-* 画像の表示
-* 指定した画像から任意領域を切り出して表示する
-* ここで吉里吉里の LTO がそのまま描画できるのが理想
+* Image display
+* Crop and display an arbitrary area from a specified image
+* Ideally, KiriKiri LTO can be rendered directly here
 
-## XXNanoVGPicture  extens XXLayerObject
-* 2D描画を画像の一種とするならこの階層が妥当
+## XXNanoVGPicture extens XXLayerObject
+* If 2D drawing is considered a type of image, this hierarchy is appropriate
 
 ## XXTextRender extends XXLayerObject
-* テキストレンダリング処理用
+* For text rendering processing
 
 ## XXEmote extends XXLayerObject
-* E-mote データを表示
+* Displays E-mote data
 
-# 全体の構成
-構造的に Window > Surface  
-　　　　　　　　　　　　　Layer(Surface) > LayerObj
+# Overall Structure
+Structurally: Window > Surface
+              Layer(Surface) > LayerObj
 
-の３層想定です  
-Layer を「Surface の親になれる Surface」にしてしまって、LayerObj と Surface と同格にしてしまうのが、自在に入れ子できて汎用性の点では高いとは思うのですが、実用上はこの3層のがわかりやすくて、特に問題にもならないはずです
+This assumes a 3-layer structure.
+While making Layer a "Surface that can be a parent of a Surface" and making LayerObj equivalent to Surface would allow for flexible nesting and higher versatility, in practice, this 3-layer structure is easier to understand and should not cause any particular issues.

@@ -5,25 +5,25 @@
  */
 class BitmapLayerTreeOwner {
 	/**
-	 * BitmapLayerTreeOwner オブジェクトの構築
+	 * Construction of BitmapLayerTreeOwner object
 	 *
 	 * @description Constructs a BitmapLayerTreeOwner class object.
 	 */
 	function BitmapLayerTreeOwner( );
 	/**
-	 * クリックをレイヤに通知します(使用非推奨)
+	 * Notifies the layer of a click (deprecated)
 	 * @param x The x coordinate of the clicked position (client coordinates)
 	 * @param y The y coordinate of the clicked position (client coordinates)
 	 */
 	function fireClick( x, y );
 	/**
-	 * ダブルクリックをレイヤに通知します(使用非推奨)
+	 * Notifies the layer of a double-click (deprecated)
 	 * @param x The x coordinate of the double-clicked position (client coordinates)
 	 * @param y The y coordinate of the double-clicked position (client coordinates)
 	 */
 	function fireDoubleClick( x, y );
 	/**
-	 * マウス押下をレイヤに通知します
+	 * Notifies the layer of a mouse button press
 	 * @param x The x coordinate of the position where the mouse button was pressed (client coordinates)
 	 * @param y The y coordinate of the position where the mouse button was pressed (client coordinates)
 	 * @param mb The pressed mouse button
@@ -31,7 +31,7 @@ class BitmapLayerTreeOwner {
 	 */
 	function fireMouseDown( x, y, mb, flags );
 	/**
-	 * マウス押下をレイヤに通知します
+	 * Notifies the layer of a mouse button release
 	 * @param x The x coordinate of the position where the mouse button was released (client coordinates)
 	 * @param y The y coordinate of the position where the mouse button was released (client coordinates)
 	 * @param mb The released mouse button
@@ -39,14 +39,14 @@ class BitmapLayerTreeOwner {
 	 */
 	function fireMouseUp( x, y, mb, flags );
 	/**
-	 * マウス移動をレイヤに通知します
+	 * Notifies the layer of mouse movement
 	 * @param x The x coordinate of the position where the mouse moved (client coordinates)
 	 * @param y The y coordinate of the position where the mouse moved (client coordinates)
 	 * @param flags The state of the shift keys and mouse buttons that were pressed at the same time when the mouse was moving
 	 */
 	function fireMouseMove( x, y, flags );
 	/**
-	 * マウスのホイール回転をレイヤに通知します
+	 * Notifies the layer of mouse wheel rotation
 	 * @param shift The state of the shift keys and mouse buttons that were pressed at the same time when the mouse was moving
 	 * @param delta The rotation angle of the wheel
 	 * @param x The x coordinate of the position where the wheel was rotated (client coordinates)
@@ -54,15 +54,15 @@ class BitmapLayerTreeOwner {
 	 */
 	function fireMouseWheel( shift, delta, x, y );
 	/**
-	 * マウスキャプチャ解除をレイヤに通知します
+	 * Notifies the layer of mouse capture release
 	 */
 	function fireReleaseCapture();
 	/**
-	 * マウスがWindow外に出たことをレイヤに通知します
+	 * Notifies the layer that the mouse has left the window
 	 */
 	function fireMouseOutOfWindow();
 	/**
-	 * タッチされたことをレイヤに通知します
+	 * Notifies the layer of a touch down event
 	 * @param x The x coordinate of the touched position (client coordinates)
 	 * @param y The y coordinate of the touched position (client coordinates)
 	 * @param cx The number of horizontal pixels the finger is touching
@@ -71,7 +71,7 @@ class BitmapLayerTreeOwner {
 	 */
 	function fireTouchDown( x, y, cx, cy, id );
 	/**
-	 * タッチが離されたことをレイヤに通知します
+	 * Notifies the layer of a touch up event
 	 * @param x The x coordinate of the released position (client coordinates)
 	 * @param y The y coordinate of the released position (client coordinates)
 	 * @param cx The number of horizontal pixels the finger is touching
@@ -80,7 +80,7 @@ class BitmapLayerTreeOwner {
 	 */
 	function fireTouchUp( x, y, cx, cy, id );
 	/**
-	 * タッチが移動されたことをレイヤに通知します
+	 * Notifies the layer of a touch move event
 	 * @param x The x coordinate of the touch position (client coordinates)
 	 * @param y The y coordinate of the touch position (client coordinates)
 	 * @param cx The number of horizontal pixels the finger is touching
@@ -89,7 +89,7 @@ class BitmapLayerTreeOwner {
 	 */
 	function fireTouchMove( x, y, cx, cy, id );
 	/**
-	 * 拡大操作されたことをレイヤに通知します
+	 * Notifies the layer of a scaling operation
 	 * @param startdist The pixel distance when multi-touch started
 	 * @param curdist The pixel distance of the touch when the event occurred
 	 * @param cx The x coordinate of the center position (client coordinates)
@@ -98,7 +98,7 @@ class BitmapLayerTreeOwner {
 	 */
 	function fireTouchScaling( startdist, curdist, cx, cy, flag );
 	/**
-	 * 回転操作されたことをレイヤに通知します
+	 * Notifies the layer of a rotation operation
 	 * @param startangle The radian angle when multi-touch started
 	 * @param curangle The radian angle of the touch when the event occurred
 	 * @param dist The pixel distance of the touch when the event occurred
@@ -108,28 +108,28 @@ class BitmapLayerTreeOwner {
 	 */
 	function fireTouchRotate( startangle, curangle, dist, cx, cy, flag );
 	/**
-	 * マルチタッチ状態変化をレイヤに通知します
+	 * Notifies the layer of a multi-touch state change
 	 */
 	function fireMultiTouch();
 	/**
-	 * キーが押されたことをレイヤに通知します
+	 * Notifies the layer of a key press
 	 * @param key The virtual key code of the pressed key
 	 * @param shift The state of the shift keys and mouse buttons that were pressed at the same time when the key was pressed
 	 */
 	function fireKeyDown( key, shift );
 	/**
-	 * キーが離されたことをレイヤに通知します
+	 * Notifies the layer of a key release
 	 * @param key The virtual key code of the released key
 	 * @param shift The state of the shift keys and mouse buttons that were pressed at the same time when the key was released
 	 */
 	function fireKeyUp( key, shift );
 	/**
-	 * 文字が入力されたことをレイヤに通知します
+	 * Notifies the layer of character input
 	 * @param key Character
 	 */
 	function fireKeyPress( key);
 	/**
-	 * 画面が回転されたことをレイヤに通知します
+	 * Notifies the layer of screen rotation
 	 * @param orientation Screen orientation
 	 * @param rotate Angle
 	 * @param bpp  bits per pixel
@@ -138,86 +138,86 @@ class BitmapLayerTreeOwner {
 	 */
 	function fireDisplayRotate( orientation, rotate, bpp, hresolution, vresolution );
 	/**
-	 * 必要なら1秒間隔で呼び出します。
+	 * Call every 1 second if necessary.
 	 * @description Checks the current layer's mouse position, updates the hint, cursor type, and re-checks Layer Enter/Leave.
 	 * Internally, a mouse cursor movement 0 call is made.
 	 */
 	function fireRecheckInputState();
 
 	/**
-	 * 更新矩形情報をクリアする
+	 * Clears the dirty rectangle information.
 	 */
 	function clearDirtyRect();
 
 	/**
-	 * Layer からカーソル設定が呼び出された
+	 * Cursor setting was called from a layer
 	 * @description Changes the cursor if necessary.
 	 */
 	event onSetMouseCursor( cursor );
 	/**
-	 * Layer からカーソル位置取得が呼び出された
+	 * Cursor position retrieval was called from a layer
 	 * @description Returns the cursor position if necessary
 	 */
 	event onGetCursorPos( x, y );
 	/**
-	 * Layer からカーソル位置設定が呼び出された
+	 * Cursor position setting was called from a layer
 	 * @description Sets the cursor position if necessary
 	 */
 	event onSetCursorPos( x, y );
 	/**
-	 * Layer からマウスキャプチャ解除が呼び出された
+	 * Mouse capture release was called from a layer
 	 * @description Releases the mouse capture if necessary
 	 */
 	event onReleaseMouseCapture();
 	/**
-	 * Layer からヒントテキスト設定が呼び出された
+	 * Hint text setting was called from a layer
 	 * @description Sets the hint text if necessary
 	 */
 	event onSetHintText( sender, hint );
 	/**
-	 * プライマリレイヤーのサイズが変更された
+	 * The primary layer size has changed
 	 */
 	event onResizeLayer( w, h );
 	/**
-	 * Layer 画像が更新された
+	 * The layer image has been updated
 	 */
 	event onChangeLayerImage();
 	/**
-	 * Layer から注視位置の指定が呼び出された
+	 * Attention point specification was called from a layer
 	 */
 	event onSetAttentionPoint( layer, x, y );
 	/**
-	 * Layer から注視位置の指定解除された
+	 * Attention point specification was released from a layer
 	 */
 	event onDisableAttentionPoint();
 	/**
-	 * IMEモードが設定された
+	 * IME mode has been set
 	 */
 	event onSetImeMode( mode );
 	/**
-	 * IMEモードがリセットされた
+	 * IME mode has been reset
 	 */
 	event onResetImeMode();
 
-	/** 幅(readonly) */
+	/** Width (readonly) */
 	property width;
-	/** 高さ(readonly) */
+	/** Height (readonly) */
 	property height;
-	/** 描画されているBitmapクラスのインスタンス(readonly) */
+	/** Instance of the Bitmap class being drawn (readonly) */
 	proporty bitmap;
-	/** 更新領域、Rectクラス。
+	/** Dirty region, Rect class.
 	 * @description isUpdated is valid only when true (readonly)
 	 */
 	proporty dirtyRect;
-	/** 更新の有無(readonly) */
+	/** Whether an update occurred (readonly) */
 	proporty isUpdated;
 
-	/** LTOインターフェイス、内部使用(readonly) */
+	/** LTO interface, for internal use (readonly) */
 	property layerTreeOwnerInterface;
 
-	/** フォーカスのあるレイヤ */
+	/** The focused layer */
 	propoerty focusedLayer;
 
-	/** プライマリレイヤ(readonly) */
+	/** Primary layer (readonly) */
 	property primaryLayer;
 };

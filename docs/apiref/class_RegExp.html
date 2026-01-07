@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard API Reference Style" />
 <title>RegExp - </title>
 </head>
 <body>
 <h1><a name="top" id="top">RegExp</a></h1>
-<div class="para"><p>The RegExp class is a class that handles regular expression patterns.<br />
-You can specify a perl compatible pattern for the regular expression pattern.<br />
-It is similar to JavaScript's RegExp class, but has low compatibility.</p>
+<div class="para"><p>The RegExp class handles regular expression patterns.<br />
+Perl-compatible regular expression patterns can be used.<br />
+It is similar to the JavaScript RegExp class, but compatibility is limited.</p>
 
-<h1>Copyright notice</h1>
+<h1>Copyright Notice</h1>
 
-<p>K.Kosako's Oniguruma is used for the implementation of the regular expression function.<br />
-I thank him for publishing a useful library.</p>
+<p>The regular expression implementation uses K.Kosako's Oniguruma library.<br />
+We thank the author for publishing this useful library.</p>
 
-<h1>Regular Expression Pattern</h1>
+<h1>Regular Expression Patterns</h1>
 
-<p>You can specify a regular expression pattern in the part surrounded by / and /.<br />
+<p>Regular expression patterns are specified between / and / delimiters.<br />
 See Token.</p>
 </div>
 <h1>Members</h1><div class="para">
@@ -28,25 +28,25 @@ See Token.</p>
 </dd>
 <dt>Methods</dt>
 <dd>
-<a class="jump" href="func_RegExp_compile.html">compile</a> (Sets a new regular expression pattern to the regular expression object)<br />
-<a class="jump" href="func_RegExp_exec.html">exec</a> (Performs regular expression pattern matching on the string specified in the argument and returns an array containing the matched results)<br />
-<a class="jump" href="func_RegExp_match.html">match</a> (Performs regular expression pattern matching on the string specified in the argument and returns an array containing the matched results)<br />
-<a class="jump" href="func_RegExp_replace.html">replace</a> (Replaces a string and returns the string after the replacement)<br />
-<a class="jump" href="func_RegExp_split.html">split</a> (Splits a string)<br />
-<a class="jump" href="func_RegExp_test.html">test</a> (Returns whether the string specified in the argument matches the pattern)<br />
+<a class="jump" href="func_RegExp_compile.html">compile</a> (Compiles a new regular expression pattern into the object)<br />
+<a class="jump" href="func_RegExp_exec.html">exec</a> (Executes a match against the specified string and returns an array of results)<br />
+<a class="jump" href="func_RegExp_match.html">match</a> (Executes a match against the specified string and returns an array of results)<br />
+<a class="jump" href="func_RegExp_replace.html">replace</a> (Replaces matched text and returns the resulting string)<br />
+<a class="jump" href="func_RegExp_split.html">split</a> (Splits a string into an array of substrings)<br />
+<a class="jump" href="func_RegExp_test.html">test</a> (Returns whether the pattern matches the specified string)<br />
 </dd>
 <dt>Properties</dt>
 <dd>
-<a class="jump" href="prop_RegExp_index.html">index</a> (A read-only property that represents the position of the first character of the matched part)<br />
-<a class="jump" href="prop_RegExp_input.html">input</a> (A read-only property that represents the string to be matched)<br />
-<a class="jump" href="prop_RegExp_last.html">last</a> (The instance of the RegExp class that was last executed by the test or exec method)<br />
-<a class="jump" href="prop_RegExp_lastIndex.html">lastIndex</a> (A read-only property that represents the position of the character after the last character of the matched part)<br />
-<a class="jump" href="prop_RegExp_lastMatch.html">lastMatch</a> (Represents the matching target string)<br />
-<a class="jump" href="prop_RegExp_lastParen.html">lastParen</a> (Returns the last part of each matched part)<br />
-<a class="jump" href="prop_RegExp_leftContext.html">leftContext</a> (A read-only property that represents the string on the left side of the matched part of the matching target string)<br />
-<a class="jump" href="prop_RegExp_matches.html">matches</a> (A read-only property that represents an array containing each matched part)<br />
-<a class="jump" href="prop_RegExp_rightContext.html">rightContext</a> (A read-only property that represents the string on the right side of the matched part of the matching target string)<br />
-<a class="jump" href="prop_RegExp_start.html">start</a> (A property that represents the search start position of a string)<br />
+<a class="jump" href="prop_RegExp_index.html">index</a> (The character position of the start of the match (read-only))<br />
+<a class="jump" href="prop_RegExp_input.html">input</a> (The string being matched (read-only))<br />
+<a class="jump" href="prop_RegExp_last.html">last</a> (The RegExp instance that most recently executed test or exec)<br />
+<a class="jump" href="prop_RegExp_lastIndex.html">lastIndex</a> (The character position immediately following the match (read-only))<br />
+<a class="jump" href="prop_RegExp_lastMatch.html">lastMatch</a> (The entire last matched string (read-only))<br />
+<a class="jump" href="prop_RegExp_lastParen.html">lastParen</a> (The last parenthesized submatch (read-only))<br />
+<a class="jump" href="prop_RegExp_leftContext.html">leftContext</a> (The substring to the left of the match (read-only))<br />
+<a class="jump" href="prop_RegExp_matches.html">matches</a> (An array containing all matched subexpressions (read-only))<br />
+<a class="jump" href="prop_RegExp_rightContext.html">rightContext</a> (The substring to the right of the match (read-only))<br />
+<a class="jump" href="prop_RegExp_start.html">start</a> (The position where the search starts)<br />
 </dd>
 <dt>Events</dt>
 <dd>

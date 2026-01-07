@@ -1,91 +1,91 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>drawText - 文字描画</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>drawText - Text Drawing</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">ImageFunction.drawText</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>文字描画</p>
+<dt>Function/Meaning</dt>
+<dd><p>Text Drawing</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_ImageFunction.html">ImageFunctionクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Method of <a class="jump" href="class_ImageFunction.html">ImageFunction class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">drawText(<span class="arg">bmp</span>, <span class="arg">font</span>, <span class="arg">x</span>, <span class="arg">y</span>, <span class="arg">text</span>, <span class="arg">color</span>, <span class="arg">opa</span><span class="defarg">=<span class="defargval">255</span></span>, <span class="arg">aa</span><span class="defarg">=<span class="defargval">true</span></span>, <span class="arg">face</span><span class="defarg">=<span class="defargval">dfAlpha</span></span>, <span class="arg">shadowlevel</span><span class="defarg">=<span class="defargval">0</span></span>, <span class="arg">shadowcolor</span><span class="defarg">=<span class="defargval">0</span></span>, <span class="arg">shadowwidth</span><span class="defarg">=<span class="defargval">0</span></span>, <span class="arg">shadowofsx</span><span class="defarg">=<span class="defargval">0</span></span>, <span class="arg">shadowofsy</span><span class="defarg">=<span class="defargval">0</span></span>, <span class="arg">hda</span><span class="defarg">=<span class="defargval">false</span></span>, <span class="arg">cliprect</span><span class="defarg">=<span class="defargval">null</span></span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="drawTextの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="drawText arguments">
 <tr><td valign="top"><span class="argname">bmp</span></td>
-<td><p>文字描画する Bitmap オブジェクトを指定します。</p>
+<td><p>Specifies the Bitmap object to draw text on.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">font</span></td>
-<td><p>描画するフォントを Font オブジェクトで指定します。</p>
+<td><p>Specifies the font to draw with as a Font object.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">x</span></td>
-<td><p>文字描画を開始する原点の ( 画像位置における ) x 座標をピクセル単位で指定します。</p>
+<td><p>Specifies the x-coordinate (in image coordinates) of the origin to start drawing text, in pixels.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">y</span></td>
-<td><p>文字描画を開始する原点の ( 画像位置における ) y 座標をピクセル単位で指定します。</p>
+<td><p>Specifies the y-coordinate (in image coordinates) of the origin to start drawing text, in pixels.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">text</span></td>
-<td><p>描画する文字を指定します。</p>
+<td><p>Specifies the text to draw.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">color</span></td>
-<td><p>描画する文字の色を 0xRRGGBB 形式で指定します。</p>
+<td><p>Specifies the color of the text to draw in 0xRRGGBB format.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">opa</span></td>
-<td><p>描画する文字の不透明度 ( -255 ～ 0 ～ 255 ) を指定します。<br />
-負の数の指定は face が dfAlpha の場合のみに有効で、この場合は文字の形に不透明度が取り除かれる事になります ( 値が小さいほど効果が大きくなります )。</p>
+<td><p>Specifies the opacity of the text to draw (-255 to 0 to 255).<br />
+Specifying a negative number is only valid when face is dfAlpha; in this case, opacity is removed in the shape of the characters (the smaller the value, the greater the effect).</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">aa</span></td>
-<td><p>アンチエイリアスを行うかどうかを指定します。<br />
-真を指定するとアンチエイリアスが行われます。<br />
-偽を指定すると行われません。</p>
+<td><p>Specifies whether to perform anti-aliasing.<br />
+If true is specified, anti-aliasing is performed.<br />
+If false is specified, it is not performed.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">face</span></td>
-<td><p>描画方式を指定します。</p>
+<td><p>Specifies the drawing method.</p>
 
 <ul>
-<li>dfAlpha が指定された場合は画像はアルファチャンネルつき画像と見なされ、描画されます。</li>
-<li>dfAddAlpha が指定された場合は画像は加算アルファチャンネルつき画像として見なされ、描画されます。</li>
-<li>dfOpaque が指定された場合は画像はすべて完全不透明であると見なされ、描画されます。</li>
+<li>If dfAlpha is specified, the image is treated as an image with an alpha channel and drawn.</li>
+<li>If dfAddAlpha is specified, the image is treated as an image with an additive alpha channel and drawn.</li>
+<li>If dfOpaque is specified, the image is treated as completely opaque and drawn.</li>
 </ul>
 </td></tr>
 <tr><td valign="top"><span class="argname">shadowlevel</span></td>
-<td><p>影の不透明度を指定します。<br />
-shadowwidth 引数の値によって適切な値は変動します。<br />
-0 を指定すると影は描画されません。</p>
+<td><p>Specifies the opacity of the shadow.<br />
+The appropriate value varies depending on the shadowwidth argument.<br />
+If 0 is specified, no shadow is drawn.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">shadowcolor</span></td>
-<td><p>影の色を 0xRRGGBB 形式で指定します。</p>
+<td><p>Specifies the shadow color in 0xRRGGBB format.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">shadowwidth</span></td>
-<td><p>影の幅 ( ぼけ ) を指定します。<br />
-0 がもっともシャープ ( ぼけない ) で、値を大きくすると影をぼかすことができます。</p>
+<td><p>Specifies the shadow width (blur).<br />
+0 is the sharpest (no blur), and larger values blur the shadow.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">shadowofsx</span></td>
-<td><p>影の位置の x 座標の値をピクセル単位で指定します。<br />
-0 を指定すると影は真下に描画されます。</p>
+<td><p>Specifies the x-coordinate of the shadow position in pixels.<br />
+If 0 is specified, the shadow is drawn directly below.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">shadowofsy</span></td>
-<td><p>影の位置の y 座標の値をピクセル単位で指定します。<br />
-0 を指定すると影は真下に描画されます。</p>
+<td><p>Specifies the y-coordinate of the shadow position in pixels.<br />
+If 0 is specified, the shadow is drawn directly below.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">hda</span></td>
-<td><p>アルファチャンネルを保護するかどうかを指定します。</p>
+<td><p>Specifies whether to protect the alpha channel.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">cliprect</span></td>
-<td><p>クリッピング領域を ( Bitmap の画像位置における )  Rect オブジェクトで指定します。<br />
-未指定時全体が対象となります。</p>
+<td><p>Specifies the clipping region as a Rect object (in Bitmap image coordinates).<br />
+If unspecified, the entire area is targeted.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd><p>描画領域 ( Rect オブジェクト ) </p>
+<dt>Return Value</dt>
+<dd><p>Drawing area (Rect object)</p>
 </dd>
-<dt>説明</dt>
-<dd><p>Bitmap に文字を描画します。<br />
-face に dfOpaque を指定した場合、描画先のマスクが破壊されるか保護されるかは hda によります。</p>
+<dt>Description</dt>
+<dd><p>Draws text on the Bitmap.<br />
+When dfOpaque is specified for face, whether the destination mask is destroyed or protected depends on hda.</p>
 </dd>
 </dl>
 </div>

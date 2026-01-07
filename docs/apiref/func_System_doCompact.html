@@ -1,43 +1,43 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>doCompact - メモリのコンパクト化</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>doCompact - Memory Compaction</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">System.doCompact</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>メモリのコンパクト化</p>
+<dt>Function/Meaning</dt>
+<dd><p>Memory compaction</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_System.html">Systemクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd><a class="jump" href="class_System.html">System class</a> method</dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">doCompact(<span class="arg">level</span><span class="defarg">=<span class="defargval">clAll</span></span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="doCompactの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="Arguments for doCompact">
 <tr><td valign="top"><span class="argname">level</span></td>
-<td><p>レベルを指定します。clIdle を指定すると、システムがアイドル状態 (システムが比較的動作をしていない状態) に実行されるコンパクト化と同じ処理が行われます。<br />
-現バージョンでは TJS2 のガベージコレクションが行われます。</p>
+<td><p>Specifies the level. If clIdle is specified, the same compaction process performed when the system is idle (a state where the system is relatively inactive) is executed.<br />
+In the current version, TJS2 garbage collection is performed.</p>
 
 <ul>
-<li>clDeactivate を指定すると、吉里吉里が非アクティブになったとき (他のアプリケーションがアクティブになったとき) に実行されるコンパクト化と同じ処理が行われます。現バージョンではレイヤの演算用の一時画像バッファ、レイヤキャッシュ、XP3 アーカイブのセグメント(ストレージの断片) キャッシュ、自動検索パスのキャッシュがクリアされます。</li>
-<li>clMinimize を指定すると、吉里吉里が最小化されたときに実行されるコンパクト化と同じ処理が行われます。現バージョンでは、描画文字のキャッシュ、画像キャッシュがクリアされます。</li>
-<li>clAll を指定すると、上記のコンパクト化の全てが実行されます。</li>
+<li>If clDeactivate is specified, the same compaction process performed when Kirikiri becomes inactive (when another application becomes active) is executed. In the current version, temporary image buffers for layer operations, layer caches, XP3 archive segment (storage fragment) caches, and auto-search path caches are cleared.</li>
+<li>If clMinimize is specified, the same compaction process performed when Kirikiri is minimized is executed. In the current version, the rendered character cache and image cache are cleared.</li>
+<li>If clAll is specified, all of the above compaction processes are executed.</li>
 </ul>
 
-<p>コンパクト化のレベルは、clIdle &lt; clDeactivate &lt; clMinimize &lt; clAll の順に強くなります。<br />
-より上位のレベルを指定すると、下位のレベルで行われるコンパクト化も行われます。<br />
-たとえば、clDeactivate を実行すると、clIdle での処理も実行されます。<br />
-引数を省略すると clAll が指定された物と見なされます。</p>
+<p>The compaction level increases in the order of clIdle &lt; clDeactivate &lt; clMinimize &lt; clAll.<br />
+Specifying a higher level also performs the compaction processes of the lower levels.<br />
+For example, executing clDeactivate also executes the processing for clIdle.<br />
+If the argument is omitted, clAll is assumed to be specified.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>メモリのコンパクト化を行います。<br />
-コンパクト化とは、使用していないメモリや各種キャッシュ用メモリを解放して、メモリ使用量を減らす処理です。<br />
-吉里吉里は自動でこれを行うので通常はあまり気にする必要はありませんが、強制的にプログラム側の処理で行いたい場合にこのメソッドを使用することができます。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Performs memory compaction.<br />
+Compaction is the process of reducing memory usage by releasing unused memory and various cache memories.<br />
+Kirikiri performs this automatically, so you usually do not need to worry about it, but you can use this method if you want to force the process from the program side.</p>
 </dd>
 </dl>
 </div>

@@ -1,37 +1,37 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>loadAsync - 画像の非同期読み込み</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>loadAsync - Asynchronous image loading</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Bitmap.loadAsync</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>画像の非同期読み込み</p>
+<dt>Function/Meaning</dt>
+<dd><p>Asynchronous image loading</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Bitmap.html">Bitmapクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Method of the <a class="jump" href="class_Bitmap.html">Bitmap class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">loadAsync(<span class="arg">image</span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="loadAsyncの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="loadAsync arguments">
 <tr><td valign="top"><span class="argname">image</span></td>
-<td><p>読み込む画像ストレージを指定します。<br />
-ここで指定するファイル名は拡張子を含んだものになることに注意してください。<br />
-拡張子がないとファイルが見つからずエラーとなります。</p>
+<td><p>Specifies the image storage to load.<br />
+Note that the filename specified here must include the extension.<br />
+If there is no extension, the file will not be found and an error will occur.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>画像を非同期で読み込みます。<br />
-読込みの完了は Bitmap.onLoaded で受け取れます。<br />
-非同期読込み中か否かは Bitmap.loading で確認できます。<br />
-非同期読込み中は Bitmap.loading 以外のメンバへアクセスすると例外が発生します。<br />
-Bitmap.onLoaded の説明も確認してください。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Loads an image asynchronously.<br />
+Completion of loading can be received via Bitmap.onLoaded.<br />
+Whether asynchronous loading is in progress can be checked with Bitmap.loading.<br />
+Accessing members other than Bitmap.loading during asynchronous loading will cause an exception.<br />
+Please also check the description for Bitmap.onLoaded.</p>
 </dd>
-<dt>参照</dt>
+<dt>Reference</dt>
 <dd>
 <a class="jump" href="event_Bitmap_onLoaded.html">Bitmap.onLoaded</a><br />
 <a class="jump" href="prop_Bitmap_loading.html">Bitmap.loading</a><br />

@@ -87,7 +87,7 @@ function fnBuildTabStrip()
  szHTML =
   "<html><head>"+
   "<style>A:link,A:visited,A:active {text-decoration:none;"+"color:"+c_rgszClr[3]+";}"+
-  ".clTab {cursor:hand;background:"+c_rgszClr[1]+";font:9pt ＭＳ Ｐゴシック;padding-left:3px;padding-right:3px;text-align:center;}"+
+  ".clTab {cursor:hand;background:"+c_rgszClr[1]+";font:9pt MS PGothic;padding-left:3px;padding-right:3px;text-align:center;}"+
   ".clBorder {background:"+c_rgszClr[2]+";font:1pt;}"+
   "</style></head><body onload=\"parent.fnInit();\" onselectstart=\"event.returnValue=false;\" ondragstart=\"event.returnValue=false;\" bgcolor="+c_rgszClr[4]+
   " topmargin=0 leftmargin=0><table id=tbTabs cellpadding=0 cellspacing=0>";
@@ -212,113 +212,4 @@ function fnSetTabProps(iTab,fActive)
        cells[iCol].style.background=c_rgszClr[fActive?0:2];
       else if (i>0 && i<4) {
        if (fActive) {
-        cells[iCol-1].style.background=c_rgszClr[2];
-        cells[iCol].style.background=c_rgszClr[0];
-        cells[iCol+1].style.background=c_rgszClr[2];
-       } else {
-        if (i==1) {
-         cells[iCol-1].style.background=c_rgszClr[2];
-         cells[iCol].style.background=c_rgszClr[1];
-         cells[iCol+1].style.background=c_rgszClr[2];
-        } else {
-         cells[iCol-1].style.background=c_rgszClr[4];
-         cells[iCol].style.background=c_rgszClr[(i==2)?2:4];
-         cells[iCol+1].style.background=c_rgszClr[4];
-        }
-       }
-      } else
-       cells[iCol].style.background=c_rgszClr[fActive?2:4];
-     }
-    }
-   }
-   with (aTab[iTab].style) {
-    cursor=(fActive?"default":"hand");
-    color=c_rgszClr[3];
-   }
-  }
- }
-}
-
-function fnMouseOverScroll(iCtl)
-{
- frames['frScroll'].document.all.tdScroll[iCtl].style.color=c_rgszClr[7];
-}
-
-function fnMouseOutScroll(iCtl)
-{
- frames['frScroll'].document.all.tdScroll[iCtl].style.color=c_rgszClr[6];
-}
-
-function fnMouseOverTab(iTab)
-{
- if (iTab!=g_iShCur) {
-  var iCol=fnTabToCol(iTab);
-  with (frames['frTabs'].document.all) {
-   tdTab[iTab].style.background=c_rgszClr[5];
-  }
- }
-}
-
-function fnMouseOutTab(iTab)
-{
- if (iTab>=0) {
-  var elFrom=frames['frTabs'].event.srcElement;
-  var elTo=frames['frTabs'].event.toElement;
-
-  if ((!elTo) ||
-   (elFrom.tagName==elTo.tagName) ||
-   (elTo.tagName=="A" && elTo.parentElement!=elFrom) ||
-   (elFrom.tagName=="A" && elFrom.parentElement!=elTo)) {
-
-   if (iTab!=g_iShCur) {
-    with (frames['frTabs'].document.all) {
-     tdTab[iTab].style.background=c_rgszClr[1];
-    }
-   }
-  }
- }
-}
-
-function fnSetActiveSheet(iSh)
-{
- if (iSh!=g_iShCur) {
-  fnSetTabProps(g_iShCur,false);
-  fnSetTabProps(iSh,true);
-  g_iShCur=iSh;
- }
-}
-
- window.g_iIEVer=fnGetIEVer();
- if (window.g_iIEVer>=4)
-  fnBuildFrameset();
-//-->
-</script>
-<![endif]><!--[if gte mso 9]><xml>
- <x:ExcelWorkbook>
-  <x:ExcelWorksheets>
-   <x:ExcelWorksheet>
-    <x:Name>Window</x:Name>
-    <x:WorksheetSource HRef="android_api.files/sheet001.html"/>
-   </x:ExcelWorksheet>
-  </x:ExcelWorksheets>
-  <x:Stylesheet HRef="android_api.files/stylesheet.css"/>
-  <x:WindowHeight>15135</x:WindowHeight>
-  <x:WindowWidth>26595</x:WindowWidth>
-  <x:WindowTopX>0</x:WindowTopX>
-  <x:WindowTopY>0</x:WindowTopY>
-  <x:ProtectStructure>False</x:ProtectStructure>
-  <x:ProtectWindows>False</x:ProtectWindows>
- </x:ExcelWorkbook>
-</xml><![endif]-->
-</head>
-
-<frameset rows="*,39" border=0 width=0 frameborder=no framespacing=0>
- <frame src="android_api.files/sheet001.html" name="frSheet">
- <frame src="android_api.files/tabstrip.html" name="frTabs" marginwidth=0 marginheight=0>
- <noframes>
-  <body>
-   <p>The frame used by this page is not supported by your browser.</p>
-  </body>
- </noframes>
-</frameset>
-</html>
+        

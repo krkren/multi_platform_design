@@ -1,37 +1,37 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>setCallMissing - missingメソッドの呼び出し設定</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>setCallMissing - Configure missing method calls</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Scripts.setCallMissing</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>missingメソッドの呼び出し設定</p>
+<dt>Function/Meaning</dt>
+<dd><p>Configure missing method calls</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Scripts.html">Scriptsクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd><a class="jump" href="class_Scripts.html">Scripts class</a> method</dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">setCallMissing(<span class="arg">obj</span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="setCallMissingの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="Arguments for setCallMissing">
 <tr><td valign="top"><span class="argname">obj</span></td>
-<td><p>メンバが見つからない時にmissingメソッドが呼び出されるようにするオブジェクト。</p>
+<td><p>The object for which the missing method will be called when a member is not found.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>メンバが見つからない時にmissingメソッドが呼び出されるように設定します。<br />
-このメソッドで登録したオブジェクトでメンバが見つからない場合、function missing( isset, name, prop ) の形式でメソッドが呼び出されます。<br />
-isset は、true なら設定、false なら取得です。<br />
-name は見付からなかったメンバの名前です。<br />
-prop は設定時は代入される値、取得時は返す値の代入先です。<br />
-nameメンバがmissingメソッドでも見付からない場合は、0以外の値を返します。<br />
-0以外を返すとメンバが見付からないという例外が発生します。<br />
-関数が見付からない場合でも、getで呼び出されます。<br />
-finalize関数も対象なので、この設定をするクラスにはfinalize関数を定義しておいた方が良いです。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Configures the system to call the missing method when a member is not found.<br />
+If a member is not found in an object registered with this method, a method is called in the format: function missing( isset, name, prop ).<br />
+isset is true for setting (assignment) and false for getting (retrieval).<br />
+name is the name of the member that was not found.<br />
+prop is the value to be assigned when setting, or the destination for the return value when getting.<br />
+If the member name is still not found even within the missing method, return a non-zero value.<br />
+Returning a non-zero value will cause a "member not found" exception to be raised.<br />
+Even if a function is not found, it is called as a "get".<br />
+Since the finalize function is also subject to this, it is recommended to define a finalize function in classes using this setting.</p>
 </dd>
 </dl>
 </div>

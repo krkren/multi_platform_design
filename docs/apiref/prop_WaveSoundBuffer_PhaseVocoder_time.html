@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>time - 時間軸方向のスケール</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>time - Time axis scale</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">WaveSoundBuffer_PhaseVocoder.time</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>時間軸方向のスケール</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_WaveSoundBuffer_PhaseVocoder.html">WaveSoundBuffer_PhaseVocoderクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>時間軸方向のスケールを表します。値を設定することもできます。指定可能な数値は 0 を超える実数です。ただし、あまりに小さい数値はCPU負荷が高くなり、最悪の場合は再生ができない場合があります。また、1.95を超えたあたりから音質が悪くなり、overlapを大きくしても音質を改善できない場合があります(内部アルゴリズムの特性に起因しています)。1.0 を指定すると 時間軸方向のスケールは変わりません(再生速度は変わりません)。たとえば 1.5 を指定すると、時間軸方向のスケールが1.5倍になり、遅く再生されます (再生に1.5倍の時間がかかるようになります)。たとえば 0.5 を指定すると、時間軸方向のスケールが0.5倍になり、速く再生されます (倍速で再生されます)。\n　time プロパティも pitch プロパティも 1 の場合でも Phase Vocoder フィルタは動作し、音質は多少劣化し、CPU 時間も使用します。両方とも 1 のまま使うのであれば、フィルタ配列からこのフィルタをはずしておいたほうがよいでしょう。このプロパティへの変更はリアルタイムに反映されますが、バッファリングの関係で、実際にそれが再生されるまでに2秒程度の時間がかかります。また、切り替わり時にノイズが乗る事があります。\n</p>
+<dt>Function/Meaning</dt>
+<dd>Time axis scale</dd>
+<dt>Type</dt>
+<dd><a class="jump" href="class_WaveSoundBuffer_PhaseVocoder.html">WaveSoundBuffer_PhaseVocoder class</a> property</dd>
+<dt>Description</dt>
+<dd><p>Represents the scale along the time axis. This value can also be set. The value must be a real number greater than 0. However, values that are too small will increase CPU load, and in the worst case, playback may not be possible. Also, sound quality deteriorates around values exceeding 1.95, and increasing the overlap may not improve the quality (due to characteristics of the internal algorithm). Specifying 1.0 does not change the time axis scale (playback speed remains unchanged). For example, specifying 1.5 makes the time axis scale 1.5 times larger, resulting in slower playback (it will take 1.5 times longer to play). For example, specifying 0.5 makes the time axis scale 0.5 times smaller, resulting in faster playback (it will play at double speed).\n Even if both the time and pitch properties are set to 1, the Phase Vocoder filter still operates, slightly degrading sound quality and consuming CPU time. If you intend to keep both at 1, it is better to remove this filter from the filter array. Changes to this property are reflected in real-time, but due to buffering, it takes about 2 seconds before the change is actually heard. Also, noise may occur during the transition.\n</p>
 </dd>
 </dl>
 </div>

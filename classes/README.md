@@ -1,168 +1,166 @@
 // Classes updated in the multi-platform version
 // Explains classes with added members using virtual code.
 
-```cpp
 ;----------------------------------------------------------------------------
 ;
-;		システム関係
+;		System Related
 ;
 ;----------------------------------------------------------------------------
 ;----------------------------------------------------------------------------
 ;
-;		●システム設定
+;		*System Settings
 ;
 ;----------------------------------------------------------------------------
 *SystemConfig
-	;セーブ関係
-	;[セーブ可能]
-	;	セーブ可能か？
-	;	0以外 = セーブ可能
-	;[オートセーブ可能]
-	;	オートセーブ可能か？
-	;	0以外 = オートセーブ可能
-	;[ロード可能]
-	;	ロード可能か？
-	;	0以外 = ロード可能
-	;	(体験版などで使用)
+	;Save Related
+	;[Save Enabled]
+	;	Is saving enabled?
+	;	Non-zero = Save enabled
+	;[Auto-save Enabled]
+	;	Is auto-saving enabled?
+	;	Non-zero = Auto-save enabled
+	;[Load Enabled]
+	;	Is loading enabled?
+	;	Non-zero = Load enabled
+	;	(Used in trial versions, etc.)
 	;
-	;メッセージ関係
-	;[メッセージ速度]
-	;	メッセージ表示速度
-	;	数値が大きいほど遅い
-	;[メッセージスキップ]
-	;	メッセージスキップ
-	;	0 = スキップしない
-	;	1 = 未読スキップ
-	;	2 = 強制スキップ
-	;[クリック待ち]
-	;	クリック待ち
-	;	0 = しない
-	;	1 = する
-	;[自動メッセージ]
-	;	自動メッセージ
-	;	0 = しない
-	;	1 = する
-	;[自動メッセージ速度]
-	;	自動メッセージ速度
-	;	数値が大きいほど遅い
+	;Message Related
+	;[Message Speed]
+	;	Message display speed
+	;	Higher values are slower
+	;[Message Skip]
+	;	Message skip
+	;	0 = Do not skip
+	;	1 = Skip unread
+	;	2 = Force skip
+	;[Wait for Click]
+	;	Wait for click
+	;	0 = No
+	;	1 = Yes
+	;[Auto Message]
+	;	Auto message
+	;	0 = No
+	;	1 = Yes
+	;[Auto Message Speed]
+	;	Auto message speed
+	;	Higher values are slower
 	;
-	;サウンド関係
-	;[BGM音量]
-	;	BGM音量
-	;	0～100
-	;[SE音量]
-	;	SE音量
-	;	0～100
-	;[ボイス音量]
-	;	ボイス音量
-	;	0～100
+	;Sound Related
+	;[BGM Volume]
+	;	BGM volume
+	;	0-100
+	;[SE Volume]
+	;	SE volume
+	;	0-100
+	;[Voice Volume]
+	;	Voice volume
+	;	0-100
 	;
-	;ムービー関係
-	;[ムービー再生]
-	;	ムービー再生
-	;	0 = しない
-	;	1 = する
+	;Movie Related
+	;[Movie Playback]
+	;	Movie playback
+	;	0 = No
+	;	1 = Yes
 	;
-	;その他
-	;[フルスクリーン]
-	;	フルスクリーン
-	;	0 = ウィンドウ
-	;	1 = フルスクリーン
-	;[文字装飾]
-	;	文字装飾
-	;	0 = しない
-	;	1 = する
-	;[背景をぼかす]
-	;	背景をぼかす
-	;	0 = ぼかさない
-	;	1 = ぼかす
-	;[３Ｄ背景を使用する]
-	;	３Ｄ背景を使用する
-	;	0 = 使用しない
-	;	1 = 使用する
+	;Miscellaneous
+	;[Fullscreen]
+	;	Fullscreen
+	;	0 = Window
+	;	1 = Fullscreen
+	;[Text Decoration]
+	;	Text decoration
+	;	0 = No
+	;	1 = Yes
+	;[Blur Background]
+	;	Blur background
+	;	0 = Do not blur
+	;	1 = Blur
+	;[Use 3D Background]
+	;	Use 3D background
+	;	0 = Do not use
+	;	1 = Use
 	;
-	;[ウィンドウモード]		;マルチプラットフォーム
-	;	ウィンドウモード
+	;[Window Mode]		;Multi-platform
+	;	Window mode
 	;	0 = 16:9
 	;	1 = 4:3
 	;
-	;[使用言語]			;マルチプラットフォーム
-	;	使用言語
-	;	0 = 日本語
-	;	1 = 英語
-	;	2 = 中国語(簡体字)
-	;	3 = 中国語(繁体字)
-	;	4 = 韓国語
+	;[Language]			;Multi-platform
+	;	Language
+	;	0 = Japanese
+	;	1 = English
+	;	2 = Chinese (Simplified)
+	;	3 = Chinese (Traditional)
+	;	4 = Korean
 	;
-	;[字幕表示]			;マルチプラットフォーム
-	;	字幕表示
-	;	0 = 表示しない
-	;	1 = 表示する
+	;[Subtitle Display]			;Multi-platform
+	;	Subtitle display
+	;	0 = Do not display
+	;	1 = Display
 	;
-	;[字幕言語]			;マルチプラットフォーム
-	;	字幕言語
-	;	0 = 使用言語と同じ
-	;	1 = 日本語
-	;	2 = 英語
-	;	3 = 中国語(簡体字)
-	;	4 = 中国語(繁体字)
-	;	5 = 韓国語
+	;[Subtitle Language]			;Multi-platform
+	;	Subtitle language
+	;	0 = Same as used language
+	;	1 = Japanese
+	;	2 = English
+	;	3 = Chinese (Simplified)
+	;	4 = Chinese (Traditional)
+	;	5 = Korean
 	;
-	;[ボイス言語]			;マルチプラットフォーム
-	;	ボイス言語
-	;	0 = 日本語
-	;	1 = 英語
-	;	2 = 韓国語
+	;[Voice Language]			;Multi-platform
+	;	Voice language
+	;	0 = Japanese
+	;	1 = English
+	;	2 = Korean
 	;
-	;[地域設定]			;マルチプラットフォーム
-	;	地域設定
-	;	0 = 日本
-	;	1 = 北米
-	;	2 = 韓国
-	;	3 = 中国
+	;[Region Settings]			;Multi-platform
+	;	Region settings
+	;	0 = Japan
+	;	1 = North America
+	;	2 = Korea
+	;	3 = China
 	;
-	;[年齢制限]			;マルチプラットフォーム
-	;	年齢制限
-	;	0 = 有効
-	;	1 = 無効
+	;[Age Rating]			;Multi-platform
+	;	Age rating
+	;	0 = Enabled
+	;	1 = Disabled
 	;
-	;[暴力表現]			;マルチプラットフォーム
-	;	暴力表現
-	;	0 = 有効
-	;	1 = 無効
+	;[Violence]			;Multi-platform
+	;	Violence
+	;	0 = Enabled
+	;	1 = Disabled
 	;
-	;[性的表現]			;マルチプラットフォーム
-	;	性的表現
-	;	0 = 有効
-	;	1 = 無効
+	;[Sexual Content]			;Multi-platform
+	;	Sexual content
+	;	0 = Enabled
+	;	1 = Disabled
 	;
-	;[コントローラーを使用する]	;マルチプラットフォーム
-	;	コントローラーを使用する
-	;	0 = 使用しない
-	;	1 = 使用する
+	;[Use Controller]	;Multi-platform
+	;	Use controller
+	;	0 = Do not use
+	;	1 = Use
 	;
-	;[振動]				;マルチプラットフォーム
-	;	振動
-	;	0 = しない
-	;	1 = する
+	;[Vibration]				;Multi-platform
+	;	Vibration
+	;	0 = No
+	;	1 = Yes
 	;
-	;[ボタン表示]			;マルチプラットフォーム
-	;	ボタン表示
-	;	0 = 表示しない
-	;	1 = 表示する
+	;[Button Display]			;Multi-platform
+	;	Button display
+	;	0 = Do not display
+	;	1 = Display
 	;
-	;[メッセージウィンドウ表示]	;マルチプラットフォーム
-	;	メッセージウィンドウ表示
-	;	0 = 表示しない
-	;	1 = 表示する
+	;[Message Window Display]	;Multi-platform
+	;	Message window display
+	;	0 = Do not display
+	;	1 = Display
 	;
-	;[既読スキップ]			;マルチプラットフォーム
-	;	既読スキップ
-	;	0 = スキップしない
-	;	1 = スキップする
+	;[Skip Read]			;Multi-platform
+	;	Skip read
+	;	0 = Do not skip
+	;	1 = Skip
 	;
-	;[画面効果]			;マルチプラットフォーム
-	;	画面効果
-	;	0 = 有効
-	;	1 = 無効
-```
+	;[Screen Effects]			;Multi-platform
+	;	Screen effects
+	;	0 = Enabled
+	;	1 = Disabled

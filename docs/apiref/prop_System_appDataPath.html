@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>appDataPath - ユーザのホームディレクトリのパス</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>appDataPath - User's home directory path</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">System.appDataPath</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>ユーザのホームディレクトリのパス</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_System.html">Systemクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>ユーザのホームディレクトリのパスを表します。<br />
-Windows の場合、レジストリのHKEY<em>CURRENT</em>USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders のAppData で表されるフォルダが返されます。<br />
-このフォルダがない場合は System.exePath と同じフォルダを返します。<br />
-これは、通常、以下の通りになります。<br />
-XP の場合C:\Documents and Settings\&lt;ユーザ名>\Application Data\ ( C: の部分は環境によって異なります )<br />
-Vista, 7, 8 の場合C:\Users\&lt;ユーザ名>\AppData\Roaming ( C: の部分は環境によって異なります )何らかの理由で レジストリキー ( 上記参照 ) を読み出せなかった場合吉里吉里の実行可能ファイルのあるフォルダ (System.exePath)になります<br />
-AndroidではfilesDirと同じです。</p>
+<dt>Function/Meaning</dt>
+<dd>User's home directory path</dd>
+<dt>Type</dt>
+<dd>Property of the <a class="jump" href="class_System.html">System class</a></dd>
+<dt>Description</dt>
+<dd><p>Represents the path to the user's home directory.<br />
+In Windows, it returns the folder represented by AppData in the registry key HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders.<br />
+If this folder does not exist, it returns the same folder as System.exePath.<br />
+This is usually as follows:<br />
+For XP: C:\Documents and Settings\&lt;username&gt;\Application Data\ (The C: part depends on the environment)<br />
+For Vista, 7, 8: C:\Users\&lt;username&gt;\AppData\Roaming (The C: part depends on the environment). If for some reason the registry key (see above) cannot be read, it will be the folder where the KiriKiri executable file is located (System.exePath).<br />
+On Android, it is the same as filesDir.</p>
 </dd>
-<dt>参照</dt>
+<dt>Reference</dt>
 <dd>
 <a class="jump" href="prop_System_exePath.html">System.exePath</a><br />
 <a class="jump" href="prop_System_personalPath.html">System.personalPath</a><br />

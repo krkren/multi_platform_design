@@ -1,38 +1,38 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>flags - フラグ</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>flags - Flags</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">WaveSoundBuffer.flags</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>フラグ</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_WaveSoundBuffer.html">WaveSoundBufferクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>フラグを表すオブジェクトを得ることができます。<br />
-このオブジェクトには 0 ～ 15 のプロパティがあり、それぞれ各フラグの値を表しています。<br />
-プロパティには間接メンバ選択演算子 ('[ ]' 演算子) を用いてアクセスすることができます。<br />
-これらのプロパティには値を設定することもできます。<br />
-値は 0 ～ 9999 の範囲であり、これを下回ったり、上回ることはできません。<br />
-このオブジェクトの count プロパティは常に 16 を返します。<br />
-このオブジェクトには reset メソッドがあり、このメソッドを実行すると、全てのフラグが 0 にリセットされます。<br />
-メディアを開いていない場合は、このオブジェクトのプロパティに値を設定しても無視されます。<br />
-このオブジェクトは一見配列オブジェクトにも見えますが、いわゆるTJSの配列オブジェクト('Array' クラスのオブジェクト) ではありません。<br />
-フラグは WaveSoundBuffer.open メソッドで全て 0 にリセットされます。<br />
-例:</p>
+<dt>Function/Meaning</dt>
+<dd>Flags</dd>
+<dt>Type</dt>
+<dd>Property of the <a class="jump" href="class_WaveSoundBuffer.html">WaveSoundBuffer class</a></dd>
+<dt>Description</dt>
+<dd><p>Gets an object representing the flags.<br />
+This object has properties from 0 to 15, each representing the value of a flag.<br />
+Properties can be accessed using the indirect member selection operator ('[ ]' operator).<br />
+Values can also be set for these properties.<br />
+Values range from 0 to 9999 and cannot be lower or higher than this range.<br />
+The count property of this object always returns 16.<br />
+This object has a reset method; executing this method resets all flags to 0.<br />
+If no media is open, setting values to this object's properties will be ignored.<br />
+While this object may look like an array object at first glance, it is not a standard TJS array object (an object of the 'Array' class).<br />
+All flags are reset to 0 by the WaveSoundBuffer.open method.<br />
+Example:</p>
 
 <p><code><br />
 var buf = new WaveSoundBuffer(window);<br />
-(略)<br />
+(omitted)<br />
 buf.flags.reset();<br />
-// 全てのフラグを 0 にリセット<br />
+// Reset all flags to 0<br />
 var cnt = buf.flags.count;<br />
-// cnt には 16 が入る<br />
+// cnt will contain 16<br />
 buf.flags[4] = 34;<br />
-// 4番のフラグに34を代入<br />
+// Assign 34 to flag number 4<br />
 </code></p>
 </dd>
 </dl>

@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Windowsでのビルド方法
+title: How to build on Windows
 ---
 
-現在のところ従来から変更はありません(将来的にCMakeからvcxproj/slnファイル生成に切り替える可能性はあります)。  
-vcprojフォルダ内のtvpwin32.slnを開いてソリューションエクスプローラーでtvpwin32が選択された状態でビルドするだけです。  
-ただ、通常ビルドではANGLEのDLLが生成されないため、ANGLE/libEGLとANGLE/libGLESv2が選択された状態でそれぞれのDLLをビルドする必要があります。  
-ANGLEのDLLの再ビルドは基本的には必要ありません。  
-配布されているDLLをそのまま使用してください。  
+Currently, there are no changes from the previous method (there is a possibility of switching to generating vcxproj/sln files from CMake in the future).  
+Simply open tvpwin32.sln in the vcproj folder and build with tvpwin32 selected in the Solution Explorer.  
+However, since a normal build does not generate ANGLE DLLs, you need to build each DLL with ANGLE/libEGL and ANGLE/libGLESv2 selected.  
+Basically, rebuilding the ANGLE DLLs is not necessary.  
+Please use the distributed DLLs as they are.

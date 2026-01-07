@@ -1,86 +1,86 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>operateRect - 矩形演算合成</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>operateRect - Rectangular operation composition</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.operateRect</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>矩形演算合成</p>
+<dt>Function/Meaning</dt>
+<dd><p>Rectangular operation composition</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd><a class="jump" href="class_Layer.html">Layer class</a> method</dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">operateRect(<span class="arg">dleft</span>, <span class="arg">dtop</span>, <span class="arg">src</span>, <span class="arg">sleft</span>, <span class="arg">stop</span>, <span class="arg">swidth</span>, <span class="arg">sheight</span>, <span class="arg">mode</span><span class="defarg">=<span class="defargval">omAuto</span></span>, <span class="arg">opa</span><span class="defarg">=<span class="defargval">255</span></span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="operateRectの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="operateRect arguments">
 <tr><td valign="top"><span class="argname">dleft</span></td>
-<td><p>演算先の矩形の左端位置を ( 演算先レイヤの画像位置における ) ピクセル単位で指定します。</p>
+<td><p>Specifies the left edge position of the destination rectangle (in pixels relative to the destination layer's image position).</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">dtop</span></td>
-<td><p>演算先の矩形の上端位置を ( 演算先レイヤの画像位置における ) ピクセル単位で指定します。</p>
+<td><p>Specifies the top edge position of the destination rectangle (in pixels relative to the destination layer's image position).</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">src</span></td>
-<td><p>演算元のレイヤオブジェクトを指定します。<br />
-Bitmap クラスのオブジェクトも指定可能です。</p>
+<td><p>Specifies the source layer object.<br />
+A Bitmap class object can also be specified.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">sleft</span></td>
-<td><p>演算する矩形の左端位置を ( 演算元レイヤの画像位置における ) ピクセル単位で指定します。</p>
+<td><p>Specifies the left edge position of the source rectangle (in pixels relative to the source layer's image position).</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">stop</span></td>
-<td><p>演算する矩形の上端位置を ( 演算元レイヤの画像位置における ) ピクセル単位で指定します。</p>
+<td><p>Specifies the top edge position of the source rectangle (in pixels relative to the source layer's image position).</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">swidth</span></td>
-<td><p>演算する矩形の横幅を ( 演算元レイヤの画像位置における ) ピクセル単位で指定します。</p>
+<td><p>Specifies the width of the source rectangle (in pixels relative to the source layer's image position).</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">sheight</span></td>
-<td><p>演算する矩形の縦幅を ( 演算元レイヤの画像位置における ) ピクセル単位で指定します。</p>
+<td><p>Specifies the height of the source rectangle (in pixels relative to the source layer's image position).</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">mode</span></td>
-<td><p>演算のモードを指定します。</p>
+<td><p>Specifies the operation mode.</p>
 
 <ul>
-<li>omAuto が指定された場合は演算元レイヤのLayer.typeプロパティに従って演算の種類が自動的に決定されます。</li>
-<li>omPsNormal が指定された場合はPhotoshop互換のアルファ合成が行われます。</li>
-<li>omPsAdditive が指定された場合はPhotoshop互換の覆い焼き(リニア)合成が行われます。</li>
-<li>omPsSubtractive が指定された場合はPhotoshop互換の焼き込み(リニア)合成が行われます。</li>
-<li>omPsMultiplicative が指定された場合はPhotoshop互換の乗算合成が行われます。</li>
-<li>omPsScreen が指定された場合はPhotoshop互換のスクリーン合成が行われます。</li>
-<li>omPsOverlay が指定された場合はPhotoshop互換のオーバーレイ合成が行われます。</li>
-<li>omPsHardLight が指定された場合はPhotoshop互換のハードライト合成が行われます。</li>
-<li>omPsSoftLight が指定された場合はPhotoshop互換のソフトライト合成が行われます。</li>
-<li>omPsColorDodge が指定された場合はPhotoshop互換の覆い焼きカラー合成が行われます。</li>
-<li>omPsColorDodge5 が指定された場合はPhotoshopのバージョン5.x 以下と互換の覆い焼きカラー合成が行われます。</li>
-<li>omPsColorBurn が指定された場合はPhotoshop互換の焼き込みカラー合成が行われます。</li>
-<li>omPsLighten が指定された場合はPhotoshop互換の比較(明)合成が行われます。</li>
-<li>omPsDarken が指定された場合はPhotoshop互換の比較(暗)合成が行われます。</li>
-<li>omPsDifference が指定された場合はPhotoshop互換の差の絶対値合成が行われます。</li>
-<li>omPsDifference5 が指定された場合はPhotoshopのバージョン 5.x 以下と互換の差の絶対値合成が行われます。</li>
-<li>omPsExclusion が指定された場合はPhotoshop互換の除外合成が行われます。</li>
-<li>omAdditive が指定された場合は加算合成が行われます。</li>
-<li>omSubtractive が指定された場合は減算合成が行われます。</li>
-<li>omMultiplicative が指定された場合は乗算合成が行われます。</li>
-<li>omDodge が指定された場合は覆い焼き合成が行われます。</li>
-<li>omDarken が指定された場合は比較(暗)合成が行われます。</li>
-<li>omLighten が指定された場合は比較(明)合成が行われます。</li>
-<li>omScreen が指定された場合はスクリーン乗算合成が行われます。</li>
-<li>omAlpha が指定された場合はアルファ合成が行われます。</li>
-<li>omAddAlpha が指定された場合は加算アルファ合成が行われます。</li>
-<li>omOpaque が指定された場合は src のアルファ情報は無視され、src は常に完全不透明であると見なされます。</li>
+<li>If omAuto is specified, the operation type is automatically determined according to the Layer.type property of the source layer.</li>
+<li>If omPsNormal is specified, Photoshop-compatible alpha blending is performed.</li>
+<li>If omPsAdditive is specified, Photoshop-compatible Linear Dodge blending is performed.</li>
+<li>If omPsSubtractive is specified, Photoshop-compatible Linear Burn blending is performed.</li>
+<li>If omPsMultiplicative is specified, Photoshop-compatible Multiply blending is performed.</li>
+<li>If omPsScreen is specified, Photoshop-compatible Screen blending is performed.</li>
+<li>If omPsOverlay is specified, Photoshop-compatible Overlay blending is performed.</li>
+<li>If omPsHardLight is specified, Photoshop-compatible Hard Light blending is performed.</li>
+<li>If omPsSoftLight is specified, Photoshop-compatible Soft Light blending is performed.</li>
+<li>If omPsColorDodge is specified, Photoshop-compatible Color Dodge blending is performed.</li>
+<li>If omPsColorDodge5 is specified, Photoshop version 5.x or lower compatible Color Dodge blending is performed.</li>
+<li>If omPsColorBurn is specified, Photoshop-compatible Color Burn blending is performed.</li>
+<li>If omPsLighten is specified, Photoshop-compatible Lighten blending is performed.</li>
+<li>If omPsDarken is specified, Photoshop-compatible Darken blending is performed.</li>
+<li>If omPsDifference is specified, Photoshop-compatible Difference blending is performed.</li>
+<li>If omPsDifference5 is specified, Photoshop version 5.x or lower compatible Difference blending is performed.</li>
+<li>If omPsExclusion is specified, Photoshop-compatible Exclusion blending is performed.</li>
+<li>If omAdditive is specified, additive blending is performed.</li>
+<li>If omSubtractive is specified, subtractive blending is performed.</li>
+<li>If omMultiplicative is specified, multiplicative blending is performed.</li>
+<li>If omDodge is specified, dodge blending is performed.</li>
+<li>If omDarken is specified, darken blending is performed.</li>
+<li>If omLighten is specified, lighten blending is performed.</li>
+<li>If omScreen is specified, screen multiplication blending is performed.</li>
+<li>If omAlpha is specified, alpha blending is performed.</li>
+<li>If omAddAlpha is specified, additive alpha blending is performed.</li>
+<li>If omOpaque is specified, the alpha information of src is ignored, and src is always treated as completely opaque.</li>
 </ul>
 </td></tr>
 <tr><td valign="top"><span class="argname">opa</span></td>
-<td><p>演算の強度 ( 0 ～ 255 ) を指定します。</p>
+<td><p>Specifies the intensity of the operation (0 to 255).</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>指定された演算元レイヤの矩形部分を自分のレイヤの指定位置に指定のモードで演算合成します。<br />
-演算先の ( メソッドを実行する ) レイヤや演算元のレイヤの Layer.face プロパティの値は無視されます。<br />
-mode に omAuto を指定した場合は、演算元レイヤのLayer.typeプロパティに従って演算の種類が自動的に決定されます。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Performs a rectangular operation composition of the specified source layer's rectangle onto the specified position of the current layer using the specified mode.<br />
+The Layer.face property of both the destination layer (the one executing the method) and the source layer is ignored.<br />
+If omAuto is specified for mode, the operation type is automatically determined according to the Layer.type property of the source layer.</p>
 </dd>
 </dl>
 </div>

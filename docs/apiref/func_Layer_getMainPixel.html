@@ -1,34 +1,34 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>getMainPixel - メイン画像の色の取得</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>getMainPixel - Get main image color</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.getMainPixel</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>メイン画像の色の取得</p>
+<dt>Function/Meaning</dt>
+<dd><p>Get the color of the main image</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Method of the <a class="jump" href="class_Layer.html">Layer class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">getMainPixel(<span class="arg">x</span>, <span class="arg">y</span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="getMainPixelの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="Arguments for getMainPixel">
 <tr><td valign="top"><span class="argname">x</span></td>
-<td><p>色を取得する ( レイヤの画像座標での ) x 座標を指定します。</p>
+<td><p>Specifies the x-coordinate (in layer image coordinates) from which to get the color.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">y</span></td>
-<td><p>色を取得する ( レイヤの画像座標での ) y 座標を指定します。</p>
+<td><p>Specifies the y-coordinate (in layer image coordinates) from which to get the color.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd><p>0xRRGGBB 形式の色番号</p>
+<dt>Return Value</dt>
+<dd><p>Color number in 0xRRGGBB format</p>
 </dd>
-<dt>説明</dt>
-<dd><p>レイヤメイン画像 ( 色を保持している画像 ) の任意の位置の色を取得します。<br />
-画像座標として無効な ( 範囲外の ) 位置を指定すると例外が発生します。</p>
+<dt>Description</dt>
+<dd><p>Gets the color at an arbitrary position in the layer's main image (the image holding the color).<br />
+An exception will occur if a position that is invalid (out of range) for the image coordinates is specified.</p>
 </dd>
 </dl>
 </div>

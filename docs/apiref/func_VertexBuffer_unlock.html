@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>unlock - 頂点データのロックを解除します</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>unlock - Unlocks vertex data</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">VertexBuffer.unlock</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>頂点データのロックを解除します</p>
+<dt>Function/Meaning</dt>
+<dd><p>Unlocks vertex data</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_VertexBuffer.html">VertexBufferクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Method of <a class="jump" href="class_VertexBuffer.html">VertexBuffer class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">unlock()</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="unlockの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="unlock arguments">
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>プラグイン用( OpenGL ES 3.0以降でないと使えません )。<br />
-データの受け渡しが終わったら、バッファが使用される前に呼び出します。<br />
-lockを維持せず、更新したら即座にunlockするのが好ましいです。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>For plugins (Only available on OpenGL ES 3.0 or later).<br />
+Call this after data transfer is complete and before the buffer is used.<br />
+It is preferable to unlock immediately after updating rather than keeping it locked.</p>
 </dd>
 </dl>
 </div>

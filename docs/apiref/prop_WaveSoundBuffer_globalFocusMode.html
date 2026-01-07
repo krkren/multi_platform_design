@@ -1,32 +1,32 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>globalFocusMode - フォーカスモード</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>globalFocusMode - Focus Mode</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">WaveSoundBuffer.globalFocusMode</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>フォーカスモード</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_WaveSoundBuffer.html">WaveSoundBufferクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>フォーカスモードを表します。<br />
-値を設定することもできます。<br />
-フォーカスモードは、アプリケーションが最小化したときや非アクティブになったときにミュートするモードです。</p>
+<dt>Function/Meaning</dt>
+<dd>Focus Mode</dd>
+<dt>Type</dt>
+<dd>Property of <a class="jump" href="class_WaveSoundBuffer.html">WaveSoundBuffer class</a></dd>
+<dt>Description</dt>
+<dd><p>Represents the focus mode.<br />
+You can also set the value.<br />
+Focus mode determines whether to mute when the application is minimized or becomes inactive.</p>
 
 <ul>
-<li>sgfmNeverMuteを指定すると、アプリケーションがどのような状態でもミュートはしません。</li>
-<li>sgfmMuteOnMinimizeを指定すると、アプリケーションが最小化時にミュートします。</li>
-<li>sgfmMuteOnDeactivateを指定すると、アプリケーションが非アクティブ化したときにミュートします。</li>
+<li>If sgfmNeverMute is specified, it will not mute regardless of the application state.</li>
+<li>If sgfmMuteOnMinimize is specified, it will mute when the application is minimized.</li>
+<li>If sgfmMuteOnDeactivate is specified, it will mute when the application is deactivated.</li>
 </ul>
 
-<p>このプロパティは WaveSoundBuffer クラス上にしか存在しません (WaveSoundBufferから作られたオブジェクト上にこのプロパティはありません)。<br />
-使用する際は WaveSoundBuffer.globalFocusMode としてください。<br />
-このプロパティの設定よりも、コマンドラインオプションで指定した '-wsmute' (DirectSound ミュート) の設定が優先されます。<br />
-Androidでは、非アクティブになった時ミュートされます。<br />
-バックグラウンドでは処理速度が低下し、正常に再生できなくなります。</p>
+<p>This property exists only on the WaveSoundBuffer class (it does not exist on objects created from WaveSoundBuffer).<br />
+When using it, use WaveSoundBuffer.globalFocusMode.<br />
+The '-wsmute' (DirectSound mute) setting specified in the command line options takes precedence over this property setting.<br />
+On Android, it is muted when it becomes inactive.<br />
+In the background, processing speed decreases and normal playback becomes impossible.</p>
 </dd>
 </dl>
 </div>

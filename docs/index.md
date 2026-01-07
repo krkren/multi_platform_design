@@ -1,47 +1,47 @@
 ---
 layout: default
-title: 吉里吉里Z Ver.2
+title: KiriKiri Z Ver.2
 ---
 
-## 吉里吉里Z Ver.2 について
+## About KiriKiri Z Ver.2
 
-吉里吉里Z Ver.2 (マルチプラットフォーム版) は、Windows/Androidで動作する吉里吉里Zです。  
-現状、従来のVer1.X系の吉里吉里Zとは互換性はやや低いですが、将来的に一部例外を除いてそのまま移行できるよう互換性を高める予定です。  
-また、従来のソフトウェアによる描画(Layer)に加えて、ハードウェア(OpenGL ES2.0/3.0)による描画機能も加えられています。  
-Windowsであれば強力なCPUにより力任せの処理もある程度可能ですが、非力なAndroid環境では苦しい場面も予想されます。  
-Androidではなるべくハードウェア(GPU)を使用し快適に動作するよう書き換えた方がストレスなくプレイできるようになります。  
-当然、Windowsでもハードウェア(GPU)が使われるようになるので、従来よりも低CPU負荷でより複雑で多彩な演出も可能になります。  
-従来のスクリプトそのままを移行することはまだ出来ませんが、GPUを利用する描画への書き換えを行う方が、Android/Windows共に快適に動作するため、GPU描画への移行を推奨します。
+KiriKiri Z Ver.2 (Multi-platform version) is a version of KiriKiri Z that runs on Windows and Android.  
+Currently, compatibility with the conventional Ver 1.X series of KiriKiri Z is somewhat low, but we plan to improve compatibility in the future so that migration can be done as-is, with some exceptions.  
+In addition to conventional software rendering (Layer), hardware rendering (OpenGL ES 2.0/3.0) capabilities have been added.  
+On Windows, brute-force processing is possible to some extent due to powerful CPUs, but performance issues are expected in underpowered Android environments.  
+On Android, rewriting code to use hardware (GPU) as much as possible will ensure a smoother, stress-free play experience.  
+Naturally, since the hardware (GPU) will also be used on Windows, it becomes possible to achieve more complex and diverse effects with lower CPU load than before.  
+While it is not yet possible to migrate conventional scripts as they are, we recommend migrating to GPU rendering because rewriting for GPU-based drawing ensures comfortable operation on both Android and Windows.
 
-## ダウンロード
+## Download
 
-* [リリース](https://github.com/krkrz/multi_platform_design/releases)
+* [Releases](https://github.com/krkrz/multi_platform_design/releases)
 
-## マルチプラットフォーム版APIリファレンス
+## Multi-platform Version API Reference
 
-* [APIリファレンス](https://krkrz.github.io/multi_platform_design/apiref/)
+* [API Reference](https://krkrz.github.io/multi_platform_design/apiref/)
 
-## 対応プラットフォーム
+## Supported Platforms
 
 ### Windows
-* Windows 7以降
-* DirectX 11必須
+* Windows 7 or later
+* DirectX 11 required
 
 ### Android
-* Android 4.4以降
-* OpenGL ES3.0以降推奨(2.0必須)
+* Android 4.4 or later
+* OpenGL ES 3.0 or later recommended (2.0 required)
 
-## リポジトリ
+## Repository
 
-* [本体はdev_multi_platformブランチ](https://github.com/krkrz/krkrz/tree/dev_multi_platform)
-* [KAGΣ(新描画APIサンプル実装)](https://github.com/krkrz/KAGSigma)
+* [Main body is in the dev_multi_platform branch](https://github.com/krkrz/krkrz/tree/dev_multi_platform)
+* [KAG Sigma (Sample implementation of new drawing API)](https://github.com/krkrz/KAGSigma)
 
-## マルチプラットフォーム版に関する各種説明
+## Various Explanations Regarding the Multi-platform Version
 
-* [Android版のリリース(ビルド)方法](https://krkrz.github.io/multi_platform_design/develop_android.html)
-* [Windows版のビルド方法](https://krkrz.github.io/multi_platform_design/build_windows.html)
-* [動画再生機能](https://krkrz.github.io/multi_platform_design/video_overlay.html)
-* [プラグインの作り方/利用方法](https://krkrz.github.io/android_plugins/)
-* [サウンド](https://krkrz.github.io/multi_platform_design/audio.html)
-* [シェーダーの使い方](https://krkrz.github.io/multi_platform_design/shader_program.html)
-* [移植時の注意点](https://krkrz.github.io/multi_platform_design/cautionary_note.html)
+* [How to release (build) the Android version](https://krkrz.github.io/multi_platform_design/develop_android.html)
+* [How to build the Windows version](https://krkrz.github.io/multi_platform_design/build_windows.html)
+* [Video playback function](https://krkrz.github.io/multi_platform_design/video_overlay.html)
+* [How to create/use plugins](https://krkrz.github.io/android_plugins/)
+* [Sound](https://krkrz.github.io/multi_platform_design/audio.html)
+* [How to use shaders](https://krkrz.github.io/multi_platform_design/shader_program.html)
+* [Notes on porting](https://krkrz.github.io/multi_platform_design/cautionary_note.html)

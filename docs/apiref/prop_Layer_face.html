@@ -1,33 +1,33 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>face - 描画方式</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>face - Drawing method</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.face</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>描画方式</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>レイヤへの描画方式を表します。<br />
-値を設定することもできます。</p>
+<dt>Function/Meaning</dt>
+<dd>Drawing method</dd>
+<dt>Type</dt>
+<dd>Property of the <a class="jump" href="class_Layer.html">Layer class</a></dd>
+<dt>Description</dt>
+<dd><p>Represents the drawing method for the layer.<br />
+You can also set the value.</p>
 
 <ul>
-<li>dfAlpha または dfBoth を指定すると、画像はアルファチャンネルつき画像と見なされ、描画されます。dfBoth でも dfAlpha でも同じになります。この描画方法に対応するレイヤタイプは ltTransparent または ltAlpha です。</li>
-<li>dfAddAlpha を指定すると、画像は加算アルファチャンネルつき画像として見なされ、描画されます。この描画方法に対応するレイヤタイプは ltAddAlpha です。</li>
-<li>dfOpaque または dfMain を指定すると、レイヤの画像はすべて完全不透明であると見なされ、描画されます。この描画方法に対応するレイヤタイプは ltOpaque または ltCoverRect、または ltAdditive のような算術/論理演算を行うレイヤタイプです。</li>
-<li>dfMask を指定すると、マスク画像(アルファチャンネル)を描画の対象にします。</li>
-<li>dfProvince を指定すると、領域画像を描画の対象にします。</li>
-<li>dfAuto を指定すると、現在の Layer.type プロパティに従って描画方式が自動的に決定されます。</li>
+<li>If dfAlpha or dfBoth is specified, the image is treated as an image with an alpha channel and drawn. dfBoth and dfAlpha are identical. The layer types corresponding to this drawing method are ltTransparent or ltAlpha.</li>
+<li>If dfAddAlpha is specified, the image is treated as an image with an additive alpha channel and drawn. The layer type corresponding to this drawing method is ltAddAlpha.</li>
+<li>If dfOpaque or dfMain is specified, all images in the layer are treated as completely opaque and drawn. The layer types corresponding to this drawing method are ltOpaque, ltCoverRect, or layer types that perform arithmetic/logical operations such as ltAdditive.</li>
+<li>If dfMask is specified, the mask image (alpha channel) is targeted for drawing.</li>
+<li>If dfProvince is specified, the province image is targeted for drawing.</li>
+<li>If dfAuto is specified, the drawing method is automatically determined according to the current Layer.type property.</li>
 </ul>
 
-<p>作成された直後のレイヤの描画方式は dfAuto です。<br />
-このプロパティの値によっては操作できないメソッドがあります。</p>
+<p>The drawing method of a layer immediately after creation is dfAuto.<br />
+Some methods may not be available depending on the value of this property.</p>
 </dd>
-<dt>参照</dt>
+<dt>Reference</dt>
 <dd>
 <a class="jump" href="prop_Layer_type.html">Layer.type</a><br />
 </dd>

@@ -1,30 +1,30 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>freeDirectSound - DirectSound の解放</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>freeDirectSound - Release DirectSound</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">WaveSoundBuffer.freeDirectSound</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>DirectSound の解放</p>
+<dt>Function/Meaning</dt>
+<dd><p>Release DirectSound</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_WaveSoundBuffer.html">WaveSoundBufferクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Method of the <a class="jump" href="class_WaveSoundBuffer.html">WaveSoundBuffer class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">freeDirectSound()</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="freeDirectSoundの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="freeDirectSound arguments">
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>DirectSound を解放します。<br />
-すべての WaveSoundBuffer クラスのオブジェクトは停止状態になります。<br />
-DirectSound と WaveMapper ( MCI 等 ) による再生を同時に行えない環境などで DirectSound を 解放するためにこのメソッドを使います。<br />
-このメソッドは WaveSoundBuffer クラス上にしか存在しません (WaveSoundBufferから作られたオブジェクト上にこのメソッドはありません)。<br />
-使用する際は WaveSoundBuffer.freeDirectSound(); としてください。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Releases DirectSound.<br />
+All WaveSoundBuffer class objects will enter a stopped state.<br />
+Use this method to release DirectSound in environments where DirectSound and WaveMapper (MCI, etc.) playback cannot occur simultaneously.<br />
+This method exists only on the WaveSoundBuffer class itself (it is not available on objects created from WaveSoundBuffer).<br />
+To use it, call WaveSoundBuffer.freeDirectSound();.</p>
 </dd>
 </dl>
 </div>

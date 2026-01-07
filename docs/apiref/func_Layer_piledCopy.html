@@ -1,48 +1,48 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>piledCopy - レイヤを重ね合わせた画像をコピー</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>piledCopy - Copy images with layers superimposed</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.piledCopy</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>レイヤを重ね合わせた画像をコピー</p>
+<dt>Function/Meaning</dt>
+<dd><p>Copy images with layers superimposed</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Method of the <a class="jump" href="class_Layer.html">Layer class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">piledCopy(<span class="arg">dleft</span>, <span class="arg">dtop</span>, <span class="arg">src</span>, <span class="arg">sleft</span>, <span class="arg">stop</span>, <span class="arg">swidth</span>, <span class="arg">sheight</span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="piledCopyの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="piledCopy arguments">
 <tr><td valign="top"><span class="argname">dleft</span></td>
-<td><p>コピー先の矩形の左端位置を ( コピー先レイヤの画像位置における ) ピクセル単位で指定します。</p>
+<td><p>Specifies the left position of the destination rectangle (in pixels relative to the destination layer's image position).</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">dtop</span></td>
-<td><p>コピー先の矩形の上端位置を ( コピー先レイヤの画像位置における ) ピクセル単位で指定します。</p>
+<td><p>Specifies the top position of the destination rectangle (in pixels relative to the destination layer's image position).</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">src</span></td>
-<td><p>コピー元のレイヤオブジェクトを指定します。</p>
+<td><p>Specifies the source layer object.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">sleft</span></td>
-<td><p>コピーする矩形の左端位置を ( コピー元レイヤの表示位置における ) ピクセル単位で指定します。</p>
+<td><p>Specifies the left position of the rectangle to copy (in pixels relative to the source layer's display position).</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">stop</span></td>
-<td><p>コピーする矩形の上端位置を ( コピー元レイヤの表示位置における ) ピクセル単位で指定します。</p>
+<td><p>Specifies the top position of the rectangle to copy (in pixels relative to the source layer's display position).</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">swidth</span></td>
-<td><p>コピーする矩形の横幅を ( コピー元レイヤの表示位置における ) ピクセル単位で指定します。</p>
+<td><p>Specifies the width of the rectangle to copy (in pixels relative to the source layer's display position).</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">sheight</span></td>
-<td><p>コピーする矩形の縦幅を ( コピー元レイヤの表示位置における ) ピクセル単位で指定します。</p>
+<td><p>Specifies the height of the rectangle to copy (in pixels relative to the source layer's display position).</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>指定されたコピー元レイヤの指定された矩形部分を、子レイヤも含めて重ね合わせ、その結果の画像を、自分のレイヤの指定位置にコピーします。<br />
-このメソッドは、コピー元レイヤやコピー先レイヤの Layer.face プロパティには影響されません。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Superimposes the specified rectangular portion of the source layer, including its child layers, and copies the resulting image to the specified position on the current layer.<br />
+This method is not affected by the Layer.face property of either the source or destination layers.</p>
 </dd>
 </dl>
 </div>

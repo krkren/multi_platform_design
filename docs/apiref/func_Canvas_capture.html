@@ -1,33 +1,33 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>capture - 現在の描画内容全体をBitmap/Texture/Offscreenにキャプチャ</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>capture - Captures the entire current drawing content to Bitmap/Texture/Offscreen</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Canvas.capture</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>現在の描画内容全体をBitmap/Texture/Offscreenにキャプチャ</p>
+<dt>Function/Meaning</dt>
+<dd><p>Captures the entire current drawing content to Bitmap/Texture/Offscreen</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Canvas.html">Canvasクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Method of the <a class="jump" href="class_Canvas.html">Canvas class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">capture(<span class="arg">dest</span>, <span class="arg">front</span>:bool<span class="defarg">=<span class="defargval">true</span></span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="captureの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="capture arguments">
 <tr><td valign="top"><span class="argname">dest</span></td>
-<td><p>キャプチャ先Bitmap/Texture/Offscreen</p>
+<td><p>Destination Bitmap/Texture/Offscreen</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">front</span></td>
-<td><p>front bufferからのキャプチャかback bufferからのキャプチャかの指定。trueでfront、falseでback</p>
+<td><p>Specifies whether to capture from the front buffer or the back buffer. true for front, false for back.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>ビットマップのサイズはスクリーンサイズに補正<br />
-Texture/Offscreenの場合は変更されない</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>The bitmap size is adjusted to the screen size.<br />
+For Texture/Offscreen, it is not changed.</p>
 </dd>
 </dl>
 </div>

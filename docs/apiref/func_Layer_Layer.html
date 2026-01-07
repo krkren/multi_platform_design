@@ -1,36 +1,36 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>Layer - Layer オブジェクトの構築</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>Layer - Layer object construction</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.Layer</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>Layer オブジェクトの構築</p>
+<dt>Function/Meaning</dt>
+<dd><p>Layer object construction</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd><a class="jump" href="class_Layer.html">Layer class</a> method</dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">Layer(<span class="arg">window</span>, <span class="arg">parent</span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="Layerの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="Layer arguments">
 <tr><td valign="top"><span class="argname">window</span></td>
-<td><p>このレイヤを保有することになるウィンドウ ( Window クラスのオブジェクト ) を指定します。<br />
-ウィンドウはいったん決定したら変更することはできません。</p>
+<td><p>Specifies the window (Window class object) that will own this layer.<br />
+Once the window is determined, it cannot be changed.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">parent</span></td>
-<td><p>このレイヤの親となるレイヤを指定します。null を指定するとプライマリレイヤになります。<br />
-プライマリレイヤはウィンドウに一つのみ存在することができ、また、レイヤを用いる場合はかならず一つ存在しなければならない、すべてのレイヤの親となるレイヤです。<br />
-ただし、描画デバイス ( Window.drawDevice で設定可能) によっては、ウィンドウが複数のプライマリレイヤを持つことができる物があります。<br />
-レイヤの親は、Layer.parent プロパティで変更することができます。</p>
+<td><p>Specifies the layer that will be the parent of this layer. If null is specified, it becomes the primary layer.<br />
+The primary layer is the parent of all layers; only one can exist per window, and one must exist if layers are used.<br />
+However, depending on the drawing device (settable via Window.drawDevice), some windows may have multiple primary layers.<br />
+The parent of a layer can be changed using the Layer.parent property.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>Layer クラスのオブジェクトを構築します。Layer クラスは非表示の状態で構築されます。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Constructs a Layer class object. The Layer class is constructed in a hidden state.</p>
 </dd>
 </dl>
 </div>

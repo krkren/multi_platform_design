@@ -1,49 +1,49 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>fillRect - 矩形塗りつぶし</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>fillRect - Fill Rectangle</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">ImageFunction.fillRect</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>矩形塗りつぶし</p>
+<dt>Function/Meaning</dt>
+<dd><p>Fill Rectangle</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_ImageFunction.html">ImageFunctionクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Method of <a class="jump" href="class_ImageFunction.html">ImageFunction class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">fillRect(<span class="arg">bmp</span>, <span class="arg">value</span>, <span class="arg">rect</span><span class="defarg">=<span class="defargval">null</span></span>, <span class="arg">isalpha</span><span class="defarg">=<span class="defargval">true</span></span>, <span class="arg">cliprect</span><span class="defarg">=<span class="defargval">null</span></span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="fillRectの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="fillRect arguments">
 <tr><td valign="top"><span class="argname">bmp</span></td>
-<td><p>塗り潰す Bitmap オブジェクトを指定します。</p>
+<td><p>Specifies the Bitmap object to be filled.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">value</span></td>
-<td><p>塗りつぶす色や値を指定します。<br />
-この値は、isalpha の値によって意味が変わります。</p>
+<td><p>Specifies the color or value to fill with.<br />
+The meaning of this value changes depending on the value of isalpha.</p>
 
 <ul>
-<li>true   : 0xAARRGGBB 形式で不透明度と色を指定してください。メインとマスクの両方が塗りつぶされます。</li>
-<li>false  : 0xRRGGBB 形式で色を指定してください。</li>
+<li>true   : Specify opacity and color in 0xAARRGGBB format. Both main and mask will be filled.</li>
+<li>false  : Specify color in 0xRRGGBB format.</li>
 </ul>
 </td></tr>
 <tr><td valign="top"><span class="argname">rect</span></td>
-<td><p>塗りつぶす矩形を ( 画像位置における ) ピクセル単位で Rect オブジェクトで指定します。<br />
-未指定の場合全体が対象となります。</p>
+<td><p>Specifies the rectangle to fill as a Rect object in pixels (relative to the image position).<br />
+If omitted, the entire area is targeted.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">isalpha</span></td>
-<td><p>アルファチャンネルを持つかどうかを指定します。</p>
+<td><p>Specifies whether it has an alpha channel.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">cliprect</span></td>
-<td><p>クリッピング領域を ( Bitmap の画像位置における )  Rect オブジェクトで指定します。<br />
-未指定時全体が対象となります。</p>
+<td><p>Specifies the clipping region as a Rect object (relative to the Bitmap image position).<br />
+If omitted, the entire area is targeted.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>指定された Bitmap 画像の矩形を指定された方法で塗りつぶします。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Fills the specified rectangle of the specified Bitmap image using the specified method.</p>
 </dd>
 </dl>
 </div>

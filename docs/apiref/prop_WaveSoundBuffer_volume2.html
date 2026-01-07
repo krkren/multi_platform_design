@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>volume2 - 第２音量</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>volume2 - Secondary Volume</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">WaveSoundBuffer.volume2</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>第２音量</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_WaveSoundBuffer.html">WaveSoundBufferクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>再生する音量を表します。値を設定することができます。<br />
-WaveSoundBuffer.volume プロパティと違うのは、このプロパティはWaveSoundBuffer.fade メソッドでも変化しないということです。<br />
-最終的な音量は、volume プロパティとこのプロパティの積で決定されます。<br />
-volume プロパティが100000 ( 100% ) で volume2 プロパティも 100000 ( 100% ) ならば 100% × 100% = 100% で100% の音量で再生されます。<br />
-volume プロパティが 50000 ( 50% ) で volume2 プロパティが 75000 ( 75% ) ならば50% × 75% = 37.5% で 37.5 % の音量で再生されます。</p>
+<dt>Function/Meaning</dt>
+<dd>Secondary Volume</dd>
+<dt>Type</dt>
+<dd>Property of the <a class="jump" href="class_WaveSoundBuffer.html">WaveSoundBuffer class</a></dd>
+<dt>Description</dt>
+<dd><p>Represents the playback volume. This value can be set.<br />
+Unlike the WaveSoundBuffer.volume property, this property is not changed by the WaveSoundBuffer.fade method.<br />
+The final volume is determined by the product of the volume property and this property.<br />
+If the volume property is 100000 (100%) and the volume2 property is also 100000 (100%), it will play at 100% x 100% = 100% volume.<br />
+If the volume property is 50000 (50%) and the volume2 property is 75000 (75%), it will play at 50% x 75% = 37.5% volume.</p>
 </dd>
 </dl>
 </div>

@@ -1,36 +1,36 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>readRegValue - [Windows+]レジストリの読み込み</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>readRegValue - [Windows+] Reading the registry</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">System.readRegValue</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>[Windows+]レジストリの読み込み</p>
+<dt>Function/Meaning</dt>
+<dd><p>[Windows+] Reading the registry</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_System.html">Systemクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Method of the <a class="jump" href="class_System.html">System class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">readRegValue(<span class="arg">key</span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="readRegValueの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="Arguments for readRegValue">
 <tr><td valign="top"><span class="argname">key</span></td>
-<td><p>読み込むレジストリキーを指定します。</p>
+<td><p>Specifies the registry key to read.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd><p>実行に成功すればレジストリの値、失敗すれば void が返ります。</p>
+<dt>Return Value</dt>
+<dd><p>Returns the registry value if successful, or void if it fails.</p>
 </dd>
-<dt>説明</dt>
-<dd><p>key で指定した Windows レジストリを読み込みます。<br />
-レジストリキーは、以下のルートキー名で始めることができます。<br />
-HKEY<em>CLASSES</em>ROOTHKEY<em>CURRENT</em>CONFIGHKEY<em>CURRENT</em>USERHKEY<em>LOCAL</em>MACHINEHKEY<em>USERSHKEY</em>PERFORMANCE<em>DATAHKEY</em>DYN<em>DATA<br />
-たとえば、以下のような文字列を key に指定することができます。<br />
-HKEY</em>LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\hoeg\installdir<br />
-数値、単一文字列のみを読み込むことができます。<br />
-数値の場合は整数型、文字列の場合は文字列型の結果が返ります。</p>
+<dt>Description</dt>
+<dd><p>Reads the Windows registry specified by key.<br />
+The registry key can start with the following root key names:<br />
+HKEY_CLASSES_ROOTHKEY_CURRENT_CONFIGHKEY_CURRENT_USERHKEY_LOCAL_MACHINEHKEY_USERSHKEY_PERFORMANCE_DATAHKEY_DYN_DATA<br />
+For example, you can specify a string like the following for key:<br />
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\hoeg\installdir<br />
+Only numeric values and single strings can be read.<br />
+If it is a numeric value, an integer type is returned; if it is a string, a string type result is returned.</p>
 </dd>
 </dl>
 </div>

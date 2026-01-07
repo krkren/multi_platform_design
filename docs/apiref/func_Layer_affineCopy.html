@@ -1,127 +1,127 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>affineCopy - アフィン変換コピー</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard Style for API Reference" />
+<title>affineCopy - Affine Transformation Copy</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Layer.affineCopy</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>アフィン変換コピー</p>
+<dt>Function/Meaning</dt>
+<dd><p>Affine transformation copy</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Layer.html">Layerクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd><a class="jump" href="class_Layer.html">Layer class</a> method</dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">affineCopy(<span class="arg">src</span>, <span class="arg">sleft</span>, <span class="arg">stop</span>, <span class="arg">swidth</span>, <span class="arg">sheight</span>, <span class="arg">affine</span>, <span class="arg">A</span>, <span class="arg">B</span>, <span class="arg">C</span>, <span class="arg">D</span>, <span class="arg">E</span>, <span class="arg">F</span>, <span class="arg">type</span><span class="defarg">=<span class="defargval">stNearest</span></span>, <span class="arg">clear</span><span class="defarg">=<span class="defargval">false</span></span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="affineCopyの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="affineCopy arguments">
 <tr><td valign="top"><span class="argname">src</span></td>
-<td><p>コピー元のレイヤオブジェクトを指定します。<br />
-Bitmap クラスのオブジェクトも指定可能です。</p>
+<td><p>Specifies the source layer object.<br />
+A Bitmap class object can also be specified.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">sleft</span></td>
-<td><p>コピーする矩形の左端位置を ( コピー元レイヤの画像位置における ) ピクセル単位で指定します。</p>
+<td><p>Specifies the left edge position of the rectangle to copy (in the source layer's image coordinates) in pixels.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">stop</span></td>
-<td><p>コピーする矩形の上端位置を ( コピー元レイヤの画像位置における ) ピクセル単位で指定します。</p>
+<td><p>Specifies the top edge position of the rectangle to copy (in the source layer's image coordinates) in pixels.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">swidth</span></td>
-<td><p>コピーする矩形の横幅を ( コピー元レイヤの画像位置における ) ピクセル単位で指定します。</p>
+<td><p>Specifies the width of the rectangle to copy (in the source layer's image coordinates) in pixels.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">sheight</span></td>
-<td><p>コピーする矩形の縦幅を ( コピー元レイヤの画像位置における ) ピクセル単位で指定します。</p>
+<td><p>Specifies the height of the rectangle to copy (in the source layer's image coordinates) in pixels.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">affine</span></td>
-<td><p>続く６つの引数 (A ～ F パラメータ)をどのように扱うかを指定します。<br />
-真を指定すると、６つのパラメータはそれぞれ以下のように解釈されます。</p>
+<td><p>Specifies how to handle the following six arguments (A to F parameters).<br />
+If true is specified, the six parameters are interpreted as follows:</p>
 
 <ul>
-<li>A   : 2Dアフィン変換行列の a</li>
-<li>B   : 2Dアフィン変換行列の b</li>
-<li>C   : 2Dアフィン変換行列の c</li>
-<li>D   : 2Dアフィン変換行列の d</li>
-<li>E   : 2Dアフィン変換行列の tx</li>
-<li>F   : 2Dアフィン変換行列の ty</li>
+<li>A   : a of the 2D affine transformation matrix</li>
+<li>B   : b of the 2D affine transformation matrix</li>
+<li>C   : c of the 2D affine transformation matrix</li>
+<li>D   : d of the 2D affine transformation matrix</li>
+<li>E   : tx of the 2D affine transformation matrix</li>
+<li>F   : ty of the 2D affine transformation matrix</li>
 </ul>
 
-<p>アフィン変換により、コピー元の画像位置 (x, y) ( ただし、コピー元矩形の左上隅を (0, 0) とする ) は以下の式により、コピー先の画像位置 (x', y')に変換されます。<br />
-x' =  a<em>x + c</em>y + tx<br />
-y' =  b<em>x + d</em>y + ty<br />
-偽を指定すると、６つのパラメータはそれぞれ以下のように解釈されます。<br />
-これらのパラメータは実数での指定も受け付けます。</p>
+<p>Through the affine transformation, the source image position (x, y) (where the top-left corner of the source rectangle is (0, 0)) is transformed to the destination image position (x', y') by the following formulas:<br />
+x' =  a*x + c*y + tx<br />
+y' =  b*x + d*y + ty<br />
+If false is specified, the six parameters are interpreted as follows.<br />
+These parameters also accept real numbers.</p>
 
 <ul>
-<li>A   : コピー元矩形の左上隅の点の、コピー先での画像位置における X 座標位置(x0)</li>
-<li>B   : コピー元矩形の左上隅の点の、コピー先での画像位置における Y 座標位置(y0)</li>
-<li>C   : コピー元矩形の右上隅の点の、コピー先での画像位置における X 座標位置(x1)</li>
-<li>D   : コピー元矩形の右上隅の点の、コピー先での画像位置における Y 座標位置(y1)</li>
-<li>E   : コピー元矩形の左下隅の点の、コピー先での画像位置における X 座標位置(x2)</li>
-<li>F   : コピー元矩形の左下隅の点の、コピー先での画像位置における Y 座標位置(y2)</li>
+<li>A   : X-coordinate position (x0) of the top-left corner of the source rectangle in the destination image coordinates</li>
+<li>B   : Y-coordinate position (y0) of the top-left corner of the source rectangle in the destination image coordinates</li>
+<li>C   : X-coordinate position (x1) of the top-right corner of the source rectangle in the destination image coordinates</li>
+<li>D   : Y-coordinate position (y1) of the top-right corner of the source rectangle in the destination image coordinates</li>
+<li>E   : X-coordinate position (x2) of the bottom-left corner of the source rectangle in the destination image coordinates</li>
+<li>F   : Y-coordinate position (y2) of the bottom-left corner of the source rectangle in the destination image coordinates</li>
 </ul>
 
-<p>偽を指定した場合、コピー元の右下隅に対応する、コピー先位置(x3, y3)は自動的に以下の式によって計算されます。<br />
+<p>If false is specified, the destination position (x3, y3) corresponding to the bottom-right corner of the source is automatically calculated by the following formulas:<br />
 x3 = x1 - x0 + x2<br />
 y3 = y1 - y0 + y2</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">A</span></td>
-<td><p>Aパラメータです。<br />
-affine 引数によって解釈が変わります。</p>
+<td><p>A parameter.<br />
+Interpretation changes depending on the affine argument.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">B</span></td>
-<td><p>Bパラメータです。<br />
-affine 引数によって解釈が変わります。</p>
+<td><p>B parameter.<br />
+Interpretation changes depending on the affine argument.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">C</span></td>
-<td><p>Cパラメータです。<br />
-affine 引数によって解釈が変わります。</p>
+<td><p>C parameter.<br />
+Interpretation changes depending on the affine argument.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">D</span></td>
-<td><p>Dパラメータです。<br />
-affine 引数によって解釈が変わります。</p>
+<td><p>D parameter.<br />
+Interpretation changes depending on the affine argument.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">E</span></td>
-<td><p>Eパラメータです。<br />
-affine 引数によって解釈が変わります。</p>
+<td><p>E parameter.<br />
+Interpretation changes depending on the affine argument.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">F</span></td>
-<td><p>Fパラメータです。<br />
-affine 引数によって解釈が変わります。</p>
+<td><p>F parameter.<br />
+Interpretation changes depending on the affine argument.</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">type</span></td>
-<td><p>アフィン変換のタイプを指定します。</p>
+<td><p>Specifies the type of affine transformation.</p>
 
 <ul>
-<li>stNearest     : 最近傍点法が用いられます</li>
-<li>stFastLinear  : 低精度の線形補間が用いられます(一部実装)</li>
-<li>stLinear      : 線形補間が用いられます(未実装)</li>
-<li>stCubic       : ３次元補間が用いられます(未実装)</li>
+<li>stNearest     : Nearest neighbor interpolation is used</li>
+<li>stFastLinear  : Low-precision linear interpolation is used (partially implemented)</li>
+<li>stLinear      : Linear interpolation is used (not implemented)</li>
+<li>stCubic       : Cubic interpolation is used (not implemented)</li>
 </ul>
 
-<p>stFastLinear や stLinear, stCubic に対しては、stRefNoClip をビット論理和で追加指定することができ、この場合は、コピーするビットマップの領域外を参照して色を合成することを許可します。<br />
-これを指定しない場合は、転送元ビットマップの周囲に余裕があったとしても、転送元ビットマップの範囲外を参照することはありません(範囲外の色はもっとも近い位置にある範囲内のピクセルの色と見なされます)。</p>
+<p>For stFastLinear, stLinear, and stCubic, stRefNoClip can be added using a bitwise OR. In this case, referencing outside the source bitmap area to synthesize colors is allowed.<br />
+If this is not specified, even if there is space around the source bitmap, it will not reference outside the source bitmap range (colors outside the range are considered the same as the nearest pixel within the range).</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">clear</span></td>
-<td><p>転送先レイヤの、アフィン変換された画像の周囲をLayer.neutralColor プロパティで示された色・透明度でクリアするかどうかを指定します。<br />
-真を指定するとクリアされ、この引数を省略するか偽を渡すとクリアされません。<br />
-クリアされる領域は Layer.setClip メソッドで制限することもできます。<br />
-このクリアの機能を使うと、いったん転送先レイヤをクリアしてからアフィン変換で画像を上書き転送する際の、上書きされる領域(クリアされた場所にアフィン変換で上書きされる部分)のクリアの無駄を省くことができます。</p>
+<td><p>Specifies whether to clear the area around the affine-transformed image in the destination layer with the color and opacity indicated by the Layer.neutralColor property.<br />
+If true is specified, it is cleared; if this argument is omitted or false is passed, it is not cleared.<br />
+The area to be cleared can also be restricted with the Layer.setClip method.<br />
+Using this clear function avoids redundant clearing of the area to be overwritten (the part overwritten by the affine transformation in the cleared area) when clearing the destination layer before performing an affine transformation copy.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd>なし (void)</dd>
-<dt>説明</dt>
-<dd><p>指定されたコピー元レイヤの矩形を、コピー先 ( メソッドを実行するレイヤ ) に変換を行いながらコピーします。<br />
-affine 引数によって、変形パラメータとして二次元アフィン変換行列を指定するか、あるいは変換後の点を直接指定するかを選ぶことができます。<br />
-現バージョンでは stFastLinear の指定で線形補間が効くのは、重ね合わせ先の ( メソッドを実行する ) レイヤの Layer.face プロパティが dfAlpha (または dfBoth) または dfAddAlpha の場合です。<br />
-また、Layer.face プロパティが dfOpaque で、Layer.holdAlpha プロパティが偽の時も線形補間が可能です。<br />
-重ね合わせ先の ( メソッドを実行する ) レイヤの Layer.face プロパティがdfAlpha (または dfBoth) または dfAddAlpha の場合は、メイン画像とマスク画像の両方がコピーされます。<br />
-重ね合わせ先の ( メソッドを実行する ) レイヤの Layer.face プロパティがdfOpaque (または dfMain) の場合は、Layer.holdAlpha プロパティが真の時はメイン画像のみがコピーされ、偽の時はメイン画像とマスク画像の両方がコピーされます。<br />
-二次元アフィン変換行列による変換は、コピー元矩形の左上を原点 (0, 0) とし、以下のように定義されます。<br />
-二次元アフィン変換を行うことにより、拡大縮小、回転、せん断(傾け)、平行移動、反転、あるいはこれらの組み合わせすべての変形を行うことができます。<br />
-二次元アフィン変換を行うメソッドでは、二次元アフィン行列ではなく、変換後の各頂点を直接指定することでも変形を指定できますが、この場合でも二次元アフィン変換で定義できないような変形は行うことはできません。<br />
-アフィン変換においては、ピクセルは 1.0 × 1.0 のサイズを持っていると見なされます。<br />
-つまり、(0, 0) の位置にあるピクセルは (-0.5, -0.5) - (0.5, 0.5) の範囲にあると見なされます。</p>
+<dt>Return Value</dt>
+<dd>None (void)</dd>
+<dt>Description</dt>
+<dd><p>Copies the specified rectangle of the source layer to the destination (the layer executing the method) while performing a transformation.<br />
+Depending on the affine argument, you can choose to specify a 2D affine transformation matrix as the transformation parameters or directly specify the points after transformation.<br />
+In the current version, linear interpolation with stFastLinear is effective when the Layer.face property of the destination layer (the layer executing the method) is dfAlpha (or dfBoth) or dfAddAlpha.<br />
+Also, linear interpolation is possible when the Layer.face property is dfOpaque and the Layer.holdAlpha property is false.<br />
+If the Layer.face property of the destination layer (the layer executing the method) is dfAlpha (or dfBoth) or dfAddAlpha, both the main image and the mask image are copied.<br />
+If the Layer.face property of the destination layer (the layer executing the method) is dfOpaque (or dfMain), only the main image is copied if the Layer.holdAlpha property is true, and both the main image and the mask image are copied if it is false.<br />
+Transformation by a 2D affine transformation matrix is defined as follows, with the top-left of the source rectangle as the origin (0, 0).<br />
+By performing a 2D affine transformation, you can perform scaling, rotation, shearing (tilting), translation, flipping, or any combination of these transformations.<br />
+In methods that perform 2D affine transformations, you can also specify the transformation by directly specifying each vertex after transformation instead of using a 2D affine matrix, but even in this case, transformations that cannot be defined by a 2D affine transformation cannot be performed.<br />
+In affine transformations, a pixel is considered to have a size of 1.0 x 1.0.<br />
+That is, a pixel at position (0, 0) is considered to be in the range (-0.5, -0.5) to (0.5, 0.5).</p>
 </dd>
 </dl>
 </div>

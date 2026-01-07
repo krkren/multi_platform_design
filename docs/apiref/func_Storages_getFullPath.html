@@ -1,34 +1,34 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>getFullPath - 完全な統一ストレージ名の取得</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>getFullPath - Get full unified storage name</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">Storages.getFullPath</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>完全な統一ストレージ名の取得</p>
+<dt>Function/Meaning</dt>
+<dd><p>Get full unified storage name</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_Storages.html">Storagesクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd><a class="jump" href="class_Storages.html">Storages class</a> method</dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">getFullPath(<span class="arg">path</span>)</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="getFullPathの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="Arguments for getFullPath">
 <tr><td valign="top"><span class="argname">path</span></td>
-<td><p>完全な統一ストレージ名にしたいストレージ名を指定します。</p>
+<td><p>Specifies the storage name to be converted into a full unified storage name.</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd><p>完全な統一ストレージ名</p>
+<dt>Return Value</dt>
+<dd><p>Full unified storage name</p>
 </dd>
-<dt>説明</dt>
-<dd><p>path で指定されたストレージ名を完全な統一ストレージ名に変換します。<br />
-冗長なパスアクセス ( たとえば system/flags/../data/ など ) はすべて圧縮されます。<br />
-カレントメディア、カレントフォルダが指定されていなければ、補完します。</p>
+<dt>Description</dt>
+<dd><p>Converts the storage name specified by path into a full unified storage name.<br />
+Redundant path access (e.g., system/flags/../data/) is fully compressed.<br />
+If the current media or current folder is not specified, it will be complemented.</p>
 </dd>
-<dt>参照</dt>
+<dt>Reference</dt>
 <dd>
 <a class="jump" href="func_Storages_getPlacedPath.html">Storages.getPlacedPath</a><br />
 </dd>

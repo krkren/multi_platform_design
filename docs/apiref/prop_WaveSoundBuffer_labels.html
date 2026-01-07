@@ -1,31 +1,31 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>labels - ラベル</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>labels - Labels</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">WaveSoundBuffer.labels</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>ラベル</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_WaveSoundBuffer.html">WaveSoundBufferクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>ラベルを表すオブジェクトを得ることができます。<br />
-このオブジェクトは辞書配列で、それぞれ、ループ情報中のラベルの名前をメンバ名とした要素が入っています。<br />
-それぞれの要素も辞書配列で、name メンバはラベルの名前を表し、position メンバはミリ秒単位でのラベルの位置を表し、samplePosition はサンプル数単位でのラベルの位置を表しています。<br />
-この辞書配列は読み出し専用であると考えてください。<br />
-値を代入したり、新しいメンバを作成しても反映されることはありません。<br />
-例:</p>
+<dt>Function/Meaning</dt>
+<dd>Labels</dd>
+<dt>Type</dt>
+<dd>Property of the <a class="jump" href="class_WaveSoundBuffer.html">WaveSoundBuffer class</a></dd>
+<dt>Description</dt>
+<dd><p>Returns an object representing the labels.<br />
+This object is a dictionary where each element's member name corresponds to a label name found in the loop information.<br />
+Each element is also a dictionary; the 'name' member represents the label name, the 'position' member represents the label position in milliseconds, and 'samplePosition' represents the label position in samples.<br />
+Consider this dictionary to be read-only.<br />
+Assigning values or creating new members will have no effect.<br />
+Example:</p>
 
 <p><code><br />
 var buf = new WaveSoundBuffer(window);<br />
-(略)<br />
+(omitted)<br />
 debug.message(buf.labels['start'].position);<br />
-// 'start' というラベル名の位置をミリ秒単位で<br />
+// Position of the label named 'start' in milliseconds<br />
 debug.message(buf.labels['start'].samplePosition);<br />
-// 'start' というラベル名の位置をサンプル数単位で<br />
+// Position of the label named 'start' in samples<br />
 </code></p>
 </dd>
 </dl>

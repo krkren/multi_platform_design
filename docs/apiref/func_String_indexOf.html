@@ -1,34 +1,34 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>indexOf - 部分文字列の位置を返します</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>indexOf - Returns the position of a substring</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">String.indexOf</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd><p>部分文字列の位置を返します</p>
+<dt>Function/Meaning</dt>
+<dd><p>Returns the position of a substring</p>
 </dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_String.html">Stringクラス</a>のメソッド</dd>
-<dt>構文</dt>
+<dt>Type</dt>
+<dd>Method of the <a class="jump" href="class_String.html">String class</a></dd>
+<dt>Syntax</dt>
 <dd><span class="funcdecl">indexOf(<span class="arg">text</span>:string, <span class="arg">offset</span>:int<span class="defarg">=<span class="defargval">void</span></span>) :int</span></dd>
-<dt>引数</dt>
-<dd><table rules="all" frame="box" cellpadding="3" summary="indexOfの引数">
+<dt>Arguments</dt>
+<dd><table rules="all" frame="box" cellpadding="3" summary="indexOf arguments">
 <tr><td valign="top"><span class="argname">text</span></td>
-<td><p>部分文字列</p>
+<td><p>Substring</p>
 </td></tr>
 <tr><td valign="top"><span class="argname">offset</span></td>
-<td><p>検索開始位置</p>
+<td><p>Search start position</p>
 </td></tr>
 </table></dd>
-<dt>戻り値</dt>
-<dd><p>0 が返されれば文字列の先頭です、-1 が返されたときは見つからなかったときです。</p>
+<dt>Return Value</dt>
+<dd><p>Returns 0 if it is at the beginning of the string, and -1 if it was not found.</p>
 </dd>
-<dt>説明</dt>
-<dd><p>文字列から、textをoffsetから検索し、最初に見つかった位置を返します。<br />
-offsetを省略すると、文字列の先頭からの検索になります。</p>
+<dt>Description</dt>
+<dd><p>Searches for text within the string starting from offset and returns the position where it was first found.<br />
+If offset is omitted, the search starts from the beginning of the string.</p>
 </dd>
 </dl>
 </div>

@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="api.css" type="text/css" rel="stylesheet" title="APIリファレンス用標準スタイル" />
-<title>audioBalance - [Windows*]音声バランス(パニング)</title>
+<link href="api.css" type="text/css" rel="stylesheet" title="Standard style for API reference" />
+<title>audioBalance - [Windows*] Audio Balance (Panning)</title>
 </head>
 <body>
 <h1><span class="fheader"><a name="top" id="top">VideoOverlay.audioBalance</a></span></h1><div class="para">
 <dl>
-<dt>機能/意味</dt>
-<dd>[Windows*]音声バランス(パニング)</dd>
-<dt>タイプ</dt>
-<dd><a class="jump" href="class_VideoOverlay.html">VideoOverlayクラス</a>のプロパティ</dd>
-<dt>説明</dt>
-<dd><p>パン (音像位置) を表します。<br />
-値を設定することもできます。<br />
-音の聞こえる左右の位置を指定することができます。<br />
--100000 ～ 0 ～ 100000 の数値で指定し、 -100000 が 完全に左、0 が中央、100000 が完全に右になります。<br />
-ステレオのソースを再生する場合は、パンは、左右どちらかのチャンネルを減衰させることで実現されます(0を指定すると両チャンネルが出力され、-100000を指定すると左チャンネルのみが出力される)。<br />
-Androidでは常に0を返す。設定しても意味はない。</p>
+<dt>Function/Meaning</dt>
+<dd>[Windows*] Audio Balance (Panning)</dd>
+<dt>Type</dt>
+<dd>Property of the <a class="jump" href="class_VideoOverlay.html">VideoOverlay class</a></dd>
+<dt>Description</dt>
+<dd><p>Represents the pan (sound image position).<br />
+You can also set the value.<br />
+Specifies the left-right position where the sound is heard.<br />
+Specify a value from -100000 to 0 to 100000, where -100000 is fully left, 0 is center, and 100000 is fully right.<br />
+When playing a stereo source, panning is achieved by attenuating either the left or right channel (specifying 0 outputs both channels, while -100000 outputs only the left channel).<br />
+On Android, this always returns 0. Setting it has no effect.</p>
 </dd>
 </dl>
 </div>
