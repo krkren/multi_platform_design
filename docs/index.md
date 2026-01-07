@@ -19,7 +19,7 @@ While it is not yet possible to migrate conventional scripts as they are, we rec
 
 ## Multi-platform Version API Reference
 
-* [API Reference](https://krkrz.github.io/multi_platform_design/apiref/)
+* [API Reference](./apiref/)
 
 ## Supported Platforms
 
@@ -38,10 +38,10 @@ While it is not yet possible to migrate conventional scripts as they are, we rec
 
 ## Various Explanations Regarding the Multi-platform Version
 
-* [How to release (build) the Android version](https://krkrz.github.io/multi_platform_design/develop_android.html)
-* [How to build the Windows version](https://krkrz.github.io/multi_platform_design/build_windows.html)
-* [Video playback function](https://krkrz.github.io/multi_platform_design/video_overlay.html)
+* [How to release (build) the Android version](./develop_android.html)
+* [How to build the Windows version](./build_windows.html)
+* [Video playback function](./video_overlay.html)
 * [How to create/use plugins](https://krkrz.github.io/android_plugins/)
-* [Sound](https://krkrz.github.io/multi_platform_design/audio.html)
-* [How to use shaders](https://krkrz.github.io/multi_platform_design/shader_program.html)
-* [Notes on porting](https://krkrz.github.io/multi_platform_design/cautionary_note.html)
+* [Sound](./audio.html)
+* [How to use shaders](./shader_program.html)
+* [Notes on porting](./cautionary_note.html)
