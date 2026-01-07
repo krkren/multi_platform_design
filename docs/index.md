@@ -41,7 +41,7 @@ While it is not yet possible to migrate conventional scripts as they are, we rec
 * [How to release (build) the Android version](./develop_android.html)
 * [How to build the Windows version](./build_windows.html)
 * [Video playback function](./video_overlay.html)
-* [How to create/use plugins](https://krkrz.github.io/android_plugins/)
+* [How to create/use plugins](https://krkren.github.io/android_plugins/)
 * [Sound](./audio.html)
 * [How to use shaders](./shader_program.html)
 * [Notes on porting](./cautionary_note.html)
